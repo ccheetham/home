@@ -1,0 +1,4 @@
+.zcompdump*
+.zhistfile
+
+*.swp

@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+HOME=$(cd $(dirname $0)/.. && pwd)
+SHELL="zsh"
+OLDPWD=$PWD
+
+echo "==> entering my shell"
+cd $HOME
+echo "==> current directory: $(pwd)"
+$SHELL $SHELL_ARGS
+
+echo "==> exiting my shell"
+cd $OLDPWD
+echo "==> current directory: $(pwd)"
