@@ -1,5 +1,10 @@
 .repo.d
 
+.vim/autoload
+.vim/bundle
+.vim/colors
+.viminfo
+
 .zcompdump*
 .zhistfile
 
