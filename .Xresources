@@ -1,0 +1,30 @@
+XTerm*faceName:                Inconsolata
+XTerm*faceSize:                10
+xterm*faceSize:                10
+XTerm*pointerMode:             1
+
+XTerm*toolBar:                 false
+
+XTerm*scrollBar:               true
+XTerm*rightScrollBar:          true
+XTerm*scrollKey:               true
+XTerm*scrollTtyOutput:         false
+XTerm*allowScrollLock:         false
+
+XTerm*visualBell:              true
+XTerm*altIsNotMeta:            true
+XTerm*altSendsEscape:          true
+
+wheel*background:              darkred
+
+log*foreground:                dark khaki
+log*geometry:                  120x20
+
+ncss*foreground:               cornsilk
+
+mail*scrollBar:                false
+mail*termName:                 xterm-256color
+mail*title:                    Mail
+
+
+#include ".repo.d/tomorrow-theme/Xdefaults/XresourceTomorrowNight"

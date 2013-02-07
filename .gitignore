@@ -5,6 +5,8 @@
 .vim/colors
 .viminfo
 
+.Xauthority
+
 .zcompdump*
 .zhistfile
 
