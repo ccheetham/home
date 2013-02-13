@@ -2,6 +2,7 @@
 .repo.d
 
 # vim
+.vim/.netrwhist
 .vim/autoload
 .vim/bundle
 .vim/colors
@@ -18,6 +19,10 @@
 *.swp
 
 # desktop manager folders
+.CFUserTextEncoding
+.DownloadManager
+.DS_Store
+.Trash
 Desktop
 Documents
 Downloads
@@ -28,7 +33,3 @@ Music
 Pictures
 Public
 Sites
-.CFUserTextEncoding
-.DownloadManager
-.DS_Store
-.Trash
