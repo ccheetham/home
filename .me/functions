@@ -1,0 +1,38 @@
+shlog() {
+  /bin/mkdir -p $(dirname $ME_SHELL_LOG)
+  printf "$1: " >> $ME_SHELL_LOG
+  shift
+  printf "$*\n" >> $ME_SHELL_LOG
+}
+
+is_in_path() {
+  local dir=$1
+  if (( ${path[(i)$dir]} > ${#path} )) ; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+append_path() {
+  local dir=$1
+  remove_path $dir
+  shlog appending $dir to path
+  path+=$dir
+}
+
+
+prepend_path() {
+  local dir=$1
+  remove_path $dir
+  shlog prepending $dir to path
+  path=($dir $path)
+}
+
+remove_path() {
+  local dir=$1
+  shlog removing $dir from path
+  path=("${(@)path:#${dir}}")
+}
+
+# vim: ft=zsh

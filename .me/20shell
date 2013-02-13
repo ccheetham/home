@@ -1,0 +1,35 @@
+path() {
+  for d in $path ; do
+    echo $d
+  done
+}
+
+alias h='history -d'
+
+alias PP=pushd
+alias pp=popd
+
+unset ls_opts
+ls_cmd=ls
+if [[ $ME_OSNAME == osx ]] ; then
+  ls_opts=' -FGH'
+else
+fi
+alias ls="$ls_cmd$ls_opts"
+unset ls_cmd ls_opts
+
+alias ll='ls -l'
+alias lh='ll -h'
+alias la='ls -a'
+alias lla='ls -la'
+alias lF='ls *(.)'
+alias lD='ls -d *(/)'
+alias l@='ll -@'
+
+alias mkdir='mkdir -p'
+mcdir() {
+  mkdir $1
+  chdir $1
+}
+
+# vim: ft=zsh

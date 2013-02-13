@@ -1,0 +1,12 @@
+export ME_PROFILE_DIR=$(dirname $0)
+
+source $ME_PROFILE_DIR/env
+source $ME_PROFILE_DIR/functions
+/bin/rm -f $ME_SHELL_LOG
+
+for f in $ME_PROFILE_DIR/[[:digit:]]* ; do
+  shlog $0 sourcing $f
+  source $f
+done
+
+# vim: ft=zsh
