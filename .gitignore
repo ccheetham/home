@@ -1,13 +1,30 @@
+# 3rd party repos
 .repo.d
 
+# vim
 .vim/autoload
 .vim/bundle
 .vim/colors
 .viminfo
 
+# X
 .Xauthority
 
+# zsh
 .zcompdump*
 .zhistfile
 
+# global ignores
 *.swp
+
+# desktop manager folders
+Desktop
+Documents
+Downloads
+Google Drive
+Library
+Movies
+Music
+Pictures
+Public
+Sites
