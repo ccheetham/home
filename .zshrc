@@ -16,4 +16,6 @@ compinit -d $HOME/.zcompdump-$(hostname)
 autoload -U promptinit
 promptinit
 
-# vim: ft=sh
+source ~/.me/profile
+
+# vim: ft=zsh
