@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-VIM_DIR=$ME/.vim
 
 link_files() {
+  pwd
   srcdir=$1
   tgtdir=$2
   cd $VIM_DIR
@@ -22,9 +22,26 @@ link_dir() {
   /bin/ln -s $srcdir
 }
 
+VIM_DIR=$ME/.vim
+
+cd $VIM_DIR
 for d in autoload colors bundle; do
-  rm -rf $VIM_DIR/$d
+  /bin/rm -rf $d
+  /bin/mkdir -p $d
 done
-link_files $ME_REPO_DIR/vim-pathogen/autoload autoload
-link_files $ME_REPO_DIR/tomorrow-theme/vim/colors colors
-link_dir $ME_REPO_DIR/nerdtree bundle
+(
+  cd autoload
+  for f in ../../var/repo/vim-pathogen/autoload/* ; do
+    /bin/ln -s $f
+  done
+)
+(
+  cd colors
+  for f in ../../var/repo/tomorrow-theme/vim/colors/* ; do
+    /bin/ln -s $f
+  done
+)
+(
+  cd bundle
+  /bin/ln -s ../../var/repo/nerdtree
+)
