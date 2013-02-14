@@ -24,7 +24,9 @@ set ruler
 set numberwidth=3
 
 " line/col highlighting
-set colorcolumn=80
+if version >= 703
+  set colorcolumn=80
+endif
 nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
 
 " searching
