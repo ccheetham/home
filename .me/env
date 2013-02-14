@@ -34,14 +34,15 @@ case $OSTYPE in
     ;;
 esac
 
-myenv() {
+me() {
   env | grep ^ME | sort
 }
 
-myplatform() {
+platform() {
   echo $ME_OSNAME-$ME_OSVER-$ME_OSARCH
 }
 
 export ME_SHELL_LOG=$ME_LOG_DIR/sh.log
+export ME_ARCH=$ME/arch/$(platform)
 
 # vim: ft=zsh
