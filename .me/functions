@@ -1,8 +1,16 @@
 shlog() {
   /bin/mkdir -p $(dirname $ME_SHELL_LOG)
-  printf "$1: " >> $ME_SHELL_LOG
+  printf "::: $1 :::\n" >> $ME_SHELL_LOG
   shift
   printf "$*\n" >> $ME_SHELL_LOG
+}
+
+catlog() {
+  if [[ $1 == -v ]] ; then
+    cat $ME_SHELL_LOG
+  else
+    cat $ME_SHELL_LOG | grep -v '^::: .* :::$'
+  fi
 }
 
 is_in_path() {
@@ -17,7 +25,7 @@ is_in_path() {
 append_path() {
   local dir=$1
   remove_path $dir
-  shlog appending $dir to path
+  shlog $0 appending $dir to path
   path+=$dir
 }
 
@@ -25,13 +33,13 @@ append_path() {
 prepend_path() {
   local dir=$1
   remove_path $dir
-  shlog prepending $dir to path
+  shlog $0 prepending $dir to path
   path=($dir $path)
 }
 
 remove_path() {
   local dir=$1
-  shlog removing $dir from path
+  shlog $0 removing $dir from path
   path=("${(@)path:#${dir}}")
 }
 
