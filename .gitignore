@@ -12,6 +12,9 @@
 .keychain
 .lesshst
 .repo.d
+.ssh/*id_dsa
+.ssh/*id_dsa.pub
+.ssh/known_hosts
 .subversion
 .vim/.netrwhist
 .vim/autoload
