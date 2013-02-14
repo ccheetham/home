@@ -4,6 +4,6 @@ alias gd='g diff'
 alias ga='g add'
 alias gc='g commit'
 alias gp='g pull'
-alias gP-'g push'
+alias gP='g push'
 
 # vim: ft=zsh
