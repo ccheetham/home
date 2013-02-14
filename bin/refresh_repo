@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+MKDIR='/bin/mkdir -p'
+
+refresh_git_repo() {
+  local url=$1
+  local name=$(basename $1 .git)
+  /bin/mkdir -p $ME_REPO_DIR
+  if [[ -d $ME_REPO_DIR/$name ]] ; then
+    echo updating repo: $name
+    (cd $ME_REPO_DIR/$name && git pull)
+  else
+    echo cloning repo: $name
+    git clone $url $ME_REPO_DIR/$name
+  fi
+}
+
+for url in $(cat $ME_CONFIG_DIR/repos) ; do
+  refresh_git_repo $url
+done

@@ -1,5 +1,7 @@
 export ME=~
 export ME_LOG_DIR=$ME/var/log
+export ME_REPO_DIR=$ME/var/repo
+export ME_CONFIG_DIR=$ME/etc
 
 export ME_OSNAME=unknown
 export ME_OSVER=unknown
