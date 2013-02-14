@@ -1,3 +1,11 @@
+# shell prompt
+PS1="%~ %# "
+
+# term title
+precmd() {
+  print -Pn "\e]0;%n@%m\a"
+}
+
 path() {
   for d in $path ; do
     echo $d
