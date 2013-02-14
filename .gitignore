@@ -1,28 +1,25 @@
-# 3rd party repos
+*.swp
+.CFUserTextEncoding
+.DS_Store
+.DownloadManager
+.Trash
+.Xauthority
+.bash*
+.cache
+.cups
+.eclipse*
+.fontconfig
+.keychain
+.lesshst
 .repo.d
-
-# vim
+.subversion
 .vim/.netrwhist
 .vim/autoload
 .vim/bundle
 .vim/colors
 .viminfo
-
-# X
-.Xauthority
-
-# zsh
 .zcompdump*
 .zhistfile
-
-# global ignores
-*.swp
-
-# desktop manager folders
-.CFUserTextEncoding
-.DownloadManager
-.DS_Store
-.Trash
 Desktop
 Documents
 Downloads
@@ -33,3 +30,7 @@ Music
 Pictures
 Public
 Sites
+src
+tmp
+var
+workspace
