@@ -1,0 +1,5 @@
+if [[ $ME_OSNAME == osx ]]; then
+  alias b='brew'
+fi
+
+# vim: ft=zsh
