@@ -10,6 +10,26 @@ case $OSTYPE in
     ME_OSVER=$(echo ${OSTYPE:6} | awk -F'.' '{print $1}')
     ME_OSARCH=x64
     ;;
+  linux-gnu)
+    if grep "Red Hat" /etc/issue > /dev/null ; then
+      ME_OSNAME=redhat
+      ME_OSVER=$(head -1 /etc/issue | sed 's/.*release\ //' | sed 's/\..*$//')
+    elif grep "Debian" /etc/issue > /dev/null ; then
+      ME_OSNAME=debian
+      ME_OSVER=$(head -1 /etc/issue | sed 's/[^0-9]*//' | sed 's/\..*//')
+    elif [[ -d /etc/make.profile ]] ; then
+      ME_OSNAME=gentoo
+      ME_OSVER=$(print /etc/make.profile(:A:t:r))
+    fi
+    case $(uname -m) in
+      i386|i586|i686)
+        ME_OSARCH=x32
+        ;;
+      x86_64)
+        ME_OSARCH=x64
+        ;;
+    esac
+    ;;
 esac
 
 myenv() {
