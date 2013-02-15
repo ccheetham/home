@@ -1,47 +1,37 @@
 #!/usr/bin/env zsh
 
-
-link_files() {
-  pwd
-  srcdir=$1
-  tgtdir=$2
-  cd $VIM_DIR
-  /bin/mkdir -p $tgtdir
-  cd $tgtdir
-  for f in $srcdir/* ; do
-    /bin/ln -s $f
-  done
-}
-
-link_dir() {
-  srcdir=$1
-  tgtdir=$2
-  cd $VIM_DIR
-  /bin/mkdir -p $tgtdir
-  cd $tgtdir
-  /bin/ln -s $srcdir
-}
-
 VIM_DIR=$ME/.vim
+REPO_DIR=../../var/repo
 
 cd $VIM_DIR
-for d in autoload colors bundle; do
-  /bin/rm -rf $d
-  /bin/mkdir -p $d
-done
-(
-  cd autoload
-  for f in ../../var/repo/vim-pathogen/autoload/* ; do
+
+link_dir() {
+  local src=$1
+  local tgt=$2
+  (
+  /bin/mkdir -p $VIM_DIR/$tgt
+  cd $VIM_DIR/$tgt
+  [[ -e $src ]] && /bin/rm $src
+  /bin/ln -s $REPO_DIR/$src
+  )
+}
+
+link_files() {
+  local src=$1
+  local tgt=$2
+  (
+  /bin/mkdir -p $VIM_DIR/$tgt
+  cd $VIM_DIR/$tgt
+  for f in $REPO_DIR/$src/* ; do
+    [[ -e $(basename $f) ]] && /bin/rm $(basename $f)
     /bin/ln -s $f
   done
-)
-(
-  cd colors
-  for f in ../../var/repo/tomorrow-theme/vim/colors/* ; do
-    /bin/ln -s $f
-  done
-)
-(
-  cd bundle
-  /bin/ln -s ../../var/repo/nerdtree
-)
+  )
+}
+
+link_files vim-pathogen/autoload autoload
+link_dir nerdtree bundle
+link_dir UltiSnips bundle
+link_files tomorrow-theme/vim/colors colors
+link_files asciidoc/vim/ftdetect ftdetect
+link_files asciidoc/vim/syntax syntax
