@@ -1,5 +1,36 @@
-git git://github.com/chriskempson/tomorrow-theme.git
-git git://github.com/scrooloose/nerdtree.git
-git git://github.com/tpope/vim-pathogen.git
-git git://github.com/vim-scripts/UltiSnips.git
-hg https://asciidoc.googlecode.com/hg asciidoc
+{
+  "repos":[
+    {
+      "name":"tomorrow",
+      "desc":"Vim Tomorrow color theme",
+      "type":"git",
+      "url": "git://github.com/chriskempson/tomorrow-theme.git"
+    },
+    {
+      "name":"pathogen",
+      "desc":"Vim runtimepath manager",
+      "type":"git",
+      "url": "git://github.com/tpope/vim-pathogen.git"
+    },
+    {
+      "name":"nerdtree",
+      "desc":"Vim file tree explorer",
+      "type":"git",
+      "url": "git://github.com/scrooloose/nerdtree.git"
+    },
+    {
+      "name":"ultisnips",
+      "desc":"Vim snippets",
+      "type":"git",
+      "url": "git://github.com/vim-scripts/UltiSnips.git"
+    },
+    {
+      "name":"asciidoc",
+      "desc":"markup language with a penchant for docbook",
+      "type":"mercurial",
+      "url":"https://asciidoc.googlecode.com/hg",
+      "rev":"8.6.8",
+      "target":"asciidoc"
+    }
+  ]
+}
