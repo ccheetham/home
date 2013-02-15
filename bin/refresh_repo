@@ -1,20 +1,40 @@
 #!/usr/bin/env zsh
 
-MKDIR='/bin/mkdir -p'
-
-refresh_git_repo() {
-  local url=$1
-  local name=$(basename $1 .git)
+refresh_repo() {
+  local type=$1
+  local url=$2
+  local name=$3
+  local checkout
+  local update
+  case $type in
+    git)
+      checkout='git clone'
+      update='git pull'
+      [[ -n $name ]] || name=$(basename $url .git)
+      ;;
+    hg)
+      checkout='hg clone'
+      update='hg pull'
+      [[ -n $name ]] || name=$(basename $url)
+      ;;
+    *)
+      echo unknown repo type \($type\) for $url >&2
+      return
+      ;;
+  esac
   /bin/mkdir -p $ME_REPO_DIR
   if [[ -d $ME_REPO_DIR/$name ]] ; then
-    echo updating repo: $name
-    (cd $ME_REPO_DIR/$name && git pull)
+    echo updating repo $name \($type\)
+    (cd $ME_REPO_DIR/$name && $=update)
   else
-    echo cloning repo: $name
-    git clone $url $ME_REPO_DIR/$name
+    echo checking out repo $name \($type\)
+    $=checkout $url $ME_REPO_DIR/$name
   fi
 }
 
-for url in $(cat $ME_CONFIG_DIR/repos) ; do
-  refresh_git_repo $url
-done
+while read line ; do
+  type=$(echo $line | awk '{print $1;}')
+  url=$(echo $line | awk '{print $2;}')
+  target=$(echo $line | awk '{print $3;}')
+  refresh_repo $type $url $target
+done < $ME_CONFIG_DIR/repos
