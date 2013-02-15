@@ -1,8 +1,9 @@
 alias g='git'
 alias g\?='g status'
+alias gc='g clone'
 alias gd='g diff'
 alias ga='g add'
-alias gc='g commit'
+alias gC='g commit'
 alias gp='g pull'
 alias gP='g push'
 
