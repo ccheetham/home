@@ -33,18 +33,18 @@ class MercurialFlavor(Flavor):
     args = ['hg', 'update']
     subprocess.Popen(args, cwd=tgt).wait()
 
-class SCMClient(object):
+class VCSClient(object):
   flavors = {
       'git':GitFlavor(),
       'mercurial':MercurialFlavor(),
       }
   repo_dir = os.environ['ME_REPO_DIR']
   def __init__(self, typ):
-    self.flavor = SCMClient.flavors[typ]
+    self.flavor = VCSClient.flavors[typ]
   def refresh(self, url, rev, target):
     if target is None:
       target = self.flavor.get_target(url)
-    target_dir = os.path.join(SCMClient.repo_dir, target)
+    target_dir = os.path.join(VCSClient.repo_dir, target)
     if os.path.exists(target_dir):
       print "=== updating", target
       self.flavor.update(target_dir)
@@ -57,6 +57,6 @@ if __name__ == '__main__':
   f = open(repo_config)
   o = json.load(f)
   for repo in o['repos']:
-    client = SCMClient(repo['type'])
+    client = VCSClient(repo['type'])
     client.refresh(repo['url'], repo.get('rev', None), repo.get('target', None))
 
