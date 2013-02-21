@@ -27,4 +27,4 @@ mail*termName:                 xterm-256color
 mail*title:                    Mail
 
 
-#include ".repo.d/tomorrow-theme/Xdefaults/XresourceTomorrowNight"
+#include "var/repo/tomorrow-theme/Xdefaults/XresourceTomorrowNight"
