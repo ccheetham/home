@@ -1,3 +1,4 @@
 alias toor='sudo su -'
+alias hosts='sudo vi /etc/hosts'
 
 # vim: ft=zsh
