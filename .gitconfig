@@ -1,10 +1,11 @@
-[user]
-    email = chris@cheetham.com
-    name = Chris Cheetham
-
 [color]
-    diff = auto
-    status = auto
-    branch = auto
+  diff = auto
+  status = auto
+  branch = auto
+[push]
+  default = simple
+[user]
+  email = chris@cheetham.com
+  name = Chris Cheetham
 
 # vim: ft=config
