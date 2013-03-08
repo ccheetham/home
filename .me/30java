@@ -1,0 +1,9 @@
+j () {
+  java -Djava.util.logging.config.file=$HOME/etc/java/logging.properties $*
+}
+
+jd () {
+  java -Djava.util.logging.config.file=$HOME/etc/java/debug-logging.properties $*
+}
+
+# vim: ft=vsh
