@@ -9,6 +9,7 @@
 .cups
 .eclipse*
 .fontconfig
+.gradle
 .keychain
 .lesshst
 .repo.d
