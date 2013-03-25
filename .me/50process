@@ -1,0 +1,3 @@
+alias top='top -o cpu'
+
+# vim: ft=zsh
