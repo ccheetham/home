@@ -24,6 +24,7 @@
 .vim/ftdetect
 .vim/syntax
 .viminfo
+.vimperator/info/default/history-*
 .zcompdump*
 .zhistfile
 Desktop
