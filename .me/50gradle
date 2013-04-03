@@ -1,0 +1,6 @@
+export GRADLE_HOME=~/opt/gradle
+prepend_path $GRADLE_HOME/bin
+
+alias gr='gradle'
+
+# vim: ft=zsh

@@ -1,0 +1,6 @@
+REDIS_HOME=~/opt/redis
+REDISD=$REDIS_HOME/src/redis-server
+
+alias redis='xterm -title Redis -name log -e $REDISD &'
+
+# vim: ft=zsh

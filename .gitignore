@@ -9,6 +9,7 @@
 .cups
 .eclipse*
 .fontconfig
+.gradle
 .keychain
 .lesshst
 .repo.d
@@ -23,6 +24,7 @@
 .vim/ftdetect
 .vim/syntax
 .viminfo
+.vimperator/info/default/history-*
 .zcompdump*
 .zhistfile
 Desktop
@@ -36,6 +38,7 @@ Pictures
 Public
 Sites
 arch
+opt
 src
 tmp
 var
