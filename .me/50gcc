@@ -1,0 +1,10 @@
+if [[ $ME_OSNAME = osx ]] ; then
+  CFLAGS='-march=core2'
+fi
+if echo "void f(int i) {i++;int j;}" | gcc -xc -c -o /dev/null -march=native - 2> /dev/null; then
+  CFLAGS='-march=native'
+fi
+CXXFLAGS=$CFLAGS
+export CFLAGS CXXFLAGS
+
+# vim: ft=zsh
