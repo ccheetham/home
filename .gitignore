@@ -8,12 +8,14 @@
 .bash*
 .cisco
 .cache
+.config
 .cups
 .eclipse*
 .fontconfig
 .gradle
 .keychain
 .lesshst
+.local
 .repo.d
 .ssh/*id_dsa
 .ssh/*id_dsa.pub
