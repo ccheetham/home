@@ -9,5 +9,3 @@
   name = Chris Cheetham
 
 # vim: ft=config
-[push]
-	default = simple
