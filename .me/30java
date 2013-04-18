@@ -6,4 +6,8 @@ jd () {
   java -Djava.util.logging.config.file=$HOME/etc/java/debug-logging.properties $*
 }
 
+jc () {
+  javac $*
+}
+
 # vim: ft=vsh
