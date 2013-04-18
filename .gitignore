@@ -4,7 +4,9 @@
 .DownloadManager
 .Trash
 .Xauthority
+.anyconnect
 .bash*
+.cisco
 .cache
 .cups
 .eclipse*
