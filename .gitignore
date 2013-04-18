@@ -10,6 +10,7 @@
 .cache
 .config
 .cups
+.dvdcss
 .eclipse*
 .fontconfig
 .gradle
