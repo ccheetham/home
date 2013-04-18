@@ -8,3 +8,5 @@
     branch = auto
 
 # vim: ft=config
+[push]
+	default = simple
