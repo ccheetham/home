@@ -17,6 +17,7 @@
 .keychain
 .lesshst
 .local
+.m2
 .repo.d
 .ssh/*id_dsa
 .ssh/*id_dsa.pub
