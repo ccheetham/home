@@ -10,4 +10,4 @@ jc () {
   javac $*
 }
 
-# vim: ft=vsh
+# vim: ft=zsh
