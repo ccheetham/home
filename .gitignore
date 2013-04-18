@@ -19,6 +19,7 @@
 .local
 .m2
 .repo.d
+.rnd
 .ssh/*id_dsa
 .ssh/*id_dsa.pub
 .ssh/known_hosts
