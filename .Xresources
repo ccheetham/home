@@ -1,4 +1,5 @@
 XTerm*faceName:                Inconsolata
+!XTerm*faceName:                Dejavu Sans Mono
 XTerm*faceSize:                10
 xterm*faceSize:                10
 XTerm*pointerMode:             1
@@ -19,6 +20,8 @@ wheel*background:              darkred
 
 log*foreground:                dark khaki
 log*geometry:                  120x20
+log*faceSize:                  8
+
 
 ncss*foreground:               cornsilk
 

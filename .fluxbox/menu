@@ -1,0 +1,36 @@
+[begin] (menu)
+  [encoding] {UTF-8}
+  [exec] (term) {xterm -ls} 
+  [exec] (browser) {google-chrome}
+  [exec] (vim) {xterm -e vim} 
+  [submenu] (system)
+    [exec] (top) {xterm -e top} 
+    [submenu] (display)
+      [exec] (1440x900) {xrandr -s 1440x900}
+      [exec] (1920x1080) {xrandr -s 1920x1080}
+    [end]
+  [end]
+  [submenu] (logs)
+    [exec] (fluxbox) {xterm -T Fluxbox -name log -e tail -f $FLUXBOX_LOG}
+    [exec] (xsession) {xterm -T Xsession -name log -e tail -f $XSESSION_LOG}
+  [end]
+  [workspaces] (workspaces) 
+  [submenu] (fluxbox)
+    [exec] (edit menu) {xterm -T "Fluxbox menu" -e $EDITOR ~/.fluxbox/menu}
+    [exec] (edit overlay) {xterm -T "Fluxbox overlay" -e $EDITOR ~/.fluxbox/overlay}
+    [config] (configure) 
+    [submenu] (styles) {Choose a style...}
+      [stylesdir] (~/.fluxbox/styles) 
+    [end]
+    [submenu] (tools)
+      [exec] (window name) {xprop WM_CLASS|cut -d \" -f 2|xmessage -file - -center} 
+    [end]
+    [commanddialog] (fluxbox command) 
+    [reconfig] (reload config) 
+    [restart] (restart) 
+    [exec] (about) {(fluxbox@EXEEXT@ -v; fluxbox@EXEEXT@ -info | sed 1d) | xmessage -file - -center} 
+    [separator] 
+    [exit] (exit) 
+  [end]
+  [endencoding]
+[end]
