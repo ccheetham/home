@@ -1,4 +1,19 @@
 alias toor='sudo su -'
 alias hosts='sudo $EDITOR /etc/hosts'
 
+space () {
+  if [[ $# == 0 ]] ; then
+    echo no args
+  else
+    echo Size Used Avail
+    for fs in $* ; do
+      if usage=`df -Hl $fs 2> /dev/null` ; then
+        echo $usage | tail -1 | awk '{print $2, $3, $4}'
+      else
+        echo unknown file system: $fs 1>&2
+      fi
+    done
+  fi
+}
+
 # vim: ft=zsh
