@@ -1,19 +1,31 @@
-alias toor='sudo su -'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
 alias hosts='sudo $EDITOR /etc/hosts'
 
+toor() {
+  local display=
+  [[ -n DISPLAY ]] && display=$DISPLAY
+  unset DISPLAY
+  sudo su -
+  [[ -n display ]] && export DISPLAY=$display
+}
+
 space () {
+  local fss
+  local usage
   if [[ $# == 0 ]] ; then
-    echo no args
+    fss=/
   else
-    echo Size Used Avail
-    for fs in $* ; do
-      if usage=`df -Hl $fs 2> /dev/null` ; then
-        echo $usage | tail -1 | awk '{print $2, $3, $4}'
-      else
-        echo unknown file system: $fs 1>&2
-      fi
-    done
+    fss=$*
   fi
+  echo Size Used Avail
+  for fs in $(echo $fss) ; do
+    if usage=`df -Hl $fs 2> /dev/null` ; then
+      echo $usage | tail -1 | awk '{print $2, $3, $4}'
+    else
+      echo unknown file system: $fs 1>&2
+    fi
+  done
 }
 
 # vim: ft=zsh

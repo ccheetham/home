@@ -6,6 +6,7 @@ setopt no_beep notify
 setopt auto_cd auto_pushd pushd_ignore_dups pushd_silent pushd_to_home
 setopt append_history extended_history share_history hist_ignore_all_dups
 setopt promptsubst
+set -o emacs
 
 # delete paths one node at a time
 export WORDCHARS=''

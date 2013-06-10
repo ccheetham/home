@@ -10,6 +10,7 @@
 .cache
 .config
 .cups
+.dbus
 .dvdcss
 .eclipse*
 .fontconfig
@@ -18,7 +19,9 @@
 .lesshst
 .local
 .m2
+.pki
 .repo.d
+.restorecond
 .rnd
 .ssh/*id_dsa
 .ssh/*id_dsa.pub
@@ -34,6 +37,7 @@
 .vimperator/info/default/history-*
 .zcompdump*
 .zhistfile
+Applications
 Desktop
 Documents
 Downloads

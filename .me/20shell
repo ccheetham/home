@@ -35,6 +35,7 @@ alias ll='ls -l'
 alias lh='ll -h'
 alias la='ls -a'
 alias lla='ls -la'
+alias l1='ls -1'
 alias lF='ls *(.)'
 alias lD='ls -d *(/)'
 if ls -@ > /dev/null 2>&1 ; then

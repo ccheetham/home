@@ -1,0 +1,7 @@
+background:       solid
+background.color: #000000
+
+*font: Dejavu Sans-8
+menu*font: Dejavu Sans-8:italic
+toolbar*font: Dejavu Sans-8
+toolbar*textColor: #000000

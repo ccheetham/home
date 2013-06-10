@@ -1,0 +1,7 @@
+export DISPLAY=$(hostname):0.0
+export XSESSION_LOG=$ME_LOG_DIR/xsession.$DISPLAY.log
+alias x='startx 2> $XSESSION_LOG'
+
+alias xlog='xterm -T "X Session" -name log -e tail -f $XSESSION_LOG'
+
+# vim: ft=zsh
