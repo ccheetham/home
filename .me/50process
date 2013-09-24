@@ -1,3 +1,5 @@
-alias top='top -o cpu'
+if [[ $ME_OSNAME == osx ]] ; then
+  alias top='top -o cpu'
+fi
 
 # vim: ft=zsh
