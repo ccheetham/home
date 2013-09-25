@@ -32,5 +32,6 @@
       "rev":"8.6.8",
       "target":"asciidoc"
     }
-  ]
+  ],
+  "# vim: ft=javascript"
 }
