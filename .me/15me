@@ -1,7 +1,11 @@
 prepend_path $ME/bin
 prepend_path $ME_ARCH/bin
 
-export LD_LIBRARY_PATH=$ME_ARCH/lib
+# setting LD_LIBRARY_PATH seems to cause some security concerns in OS X shells
+if [[ $ME_OSNAME != osx ]] ; then
+  export LD_LIBRARY_PATH=$ME_ARCH/lib
+fi
+
 export MANPATH=$ME_ARCH/share/man:/usr/share/man
 
 # vim: ft=zsh
