@@ -1,7 +1,7 @@
 [begin] (menu)
   [encoding] {UTF-8}
   [exec] (term) {xterm -ls} 
-  [exec] (browser) {google-chrome}
+  [exec] (browser) {chromium}
   [exec] (vim) {xterm -e vim} 
   [submenu] (system)
     [exec] (top) {xterm -e top} 
