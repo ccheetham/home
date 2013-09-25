@@ -23,8 +23,15 @@
 .repo.d
 .restorecond
 .rnd
+.ssh/ccheetham@gopivotal.com*
+.ssh/ccheetham@vmware.com*
+.ssh/chris@cheetham.com*
+.ssh/*id_dsa
+.ssh/*id_dsa
 .ssh/*id_dsa
 .ssh/*id_dsa.pub
+.ssh/*id_rsa
+.ssh/*id_rsa.pub
 .ssh/known_hosts
 .subversion
 .vim/.netrwhist
