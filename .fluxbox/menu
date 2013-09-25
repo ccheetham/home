@@ -3,6 +3,11 @@
   [exec] (term) {xterm -ls} 
   [exec] (browser) {chromium}
   [exec] (vim) {xterm -e vim} 
+  [submenu] (hosts)
+    [exec] (trader) {xterm -e ssh trader}
+    [separator]
+    [exec] (home) {xterm -e ssh home}
+  [end]
   [submenu] (system)
     [exec] (top) {xterm -e top} 
     [submenu] (display)
