@@ -13,6 +13,7 @@
 .dbus
 .dvdcss
 .eclipse*
+.erlang.cookie
 .fontconfig
 .gem
 .gradle
