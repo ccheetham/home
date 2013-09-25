@@ -35,6 +35,7 @@
 .ssh/*id_rsa.pub
 .ssh/known_hosts
 .subversion
+.sudo_as_admin_successful
 .vim/.netrwhist
 .vim/autoload
 .vim/bundle
