@@ -28,6 +28,7 @@
 .ssh/ccheetham@gopivotal.com*
 .ssh/ccheetham@vmware.com*
 .ssh/chris@cheetham.com*
+.ssh/test@qa
 .ssh/*id_dsa
 .ssh/*id_dsa
 .ssh/*id_dsa
