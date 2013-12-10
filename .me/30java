@@ -1,5 +1,10 @@
-JDK6_HOME=$ME_ARCH/opt/jdk6
-JDK7_HOME=$ME_ARCH/opt/jdk7
+if [[ $ME_OSNAME == osx ]] ; then
+  JDK6_HOME=$(/usr/libexec/java_home -v 1.6)
+  JDK7_HOME=$(/usr/libexec/java_home -v 1.7)
+else
+  JDK6_HOME=$ME_ARCH/opt/jdk6
+  JDK7_HOME=$ME_ARCH/opt/jdk7
+fi
 JDK_HOME=$JDK7_HOME
 JAVA_HOME=$JDK_HOME
 
