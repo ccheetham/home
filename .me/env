@@ -12,6 +12,15 @@ case $OSTYPE in
     ME_OSVER=$(echo ${OSTYPE:6} | awk -F'.' '{print $1}')
     ME_OSARCH=x64
     ;;
+  freebsd*)
+    ME_OSNAME=bsd
+    ME_OSVER=$(echo ${OSTYPE:7} | awk -F'.' '{print $1}')
+    case $(uname -m) in
+      i386)
+        ME_OSARCH=x32
+        ;;
+    esac
+    ;;
   linux-gnu)
     if grep "Red Hat" /etc/issue > /dev/null ; then
       ME_OSNAME=redhat
