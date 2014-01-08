@@ -1,0 +1,5 @@
+prepend_path ~/opt/maven/bin
+
+alias m='mvn'
+
+# vim: ft=zsh

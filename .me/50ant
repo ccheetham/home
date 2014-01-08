@@ -1,0 +1,6 @@
+export ANT_HOME=~/opt/ant
+prepend_path $ANT_HOME/bin
+
+alias a='ant'
+
+# vim: ft=zsh

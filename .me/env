@@ -16,9 +16,22 @@ case $OSTYPE in
     if grep "Red Hat" /etc/issue > /dev/null ; then
       ME_OSNAME=redhat
       ME_OSVER=$(head -1 /etc/issue | sed 's/.*release\ //' | sed 's/\..*$//')
+    elif grep "CrunchBang" /etc/issue > /dev/null ; then
+      ME_OSNAME=crunch
+      ME_OSVER=$(head -1 /etc/issue | sed 's/[^0-9]*//g')
+      local _version=$(head -1 /etc/issue | cut -d\  -f3)
+      case $_version in
+        waldorf)
+          ME_OSVER=11
+          ;;
+        *)
+          ME_OSVER=$_version
+          ;;
+      esac
+      unset _version
     elif grep "Debian" /etc/issue > /dev/null ; then
       ME_OSNAME=debian
-      ME_OSVER=$(head -1 /etc/issue | sed 's/[^0-9]*//' | sed 's/\..*//')
+      ME_OSVER=$(head -1 /etc/issue | sed 's/[^0-9]*//g')
     elif [[ -d /etc/make.profile ]] ; then
       ME_OSNAME=gentoo
       ME_OSVER=$(print /etc/make.profile(:A:t:r))
