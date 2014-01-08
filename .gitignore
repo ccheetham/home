@@ -23,6 +23,7 @@
 .gtk-bookmarks
 .gtkrc-*
 .keychain
+.java
 .lesshst
 .local
 .m2
