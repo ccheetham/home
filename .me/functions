@@ -25,7 +25,6 @@ is_in_path() {
 append_path() {
   local dir=$1
   remove_path $dir
-  shlog $0 appending $dir to path
   path+=$dir
 }
 
@@ -33,13 +32,11 @@ append_path() {
 prepend_path() {
   local dir=$1
   remove_path $dir
-  shlog $0 prepending $dir to path
   path=($dir $path)
 }
 
 remove_path() {
   local dir=$1
-  shlog $0 removing $dir from path
   path=("${(@)path:#${dir}}")
 }
 

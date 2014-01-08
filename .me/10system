@@ -1,17 +1,18 @@
 for d in \
+  /usr/bin \
+  /bin \
+  /usr/sbin \
+  /sbin
+; do
+  remove_path $d
+  append_path $d
+done
+
+for d in \
   /usr/local/sbin \
   /usr/local/bin \
 ; do
   prepend_path $d
-done
-
-for d in \
-  /usr/sbin \
-  /sbin \
-; do
-  if ! is_in_path $d ; then
-    append_path $d
-  fi
 done
 
 # vim: ft=zsh
