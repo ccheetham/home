@@ -1,0 +1,8 @@
+alias s='svn'
+alias s\?='s status'
+alias sc='s checkout'
+alias sd='s diff'
+alias sp='s update'
+alias sP='s commit'
+
+# vim: ft=zsh

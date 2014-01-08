@@ -1,0 +1,9 @@
+py () {
+  python $*
+}
+
+export PYTHONPATH
+PYTHONPATH=$ME_ARCH/lib/python2.7/site-packages
+PYTHONPATH=$PYTHONPATH:$ME/lib/python2.7/site-packages
+
+# vim: ft=zsh
