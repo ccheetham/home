@@ -54,6 +54,15 @@ case $OSTYPE in
         ;;
     esac
     ;;
+  solaris*)
+    ME_OSNAME=sol
+    ME_OSVER=$(echo ${OSTYPE:7} | sed 's/.*\.//')
+    case $(isainfo -kv) in
+      64-bit*)
+        ME_OSARCH=x64
+        ;;
+    esac
+    ;;
 esac
 
 me() {
