@@ -22,7 +22,9 @@
 .gstreamer-*
 .gtk-bookmarks
 .gtkrc-*
+.ivy2
 .java
+.jmc
 .keychain
 .lesshst
 .local
