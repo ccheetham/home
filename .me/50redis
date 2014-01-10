@@ -1,4 +1,4 @@
-REDIS_HOME=~/opt/redis
+REDIS_HOME=$ME_OPT/redis
 REDISD=$REDIS_HOME/src/redis-server
 
 alias redis='xterm -title Redis -name log -e $REDISD &'

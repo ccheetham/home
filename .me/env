@@ -7,6 +7,15 @@ export ME_OSNAME=unknown
 export ME_OSVER=unknown
 export ME_OSARCH=unknown
 case $OSTYPE in
+  cygwin)
+    ME_OSNAME=cyg
+    ME_OSVER=$(uname -r | cut -d. -f1)
+    case $(uname -m) in
+      i386|i586|i686)
+        ME_OSARCH=x32
+        ;;
+    esac
+    ;;
   darwin*)
     ME_OSNAME=osx
     ME_OSVER=$(echo ${OSTYPE:6} | awk -F'.' '{print $1}')
@@ -74,6 +83,18 @@ platform() {
 }
 
 export ME_SHELL_LOG=$ME_LOG_DIR/sh.log
-export ME_ARCH=$ME/arch/$(platform)
+
+if [[ $ME_OSNAME == cyg ]] ; then
+  ME_ARCH=/tools
+  ME_OPT=/tools
+  ME_ARCH_OPT=/tools
+else
+  ME_ARCH=$ME/arch/$(platform)
+  ME_OPT=$ME/opt
+  ME_ARCH_OPT=$ME_ARCH/opt
+fi
+export ME_ARCH
+export ME_OPT
+export ME_ARCH_OPT
 
 # vim: ft=zsh

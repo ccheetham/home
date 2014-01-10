@@ -1,4 +1,4 @@
-prepend_path ~/opt/maven/bin
+prepend_path $ME_OPT/maven/bin
 
 alias m='mvn'
 

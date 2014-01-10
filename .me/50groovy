@@ -1,4 +1,4 @@
-export GROOVY_HOME=~/opt/groovy
+export GROOVY_HOME=$ME_OPT/groovy
 prepend_path $GROOVY_HOME/bin
 
 alias gru='groovy'

@@ -22,13 +22,14 @@
 .gstreamer-*
 .gtk-bookmarks
 .gtkrc-*
-.keychain
 .java
+.keychain
 .lesshst
 .local
 .m2
 .macromedia
 .mozilla
+ntuser.ini
 .pki
 .pulse*
 .repo.d
@@ -60,17 +61,33 @@
 .xsession-errors
 .zcompdump*
 .zhistfile
+AppData
+Application Data
 Applications
+Contacts
+Cookies
 Desktop
 Documents
 Downloads
+Favorites
 Google Drive
 Library
+Links
+Local Settings
+My Documents
 Movies
 Music
+NTUSER.DAT*
+NetHood
 Pictures
+PrintHood
 Public
+Recent
+Saved Games
+Searches
+SendTo
 Sites
+Start Menu
 TODO
 arch
 images
