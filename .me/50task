@@ -1,3 +1,6 @@
+if ! which task > /dev/null 2>&1 ; then
+  echo \'task\' command not found
+fi
 alias t=task
 
 # vim: ft=zsh
