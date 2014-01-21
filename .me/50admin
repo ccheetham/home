@@ -12,7 +12,7 @@ sys() {
   if [[ -n $host ]] ; then
     ssh root@$host $cmd
   else
-    echo sudo $cmd
+    sudo $cmd
   fi
 }
 
