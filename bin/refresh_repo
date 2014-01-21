@@ -5,33 +5,47 @@ import os
 import subprocess
 
 class Flavor(object):
+  def __init__(self, command):
+    self.command = command
   def get_target(self, url):
     return os.path.basename(url)
   def checkout(self, url, rev, tgt):
     pass
   def update(self, url, rev, tgt):
     pass
+  def run(self, args, cwd=None):
+    try:
+      if cwd:
+        subprocess.Popen([self.command] + args, cwd=cwd).wait()
+      else:
+        subprocess.Popen([self.command] + args).wait()
+    except OSError as e:
+        print "!!! failed to run '%s': %s " % (self.command, e)
+
 
 class GitFlavor(Flavor):
+  def __init__(self):
+    Flavor.__init__(self, 'git')
   def get_target(self, target):
     target = Flavor.get_target(self, target)
     name, ext = os.path.splitext(target)
     return name if ext == '.git' else target
   def checkout(self, url, rev, tgt):
-    subprocess.Popen(['git', 'clone', url, tgt]).wait()
+    self.run(['clone', url, tgt])
   def update(self, tgt):
-    subprocess.Popen(['git', 'pull'], cwd=tgt).wait()
+    self.run(['pull'], tgt)
 
 class MercurialFlavor(Flavor):
+  def __init__(self):
+    Flavor.__init__(self, 'hg')
   def checkout(self, url, rev, tgt):
-    args = ['hg', 'clone']
+    args = ['clone']
     if rev:
       args += ['-r', rev]
     args += [url, tgt]
-    subprocess.Popen(args).wait()
+    self.run(args)
   def update(self, tgt):
-    args = ['hg', 'update']
-    subprocess.Popen(args, cwd=tgt).wait()
+    self.run(['update'], tgt)
 
 class VCSClient(object):
   flavors = {
