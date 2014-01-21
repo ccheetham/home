@@ -1,0 +1,7 @@
+if which colordiff > /dev/null 2>&1 ; then
+  alias diff=colordiff
+else
+  echo \'colordiff\' command not found
+fi
+
+# vim: ft=zsh
