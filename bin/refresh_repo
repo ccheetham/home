@@ -5,72 +5,71 @@ import os
 import subprocess
 
 class Flavor(object):
-  def __init__(self, command):
-    self.command = command
-  def get_target(self, url):
-    return os.path.basename(url)
-  def checkout(self, url, rev, tgt):
-    pass
-  def update(self, url, rev, tgt):
-    pass
-  def run(self, args, cwd=None):
-    try:
-      if cwd:
-        subprocess.Popen([self.command] + args, cwd=cwd).wait()
-      else:
-        subprocess.Popen([self.command] + args).wait()
-    except OSError as e:
-        print "!!! failed to run '%s': %s " % (self.command, e)
-
+    def __init__(self, command):
+        self.command = command
+    def get_target(self, url):
+        return os.path.basename(url)
+    def checkout(self, url, rev, tgt):
+        pass
+    def update(self, url, rev, tgt):
+        pass
+    def run(self, args, cwd=None):
+        try:
+            if cwd:
+                subprocess.Popen([self.command] + args, cwd=cwd).wait()
+            else:
+                subprocess.Popen([self.command] + args).wait()
+        except OSError as e:
+            print "!!! failed to run '%s': %s " % (self.command, e)
 
 class GitFlavor(Flavor):
-  def __init__(self):
-    Flavor.__init__(self, 'git')
-  def get_target(self, target):
-    target = Flavor.get_target(self, target)
-    name, ext = os.path.splitext(target)
-    return name if ext == '.git' else target
-  def checkout(self, url, rev, tgt):
-    self.run(['clone', url, tgt])
-  def update(self, tgt):
-    self.run(['pull'], tgt)
+    def __init__(self):
+        Flavor.__init__(self, 'git')
+    def get_target(self, target):
+        target = Flavor.get_target(self, target)
+        name, ext = os.path.splitext(target)
+        return name if ext == '.git' else target
+    def checkout(self, url, rev, tgt):
+        self.run(['clone', url, tgt])
+    def update(self, tgt):
+        self.run(['pull'], tgt)
 
 class MercurialFlavor(Flavor):
-  def __init__(self):
-    Flavor.__init__(self, 'hg')
-  def checkout(self, url, rev, tgt):
-    args = ['clone']
-    if rev:
-      args += ['-r', rev]
-    args += [url, tgt]
-    self.run(args)
-  def update(self, tgt):
-    self.run(['update'], tgt)
+    def __init__(self):
+        Flavor.__init__(self, 'hg')
+    def checkout(self, url, rev, tgt):
+        args = ['clone']
+        if rev:
+            args += ['-r', rev]
+            args += [url, tgt]
+            self.run(args)
+    def update(self, tgt):
+        self.run(['update'], tgt)
 
 class VCSClient(object):
-  flavors = {
-      'git':GitFlavor(),
-      'mercurial':MercurialFlavor(),
-      }
-  repo_dir = os.environ['ME_REPO_DIR']
-  def __init__(self, typ):
-    self.flavor = VCSClient.flavors[typ]
-  def refresh(self, url, rev, target):
-    if target is None:
-      target = self.flavor.get_target(url)
-    target_dir = os.path.join(VCSClient.repo_dir, target)
-    if os.path.exists(target_dir):
-      print "=== updating", target
-      self.flavor.update(target_dir)
-    else:
-      print "=== checking out", target
-      self.flavor.checkout(url, rev, target_dir)
+    flavors = {
+            'git':GitFlavor(),
+            'mercurial':MercurialFlavor(),
+            }
+    repo_dir = os.environ['ME_REPO_DIR']
+    def __init__(self, typ):
+        self.flavor = VCSClient.flavors[typ]
+    def refresh(self, url, rev, target):
+        if target is None:
+            target = self.flavor.get_target(url)
+        target_dir = os.path.join(VCSClient.repo_dir, target)
+        if os.path.exists(target_dir):
+            print "=== updating", target
+            self.flavor.update(target_dir)
+        else:
+            print "=== checking out", target
+            self.flavor.checkout(url, rev, target_dir)
 
 if __name__ == '__main__':
-  repo_config = os.path.join(os.environ['ME'], 'etc', 'repos')
-  f = open(repo_config)
-  o = json.load(f)
-  for repo in o['repos']:
-    client = VCSClient(repo['type'])
-    client.refresh(repo['url'], repo.get('rev', None), repo.get('target', None))
-
+    repo_config = os.path.join(os.environ['ME'], 'etc', 'repos')
+    f = open(repo_config)
+    o = json.load(f)
+    for repo in o['repos']:
+        client = VCSClient(repo['type'])
+        client.refresh(repo['url'], repo.get('rev', None),
+                repo.get('target', None))
