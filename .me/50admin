@@ -1,3 +1,5 @@
+checkexe sudo
+
 alias hosts='sudo $EDITOR /etc/hosts'
 
 sys() {

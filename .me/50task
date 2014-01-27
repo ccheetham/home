@@ -1,7 +1,5 @@
-if which task > /dev/null 2>&1 ; then
-  alias t=task
-else
-  echo \'task\' command not found
-fi
+checkexe task
+
+alias t='task'
 
 # vim: ft=zsh

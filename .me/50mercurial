@@ -1,5 +1,3 @@
-if ! which hg > /dev/null 2>&1 ; then
-  echo \'hg\' command not found
-fi
+checkexe hg
 
 # vim: ft=zsh

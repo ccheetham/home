@@ -40,4 +40,12 @@ remove_path() {
   path=("${(@)path:#${dir}}")
 }
 
+checkexe() {
+  local exe=$1
+  if ! which $exe > /dev/null ; then
+    echo \'$exe\' command not found
+    return 1
+  fi
+}
+
 # vim: ft=zsh
