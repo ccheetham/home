@@ -1,0 +1,8 @@
+export CATALINA_HOME=$ME_OPT/tomcat
+export CATALINA_BASE=$ME/var/catalina
+TC_CMD="$CATALINA_HOME/bin/catalina.sh run"
+
+alias tc="$TC_CMD"
+alias xtc='xterm -title Tomcat -name log -e "$TC_CMD" &'
+
+# vim: filetype=zsh
