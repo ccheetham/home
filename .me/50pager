@@ -1,4 +1,4 @@
 export PAGER=less
 export LESS="-RSM~gIsw"
 
-# vim: filetype=vsh
+# vim: filetype=zsh
