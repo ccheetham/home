@@ -1,5 +1,5 @@
 RMQ_CMD=rabbitmq-server
-if checkexe $RMQ_CMD > 2> /dev/null; then
+if checkexe $RMQ_CMD 1>/dev/null 2>&1; then
   alias rmqd="$RMQ_CMD"
   alias xrmqd='xterm -title RabbitMQ -name log -e "$RMQ_CMD" &'
 
