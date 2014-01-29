@@ -58,6 +58,7 @@ ntuser.ini
 .vim/syntax
 .viminfo
 .vimperator/info/default/history-*
+.wireshark*
 .xchat2
 .xscreensaver
 .xsession-errors
