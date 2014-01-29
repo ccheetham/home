@@ -1,0 +1,9 @@
+source ~/.mutt/account.muttrc
+source ~/.mutt/mailbox.muttrc
+source ~/.mutt/maillist.muttrc
+source ~/.mutt/tool.muttrc
+source ~/.mutt/color.muttrc
+source ~/.mutt/layout.muttrc
+source ~/.mutt/ignore.muttrc
+source ~/.mutt/macro.muttrc
+source ~/.mutt/alias.muttrc

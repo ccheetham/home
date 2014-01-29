@@ -1,0 +1,161 @@
+DEFAULT=$HOME/var/mail
+MAILDIR=$HOME/var/mail
+LOCKFILE=$HOME/var/run/procmail.lock
+LOGFILE=$HOME/var/log/procmail.log
+LOGABSTRACT=no
+VERBOSE=on
+NL="
+"
+
+###############################################################
+#catch duplicates using formail
+#--------------------------------------------------------------
+:0 Whc: .msgid.lock
+| formail -D 16384 .msgid.cache
+:0 a
+duplicates
+
+
+###############################################################
+# vmware's quarantine system
+#--------------------------------------------------------------
+:0
+* ^From:.*<quarantine@vmware.com>
+quarantine
+
+
+###############################################################
+# vmware HR
+#--------------------------------------------------------------
+:0
+* ^From:.*<HR-PMO@vmware.com>
+hr
+:0
+* ^From:.*HR Benefit Admin
+hr
+:0
+* ^From:.*<hrbenefitadmin@vmware.com>
+hr
+:0
+* ^From:.*<hrbenefitadmin@shps.com>
+hr
+:0
+* ^From:.*<hrsource@vmware.com>
+hr
+
+
+###############################################################
+# vmware payroll
+#--------------------------------------------------------------
+:0
+* ^From:.*<payroll@vmware.com>
+payroll
+
+
+###############################################################
+# vmware benefits
+#--------------------------------------------------------------
+:0
+* ^From:.*<enrollone@shps.net>
+benefits
+:0
+* ^From:.*<stockadmin@vmware.com>
+benefits
+:0
+* ^From:.*<etrade@email.etradefinancial.com>
+benefits
+:0
+* ^From:.*<etradenotifications@email.etradefinancial.com>
+benefits
+:0
+* ^From:.*<benefitscenter@fidelity.com>
+benefits
+
+
+###############################################################
+# vmware expenses
+#--------------------------------------------------------------
+:0
+* ^From:.*Workflow Mailer.*<vmwprod@vmware.com>
+* ^Subject: Expense
+expenses
+:0
+* ^From:.*Workflow Mailer.*<vmwprod@vmware.com>
+* ^Subject: Receipts
+expenses
+:0
+* ^From:.*Workflow Mailer.*<vmwprod@vmware.com>
+* ^Subject: Credit card
+expenses
+:0
+* ^From:.*<corporatecreditcards@vmware.com>
+expenses
+
+
+###############################################################
+# vmware training
+#--------------------------------------------------------------
+:0
+* ^From:.*<eduoperations@vmware.com>
+training
+
+
+###############################################################
+# password maintenance
+#--------------------------------------------------------------
+:0
+* ^From:.*<psynch_admin@vmware.com>
+password
+
+
+###############################################################
+# vmware's socialcast site
+#--------------------------------------------------------------
+:0
+* ^From:.*<do-not-reply@socialcast.com>
+socialcast
+
+
+###############################################################
+# issue tracking
+#--------------------------------------------------------------
+:0
+* ^Subject:.*\[SpringSource Issue Tracker\]
+issues-springsource
+
+
+
+###############################################################
+# mailing lists
+#--------------------------------------------------------------
+:0
+* ^List-Id:.*<s2-rmacblane-all.mailman2.vmware.com>
+list-rmacblane
+:0
+* ^List-Id:.*<rd-fte-adl.mailmaster.eng.vmware.com>
+list-r&d
+:0
+* ^List-Id:.*<rd-all-adl.mailmaster.eng.vmware.com>
+list-r&d
+:0
+* ^List-Id:.*<rd-us-fte-adl.mailmaster.eng.vmware.com>
+list-r&d
+:0
+* ^To:.*<vmware-employees@vmware.com>
+list-employees
+:0
+* ^To:.*<all@vmware.com>
+list-all
+:0
+* ^List-Id:.*<s2qa.mailman2.vmware.com>
+list-springsource-qa
+
+
+###############################################################
+# catchall
+#--------------------------------------------------------------
+:0
+* .*
+inbox
+
+# vim: filetype=procmail

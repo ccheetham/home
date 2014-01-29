@@ -1,0 +1,11 @@
+#unignore *
+#ignore received
+#ignore thread-index
+#ignore x-mailer
+#ignore x-virus-scanned
+
+unignore from
+unignore to
+unignore cc
+
+# vim: filetype=muttrc

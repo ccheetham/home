@@ -1,0 +1,3 @@
+macro index,pager I "change-folder =inbox\n"     "go to inbox"
+
+# vim: filetype=muttrc
