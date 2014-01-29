@@ -50,9 +50,9 @@ case $OSTYPE in
     elif grep "Debian" /etc/issue > /dev/null ; then
       ME_OSNAME=debian
       ME_OSVER=$(head -1 /etc/issue | sed 's/[^0-9]*//g')
-    elif [[ -d /etc/make.profile ]] ; then
+    elif [[ -d /etc/portage ]] ; then
       ME_OSNAME=gentoo
-      ME_OSVER=$(print /etc/make.profile(:A:t:r))
+      ME_OSVER=0
     fi
     case $(uname -m) in
       i386|i586|i686)
