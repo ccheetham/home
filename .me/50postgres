@@ -1,0 +1,7 @@
+export PGDATA=$ME/var/pg
+
+PG_CMD='postgres -d2'
+alias pg="$PG_CMD"
+alias xpg="xterm -title PostgreSQL -name log -e $PG_CMD &"
+
+# vim: filetype=zsh
