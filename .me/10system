@@ -15,4 +15,10 @@ for d in \
   prepend_path $d
 done
 
+if [[ -z $MANPATH ]] ; then
+  MANPATH=/usr/local/share/man
+else
+  MANPATH=/usr/local/share/man:$MANPATH
+fi
+
 # vim: ft=zsh

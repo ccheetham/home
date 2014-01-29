@@ -6,6 +6,6 @@ if [[ $ME_OSNAME != osx ]] ; then
   export LD_LIBRARY_PATH=$ME_ARCH/lib
 fi
 
-export MANPATH=$ME_ARCH/share/man:/usr/share/man
+MANPATH=$ME_ARCH/share/man:$MANPATH
 
 # vim: ft=zsh
