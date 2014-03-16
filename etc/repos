@@ -31,6 +31,12 @@
       "url":"https://asciidoc.googlecode.com/hg",
       "rev":"8.6.8",
       "target":"asciidoc"
+    },
+    {
+      "name":"gitprompt",
+      "desc":"zsh git prompt",
+      "type":"git",
+      "url":"git@github.com:olivierverdier/zsh-git-prompt.git"
     }
   ]
 }

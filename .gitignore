@@ -11,6 +11,7 @@
 .config
 .cups
 .dbus
+.dropbox*
 .dvdcss
 .eclipse*
 .erlang.cookie
@@ -34,7 +35,6 @@
 ntuser.ini
 .pki
 .pulse*
-.repo.d
 .restorecond
 .rnd
 .ssh/ccheetham@gopivotal.com*
@@ -72,6 +72,7 @@ Cookies
 Desktop
 Documents
 Downloads
+Dropbox
 Favorites
 Google Drive
 Library
