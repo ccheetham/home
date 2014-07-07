@@ -4,25 +4,25 @@
       "name":"tomorrow",
       "desc":"Vim Tomorrow color theme",
       "type":"git",
-      "url": "git://github.com/chriskempson/tomorrow-theme.git"
+      "url": "https://github.com/chriskempson/tomorrow-theme.git"
     },
     {
       "name":"pathogen",
       "desc":"Vim runtimepath manager",
       "type":"git",
-      "url": "git://github.com/tpope/vim-pathogen.git"
+      "url": "https://github.com/tpope/vim-pathogen.git"
     },
     {
       "name":"nerdtree",
       "desc":"Vim file tree explorer",
       "type":"git",
-      "url": "git://github.com/scrooloose/nerdtree.git"
+      "url": "https://github.com/scrooloose/nerdtree.git"
     },
     {
       "name":"ultisnips",
       "desc":"Vim snippets",
       "type":"git",
-      "url": "git://github.com/vim-scripts/UltiSnips.git"
+      "url": "https://github.com/vim-scripts/UltiSnips.git"
     },
     {
       "name":"asciidoc",
@@ -36,7 +36,7 @@
       "name":"gitprompt",
       "desc":"zsh git prompt",
       "type":"git",
-      "url":"git@github.com:olivierverdier/zsh-git-prompt.git"
+      "url":"https://github.com/olivierverdier/zsh-git-prompt.git"
     }
   ]
 }

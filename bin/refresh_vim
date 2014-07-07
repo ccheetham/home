@@ -31,7 +31,7 @@ link_files() {
 
 link_files vim-pathogen/autoload autoload
 link_dir nerdtree bundle
-link_dir UltiSnips bundle
+#link_dir UltiSnips bundle
 link_files tomorrow-theme/vim/colors colors
 link_files asciidoc/vim/ftdetect ftdetect
 link_files asciidoc/vim/syntax syntax
