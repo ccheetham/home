@@ -5,6 +5,7 @@
 .Trash
 .Xauthority
 .anyconnect
+.aptitude
 .bash*
 .cisco
 .cache
@@ -38,17 +39,7 @@ ntuser.ini
 .pulse*
 .restorecond
 .rnd
-.ssh/ccheetham@gopivotal.com*
-.ssh/ccheetham@vmware.com*
-.ssh/chris@cheetham.com*
-.ssh/test@qa
-.ssh/*id_dsa
-.ssh/*id_dsa
-.ssh/*id_dsa
-.ssh/*id_dsa.pub
-.ssh/*id_rsa
-.ssh/*id_rsa.pub
-.ssh/known_hosts
+.ssh
 .subversion
 .sudo_as_admin_successful
 .vim/.netrwhist
