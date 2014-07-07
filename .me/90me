@@ -1,5 +1,6 @@
 prepend_path $ME/bin
 prepend_path $ME_ARCH/bin
+prepend_path $ME/local/bin
 
 # setting LD_LIBRARY_PATH seems to cause some security concerns in OS X shells
 if [[ $ME_OSNAME != osx ]] ; then

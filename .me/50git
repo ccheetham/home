@@ -6,5 +6,6 @@ alias ga='g add'
 alias gC='g commit'
 alias gp='g pull'
 alias gP='g push'
+alias gR='g checkout -f'
 
 # vim: ft=zsh
