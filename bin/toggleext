@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+if [[ ! $ME_OSNAME == osx ]] ; then
+  echo OS X platform only
+  exit 1
+fi
+
+if [[ $(GetFileInfo -ae $1) == 1 ]]; then
+  SetFile -a e $1
+else
+  SetFile -a E $1
+fi
