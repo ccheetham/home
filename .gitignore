@@ -18,6 +18,7 @@
 .fontconfig
 .gconf
 .gem
+.gitconfig
 .gnome2
 .gradle
 .gstreamer-*
