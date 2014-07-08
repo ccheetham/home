@@ -1,3 +1,5 @@
 export GEM_HOME=$ME_ARCH/lib/ruby/gems
 
+prepend_path $GEM_HOME/bin
+
 # vim: ft=zsh
