@@ -12,8 +12,8 @@ syntax on
 " indentation
 set autoindent          " put the cursor where I'm thinking of next
 set expandtab           " spaces in lieu of TABs
-set tabstop=2           " 2 spaces worth for a TAB
-set shiftwidth=2        " number of spaces per indent
+set tabstop=4           " 2 spaces worth for a TAB
+set shiftwidth=4        " number of spaces per indent
 set list                " show TABs as
 
 " line/col numbering
