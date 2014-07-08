@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+REMOTE=52698
+LOCAL=$REMOTE
+
+usage() {
+  echo
+  echo "USAGE"
+  echo -e "\t$(basename $0) <host>"
+  echo
+  echo "WHERE"
+  echo -e "\thost\tremote ssh host"
+  echo
+}
+
+if [[ $# != 1 ]] ; then
+  usage
+  exit 1
+fi
+
+ssh -N -R 52698:localhost:52698 $1
