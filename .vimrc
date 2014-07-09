@@ -11,10 +11,11 @@ syntax on
 
 " indentation
 set autoindent          " put the cursor where I'm thinking of next
-set expandtab           " spaces in lieu of TABs
-set tabstop=4           " 2 spaces worth for a TAB
 set shiftwidth=4        " number of spaces per indent
-set list                " show TABs as
+set tabstop=8           " tab-formatted files expect this
+set expandtab           " spaces in lieu of TABs
+set softtabstop=4       " width when expanding tabs
+set list                " show TABs
 
 " line/col numbering
 set number
