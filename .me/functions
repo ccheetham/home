@@ -42,7 +42,7 @@ remove_path() {
 
 checkexe() {
   local exe=$1
-  if ! which $exe > /dev/null ; then
+  if ! which $exe > /dev/null 2>&1 ; then
     echo \'$exe\' command not found
     return 1
   fi
