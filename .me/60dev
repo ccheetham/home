@@ -13,7 +13,7 @@ else
   echo 'could not find $ME_ZSH_GIT_PROMPT/zshrc.sh (run refresh_repo?)'
 fi
 
-dp() {
+gp() {
   if [[ -z $_ME_OLD_PROMPT ]] ; then
     _ME_OLD_PROMPT=$PROMPT
     PROMPT='%~ %b$(git_super_status) %# '
