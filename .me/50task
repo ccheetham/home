@@ -1,5 +1,6 @@
 checkexe task
 
 alias t='task'
+alias tl='t list'
 
 # vim: ft=zsh
