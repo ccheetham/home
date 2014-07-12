@@ -11,7 +11,11 @@ Plugin 'asciidoc.vim'
 Plugin 'pathogen.vim'
 Plugin 'pydoc.vim'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'SirVer/ultisnips'
+" vim-snipmate: start
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" vim-snipmate: end
 call vundle#end()
 
 call pathogen#infect()
