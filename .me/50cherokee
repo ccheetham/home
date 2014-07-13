@@ -1,0 +1,3 @@
+checkexe cherokee-admin-launcher && alias cal='cherokee-admin-launcher'
+
+# vim: filetype=zsh
