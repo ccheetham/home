@@ -21,4 +21,7 @@ else
   MANPATH=/usr/local/share/man:$MANPATH
 fi
 
+os_specific=$(dirname $0)/$ME_OSNAME
+[[ -f $os_specific ]] && source $os_specific
+
 # vim: ft=zsh

@@ -1,0 +1,8 @@
+opencsw_home=/opt/csw
+if [[ -d $opencsw_home ]] ; then
+   prepend_path $opencsw_home/bin
+else
+    echo OpenCSW not installed: pkgadd -d http://get.opencsw.org/now
+fi
+
+# vim: ft=zsh
