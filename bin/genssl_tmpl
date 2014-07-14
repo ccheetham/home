@@ -84,9 +84,6 @@ case $type in
         opts+="ca\n"
         opts+="cert_signing_key\n"
         ;;
-    crl)
-        props+="expiration_days = -1\n"
-        ;;
     server)
         props+="country         =\n"
         props+="state           =\n"

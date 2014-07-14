@@ -11,30 +11,26 @@ usage() {
     echo
     echo "DESCRIPTION"
     echo
-    echo -e "\tname\tname of self-signed certificate to create"
+    echo -e "\tname\tname of certificate revocation list to create"
     echo
     echo "OPTIONS"
     echo
-    echo -e "\t-o\tcertficate file (default <name>.cert)"
+    echo -e "\t-o\tlist file (default <name>.crl)"
     echo -e "\t-h\tdisplay this message"
     echo
     echo "NOTES"
     echo
     echo -e "\t$pgm looks for the following in the current directory:"
     echo
-    echo -e "\t<name>.tmpl\ttemplate file"
+    echo -e "\t<name>.cert\tcertificate file"
     echo -e "\t<name>.key\tkey file"
-    echo
-    echo "SEE ALSO"
-    echo
-    echo -e "\tgenssl_key, genssl_tmpl"
     echo
 }
 
 while getopts ":o:h" opt ; do
     case $opt in
         o)
-            cert=$OPTARG
+            crl=$OPTARG
             ;;
         h)
             usage
@@ -66,22 +62,28 @@ if [[ $# > 1 ]] ; then
 fi
 name=$1
 
-[[ -z $cert ]] && cert=$name.cert
-if [[ -e $cert ]] ; then
-    echo "certificate exists: $cert" >&2
+[[ -z $crl ]] && crl=$name.crl
+if [[ -e $crl ]] ; then
+    echo "certificate revocation list exists: $crl" >&2
     exit 1
 fi
 key=$name.key
-tmpl=$name.tmpl
+cert=$name.cert
+tmpl=crl.tmpl.$$
+echo "expiration_days = -1" > $tmpl
 
 checkexe gnutls-certtool || exit
-if gnutls-certtool --generate-self-signed \
-    --load-privkey $key \
+gnutls-certtool --generate-crl \
+    --load-ca-privkey $key \
+    --load-ca-certificate $cert \
     --template $tmpl \
-    --outfile $cert ; then
-    echo "created $name self-signed certificate: $cert"
+    --outfile $crl
+rc=$?
+rm $tmpl
+if [[ $rc == 0 ]] ; then
+    echo "created $name certificate revocation list: $crl"
 else
-    echo "error creating self-signed certificate" >&2
-    rm -f $cert
+    echo "error creating certificate revocation list" >&2
+    rm -f $crl
     exit 1
 fi
