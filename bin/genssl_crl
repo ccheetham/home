@@ -2,6 +2,7 @@
 
 pgm=$(basename $0)
 source ~/.me/functions
+source ~/.me/*gnutls
 
 usage() {
     echo
@@ -72,8 +73,8 @@ cert=$name.cert
 tmpl=crl.tmpl.$$
 echo "expiration_days = -1" > $tmpl
 
-checkexe gnutls-certtool || exit
-gnutls-certtool --generate-crl \
+checkexe certtool || exit
+certtool --generate-crl \
     --load-ca-privkey $key \
     --load-ca-certificate $cert \
     --template $tmpl \

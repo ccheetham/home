@@ -2,6 +2,7 @@
 
 pgm=$(basename $0)
 source ~/.me/functions
+source ~/.me/*gnutls
 
 usage() {
     echo
@@ -11,7 +12,7 @@ usage() {
     echo
     echo "DESCRIPTION"
     echo
-    echo -e "\tgenerate a key for use with gnutls-certtool commands"
+    echo -e "\tgenerate a key for use with certtool commands"
     echo
     echo "WHERE"
     echo
@@ -65,9 +66,8 @@ if [[ -e $key ]] ; then
     exit 1
 fi
 
-checkexe gnutls-certtool || exit
-
-if gnutls-certtool --generate-privkey --outfile $key 2> /dev/null ; then
+checkexe certtool || exit
+if certtool --generate-privkey --outfile $key 2> /dev/null ; then
     echo "created key for $name: $key"
 else
     echo "error generating key"

@@ -2,6 +2,7 @@
 
 pgm=$(basename $0)
 source ~/.me/functions
+source ~/.me/*gnutls
 
 usage() {
     echo
@@ -74,8 +75,8 @@ fi
 key=$name.key
 tmpl=$name.tmpl
 
-checkexe gnutls-certtool || exit
-if gnutls-certtool --generate-self-signed \
+checkexe certtool || exit
+if certtool --generate-self-signed \
     --load-privkey $key \
     --template $tmpl \
     --outfile $cert ; then

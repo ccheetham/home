@@ -2,6 +2,7 @@
 
 pgm=$(basename $0)
 source ~/.me/functions
+source ~/.me/*gnutls
 
 usage() {
     echo
@@ -76,7 +77,8 @@ if [[ -e $cert ]] ; then
     exit 1
 fi
 
-if gnutls-certtool --generate-certificate \
+checkexe certtool || exit
+if certtool --generate-certificate \
     --load-ca-certificate $caname.cert \
     --load-ca-priv $caname.key \
     --load-privkey $name.key \

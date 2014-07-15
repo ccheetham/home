@@ -1,0 +1,3 @@
+checkexe gnutls-certtool > /dev/null && alias certtool=gnutls-certtool
+
+# vim: ft=zsh
