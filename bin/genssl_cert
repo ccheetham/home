@@ -80,7 +80,7 @@ fi
 checkexe certtool || exit
 if certtool --generate-certificate \
     --load-ca-certificate $caname.cert \
-    --load-ca-priv $caname.key \
+    --load-ca-privkey $caname.key \
     --load-privkey $name.key \
     --template $name.tmpl \
     --outfile $cert ; then
