@@ -90,10 +90,8 @@ case $type in
         props+="organization    =\n"
         props+="unit            =\n"
         props+="cn              =\n"
-        props+="dc              =\n"
-        props+="dc              =\n"
         props+="dns_name        =\n"
-        props+="expiration      = -1\n"
+        props+="expiration_days = -1\n"
         opts+="tls_www_server\n"
         opts+="encryption_key\n"
         opts+="signing_key\n"
@@ -105,9 +103,9 @@ case $type in
         props+="organization    =\n"
         props+="unit            =\n"
         props+="cn              =\n"
-        props+="expiration      = -1"
+        props+="expiration_days = -1"
         opts+="tls_www_client\n"
-        opts+="excryption_key\n"
+        opts+="encryption_key\n"
         opts+="signing_key\n"
         ;;
     *)
