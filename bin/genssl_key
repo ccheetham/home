@@ -1,0 +1,75 @@
+#!/usr/bin/env zsh
+
+pgm=$(basename $0)
+source ~/.me/functions
+source ~/.me/*gnutls
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$pgm [options] <name>"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tgenerate a key for use with certtool commands"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tname\tname of key to create"
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-o\tkey file (default <name>.key)"
+    echo -e "\t-h\tdisplay this message"
+    echo
+}
+
+while getopts ":o:h" opt ; do
+    case $opt in
+        o)
+            key=$OPTARG
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# < 1 ]] ; then
+    echo "name not specified" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+if [[ $# > 1 ]] ; then
+    echo "too many arguments: $*" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+name=$1
+
+[[ -z $key ]] && key=$name.key
+if [[ -e $key ]] ; then
+    echo "key exists: $key" >&2
+    exit 1
+fi
+
+checkexe certtool || exit
+if certtool --generate-privkey --outfile $key 2> /dev/null ; then
+    echo "created key for $name: $key"
+else
+    echo "error generating key"
+    exit 1
+fi

@@ -1,0 +1,50 @@
+#!/usr/bin/env zsh
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$(basename $0) [options] <reqd_arg> [opt_arg]"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\targ\tdescription"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\t..."
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-h\tdisplay this message"
+    echo
+    echo "NOTES"
+    echo
+    echo -e "\tif applicable"
+    echo
+    echo "SEE ALSO"
+    echo
+    echo -e "\tif applicable"
+    echo
+    echo
+}
+
+while getopts ":h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            echo "$opt requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option $opt" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))

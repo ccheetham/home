@@ -12,7 +12,7 @@ set -o emacs
 export WORDCHARS=''
 
 autoload -Uz compinit
-compinit -d $HOME/.zcompdump-$(hostname)
+compinit -d ~/.zcompdump.d/$(hostname)
 
 autoload -U promptinit
 promptinit

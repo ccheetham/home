@@ -1,0 +1,125 @@
+#!/usr/bin/env zsh
+
+pgm=$(basename $0)
+
+type=server
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$pgm [options] <name>"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tgenerate a gnutls-certtool template"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tname\tname of template to create"
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-o\ttemplate file (default <name>.tmpl)"
+    echo -e "\t-t\ttemplate type [ca, server, user] (default $type)"
+    echo -e "\t-h\tdisplay this message"
+    echo
+}
+
+while getopts ":o:t:h" opt ; do
+    case $opt in
+        o)
+            template=$OPTARG
+            ;;
+        t)
+            type=$OPTARG
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# < 1 ]] ; then
+    echo "name not specified" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+if [[ $# > 1 ]] ; then
+    echo "too many arguments: $*" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+name=$1
+
+[[ -z $template ]] && template=$name.tmpl
+if [[ -e $template ]] ; then
+    echo "template exists: $template" >&2
+    exit 1
+fi
+
+case $type in
+    ca)
+        props+="country         =\n"
+        props+="state           =\n"
+        props+="locality        =\n"
+        props+="organization    =\n"
+        props+="unit            =\n"
+        props+="cn              =\n"
+        props+="dc              =\n"
+        props+="expiration_days = -1\n"
+        opts+="ca\n"
+        opts+="cert_signing_key\n"
+        ;;
+    server)
+        props+="country         =\n"
+        props+="state           =\n"
+        props+="locality        =\n"
+        props+="organization    =\n"
+        props+="unit            =\n"
+        props+="cn              =\n"
+        props+="dns_name        =\n"
+        props+="expiration_days = -1\n"
+        opts+="tls_www_server\n"
+        opts+="encryption_key\n"
+        opts+="signing_key\n"
+        ;;
+    user)
+        props+="country         =\n"
+        props+="state           =\n"
+        props+="locality        =\n"
+        props+="organization    =\n"
+        props+="unit            =\n"
+        props+="cn              =\n"
+        props+="expiration_days = -1"
+        opts+="tls_www_client\n"
+        opts+="encryption_key\n"
+        opts+="signing_key\n"
+        ;;
+    *)
+        echo "unknown type: $type" >&2
+        echo "run with -h for help" >&2
+        exit 1
+        ;;
+esac
+
+echo "# gnutls-certtool template for $type $name" > $template
+echo >> $template
+echo "# assign property values to complete template" >> $template
+echo $props >> $template
+echo "# options" >> $template
+echo -n $opts >> $template
+echo "created $type $name template: $template"
+echo "edit template file to assign property values to complete"

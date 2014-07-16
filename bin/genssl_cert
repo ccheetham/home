@@ -1,0 +1,92 @@
+#!/usr/bin/env zsh
+
+pgm=$(basename $0)
+source ~/.me/functions
+source ~/.me/*gnutls
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$pgm [options] <name> <caname>"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tname\tname of certificate to create"
+    echo -e "\tcaname\tname of CA certificate to validate certificate"
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-o\tcertficate file (default <name>.cert)"
+    echo -e "\t-h\tdisplay this message"
+    echo
+    echo "NOTES"
+    echo
+    echo -e "\t$pgm looks for the following in the current directory:"
+    echo
+    echo -e "\t<name>.tmpl\ttemplate file"
+    echo -e "\t<name>.key\tkey file"
+    echo -e "\t<caname>.cert\tCA certificate"
+    echo -e "\t<caname>.key\tCA key file"
+    echo
+    echo "SEE ALSO"
+    echo
+    echo -e "\tgenssl_key, genssl_tmpl"
+    echo
+}
+
+while getopts ":o:h" opt ; do
+    case $opt in
+        o)
+            cert=$OPTARG
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# < 2 ]] ; then
+    echo "name and/or caname not specified" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+if [[ $# > 2 ]] ; then
+    echo "too many arguments: $*" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+name=$1
+caname=$2
+
+[[ -z $cert ]] && cert=$name.cert
+if [[ -e $cert ]] ; then
+    echo "certificate exists: $cert" >&2
+    exit 1
+fi
+
+checkexe certtool || exit
+if certtool --generate-certificate \
+    --load-ca-certificate $caname.cert \
+    --load-ca-privkey $caname.key \
+    --load-privkey $name.key \
+    --template $name.tmpl \
+    --outfile $cert ; then
+    echo "created $name certificate: $cert"
+else
+    echo "error generating certificate" >&2
+    rm -f $cert
+    exit 1
+fi

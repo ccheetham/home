@@ -1,0 +1,90 @@
+#!/usr/bin/env zsh
+
+pgm=$(basename $0)
+source ~/.me/functions
+source ~/.me/*gnutls
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$pgm [options] <name>"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tname\tname of certificate revocation list to create"
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-o\tlist file (default <name>.crl)"
+    echo -e "\t-h\tdisplay this message"
+    echo
+    echo "NOTES"
+    echo
+    echo -e "\t$pgm looks for the following in the current directory:"
+    echo
+    echo -e "\t<name>.cert\tcertificate file"
+    echo -e "\t<name>.key\tkey file"
+    echo
+}
+
+while getopts ":o:h" opt ; do
+    case $opt in
+        o)
+            crl=$OPTARG
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# < 1 ]] ; then
+    echo "name not specified" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+if [[ $# > 1 ]] ; then
+    echo "too many arguments: $*" 2>&1
+    echo "run with -h for help" 2>&1
+    exit 1
+fi
+name=$1
+
+[[ -z $crl ]] && crl=$name.crl
+if [[ -e $crl ]] ; then
+    echo "certificate revocation list exists: $crl" >&2
+    exit 1
+fi
+key=$name.key
+cert=$name.cert
+tmpl=crl.tmpl.$$
+echo "expiration_days = -1" > $tmpl
+
+checkexe certtool || exit
+certtool --generate-crl \
+    --load-ca-privkey $key \
+    --load-ca-certificate $cert \
+    --template $tmpl \
+    --outfile $crl
+rc=$?
+rm $tmpl
+if [[ $rc == 0 ]] ; then
+    echo "created $name certificate revocation list: $crl"
+else
+    echo "error creating certificate revocation list" >&2
+    rm -f $crl
+    exit 1
+fi
