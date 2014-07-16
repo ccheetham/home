@@ -28,3 +28,23 @@ usage() {
     echo
     echo
 }
+
+while getopts ":h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            echo "$opt requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option $opt" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
