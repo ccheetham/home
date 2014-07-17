@@ -1,7 +1,10 @@
+include ~/share/task/holidays.en-US.rc
+include ~/share/task/solarized-dark-256.theme
+
 data.location=~/var/db/task
-include ~/share/task/rc/holidays.en-US.rc
-include ~/share/task/rc/solarized-dark-256.theme
+
 calendar.holidays=sparse
+
 taskd.certificate=~/etc/ssl/chris.cheetham.com.cert
 taskd.key=~/etc/ssl/chris.cheetham.com.key
 taskd.ca=~/etc/ssl/ca.cheetham.com.cert
