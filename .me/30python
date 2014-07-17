@@ -2,8 +2,13 @@ py () {
   python $*
 }
 
+pypath() {
+    echo $PYTHONPATH | tr ':' '\n'
+}
+
 export PYTHONPATH
 PYTHONPATH=$ME_ARCH/lib/python2.7/site-packages
-PYTHONPATH=$PYTHONPATH:$ME/lib/python2.7/site-packages
+PYTHONPATH=$PYTHONPATH:$ME_LIB/python2.7/site-packages
+PYTHONPATH=$PYTHONPATH:$ME_LIB/python
 
 # vim: ft=zsh

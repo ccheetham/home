@@ -1,4 +1,5 @@
 export ME=~
+export ME_LIB=$ME/lib
 export ME_VAR=$ME/var
 export ME_LOG_DIR=$ME_VAR/log
 export ME_REPO_DIR=$ME_VAR/repo
