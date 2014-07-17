@@ -38,6 +38,7 @@
 ntuser.ini
 .pki
 .pulse*
+*.pyc
 .restorecond
 .rnd
 .ssh
