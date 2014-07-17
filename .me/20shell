@@ -7,9 +7,7 @@ precmd() {
 }
 
 path() {
-  for d in $path ; do
-    echo $d
-  done
+  echo $PATH | tr ':' '\n'
 }
 
 alias h='history -d'
