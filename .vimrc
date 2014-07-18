@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'        " required
 Plugin 'asciidoc.vim'
 Plugin 'pathogen.vim'
+Plugin 'pydoc.vim'
 Plugin 'scrooloose/nerdtree.git'
 call vundle#end()
 
