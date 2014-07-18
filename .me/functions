@@ -13,6 +13,10 @@ catlog() {
   fi
 }
 
+reenv() {
+    source ~/.zshrc
+}
+
 is_in_path() {
   local dir=$1
   if (( ${path[(i)$dir]} > ${#path} )) ; then
