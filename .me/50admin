@@ -19,21 +19,15 @@ sys() {
 }
 
 space () {
-  local fss
-  local usage
-  if [[ $# == 0 ]] ; then
-    fss=/
+  echo "Mount (Volume)        Size  Used Avail  Pct  Filesystem"
+  echo "--------------------  ----  ----  ----  ---  -----------------"
+  if [[ $OSTYPE == darwin* ]] ; then
+    for fs in /Volumes/* ; do
+      df -Hl $fs | tail -1 | awk '{printf "%-20s %5s %5s %5s %4s  %s\n", $9, $2, $3, $4, $8, $1}'
+    done
   else
-    fss=$*
+    df -Hl | grep ^/ | awk '{printf "%-20s %5s %5s %5s %4s  %s\n", $6, $2, $3, $4, $5, $1}' 
   fi
-  echo Size Used Avail
-  for fs in $(echo $fss) ; do
-    if usage=`df -Hl $fs 2> /dev/null` ; then
-      echo $usage | tail -1 | awk '{print $2, $3, $4}'
-    else
-      echo unknown file system: $fs 1>&2
-    fi
-  done
 }
 
 systail () {
