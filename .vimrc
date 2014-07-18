@@ -16,6 +16,7 @@ set tabstop=8           " tab-formatted files expect this
 set expandtab           " spaces in lieu of TABs
 set softtabstop=4       " width when expanding tabs
 set list                " show TABs
+map <leader>i mzgg=G`z<cr>
 
 " line/col numbering
 set number
