@@ -1,5 +1,5 @@
 erps () {
-  ps -A | grep beam | grep -v grep
+    ps -A | grep beam | grep -v grep
 }
 
 # vim: ft=zsh

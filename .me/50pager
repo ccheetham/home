@@ -1,6 +1,6 @@
 if checkexe less ; then
-  export PAGER=less
-  export LESS="-RSM~gIsw"
+    export PAGER=less
+    export LESS="-RSM~gIsw"
 fi
 
 # vim: filetype=zsh

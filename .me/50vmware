@@ -2,40 +2,40 @@ FUSION=/Applications/VMware\ Fusion.app/Contents/Library
 VMDIRS=(~/Documents/VMs ~/Documents/Virtual\ Machines)
 
 if [[ -d /opt/vmware ]] ; then
-  export VMWARE_TOOLS=/opt/vmware
-  prepend_path $VMWARE_TOOLS/bin
+    export VMWARE_TOOLS=/opt/vmware
+    prepend_path $VMWARE_TOOLS/bin
 fi
 
 if [[ -d /Applications/OVFTool ]] ; then
-  export OVFTOOL=/Applications/OVFTool/ovftool
-  alias ovftool=$OVFTOOL
+    export OVFTOOL=/Applications/OVFTool/ovftool
+    alias ovftool=$OVFTOOL
 fi
 
 if [[ -d $FUSION ]] ; then
-  alias vmrun='$FUSION/vmrun'
+    alias vmrun='$FUSION/vmrun'
 fi
 
 # find a vmx file based on vmname
 fvmx() {
-  if [[ $# != 1 ]]; then
-    echo "$0 hint"
-    return
-  fi
-  local hint=$1
-  local vmx
-  set localtoptions nonomatch
-  for vmdir in $VMDIRS; do
-    [[ -d $vmdir ]] || vmdir=$vmdir.localized
-    [[ -d $vmdir ]] || continue
-    vmdir=$vmdir/$hint
-    [[ -d $vmdir ]] || vmdir=$vmdir.vmwarevm
-    [[ -d $vmdir ]] && vmx=$(/bin/ls $vmdir/*.vmx)
-    if [[ -f $vmx ]]; then
-      print $vmx
-      return
+    if [[ $# != 1 ]]; then
+        echo "$0 hint"
+        return
     fi
-  done
-  return 1
+    local hint=$1
+    local vmx
+    set localtoptions nonomatch
+    for vmdir in $VMDIRS; do
+        [[ -d $vmdir ]] || vmdir=$vmdir.localized
+        [[ -d $vmdir ]] || continue
+        vmdir=$vmdir/$hint
+        [[ -d $vmdir ]] || vmdir=$vmdir.vmwarevm
+        [[ -d $vmdir ]] && vmx=$(/bin/ls $vmdir/*.vmx)
+        if [[ -f $vmx ]]; then
+            print $vmx
+            return
+        fi
+    done
+    return 1
 }
 
 # vim: filetype=zsh

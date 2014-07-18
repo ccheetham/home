@@ -1,5 +1,5 @@
 py () {
-  python $*
+    python $*
 }
 
 pypath() {

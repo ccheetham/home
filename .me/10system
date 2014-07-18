@@ -1,24 +1,18 @@
-for d in \
-  /usr/bin \
-  /bin \
-  /usr/sbin \
-  /sbin
-; do
-  remove_path $d
-  append_path $d
+dirs="/usr/bin /bin /usr/sbin /sbin"
+for d in $(echo $dirs) ; do
+    remove_path $d
+    append_path $d
 done
 
-for d in \
-  /usr/local/sbin \
-  /usr/local/bin \
-; do
-  prepend_path $d
+dirs="/usr/local/bin /usr/local/bin"
+for d in $(echo $dirs) ; do
+    prepend_path $d
 done
 
 if [[ -z $MANPATH ]] ; then
-  MANPATH=/usr/local/share/man
+    MANPATH=/usr/local/share/man
 else
-  MANPATH=/usr/local/share/man:$MANPATH
+    MANPATH=/usr/local/share/man:$MANPATH
 fi
 
 os_specific=$(dirname $0)/$ME_OSNAME

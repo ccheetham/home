@@ -3,11 +3,11 @@ PS1="%~ %# "
 
 # term title
 precmd() {
-  print -Pn "\e]0;%n@%m\a"
+    print -Pn "\e]0;%n@%m\a"
 }
 
 path() {
-  echo $PATH | tr ':' '\n'
+    echo $PATH | tr ':' '\n'
 }
 
 alias h='history -d'
@@ -18,13 +18,13 @@ alias pp=popd
 unset ls_opts
 ls_cmd=ls
 if [[ $ME_OSNAME == osx ]] ; then
-  ls_opts=' -FGH'
+    ls_opts=' -FGH'
 else
-  for opt in classify color group-directories-first ; do
-  if $ls_cmd --$opt > /dev/null 2>&1 ; then
-    ls_opts+=" --$opt"
-  fi
-done
+    for opt in classify color group-directories-first ; do
+        if $ls_cmd --$opt > /dev/null 2>&1 ; then
+            ls_opts+=" --$opt"
+        fi
+    done
 fi
 alias ls="$ls_cmd$ls_opts"
 unset ls_cmd ls_opts
@@ -37,13 +37,13 @@ alias l1='ls -1'
 alias lF='ls *(.)'
 alias lD='ls -d *(/)'
 if ls -@ > /dev/null 2>&1 ; then
-  alias l@='ll -@'
+    alias l@='ll -@'
 fi
 
 alias mkdir='mkdir -p'
 mcdir() {
-  mkdir $1
-  chdir $1
+    mkdir $1
+    chdir $1
 }
 
 # vim: ft=zsh

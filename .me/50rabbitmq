@@ -1,13 +1,13 @@
 RMQ_CMD=rabbitmq-server
 if checkexe $RMQ_CMD 1>/dev/null 2>&1; then
-  alias rmqd="$RMQ_CMD"
-  alias xrmqd='xterm -title RabbitMQ -name log -e "$RMQ_CMD" &'
+    alias rmqd="$RMQ_CMD"
+    alias xrmqd='xterm -title RabbitMQ -name log -e "$RMQ_CMD" &'
 
-  alias rmqctl=rabbitmqctl
+    alias rmqctl=rabbitmqctl
 
-  RMQ_LOG_CMD="tail -f $(dirname $(which rabbitmq-server))/../var/log/rabbitmq/rabbit@$(hostname -s).log"
-  alias rmqlog="$RMQ_LOG_CMD"
-  alias xrmqlog='xterm -title "RabbitMQ Log" -name log -e "$RMQ_LOG_CMD" &'
+    RMQ_LOG_CMD="tail -f $(dirname $(which rabbitmq-server))/../var/log/rabbitmq/rabbit@$(hostname -s).log"
+    alias rmqlog="$RMQ_LOG_CMD"
+    alias xrmqlog='xterm -title "RabbitMQ Log" -name log -e "$RMQ_LOG_CMD" &'
 fi
 
 # vim: filetype=zsh

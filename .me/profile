@@ -7,8 +7,8 @@ source $ME_FUNCTIONS
 /bin/rm -f $ME_SHELL_LOG
 
 for f in $ME_PROFILE_DIR/[[:digit:]]* ; do
-  shlog $0 sourcing $f
-  source $f
+    shlog $0 sourcing $f
+    source $f
 done
 
 # vim: ft=zsh

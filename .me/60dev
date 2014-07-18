@@ -1,29 +1,29 @@
 if checkexe git ; then
     ME_ZSH_GIT_PROMPT=$ME_REPO_DIR/zsh-git-prompt
     if [[ -f $ME_ZSH_GIT_PROMPT/zshrc.sh ]] ; then
-      if grep '^export __GIT_PROMPT_DIR=' $ME_ZSH_GIT_PROMPT/zshrc.sh > /dev/null ; then
-        if [[ $ME_OSNAME == osx ]] ;then
-          sed -i '' 's:^export __GIT_PROMPT_DIR.*$::' $ME_ZSH_GIT_PROMPT/zshrc.sh
-        else
-          sed -i 's:^export __GIT_PROMPT_DIR.*$::' $ME_ZSH_GIT_PROMPT/zshrc.sh
+        if grep '^export __GIT_PROMPT_DIR=' $ME_ZSH_GIT_PROMPT/zshrc.sh > /dev/null ; then
+            if [[ $ME_OSNAME == osx ]] ;then
+                sed -i '' 's:^export __GIT_PROMPT_DIR.*$::' $ME_ZSH_GIT_PROMPT/zshrc.sh
+            else
+                sed -i 's:^export __GIT_PROMPT_DIR.*$::' $ME_ZSH_GIT_PROMPT/zshrc.sh
+            fi
         fi
-      fi
-      export __GIT_PROMPT_DIR=$ME_REPO_DIR/zsh-git-prompt
-      source $ME_ZSH_GIT_PROMPT/zshrc.sh
+        export __GIT_PROMPT_DIR=$ME_REPO_DIR/zsh-git-prompt
+        source $ME_ZSH_GIT_PROMPT/zshrc.sh
     else
-      echo 'could not find $ME_ZSH_GIT_PROMPT/zshrc.sh (run refresh_repo?)'
+        echo 'could not find $ME_ZSH_GIT_PROMPT/zshrc.sh (run refresh_repo?)'
     fi
 fi
 
 dp() {
-  if [[ -z $_ME_OLD_PROMPT ]] ; then
-    _ME_OLD_PROMPT=$PROMPT
-    PROMPT='%~ %b$(git_super_status) %# '
-    cd $PWD # to get prompt to redisplay
-  else
-    PROMPT=$_ME_OLD_PROMPT
-    unset _ME_OLD_PROMPT
-  fi
+    if [[ -z $_ME_OLD_PROMPT ]] ; then
+        _ME_OLD_PROMPT=$PROMPT
+        PROMPT='%~ %b$(git_super_status) %# '
+        cd $PWD # to get prompt to redisplay
+    else
+        PROMPT=$_ME_OLD_PROMPT
+        unset _ME_OLD_PROMPT
+    fi
 }
 
 # vim: ft=zsh

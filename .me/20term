@@ -1,15 +1,15 @@
 if [[ $TERM == xterm* ]] ; then
-  if [[ $ME_OSNAME == sol ]] ; then
-    if [[ -e /usr/share/lib/terminfo/x/xterm-256color ]] ; then
-      TERM=xterm-256color
-    elif [[ -e /usr/share/lib/terminfo/x/xterm-color ]] ; then
-      TERM=xterm-color
+    if [[ $ME_OSNAME == sol ]] ; then
+        if [[ -e /usr/share/lib/terminfo/x/xterm-256color ]] ; then
+            TERM=xterm-256color
+        elif [[ -e /usr/share/lib/terminfo/x/xterm-color ]] ; then
+            TERM=xterm-color
+        else
+            TERM=xterm
+        fi
     else
-      TERM=xterm
+        TERM=xterm-256color
     fi
-  else
-    TERM=xterm-256color
-  fi
 fi
 
 # vim: ft=zsh

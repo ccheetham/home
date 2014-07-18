@@ -1,9 +1,9 @@
 if [[ $ME_OSNAME == osx ]] ; then
-  JDK6_HOME=$(/usr/libexec/java_home -v 1.6)
-  JDK7_HOME=$(/usr/libexec/java_home -v 1.7)
+    JDK6_HOME=$(/usr/libexec/java_home -v 1.6)
+    JDK7_HOME=$(/usr/libexec/java_home -v 1.7)
 else
-  JDK6_HOME=$ME_ARCH_OPT/java/jdk6
-  JDK7_HOME=$ME_ARCH_OPT/java/jdk7
+    JDK6_HOME=$ME_ARCH_OPT/java/jdk6
+    JDK7_HOME=$ME_ARCH_OPT/java/jdk7
 fi
 JDK_HOME=$JDK7_HOME
 JAVA_HOME=$JDK_HOME
@@ -11,23 +11,23 @@ JAVA_HOME=$JDK_HOME
 prepend_path $JAVA_HOME/bin
 
 j () {
-  java -Djava.util.logging.config.file=$HOME/etc/java/logging.properties $*
+    java -Djava.util.logging.config.file=$HOME/etc/java/logging.properties $*
 }
 
 jd () {
-  java -Djava.util.logging.config.file=$HOME/etc/java/debug-logging.properties $*
+    java -Djava.util.logging.config.file=$HOME/etc/java/debug-logging.properties $*
 }
 
 jc () {
-  javac $*
+    javac $*
 }
 
 j7 () {
-  $JDK7_HOME/bin/java -Djava.util.logging.config.file=$HOME/etc/java/logging.properties $*
+    $JDK7_HOME/bin/java -Djava.util.logging.config.file=$HOME/etc/java/logging.properties $*
 }
 
 j6 () {
-  $JDK6_HOME/bin/java -Djava.util.logging.config.file=$HOME/etc/java/logging.properties $*
+    $JDK6_HOME/bin/java -Djava.util.logging.config.file=$HOME/etc/java/logging.properties $*
 }
 
 # vim: ft=zsh

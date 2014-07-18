@@ -1,24 +1,24 @@
 if which keychain > /dev/null 2>&1 ; then
-  shlog using keychain
-  keychain --quiet
-  export KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
-  [[ -f $KEYCHAIN_ENV ]] && source $KEYCHAIN_ENV
+    shlog using keychain
+    keychain --quiet
+    export KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
+    [[ -f $KEYCHAIN_ENV ]] && source $KEYCHAIN_ENV
 fi
 
 instkey() {
-  if [[ $# != 1 ]] ; then
-    echo "Usage: $0 <host>"
-    return
-  fi
-  local user_host=$1
-  echo initializing remote keystore directory
-  ssh $user_host mkdir -p .ssh
-  echo copying public key
-  scp ~/.ssh/id_dsa.pub ${user_host}:tmpkey
-  echo installing public key
-  ssh $user_host cat tmpkey '>>' .ssh/authorized_keys
-  echo cleaning up
-  ssh $user_host rm tmpkey
+    if [[ $# != 1 ]] ; then
+        echo "Usage: $0 <host>"
+        return
+    fi
+    local user_host=$1
+    echo initializing remote keystore directory
+    ssh $user_host mkdir -p .ssh
+    echo copying public key
+    scp ~/.ssh/id_dsa.pub ${user_host}:tmpkey
+    echo installing public key
+    ssh $user_host cat tmpkey '>>' .ssh/authorized_keys
+    echo cleaning up
+    ssh $user_host rm tmpkey
 }
 
 # vim: ft=zsh

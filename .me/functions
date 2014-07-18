@@ -1,16 +1,16 @@
 shlog() {
-  /bin/mkdir -p $(dirname $ME_SHELL_LOG)
-  printf "::: $1 :::\n" >> $ME_SHELL_LOG
-  shift
-  printf "$*\n" >> $ME_SHELL_LOG
+    /bin/mkdir -p $(dirname $ME_SHELL_LOG)
+    printf "::: $1 :::\n" >> $ME_SHELL_LOG
+    shift
+    printf "$*\n" >> $ME_SHELL_LOG
 }
 
 catlog() {
-  if [[ $1 == -v ]] ; then
-    cat $ME_SHELL_LOG
-  else
-    cat $ME_SHELL_LOG | grep -v '^::: .* :::$'
-  fi
+    if [[ $1 == -v ]] ; then
+        cat $ME_SHELL_LOG
+    else
+        cat $ME_SHELL_LOG | grep -v '^::: .* :::$'
+    fi
 }
 
 reenv() {
@@ -18,38 +18,38 @@ reenv() {
 }
 
 is_in_path() {
-  local dir=$1
-  if (( ${path[(i)$dir]} > ${#path} )) ; then
-    return 1
-  else
-    return 0
-  fi
+    local dir=$1
+    if (( ${path[(i)$dir]} > ${#path} )) ; then
+        return 1
+    else
+        return 0
+    fi
 }
 
 append_path() {
-  local dir=$1
-  remove_path $dir
-  path+=$dir
+    local dir=$1
+    remove_path $dir
+    path+=$dir
 }
 
 
 prepend_path() {
-  local dir=$1
-  remove_path $dir
-  path=($dir $path)
+    local dir=$1
+    remove_path $dir
+    path=($dir $path)
 }
 
 remove_path() {
-  local dir=$1
-  path=("${(@)path:#${dir}}")
+    local dir=$1
+    path=("${(@)path:#${dir}}")
 }
 
 checkexe() {
-  local exe=$1
-  if ! which $exe > /dev/null 2>&1 ; then
-    echo \'$exe\' command not found
-    return 1
-  fi
+    local exe=$1
+    if ! which $exe > /dev/null 2>&1 ; then
+        echo \'$exe\' command not found
+        return 1
+    fi
 }
 
 # vim: ft=zsh

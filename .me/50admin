@@ -3,47 +3,51 @@ checkexe sudo
 alias hosts='sudo $EDITOR /etc/hosts'
 
 sys() {
-  local cmd
-  local host
-  [[ $# > 0 ]] && cmd=$1 && shift
-  [[ $# > 0 ]] && host=$1 && shift
-  if [[ -z $cmd ]] || [[ $# > 0 ]] ; then
-    echo 'usage: sys <command> [host]'
-    return 1
-  fi
-  if [[ -n $host ]] ; then
-    ssh root@$host $cmd
-  else
-    sudo $cmd
-  fi
+    local cmd
+    local host
+    [[ $# > 0 ]] && cmd=$1 && shift
+    [[ $# > 0 ]] && host=$1 && shift
+    if [[ -z $cmd ]] || [[ $# > 0 ]] ; then
+        echo 'usage: sys <command> [host]'
+        return 1
+    fi
+    if [[ -n $host ]] ; then
+        ssh root@$host $cmd
+    else
+        sudo $cmd
+    fi
 }
 
 space () {
-  echo "Mount (Volume)        Size  Used Avail  Pct  Filesystem"
-  echo "--------------------  ----  ----  ----  ---  -----------------"
-  if [[ $OSTYPE == darwin* ]] ; then
-    for fs in /Volumes/* ; do
-      df -Hl $fs | tail -1 | awk '{printf "%-20s %5s %5s %5s %4s  %s\n", $9, $2, $3, $4, $8, $1}'
-    done
-  else
-    df -Hl | grep ^/ | awk '{printf "%-20s %5s %5s %5s %4s  %s\n", $6, $2, $3, $4, $5, $1}' 
-  fi
+    echo "Mount (Volume)        Size  Used Avail  Pct  Filesystem"
+    echo "--------------------  ----  ----  ----  ---  -----------------"
+    if [[ $OSTYPE == darwin* ]] ; then
+        format="%-20s %5s %5s %5s %4s  %s"
+        for fs in /Volumes/* ; do
+            df -Hl $fs | tail -1 | \
+                awk '{printf "'$format'\n", $9, $2, $3, $4, $8, $1}'
+        done
+    else
+        format="%-20s %5s %5s %5s %4s  %s"
+        df -Hl | grep ^/ | \
+            awk '{printf "'$format'\n", $6, $2, $3, $4, $5, $1}' 
+    fi
 }
 
 systail () {
-  if [[ $OSTYPE == darwin* ]] ; then
-    tail -f /var/log/system.log
-  else
-    sudo tail -f /var/log/messages
-  fi
+    if [[ $OSTYPE == darwin* ]] ; then
+        tail -f /var/log/system.log
+    else
+        sudo tail -f /var/log/messages
+    fi
 }
 
 toor() {
-  local display=
-  [[ -n DISPLAY ]] && display=$DISPLAY
-  unset DISPLAY
-  sudo su -
-  [[ -n display ]] && export DISPLAY=$display
+    local display=
+    [[ -n DISPLAY ]] && display=$DISPLAY
+    unset DISPLAY
+    sudo su -
+    [[ -n display ]] && export DISPLAY=$display
 }
 
 # vim: ft=zsh

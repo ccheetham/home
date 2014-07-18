@@ -1,5 +1,5 @@
 if [[ $ME_OSNAME == osx ]] ; then
-  prepend_path /opt/X11/bin
+    prepend_path /opt/X11/bin
 fi
 
 alias x='startx 2> $XSESSION_LOG'
