@@ -1,5 +1,16 @@
 set nocompatible
 
+filetype off
+
+" Vundle plugin manager
+" https://github.com/gmarik/Vundle.vim
+set rtp+=$ME_REPO_DIR/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'        " required
+Plugin 'pathogen.vim'
+Plugin 'scrooloose/nerdtree.git'
+call vundle#end()
+
 call pathogen#infect()
 
 filetype on                       " enable file detection

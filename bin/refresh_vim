@@ -6,32 +6,33 @@ REPO_DIR=../../var/repo
 cd $VIM_DIR
 
 link_dir() {
-  local src=$1
-  local tgt=$2
-  (
-  /bin/mkdir -p $VIM_DIR/$tgt
-  cd $VIM_DIR/$tgt
-  [[ -e $src ]] && /bin/rm $src
-  /bin/ln -s $REPO_DIR/$src
-  )
+    local src=$1
+    local tgt=$2
+    (
+    /bin/mkdir -p $VIM_DIR/$tgt
+    cd $VIM_DIR/$tgt
+    [[ -e $src ]] && /bin/rm $src
+    /bin/ln -s $REPO_DIR/$src
+    )
 }
 
 link_files() {
-  local src=$1
-  local tgt=$2
-  (
-  /bin/mkdir -p $VIM_DIR/$tgt
-  cd $VIM_DIR/$tgt
-  for f in $REPO_DIR/$src/* ; do
-    [[ -e $(basename $f) ]] && /bin/rm $(basename $f)
-    /bin/ln -s $f
-  done
-  )
+    local src=$1
+    local tgt=$2
+    (
+    /bin/mkdir -p $VIM_DIR/$tgt
+    cd $VIM_DIR/$tgt
+    for f in $REPO_DIR/$src/* ; do
+        [[ -e $(basename $f) ]] && /bin/rm $(basename $f)
+        /bin/ln -s $f
+    done
+    )
 }
 
-link_files vim-pathogen/autoload autoload
-link_dir nerdtree bundle
-#link_dir UltiSnips bundle
-link_files tomorrow-theme/vim/colors colors
+link_dir UltiSnips bundle
+link_dir Vundle.vim bundle
 link_files asciidoc/vim/ftdetect ftdetect
 link_files asciidoc/vim/syntax syntax
+link_files tomorrow-theme/vim/colors colors
+
+vim +PluginUpdate +qall
