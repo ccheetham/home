@@ -82,10 +82,16 @@ set bs=2                        " backspacing over everything in insert mode
 set visualbell                  " quiet please
 set history=50                  " 50 lines of command history
 
-if has('gui_running')
+if $ITERM_PROFILE == 'Hotkey Window'
+  set background=dark
+  colorscheme Tomorrow
+elseif $ITERM_PROFILE == 'Tomorrow'
   set background=light
   colorscheme Tomorrow
-else
+elseif $ITERM_PROFILE == 'Tomorrow Night'
   set background=dark
   colorscheme Tomorrow-Night
+elseif $ITERM_PROFILE == 'Visor'
+  set background=dark
+  colorscheme Tomorrow
 endif
