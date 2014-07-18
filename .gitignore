@@ -21,6 +21,7 @@
 .gem
 .gitconfig
 .gnome2
+.godaddyrc
 .gradle
 .gstreamer-*
 .gtk-bookmarks
