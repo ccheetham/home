@@ -27,7 +27,7 @@ space () {
             df -Hl $fs | tail -1 | \
                 awk '{printf "'$format'\n", $9, $2, $3, $4, $8, $1}'
         done
-        sudo zfs list -H | \
+        sudo zfs list -H 2> /dev/null | \
             awk '{printf "'$format'\n", $5, $3, $2, "", "", $1}'
     else
         df -Hl | grep ^/ | \
