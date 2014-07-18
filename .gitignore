@@ -37,6 +37,7 @@
 .mozilla
 .msgid.cache
 ntuser.ini
+.pip
 .pki
 .pulse*
 *.pyc
