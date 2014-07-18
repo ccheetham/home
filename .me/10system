@@ -4,7 +4,7 @@ for d in $(echo $dirs) ; do
     append_path $d
 done
 
-dirs="/usr/local/bin /usr/local/bin"
+dirs="/usr/local/sbin /usr/local/bin"
 for d in $(echo $dirs) ; do
     prepend_path $d
 done
