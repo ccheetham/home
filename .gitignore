@@ -3,6 +3,7 @@
 .DS_Store
 .DownloadManager
 .Trash
+.VolumeIcon.icns
 .Xauthority
 .anyconnect
 .aptitude
