@@ -94,4 +94,7 @@ elseif $ITERM_PROFILE == 'Tomorrow Night'
 elseif $ITERM_PROFILE == 'Visor'
   set background=dark
   colorscheme Tomorrow
+else
+  set background=dark
+  colorscheme Tomorrow-Night
 endif
