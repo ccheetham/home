@@ -31,8 +31,6 @@ link_files() {
 
 link_dir UltiSnips bundle
 link_dir Vundle.vim bundle
-link_files asciidoc/vim/ftdetect ftdetect
-link_files asciidoc/vim/syntax syntax
 link_files tomorrow-theme/vim/colors colors
 
 vim +PluginUpdate +qall
