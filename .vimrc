@@ -11,6 +11,7 @@ Plugin 'asciidoc.vim'
 Plugin 'pathogen.vim'
 Plugin 'pydoc.vim'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'SirVer/ultisnips'
 call vundle#end()
 
 call pathogen#infect()
