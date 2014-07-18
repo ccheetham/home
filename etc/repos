@@ -1,47 +1,47 @@
 {
   "repos":[
   {
-    "name":"asciidoc",
-    "desc":"markup language with a penchant for docbook",
-    "type":"mercurial",
-    "url":"https://asciidoc.googlecode.com/hg",
-    "rev":"8.6.8",
-    "target":"asciidoc"
+    "name": "asciidoc",
+    "desc": "markup language with a penchant for docbook",
+    "type": "mercurial",
+    "url": "https://asciidoc.googlecode.com/hg",
+    "rev": "8.6.8",
+    "target": "asciidoc"
   },
   {
-    "name":"gitprompt",
-    "desc":"zsh git prompt",
-    "type":"git",
-    "url":"https://github.com/olivierverdier/zsh-git-prompt.git"
+    "name": "gitprompt",
+    "desc": "zsh git prompt",
+    "type": "git",
+    "url": "https://github.com/olivierverdier/zsh-git-prompt.git"
   },
   {
-    "name":"nerdtree",
-    "desc":"Vim file tree explorer",
-    "type":"git",
+    "name": "nerdtree",
+    "desc": "Vim file tree explorer",
+    "type": "git",
     "url": "https://github.com/scrooloose/nerdtree.git"
   },
   {
-    "name":"pathogen",
-    "desc":"Vim runtimepath manager",
-    "type":"git",
+    "name": "pathogen",
+    "desc": "Vim runtimepath manager",
+    "type": "git",
     "url": "https://github.com/tpope/vim-pathogen.git"
   },
   {
-    "name":"tomorrow",
-    "desc":"Vim Tomorrow color theme",
-    "type":"git",
+    "name": "tomorrow",
+    "desc": "Vim Tomorrow color theme",
+    "type": "git",
     "url": "https://github.com/chriskempson/tomorrow-theme.git"
   },
   {
-    "name":"vundle",
-    "desc":"Vim plugin manager",
-    "type":"git",
+    "name": "vundle",
+    "desc": "Vim plugin manager",
+    "type": "git",
     "url": "https://github.com/gmarik/Vundle.vim.git"
   },
   {
-    "name":"ultisnips",
-    "desc":"Vim snippets",
-    "type":"git",
+    "name": "ultisnips",
+    "desc": "Vim snippets",
+    "type": "git",
     "url": "https://github.com/vim-scripts/UltiSnips.git"
   }
   ]
