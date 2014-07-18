@@ -33,6 +33,12 @@
     "url": "https://github.com/chriskempson/tomorrow-theme.git"
   },
   {
+    "name":"vundle",
+    "desc":"Vim plugin manager",
+    "type":"git",
+    "url": "https://github.com/gmarik/Vundle.vim.git"
+  },
+  {
     "name":"ultisnips",
     "desc":"Vim snippets",
     "type":"git",
