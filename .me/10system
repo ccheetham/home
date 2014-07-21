@@ -9,11 +9,7 @@ for d in $(echo $dirs) ; do
     prepend_path $d
 done
 
-if [[ -z $MANPATH ]] ; then
-    MANPATH=/usr/local/share/man
-else
-    MANPATH=/usr/local/share/man:$MANPATH
-fi
+export MANPATH=/usr/local/share/man:/usr/share/man
 
 os_specific=$(dirname $0)/$ME_OSNAME
 [[ -f $os_specific ]] && source $os_specific
