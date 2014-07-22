@@ -1,17 +1,19 @@
 checkexe task
 
-alias t='task'
-alias tl='t list'
-alias ta='t add'
 ts() {
     local filter=$1
     shift
     t $filter start $*
 }
+
 td() {
     local filter=$1
     shift
     t $filter done $*
 }
+
+alias t='task'
+alias tl='t list'
+alias ta='t add'
 
 # vim: ft=zsh

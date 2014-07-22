@@ -1,8 +1,9 @@
 export ME_PROFILE_DIR=$(dirname $0)
 
-source $ME_PROFILE_DIR/env
 export ME_FUNCTIONS=$ME_PROFILE_DIR/functions
 source $ME_FUNCTIONS
+
+source $ME_PROFILE_DIR/env
 
 /bin/rm -f $ME_SHELL_LOG
 

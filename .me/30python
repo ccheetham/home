@@ -1,4 +1,4 @@
-py () {
+py() {
     python $*
 }
 
@@ -7,8 +7,7 @@ pypath() {
 }
 
 export PYTHONPATH
-PYTHONPATH=$ME_ARCH/lib/python2.7/site-packages
-PYTHONPATH=$PYTHONPATH:$ME_LIB/python2.7/site-packages
-PYTHONPATH=$PYTHONPATH:$ME_LIB/python
+PYTHONPATH=$ME_DIST_DIR/lib/python2.7/site-packages
+PYTHONPATH=$PYTHONPATH:$ME_LIB_DIR/python
 
 # vim: ft=zsh

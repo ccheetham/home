@@ -1,5 +1,5 @@
-export GRADLE_HOME=$ME_OPT/gradle
-prepend_path $GRADLE_HOME/bin
+export GRADLE_HOME=$ME_OPT_DIR/gradle
+append_path $GRADLE_HOME
 
 alias gra='gradle'
 

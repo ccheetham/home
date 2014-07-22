@@ -1,5 +1,5 @@
-export ANT_HOME=$ME_OPT/ant
-prepend_path $ANT_HOME/bin
+export ANT_HOME=$ME_OPT_DIR/ant
+append_path $ANT_HOME
 
 alias a='ant'
 

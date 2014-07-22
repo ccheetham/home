@@ -38,4 +38,4 @@ fvmx() {
     return 1
 }
 
-# vim: filetype=zsh
+# vim: ft=zsh

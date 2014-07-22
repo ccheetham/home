@@ -1,4 +1,4 @@
-if [[ $ME_OSNAME == gentoo ]] ; then
+if [[ $ME_DIST_NAME == gentoo ]] ; then
     alias e='sudo emerge --verbose'
 fi
 

@@ -1,5 +1,6 @@
-export GEM_HOME=$ME_ARCH/lib/ruby/gems
+export GEM_HOME=$ME_DIST_DIR/lib/ruby/gems
+append_path $GEM_HOME
 
-prepend_path $GEM_HOME/bin
+alias rb='ruby'
 
 # vim: ft=zsh

@@ -1,3 +1,3 @@
-export PKG_CONFIG_PATH=$ME_ARCH/lib/pkgconfig
+export PKG_CONFIG_PATH=$ME_DIST_DIR/lib/pkgconfig
 
 # vim: ft=zsh

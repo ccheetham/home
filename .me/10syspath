@@ -1,0 +1,8 @@
+PATH=/bin:/usr/bin
+unset MANPATH; export MANPATH
+
+append_path /usr/local
+append_path /
+append_path /usr
+
+# vim: ft=zsh

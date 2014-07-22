@@ -1,102 +1,15 @@
-export ME=~
-export ME_LIB=$ME/lib
-export ME_VAR=$ME/var
-export ME_LOG_DIR=$ME_VAR/log
-export ME_REPO_DIR=$ME_VAR/repo
+[[ -z $ME ]] && ME=$HOME
+export ME
+
 export ME_CONFIG_DIR=$ME/etc
+export ME_LIB_DIR=$ME/lib
+export ME_VAR_DIR=$ME/var
+export ME_OPT_DIR=$ME/opt
 
-export ME_OSNAME=unknown
-export ME_OSVER=unknown
-export ME_OSARCH=unknown
-case $OSTYPE in
-    cygwin)
-        ME_OSNAME=cyg
-        ME_OSVER=$(uname -r | cut -d. -f1)
-        case $(uname -m) in
-            i386|i586|i686)
-                ME_OSARCH=x32
-                ;;
-        esac
-        ;;
-    darwin*)
-        ME_OSNAME=osx
-        ME_OSVER=$(echo ${OSTYPE:6} | awk -F'.' '{print $1}')
-        ME_OSARCH=x64
-        ;;
-    freebsd*)
-        ME_OSNAME=bsd
-        ME_OSVER=$(echo ${OSTYPE:7} | awk -F'.' '{print $1}')
-        case $(uname -m) in
-            i386)
-                ME_OSARCH=x32
-                ;;
-        esac
-        ;;
-    linux-gnu)
-        if grep "Red Hat" /etc/issue > /dev/null ; then
-            ME_OSNAME=redhat
-            ME_OSVER=$(head -1 /etc/issue | sed 's/.*release\ //' | sed 's/\..*$//')
-        elif grep "CrunchBang" /etc/issue > /dev/null ; then
-            ME_OSNAME=crunch
-            ME_OSVER=$(head -1 /etc/issue | sed 's/[^0-9]*//g')
-            local _version=$(head -1 /etc/issue | cut -d\  -f3)
-            case $_version in
-                waldorf)
-                    ME_OSVER=11
-                    ;;
-                *)
-                    ME_OSVER=$_version
-                    ;;
-            esac
-            unset _version
-        elif grep "Debian" /etc/issue > /dev/null ; then
-            ME_OSNAME=debian
-            ME_OSVER=$(head -1 /etc/issue | sed 's/[^0-9]*//g')
-        elif [[ -d /etc/portage ]] ; then
-            ME_OSNAME=gentoo
-            ME_OSVER=0
-        fi
-        case $(uname -m) in
-            i386|i586|i686)
-                ME_OSARCH=x32
-                ;;
-            x86_64)
-                ME_OSARCH=x64
-                ;;
-        esac
-        ;;
-    solaris*)
-        ME_OSNAME=sol
-        ME_OSVER=$(echo ${OSTYPE:7} | sed 's/.*\.//')
-        case $(isainfo -kv) in
-            64-bit*)
-                ME_OSARCH=x64
-                ;;
-        esac
-        ;;
-esac
 
-me() {
-    env | grep ^ME | sort
-}
+export ME_LOG_DIR=$ME_VAR_DIR/log
+export ME_REPO_DIR=$ME_VAR_DIR/repo
 
-platform() {
-    echo $ME_OSNAME-$ME_OSVER-$ME_OSARCH
-}
-
-export ME_SHELL_LOG=$ME_LOG_DIR/sh.log
-
-if [[ $ME_OSNAME == cyg ]] ; then
-    ME_ARCH=/tools
-    ME_OPT=/tools
-    ME_ARCH_OPT=/tools
-else
-    ME_ARCH=$ME/arch/$(platform)
-    ME_OPT=$ME/opt
-    ME_ARCH_OPT=$ME_ARCH/opt
-fi
-export ME_ARCH
-export ME_OPT
-export ME_ARCH_OPT
+export ME_SHELL_LOG=$ME_LOG_DIR/sh.$(hostname).$$.log
 
 # vim: ft=zsh

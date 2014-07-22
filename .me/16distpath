@@ -1,0 +1,4 @@
+dist_specific=$ME_PROFILE_DIR/$ME_DIST_NAME
+[[ -f $dist_specific ]] && source $dist_specific
+
+# vim: ft=zsh

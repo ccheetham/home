@@ -3,4 +3,4 @@ if checkexe less ; then
     export LESS="-RSM~gIsw"
 fi
 
-# vim: filetype=zsh
+# vim: ft=zsh
