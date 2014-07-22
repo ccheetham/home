@@ -1,7 +1,9 @@
+._*
 *.swp
 .CFUserTextEncoding
 .DS_Store
 .DownloadManager
+.NERDTreeBookmarks
 .Trash
 .VolumeIcon.icns
 .Xauthority
