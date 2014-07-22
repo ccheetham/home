@@ -44,8 +44,10 @@ ntuser.ini
 .pki
 .pulse*
 *.pyc
+.rediscli_history
 .restorecond
 .rnd
+.serverauth*
 .ssh
 .subversion
 .sudo_as_admin_successful
