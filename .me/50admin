@@ -1,6 +1,6 @@
 checkexe sudo
 
-alias hosts='sudo $EDITOR /etc/hosts'
+alias hosts='$EDITOR /etc/hosts'
 [[ $ME_DIST_NAME == darwin ]] && alias dmesg='sudo dmesg'
 
 sys() {
