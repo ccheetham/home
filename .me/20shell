@@ -3,7 +3,7 @@ PS1="%~ %# "
 
 # term title
 precmd() {
-    print -Pn "\e]0;%n@%m\a"
+    print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
 }
 
 path() {
