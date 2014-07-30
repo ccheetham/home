@@ -1,10 +1,3 @@
-if which keychain > /dev/null 2>&1 ; then
-    shlog using keychain
-    keychain --quiet
-    export KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
-    [[ -f $KEYCHAIN_ENV ]] && source $KEYCHAIN_ENV
-fi
-
 instkey() {
     if [[ $# != 1 ]] ; then
         echo "Usage: $0 <host>"

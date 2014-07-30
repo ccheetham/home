@@ -1,0 +1,15 @@
+if which keychain > /dev/null 2>&1 ; then
+    shlog using keychain
+    keychain --quiet
+    export KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
+    [[ -f $KEYCHAIN_ENV ]] && source $KEYCHAIN_ENV
+fi
+
+initkeychain() {
+    for pub in ~/.ssh/*.pub ; do
+        pri=$(basename $pub .pub)
+        eval $(keychain --eval --agents ssh $pri 2> /dev/null)
+    done
+}
+
+# vim: ft=zsh
