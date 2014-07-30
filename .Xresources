@@ -1,70 +1,98 @@
-XTerm*faceName:                Inconsolata
-XTerm*faceSize:                10
-XTerm*pointerMode:             1
-
-XTerm*toolBar:                 false
-
-XTerm*scrollBar:               true
-XTerm*rightScrollBar:          true
-XTerm*scrollKey:               true
-XTerm*scrollTtyOutput:         false
-XTerm*allowScrollLock:         false
-
-XTerm*visualBell:              true
-XTerm*altIsNotMeta:            true
-XTerm*altSendsEscape:          true
-
-wheel*background:              darkred
-
-log*foreground:                dark khaki
-log*geometry:                  120x20
-log*faceSize:                  8
-
-
-ncss*foreground:               cornsilk
-
-mail*scrollBar:                false
-mail*termName:                 xterm-256color
-mail*title:                    Mail
-
-
-#include "var/repo/tomorrow-theme/Xdefaults/XresourceTomorrowNight"
-
-
-! font settings --------------------------------------------------------------
+! -- font settings --------------------------------------------------------
 
 Xft.autohint: true
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
-!Xft.dpi: 96
+!Xft.dpi: 300
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-! xscreensaver ---------------------------------------------------------------
 
-!font settings
-!xscreensaver.Dialog.headingFont:        -*-incolsolata-medium-r-*-*-14-*-*-*-*-*-*-*
-!xscreensaver.Dialog.bodyFont:           -*-incolsolata-medium-r-*-*-14-*-*-*-*-*-*-*
-!xscreensaver.Dialog.labelFont:          -*-incolsolata-medium-r-*-*-14-*-*-*-*-*-*-*
-!xscreensaver.Dialog.unameFont:          -*-incolsolata-medium-r-*-*-14-*-*-*-*-*-*-*
-!xscreensaver.Dialog.buttonFont:         -*-incolsolata-medium-r-*-*-14-*-*-*-*-*-*-*
-!xscreensaver.Dialog.dateFont:           -*-incolsolata-medium-r-*-*-12-*-*-*-*-*-*-*
-!xscreensaver.passwd.passwdFont:         -*-incolsolata-medium-r-*-*-14-*-*-*-*-*-*-*
-!general dialog box (affects main hostname, username, password text)
-xscreensaver.Dialog.foreground:         #101010
-xscreensaver.Dialog.background:         #D8D8D8
-xscreensaver.Dialog.topShadowColor:     #D8D8D8
-xscreensaver.Dialog.bottomShadowColor:  #D8D8D8
-xscreensaver.Dialog.Button.foreground:  #101010
-xscreensaver.Dialog.Button.background:  #E5E5E5
-!username/password input box and date text colour
-xscreensaver.Dialog.text.foreground:    #101010
-xscreensaver.Dialog.text.background:    #E5E5E5
-xscreensaver.Dialog.internalBorderWidth:24
-xscreensaver.Dialog.borderWidth:        0
-xscreensaver.Dialog.shadowThickness:    2
-!timeout bar (background is actually determined by Dialog.text.background)
-xscreensaver.passwd.thermometer.foreground:  #101010
-xscreensaver.passwd.thermometer.background:  #2E2E2E
-xscreensaver.passwd.thermometer.width:       8
+! -- TomorrowNight (https://github.com/chriskempson/tomorrow-theme) -------
+
+#define tn_background       #1d1f21
+#define tn_current_line     #282a2e
+#define tn_selection        #373b41
+#define tn_foreground       #c5c8c6
+#define tn_comment          #969896
+#define tn_red              #cc6666
+#define tn_orange           #de935f
+#define tn_yellow           #f0c674
+#define tn_green            #b5bd68
+#define tn_aqua             #8abeb7
+#define tn_blue             #81a2be
+#define tn_purple           #b294bb
+
+
+! -- basic xterm ----------------------------------------------------------
+
+XTerm*faceName:             xft:Inconsolata:pixelsize=13
+XTerm*pointerMode:          1
+
+XTerm*toolBar:              false
+
+XTerm*scrollBar:            true
+XTerm*rightScrollBar:       true
+XTerm*scrollKey:            true
+XTerm*scrollTtyOutput:      false
+XTerm*allowScrollLock:      false
+
+XTerm*visualBell:           true
+XTerm*altIsNotMeta:         true
+XTerm*altSendsEscape:       true
+
+XTerm*.foreground:          tn_foreground
+XTerm*.background:          tn_background
+XTerm*.cursorColor:         #aeafad
+
+! Black / Grey
+XTerm*.color0:              #000000
+XTerm*.color8:              #666666
+
+! Red / Bright Red
+XTerm*.color1:              tn_red
+XTerm*.color9:              #FF3334
+
+! Green + Bright Green
+XTerm*.color2:              tn_green
+XTerm*.color10:             #9ec400
+
+! Yellow (Orange) + Bright Yellow (Yellow)
+XTerm*.color3:              tn_orange
+XTerm*.color11:             tn_yellow
+
+! Blue + Bright Blue
+XTerm*.color4:              tn_blue
+XTerm*.color12:             tn_blue
+
+! Magenta (Purple) + Bright Magenta
+XTerm*.color5:              tn_purple
+XTerm*.color13:             #b777e0
+
+! Cyan (Aqua) + Bright Cyan
+XTerm*.color6:              tn_aqua
+XTerm*.color14:             #54ced6
+
+! Light Grey (Selection) + White (Current Line)
+XTerm*.color7:              tn_selection
+XTerm*.color15:             tn_current_line
+
+
+! -- root terms -----------------------------------------------------------
+
+wheel*background:           tomato
+
+
+! -- logging terms --------------------------------------------------------
+
+log*foreground:             dark khaki
+log*geometry:               120x20
+log*faceSize:               8
+
+
+! -- task warrior terms ---------------------------------------------------
+
+task*geometry:              80x80
+task*background:            #101010
+task*faceName:              xft:Courier\ New:italic:pixelsize=10
