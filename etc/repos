@@ -4,19 +4,19 @@
     "name": "gitprompt",
     "desc": "zsh git prompt",
     "type": "git",
-    "url": "https://github.com/olivierverdier/zsh-git-prompt.git"
+    "url" : "https://github.com/olivierverdier/zsh-git-prompt.git"
   },
   {
     "name": "tomorrow",
     "desc": "Vim Tomorrow color theme",
     "type": "git",
-    "url": "https://github.com/chriskempson/tomorrow-theme.git"
+    "url" : "https://github.com/chriskempson/tomorrow-theme.git"
   },
   {
     "name": "vundle",
     "desc": "Vim plugin manager",
     "type": "git",
-    "url": "https://github.com/gmarik/Vundle.vim.git"
+    "url" : "https://github.com/gmarik/Vundle.vim.git"
   }
   ]
 }
