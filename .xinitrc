@@ -1,7 +1,10 @@
-if [[ $(uname -s) == Darwin ]] ; then
+if which vmware-user-suid-wrapper > /dev/null 2>&1 ; then
+    vmware-user-suid-wrapper
+fi
+
+if [[ $ME_DIST_NAME == darwin ]] ; then
   /bin/sh /usr/X11/lib/X11/xinit/xinitrc
 else
-  xhost +ccheetham
   xrdb ~/.Xresources
   xterm &
   if which startfluxbox > /dev/null 2>&1 ; then
