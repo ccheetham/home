@@ -8,4 +8,6 @@ export ME_DIST_ARCH=$(echo $ME_DIST | cut -d'-' -f3)
 export ME_DIST_DIR=$ME/distro/$ME_DIST
 export ME_DIST_OPT_DIR=$ME_DIST_DIR/opt
 
+append_path $ME_DIST_DIR
+
 # vim: ft=zsh
