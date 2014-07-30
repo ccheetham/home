@@ -93,6 +93,6 @@ log*faceSize:               8
 
 ! -- task warrior terms ---------------------------------------------------
 
-task*geometry:              80x80
+task*geometry:              80x80+0+0
 task*background:            #101010
 task*faceName:              xft:Courier\ New:italic:pixelsize=10
