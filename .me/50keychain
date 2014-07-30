@@ -6,9 +6,11 @@ if which keychain > /dev/null 2>&1 ; then
 fi
 
 initkeychain() {
+    keychain_opts="--eval --agents ssh"
+    [[ $ME_DIST_NAME == darwin ]] && keychain_opts+=" --inherit"
     for pub in ~/.ssh/*.pub ; do
         pri=$(basename $pub .pub)
-        eval $(keychain --eval --agents ssh $pri 2> /dev/null)
+        eval $(keychain $keychain_opts ssh $pri 2> /dev/null)
     done
 }
 
