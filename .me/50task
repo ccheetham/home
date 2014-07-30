@@ -1,19 +1,12 @@
 checkexe task
 
-ts() {
-    local filter=$1
-    shift
-    t $filter start $*
+t() {
+    if [[ $# == 0 ]] ; then
+        clear
+        task li
+    else
+        task $*
+    fi
 }
-
-td() {
-    local filter=$1
-    shift
-    t $filter done $*
-}
-
-alias t='task'
-alias tl='t list'
-alias ta='t add'
 
 # vim: ft=zsh
