@@ -4,6 +4,7 @@
 .DS_Store
 .DownloadManager
 .NERDTreeBookmarks
+.Spotlight*/
 .Trash
 .VolumeIcon.icns
 .Xauthority
@@ -20,6 +21,7 @@
 .eclipse*
 .erlang.cookie
 .fontconfig
+.fseventsd/
 .gconf
 .gem
 .gitconfig

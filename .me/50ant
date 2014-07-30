@@ -3,4 +3,15 @@ append_path $ANT_HOME
 
 alias a='ant'
 
+a19() {
+    ANT_HOME=$ME_OPT_DIR/ant-1.9
+    $ANT_HOME/bin/ant $*
+}
+
+a18() {
+    ANT_HOME=$ME_OPT_DIR/ant-1.8
+    $ANT_HOME/bin/ant $*
+}
+    
+
 # vim: ft=zsh
