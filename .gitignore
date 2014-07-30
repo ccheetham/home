@@ -23,12 +23,15 @@
 .gconf
 .gem
 .gitconfig
+.gnome
 .gnome2
 .godaddyrc
+.gphostcache
 .gradle
 .gstreamer-*
 .gtk-bookmarks
 .gtkrc-*
+.icons
 .ivy2
 .java
 .jmc
@@ -39,9 +42,10 @@
 .macromedia
 .mozilla
 .msgid.cache
-ntuser.ini
+.ncftp
 .pip
 .pki
+.pkgutil
 .pulse*
 *.pyc
 .rediscli_history
@@ -98,5 +102,6 @@ distro
 foo*
 images
 inbox
+ntuser.ini
 videos
 workspace
