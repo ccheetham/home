@@ -18,7 +18,7 @@ fi
 dp() {
     if [[ -z $_ME_OLD_PROMPT ]] ; then
         _ME_OLD_PROMPT=$PROMPT
-        PROMPT='%~ %b$(git_super_status) %# '
+        PROMPT='git: $(git_super_status)'$'\n'$_ME_OLD_PROMPT
         cd $PWD # to get prompt to redisplay
     else
         PROMPT=$_ME_OLD_PROMPT
