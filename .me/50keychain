@@ -7,10 +7,10 @@ fi
 
 initkeychain() {
     keychain_opts="--eval --agents ssh"
-    [[ $ME_DIST_NAME == darwin ]] && keychain_opts+=" --inherit"
+    [[ $ME_DIST_NAME == darwin ]] && keychain_opts+=" --inherit any"
     for pub in ~/.ssh/*.pub ; do
         pri=$(basename $pub .pub)
-        eval $(keychain $keychain_opts ssh $pri 2> /dev/null)
+        eval keychain $keychain_opts $pri
     done
 }
 
