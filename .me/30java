@@ -4,8 +4,9 @@ if [[ $ME_DIST_NAME == darwin ]] ; then
     JDK_HOME=$JDK8_HOME
 else
     JDK_HOME=$ME_DIST_OPT_DIR/jdk/current
-    JDK8_HOME=$ME_DIST_OPT_DIR/jdk/8
-    JDK7_HOME=$ME_DIST_OPT_DIR/jdk/7
+    JDK8_HOME=$ME_DIST_OPT_DIR/jdk/1.8
+    JDK7_HOME=$ME_DIST_OPT_DIR/jdk/1.7
+    JDK6_HOME=$ME_DIST_OPT_DIR/jdk/1.6
 fi
 export JDK_HOME
 export JAVA_HOME=$JDK_HOME
@@ -32,5 +33,10 @@ j8 () {
 j7 () {
     $JDK7_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
 }
+
+j6 () {
+    $JDK6_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
+}
+
 
 # vim: ft=zsh
