@@ -1,4 +1,5 @@
 prepend_path $ME
+prepend_path $ME/local
 
 export ME_DIST=$(distinfo)
 export ME_DIST_NAME=$(echo $ME_DIST | cut -d'-' -f1)
