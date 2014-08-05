@@ -1,0 +1,53 @@
+color=on
+
+color.alternate=on gray4
+
+color.active=black on rgb253
+
+color.pri.H=gray23
+color.pri.M=gray15
+color.pri.L=gray7
+color.pri.none=underline
+
+color.blocked=yellow
+color.blocking=red
+
+
+#color.active              on rgb211
+#color.alternate           on gray4
+#color.blocked             yellow
+#color.blocking            red
+#color.burndown.done       black on green
+#color.burndown.pending    black on red
+#color.burndown.started    black on yellow
+#color.calendar.due        white on red
+#color.calendar.due.today  bold white on red
+#color.calendar.holiday    black on bright yellow
+#color.calendar.overdue    black on bright red
+#color.calendar.today      bold white on bright blue
+#color.calendar.weekend    white on bright black
+#color.calendar.weeknumber bold blue
+#color.debug               yellow
+#color.due                 red
+#color.due.today           red
+#color.error               yellow
+#color.footnote            yellow
+#color.header              yellow
+#color.history.add         black on red
+#color.history.delete      black on yellow
+#color.history.done        black on green
+#color.overdue             bold red
+#color.pri.H               gray23
+#color.pri.L               gray7
+#color.pri.M               gray15
+#color.pri.none            underline
+#color.recurring           magenta
+#color.scheduled           black on green
+#color.summary.background  white on black
+#color.summary.bar         black on green
+#color.sync.added          green
+#color.sync.changed        yellow
+#color.sync.rejected       red
+#color.tagged              green
+#color.undo.after          green
+#color.undo.before         red

@@ -1,5 +1,5 @@
 include ~/share/task/holidays.en-US.rc
-include ~/share/task/solarized-dark-256.theme
+include ~/share/task/me.theme
 
 data.location=~/var/db/task
 
