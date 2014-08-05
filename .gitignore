@@ -50,6 +50,7 @@
 .pkgutil
 .pulse*
 *.pyc
+.python_history
 .rediscli_history
 .restorecond
 .rnd
