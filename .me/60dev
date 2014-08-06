@@ -1,4 +1,4 @@
-if checkexe gsed ; then
+if checkexe gsed > /dev/null ; then
     sed=gsed
 else
     sed=sed
