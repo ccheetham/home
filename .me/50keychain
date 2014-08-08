@@ -5,7 +5,7 @@ if which keychain > /dev/null 2>&1 ; then
     [[ -f $KEYCHAIN_ENV ]] && source $KEYCHAIN_ENV
 fi
 
-initkeychain() {
+keychain_init() {
     keychain_opts="--eval --agents ssh"
     [[ $ME_DIST_NAME == darwin ]] && keychain_opts+=" --inherit any"
     for pub in ~/.ssh/*.pub ; do
