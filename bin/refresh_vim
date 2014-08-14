@@ -32,4 +32,4 @@ link_files() {
 link_dir Vundle.vim bundle
 link_files tomorrow-theme/vim/colors colors
 
-vim +PluginClean! +qall
+vim +PluginClean! +PluginUpdate +qall
