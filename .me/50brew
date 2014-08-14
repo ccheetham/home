@@ -1,6 +1,5 @@
 if [[ $ME_DIST_NAME == darwin ]]; then
     alias b='brew'
-    export HOMEBREW_BUILD_FROM_SOURCE=1
 fi
 
 # vim: ft=zsh
