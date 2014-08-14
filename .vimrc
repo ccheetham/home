@@ -11,6 +11,7 @@ Plugin 'asciidoc.vim'
 Plugin 'pathogen.vim'
 Plugin 'pydoc.vim'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'fluxbox.vim'
 " vim-snipmate: start
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -52,6 +53,9 @@ nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
 " searching
 set incsearch
 nmap <leader>h :set invhlsearch<cr>
+
+" folds
+set foldlevelstart=1
 
 " status bar
 set laststatus=2                " always display status line
