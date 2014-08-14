@@ -14,9 +14,11 @@ class Repo(object):
     def refresh(self):
         GitClient().refresh(self)
 
+    def status(self):
+        GitClient().status(self)
+
     def __str__(self):
-        return "%s\n    type: %s\n    url : %s\n    path: %s\n    desc: %s" % \
-                (self.name, self.type, self.url, self.path, self.desc)
+        return "%s: %s" % (self.name, self.url)
 
     def __repr__(self):
         return "Repo[%s]" % self.props
@@ -54,6 +56,13 @@ class GitClient(object):
             print "=== checking out", repo.name
             subprocess.Popen(["git", "clone", repo.url, repo.path]).wait()
 
+    def status(self, repo):
+        print "=== status of", repo.name
+        if os.path.exists(repo.path):
+            subprocess.Popen(["git", "status"], cwd=repo.path).wait()
+        else:
+            print "not checked out"
+
 
 class Command(object):
     
@@ -74,7 +83,9 @@ class Command(object):
 
     def info(self, names=[]):
         for repo in self.repos(names):
-            print repo
+            print repo.name
+            print "    path:", repo.path
+            print "    url :", repo.url
 
     def refresh(self, names=[]):
         for repo in self.repos(names):
@@ -82,7 +93,7 @@ class Command(object):
 
     def status(self, names=[]):
         for repo in self.repos(names):
-            print repo.status()
+            repo.status()
 
 
 if __name__ == '__main__':
