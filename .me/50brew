@@ -1,5 +1,6 @@
 if [[ $ME_DIST_NAME == darwin ]]; then
     alias b='brew'
+    fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
 # vim: ft=zsh
