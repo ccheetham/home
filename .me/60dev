@@ -11,7 +11,7 @@ if checkexe git ; then
         export __GIT_PROMPT_DIR=$ME_REPO_DIR/zsh-git-prompt
         source $ME_ZSH_GIT_PROMPT/zshrc.sh
     else
-        echo 'could not find $ME_ZSH_GIT_PROMPT/zshrc.sh (run refresh_repo?)'
+        echo 'could not find $ME_ZSH_GIT_PROMPT/zshrc.sh (run "repo refresh"?)'
     fi
 fi
 
