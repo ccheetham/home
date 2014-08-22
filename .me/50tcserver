@@ -1,0 +1,4 @@
+export TC_SERVER_HOME=$ME_OPT_DIR/tcserver/current
+export QA_OUTDIR=~/tmp/tcserver
+
+# vim: ft=zsh
