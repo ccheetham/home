@@ -4,12 +4,13 @@ alias m='mvn'
 alias m32=$ME_OPT_DIR/maven/3.2/bin/mvn
 alias m31=$ME_OPT_DIR/maven/3.1/bin/mvn
 alias m30=$ME_OPT_DIR/maven/3.0/bin/mvn
+alias m22=$ME_OPT_DIR/maven/2.2/bin/mvn
 
 refresh_maven () {
     local instdir=$ME_OPT_DIR/maven
     local disturl=http://archive.apache.org/dist/maven/binaries
     local -a vers
-    versions=(3.2.1 3.1.1 3.0.5)
+    versions=(3.2.1 3.1.1 3.0.5 2.2.1)
 
     mkdir -p $instdir
     for version in $versions
