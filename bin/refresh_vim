@@ -1,18 +1,17 @@
 #!/usr/bin/env zsh
 
-VIM_DIR=$ME/.vim
-REPO_DIR=../../var/repo
+vimdir=$ME/.vim
 
-cd $VIM_DIR
+cd $vimdir
 
 link_dir() {
     local src=$1
     local tgt=$2
     (
-    /bin/mkdir -p $VIM_DIR/$tgt
-    cd $VIM_DIR/$tgt
+    /bin/mkdir -p $vimdir/$tgt
+    cd $vimdir/$tgt
     [[ -e $src ]] && /bin/rm $src
-    /bin/ln -s $REPO_DIR/$src
+    /bin/ln -s $ME_REPO_DIR/$src
     )
 }
 
@@ -20,9 +19,9 @@ link_files() {
     local src=$1
     local tgt=$2
     (
-    /bin/mkdir -p $VIM_DIR/$tgt
-    cd $VIM_DIR/$tgt
-    for f in $REPO_DIR/$src/* ; do
+    /bin/mkdir -p $vimdir/$tgt
+    cd $vimdir/$tgt
+    for f in $ME_REPO_DIR/$src/* ; do
         [[ -e $(basename $f) ]] && /bin/rm $(basename $f)
         /bin/ln -s $f
     done
@@ -32,4 +31,4 @@ link_files() {
 link_dir Vundle.vim bundle
 link_files tomorrow-theme/vim/colors colors
 
-vim +PluginClean! +qall
+vim +PluginClean! +PluginUpdate +qall

@@ -3,7 +3,7 @@ checkexe task
 t() {
     if [[ $# == 0 ]] ; then
         clear
-        task li
+        task
     else
         task $*
     fi

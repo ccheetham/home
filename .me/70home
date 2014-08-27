@@ -1,0 +1,7 @@
+home_domain=home.cheetham.com
+
+alias mini="ssh mini.$home_domain"
+alias mbook="ssh mbook.$home_domain"
+alias web="ssh web.$home_domain"
+
+# vim: ft=zsh

@@ -11,6 +11,8 @@ Plugin 'asciidoc.vim'
 Plugin 'pathogen.vim'
 Plugin 'pydoc.vim'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'ctrlp.vim'
+Plugin 'fluxbox.vim'
 " vim-snipmate: start
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -53,6 +55,14 @@ nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
 set incsearch
 nmap <leader>h :set invhlsearch<cr>
 
+" navigating errors/hits
+nmap <c-n> :cnext<cr>
+nmap <c-m> :cprev<cr>
+nmap <c-b> :cc<cr>
+
+" folds
+set foldlevelstart=1
+
 " status bar
 set laststatus=2                " always display status line
 set showmode                    " tell me what mode I'm in
@@ -93,7 +103,13 @@ nmap <leader>w :set invwrap<cr>
 
 " NERDTree
 map <leader>t :NERDTreeToggle<cr>
-autocmd vimenter * if !argc() | NERDTree | endif
+
+" grepping
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+endif
 
 " misc
 set wildmenu                    " enhanced completion
@@ -117,3 +133,4 @@ else
   set background=dark
   colorscheme Tomorrow-Night
 endif
+

@@ -5,8 +5,8 @@ data.location=~/var/db/task
 
 calendar.holidays=sparse
 
-taskd.certificate=~/etc/ssl/chris.cheetham.com.cert
-taskd.key=~/etc/ssl/chris.cheetham.com.key
-taskd.ca=~/etc/ssl/ca.cheetham.com.cert
+taskd.certificate=~/etc/ssl/chris.cheetham.crt
+taskd.key=~/etc/ssl/chris.cheetham.key
+taskd.ca=~/etc/ssl/ca.cheetham.com.crt
 taskd.server=task.cheetham.com:8275
 taskd.credentials=cheetham/chris/82d693c6-1a64-4003-82c3-e3f5368cf070

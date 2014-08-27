@@ -36,6 +36,7 @@
 .icons
 .ivy2
 .java
+.jline-jython.history
 .jmc
 .keychain
 .lesshst
