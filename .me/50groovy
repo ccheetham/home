@@ -1,4 +1,4 @@
-export GROOVY_HOME=$ME_OPT_DIR/groovy
+export GROOVY_HOME=$ME_OPT_DIR/groovy/current
 append_path $GROOVY_HOME
 
 alias gru='groovy'

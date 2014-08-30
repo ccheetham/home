@@ -1,5 +1,5 @@
 # shell prompt
-PS1="%~ %# "
+PROMPT="%2~ %# "
 
 # term title
 precmd() {

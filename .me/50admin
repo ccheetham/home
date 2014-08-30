@@ -52,4 +52,12 @@ toor() {
     [[ -n display ]] && export DISPLAY=$display
 }
 
+reboot() {
+    sudo /sbin/reboot
+}
+
+poweroff() {
+    sudo /sbin/poweroff
+}
+
 # vim: ft=zsh

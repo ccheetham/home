@@ -1,4 +1,4 @@
-REDIS_HOME=$ME_OPT_DIR/redis
+REDIS_HOME=$ME_OPT_DIR/redis/current
 REDISD=$REDIS_HOME/src/redis-server
 REDIS_CLI=$REDIS_HOME/src/redis-cli
 

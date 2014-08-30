@@ -1,0 +1,5 @@
+append_path $ME_OPT_DIR/jython/current
+
+alias jy='jython'
+
+# vim: ft=zsh
