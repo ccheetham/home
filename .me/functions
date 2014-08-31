@@ -1,5 +1,5 @@
 me() {
-    env | grep ^ME | LC_ALL=C sort
+    env | grep '^ME' | LC_ALL=C sort
 }
 
 reenv() {

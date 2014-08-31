@@ -14,4 +14,7 @@ export ME_REPO_DIR=$ME_VAR_DIR/repo
 
 export ME_SHELL_LOG=$ME_LOG_DIR/sh.$(hostname).$$.log
 
+export ME_OSNAME=$(uname); ME_OSNAME=$ME_OSNAME:l
+export ME_HOSTNAME=$HOST:l
+
 # vim: ft=zsh
