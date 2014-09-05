@@ -1,5 +1,0 @@
-if [[ $ME_DIST_NAME == gentoo ]] ; then
-    alias e='sudo emerge --verbose'
-fi
-
-# vim: filetype=zsh
