@@ -5,11 +5,28 @@ source $ME_FUNCTIONS
 
 source $ME_PROFILE_DIR/env
 
-/bin/rm -f $ME_SHELL_LOG
-
-for f in $ME_PROFILE_DIR/[[:digit:]]* ; do
+for f in $ME_PROFILE_DIR/[[:digit:]]*~$ME_PROFILE_DIR/*.* ; do
     shlog $0 sourcing $f
     source $f
+    # override per os
+    if [[ -f $f.$ME_OSNAME ]] ; then
+        shlog $0 sourcing $f.$ME_OSNAME
+        source $f.$ME_OSNAME
+    fi
+    # override per distribution
+    if [[ -f $f.$ME_DIST_NAME ]] ; then
+        # don't resource for distros whose name is same as os name
+        if [[ $ME_DIST_NAME != $ME_OSNAME ]] ; then
+            shlog $0 sourcing $f.$ME_DIST_NAME
+            source $f.$ME_DIST_NAME
+        fi
+    else
+    fi
+    # override per host
+    if [[ -f $f.$ME_HOSTNAME ]] ; then
+        shlog $0 sourcing $f.$ME_HOSTNAME
+        source $f.$ME_HOSTNAME
+    fi
 done
 
 # vim: ft=zsh

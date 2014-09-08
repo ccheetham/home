@@ -16,7 +16,7 @@ usage() {
     echo
     echo "OPTIONS"
     echo
-    echo -e "\t-o\tcertficate file (default <name>.cert)"
+    echo -e "\t-o\tcertficate file (default <name>.crt)"
     echo -e "\t-h\tdisplay this message"
     echo
     echo "NOTES"
@@ -67,7 +67,7 @@ if [[ $# > 1 ]] ; then
 fi
 name=$1
 
-[[ -z $cert ]] && cert=$name.cert
+[[ -z $cert ]] && cert=$name.crt
 if [[ -e $cert ]] ; then
     echo "certificate exists: $cert" >&2
     exit 1

@@ -21,37 +21,20 @@ sys() {
     fi
 }
 
-space () {
-    echo "Mount (Volume)         Size   Used  Avail   Pct   Filesystem"
-    echo "--------------------  -----  -----  -----  ----   -----------------"
-    format="%-20s  %5s  %5s  %5s  %4s   %s"
-    if [[ $OSTYPE == darwin* ]] ; then
-        for fs in /Volumes/* ; do
-            df -Hl $fs | tail -1 | \
-                awk '{printf "'$format'\n", $9, $2, $3, $4, $8, $1}'
-        done
-        sudo zfs list -H 2> /dev/null | \
-            awk '{printf "'$format'\n", $5, $3, $2, "", "", $1}'
-    else
-        df -Hl | grep ^/ | \
-            awk '{printf "'$format'\n", $6, $2, $3, $4, $5, $1}' 
-    fi
-}
-
-systail () {
-    if [[ $OSTYPE == darwin* ]] ; then
-        tail -f /var/log/system.log
-    else
-        sudo tail -f /var/log/messages
-    fi
-}
-
 toor() {
     local display=
     [[ -n DISPLAY ]] && display=$DISPLAY
     unset DISPLAY
     sudo su -
     [[ -n display ]] && export DISPLAY=$display
+}
+
+reboot() {
+    sudo /sbin/reboot
+}
+
+poweroff() {
+    sudo /sbin/poweroff
 }
 
 # vim: ft=zsh

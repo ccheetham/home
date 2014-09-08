@@ -23,7 +23,7 @@ usage() {
     echo
     echo -e "\t$pgm looks for the following in the current directory:"
     echo
-    echo -e "\t<name>.cert\tcertificate file"
+    echo -e "\t<name>.crt\tcertificate file"
     echo -e "\t<name>.key\tkey file"
     echo
 }
@@ -69,7 +69,7 @@ if [[ -e $crl ]] ; then
     exit 1
 fi
 key=$name.key
-cert=$name.cert
+cert=$name.crt
 tmpl=crl.tmpl.$$
 echo "expiration_days = -1" > $tmpl
 

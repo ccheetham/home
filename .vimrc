@@ -18,6 +18,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 " vim-snipmate: end
+Plugin 'nginx.vim'
 call vundle#end()
 
 call pathogen#infect()
@@ -49,6 +50,7 @@ set numberwidth=3
 if version >= 703
   set colorcolumn=80
 endif
+set cursorline cursorcolumn
 nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
 
 " searching
@@ -58,7 +60,6 @@ nmap <leader>h :set invhlsearch<cr>
 " navigating errors/hits
 nmap <c-n> :cnext<cr>
 nmap <c-m> :cprev<cr>
-nmap <c-b> :cc<cr>
 
 " folds
 set foldlevelstart=1

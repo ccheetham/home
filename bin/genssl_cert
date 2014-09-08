@@ -17,7 +17,7 @@ usage() {
     echo
     echo "OPTIONS"
     echo
-    echo -e "\t-o\tcertficate file (default <name>.cert)"
+    echo -e "\t-o\tcertficate file (default <name>.crt)"
     echo -e "\t-h\tdisplay this message"
     echo
     echo "NOTES"
@@ -26,7 +26,7 @@ usage() {
     echo
     echo -e "\t<name>.tmpl\ttemplate file"
     echo -e "\t<name>.key\tkey file"
-    echo -e "\t<caname>.cert\tCA certificate"
+    echo -e "\t<caname>.crt\tCA certificate"
     echo -e "\t<caname>.key\tCA key file"
     echo
     echo "SEE ALSO"
@@ -71,7 +71,7 @@ fi
 name=$1
 caname=$2
 
-[[ -z $cert ]] && cert=$name.cert
+[[ -z $cert ]] && cert=$name.crt
 if [[ -e $cert ]] ; then
     echo "certificate exists: $cert" >&2
     exit 1
@@ -79,7 +79,7 @@ fi
 
 checkexe certtool || exit
 if certtool --generate-certificate \
-    --load-ca-certificate $caname.cert \
+    --load-ca-certificate $caname.crt \
     --load-ca-privkey $caname.key \
     --load-privkey $name.key \
     --template $name.tmpl \
