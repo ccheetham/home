@@ -1,4 +1,4 @@
-export RABBITMQ_HOME=$ME_OPT_DIR/rabbitmq
+export RABBITMQ_HOME=$ME_OPT_DIR/rabbitmq/current
 append_path $RABBITMQ_HOME
 
 RMQD=rabbitmq-server

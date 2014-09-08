@@ -1,0 +1,13 @@
+systail () {
+    sudo tail -f /var/log/messages
+}
+
+space () {
+    echo "Mount (Volume)         Size   Used  Avail   Pct   Filesystem"
+    echo "--------------------  -----  -----  -----  ----   -----------------"
+    format="%-20s  %5s  %5s  %5s  %4s   %s"
+    df -Hl | grep ^/ | \
+        awk '{printf "'$format'\n", $6, $2, $3, $4, $5, $1}' 
+}
+
+# vim: ft=zsh

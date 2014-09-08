@@ -7,7 +7,15 @@ precmd() {
 }
 
 path() {
-    echo $PATH | tr ':' '\n'
+    if [[ $# == 0 ]] ; then
+        echo $PATH | tr ':' '\n'
+    else
+        for p in $* ; do
+            PATH=$p:$PATH
+        done
+        echo PATH now:
+        path
+    fi
 }
 
 manpath() {

@@ -1,0 +1,3 @@
+alias e='sudo emerge --verbose'
+
+# vim: filetype=zsh
