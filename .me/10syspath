@@ -4,5 +4,6 @@ unset MANPATH; export MANPATH
 append_path /usr/local
 append_path /
 append_path /usr
+[[ -d /usr/games ]] && PATH=$PATH:/usr/games
 
 # vim: ft=zsh
