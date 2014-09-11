@@ -1,0 +1,8 @@
+xrdb -load ~/.Xresources
+xsetroot -solid "#262626"
+
+if which vmware-user-suid-wrapper > /dev/null 2>&1 ; then
+    vmware-user-suid-wrapper
+fi
+
+# vim: ft=zsh

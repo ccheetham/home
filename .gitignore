@@ -3,6 +3,7 @@
 .CFUserTextEncoding
 .DS_Store
 .DownloadManager
+.ICEauthority
 .NERDTreeBookmarks
 .Spotlight*/
 .Trash
@@ -13,9 +14,11 @@
 .bash*
 .cisco
 .cache
+.compiz
 .config
 .cups
 .dbus
+.dmrc
 .dropbox*
 .dvdcss
 .eclipse*
@@ -48,7 +51,6 @@
 .ncftp
 .pip
 .pki
-.pkgutil
 .pulse*
 *.pyc
 .python_history
@@ -59,6 +61,7 @@
 .ssh
 .subversion
 .sudo_as_admin_successful
+.synaptic
 .vim/.netrwhist
 .vim/autoload
 .vim/bundle
@@ -70,7 +73,6 @@
 .wireshark*
 .xchat2
 .xscreensaver
-.xsession-errors
 .zcompdump*
 .zhistfile
 AppData
