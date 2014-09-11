@@ -49,7 +49,6 @@
 .ncftp
 .pip
 .pki
-.pkgutil
 .pulse*
 *.pyc
 .python_history
