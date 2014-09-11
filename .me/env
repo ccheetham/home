@@ -17,4 +17,12 @@ export ME_SHELL_LOG=$ME_LOG_DIR/sh.$(hostname).$$.log
 export ME_OSNAME=$(uname); ME_OSNAME=$ME_OSNAME:l
 export ME_HOSTNAME=$HOST:l
 
+export ME_DIST=$($ME/bin/distinfo)
+export ME_DIST_NAME=$(echo $ME_DIST | cut -d'-' -f1)
+export ME_DIST_VERSION=$(echo $ME_DIST | cut -d'-' -f2)
+export ME_DIST_ARCH=$(echo $ME_DIST | cut -d'-' -f3)
+
+export ME_DIST_DIR=$ME/distro/$ME_DIST
+export ME_DIST_OPT_DIR=$ME_DIST_DIR/opt
+
 # vim: ft=zsh
