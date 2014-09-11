@@ -1,0 +1,3 @@
+alias pkgutil='sudo pkgutil'
+
+# vim: ft=zsh
