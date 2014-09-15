@@ -89,18 +89,17 @@ augroup END
 " style aids
 set listchars=tab:._    "   .___
 
-" edit/source vimrc
-nmap <silent> <leader>ev :edit $MYVIMRC<cr>
-nmap <silent> <leader>sv :source $MYVIMRC<cr>
-
-" insert timestamp (YY/MM/DD hh:mm)
-:nnoremap <leader>ts "=strftime("%D %R")<cr>P
-
 " toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
 " toggle wrap mode
 nmap <leader>w :set invwrap<cr>
+
+" misc
+set wildmenu                    " enhanced completion
+set bs=2                        " backspacing over everything in insert mode
+set visualbell                  " quiet please
+set history=50                  " 50 lines of command history
 
 " NERDTree
 map <leader>t :NERDTreeToggle<cr>
@@ -112,11 +111,11 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 
-" misc
-set wildmenu                    " enhanced completion
-set bs=2                        " backspacing over everything in insert mode
-set visualbell                  " quiet please
-set history=50                  " 50 lines of command history
+" insert timestamp (YY/MM/DD hh:mm)
+:nnoremap <leader>ts "=strftime("%D %R")<cr>P
+
+" asciidoc extension variants
+au BufNewFile,BufRead *.adoc setlocal ft=asciidoc
 
 if $ITERM_PROFILE == 'Hotkey Window'
   set background=dark
@@ -135,3 +134,6 @@ else
   colorscheme Tomorrow-Night
 endif
 
+" edit/source vimrc
+nmap <silent> <leader>ev :edit $MYVIMRC<cr>
+nmap <silent> <leader>sv :source $MYVIMRC<cr>
