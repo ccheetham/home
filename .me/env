@@ -3,6 +3,7 @@ export ME
 
 export ME_CONFIG_DIR=$ME/etc
 export ME_LIB_DIR=$ME/lib
+export ME_LIBEXEC_DIR=$ME/libexec
 export ME_VAR_DIR=$ME/var
 export ME_OPT_DIR=$ME/opt
 

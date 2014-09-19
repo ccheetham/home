@@ -14,7 +14,7 @@ pypath() {
     fi
 }
 
-export PYTHONPATH
-PYTHONPATH=$ME_LIB_DIR/python
+export PYTHONPATH=$ME_LIB_DIR/python
+export PYTHONSTARTUP=$ME_LIBEXEC_DIR/pythonstartup.py
 
 # vim: ft=zsh
