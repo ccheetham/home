@@ -7,7 +7,7 @@ instkey() {
     echo initializing remote keystore directory
     ssh $user_host mkdir -p .ssh
     echo copying public key
-    scp ~/.ssh/id_dsa.pub ${user_host}:tmpkey
+    scp ~/.ssh/id_rsa.pub ${user_host}:tmpkey
     echo installing public key
     ssh $user_host cat tmpkey '>>' .ssh/authorized_keys
     echo cleaning up
