@@ -11,6 +11,7 @@
 .Xauthority
 .anyconnect
 .aptitude
+.aws
 .bash*
 .cisco
 .cache
@@ -74,6 +75,7 @@
 .wireshark*
 .xchat2
 .xscreensaver
+.xsession-errors*
 .zcompdump*
 .zhistfile
 AppData

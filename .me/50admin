@@ -3,8 +3,6 @@ checkexe sudo
 alias hosts='$EDITOR /etc/hosts'
 [[ $ME_DIST_NAME == darwin ]] && alias dmesg='sudo dmesg'
 
-alias htop='sudo htop'
-
 sys() {
     local cmd
     local host

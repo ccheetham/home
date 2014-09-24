@@ -58,4 +58,7 @@ mcdir() {
     chdir $1
 }
 
+# make CTRL-u behave like bash
+bindkey \^U backward-kill-line
+
 # vim: ft=zsh
