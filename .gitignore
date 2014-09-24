@@ -70,6 +70,7 @@
 .vim/syntax
 .viminfo
 .vimperator/info/default/history-*
+.vinevncauth
 .wireshark*
 .xchat2
 .xscreensaver
