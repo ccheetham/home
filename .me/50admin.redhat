@@ -1,0 +1,3 @@
+alias yum='sudo yum'
+
+# vim: ft=zsh
