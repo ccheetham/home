@@ -11,6 +11,7 @@
 .Xauthority
 .anyconnect
 .aptitude
+.aws
 .bash*
 .cisco
 .cache
