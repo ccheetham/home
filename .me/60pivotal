@@ -1,3 +1,3 @@
-alias qash=/qa/bin/qash
+alias qash=~/src/appsuite-qa/bin/qash
 
 # vim: ft=zsh
