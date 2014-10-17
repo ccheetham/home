@@ -1,5 +1,15 @@
+alias b='brew'
+
+bsync() {
+    b update
+    b outdated
+    echo -n 'Upgrade? '
+    read
+    b upgrade
+    b linkapps bleanup
+}
+
 if [[ $ME_DIST_NAME == darwin ]]; then
-    alias b='brew'
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
