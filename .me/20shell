@@ -58,6 +58,8 @@ mcdir() {
     chdir $1
 }
 
+alias cls='clear'
+
 # make CTRL-u behave like bash
 bindkey \^U backward-kill-line
 
