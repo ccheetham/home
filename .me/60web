@@ -1,0 +1,3 @@
+alias pyhttpd='py -m SimpleHTTPServer'
+
+# vim: ft=zsh
