@@ -1,3 +1,36 @@
-alias qash=/qa/bin/qash
+if [[ -d ~/src/appsuite-qa ]] ; then
+    prepend_path ~/src/appsuite-qa
+    export QA_TC_SERVER_HOME=$(qash 'echo $QA_TC_SERVER_HOME')
+    export QA_WEB_SERVER_HOME=$(qash 'echo $QA_WEB_SERVER_HOME')
+    export JDK_HOME=$(qash 'echo $JDK_HOME')
+    prepend_path $JDK_HOME
+fi
+
+pvpn() {
+    local pdir=~/etc/openvpn/pivotal
+    if [[ ! -d $pdir ]] ; then
+        echo "no vpn configurations in $pdir" >&2
+        return 1
+    fi
+    if [[ $# > 1 ]] ; then
+        echo "specify at most 1 destination" >&2
+        return 1
+    fi
+    if [[ $# == 0 ]] ; then
+        echo "available destinations:"
+        echo "======================="
+        for  i in $(/bin/ls $pdir) ; do
+            echo $i
+        done
+        return
+    fi
+    local dest=$1
+    if [[ ! -d $pdir/$dest ]] ; then
+        echo "no vpn configuration for destination $dest" >&2
+        return 1
+    fi
+    cd $pdir/$dest
+    sudo openvpn config.ovpn
+}
 
 # vim: ft=zsh
