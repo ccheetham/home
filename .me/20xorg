@@ -1,4 +1,4 @@
-if [[ $ME_DIST_NAME == darwin ]] ; then
+if [[ $ME_OS == osx ]] ; then
     prepend_path /opt/X11
 fi
 

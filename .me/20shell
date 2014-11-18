@@ -29,7 +29,7 @@ alias pp=popd
 
 unset ls_opts
 ls_cmd=ls
-if [[ $ME_DIST_NAME == darwin ]] ; then
+if [[ $ME_OS == osx ]] ; then
     ls_opts=' -FGH'
 else
     for opt in classify color group-directories-first ; do

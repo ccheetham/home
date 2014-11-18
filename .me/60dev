@@ -8,7 +8,7 @@ if checkexe git ; then
     ME_ZSH_GIT_PROMPT=$ME_REPO_DIR/zsh-git-prompt
     if [[ -f $ME_ZSH_GIT_PROMPT/zshrc.sh ]] ; then
         if grep '^export __GIT_PROMPT_DIR=' $ME_ZSH_GIT_PROMPT/zshrc.sh > /dev/null ; then
-            if [[ $ME_DIST_NAME == darwin ]] ;then
+            if [[ $ME_OS == osx ]] ;then
                 $sed -i '' 's:^export __GIT_PROMPT_DIR.*$::' $ME_ZSH_GIT_PROMPT/zshrc.sh
             else
                 $sed -i 's:^export __GIT_PROMPT_DIR.*$::' $ME_ZSH_GIT_PROMPT/zshrc.sh

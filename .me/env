@@ -13,17 +13,97 @@ export ME_LOG_DIR=$ME_VAR_DIR/log
 export ME_REPO_CFG=$ME_CONFIG_DIR/repo
 export ME_REPO_DIR=$ME_VAR_DIR/repo
 
-export ME_SHELL_LOG=$ME_LOG_DIR/sh.$(hostname).$$.log
-
-export ME_OSNAME=$(uname); ME_OSNAME=$ME_OSNAME:l
 export ME_HOSTNAME=$HOST:l
 
-export ME_DIST=$($ME/bin/distinfo)
-export ME_DIST_NAME=$(echo $ME_DIST | cut -d'-' -f1)
-export ME_DIST_VERSION=$(echo $ME_DIST | cut -d'-' -f2)
-export ME_DIST_ARCH=$(echo $ME_DIST | cut -d'-' -f3)
+export ME_SHELL_LOG=$ME_LOG_DIR/sh.$ME_HOSTNAME.$$.log
 
-export ME_DIST_DIR=$ME/distro/$ME_DIST
-export ME_DIST_OPT_DIR=$ME_DIST_DIR/opt
+# ME_OS
+case $OSTYPE in
+    cygwin)
+        ME_OS=windows
+        ;;
+    darwin*)
+        ME_OS=osx
+        ;;
+    linux*)
+        ME_OS=linux
+        ;;
+    solaris*)
+        ME_OS=solaris
+        ;;
+    *)
+        ME_OS=unknown
+        ;;
+esac
+
+# ME_DISTRO_VENDOR
+if [[ $ME_OS == linux ]] ; then
+    case $(cat /etc/issue) in
+        *CentOS*)
+            ME_DISTRO_VENDOR=centos
+            ;;
+        *Debian*)
+            ME_DISTRO_VENDOR=debian
+            ;;
+        *Red\ Hat*)
+            ME_DISTRO_VENDOR=redhat
+            ;;
+        *SUSE*)
+            ME_DISTRO_VENDOR=suse
+            ;;
+        *Ubuntu*)
+            ME_DISTRO_VENDOR=ubuntu
+            ;;
+        *)
+            ME_DISTRO_VENDOR=unknown
+            ;;
+    esac
+else
+    ME_DISTRO_VENDOR=$ME_OS
+fi
+
+# ME_DISTRO_VERSION
+case $ME_DISTRO_VENDOR in
+    centos)
+        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
+        ;;
+    debian)
+        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}')
+        ;;
+    redhat)
+        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $7}' | cut -d'.' -f1)
+        ;;
+    solaris)
+        ME_DISTRO_VERSION=$(echo $OSTYPE | cut -d'.' -f2)
+        ;;
+    ubuntu)
+        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $2}' | cut -d'.' -f1)
+        ;;
+    *)
+        ME_DISTRO_VERSION=unknown
+        ;;
+esac
+
+# ME_DISTRO_ARCH
+case $(uname -m) in
+    i686)
+        ME_DISTRO_ARCH=x32
+        ;;
+    x86_64)
+        ME_DISTRO_ARCH=x64
+        ;;
+    i86pc)
+        [[ $(isainfo -b) == 64 ]] && ME_DISTRO_ARCH=x64 || ME_DISTRO_ARCH=x32
+        ;;
+    *)
+        ME_DISTRO_ARCH=unknown
+        ;;
+esac
+
+export ME_OS ME_DISTRO_VENDOR ME_DISTRO_VERSION ME_DISTRO_ARCH
+export ME_DISTRO=$ME_DISTRO_VENDOR-$ME_DISTRO_VERSION-$ME_DISTRO_ARCH
+export ME_DISTRO_DIR=$ME/distro/$ME_DISTRO
+export ME_PLATFORM=$ME_OS-$ME_DISTRO_ARCH
+export ME_PLATFORM_OPT_DIR=$ME_OPT_DIR/$ME_PLATFORM
 
 # vim: ft=zsh

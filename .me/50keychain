@@ -7,7 +7,7 @@ fi
 
 keychain_init() {
     keychain_opts="--eval --agents ssh"
-    [[ $ME_DIST_NAME == darwin ]] && keychain_opts+=" --inherit any"
+    [[ $ME_OS == osx ]] && keychain_opts+=" --inherit any"
     for pub in ~/.ssh/*.pub ; do
         pri=$(basename $pub .pub)
         eval keychain $keychain_opts $pri

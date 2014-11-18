@@ -1,0 +1,3 @@
+export JAVACC_HOME=$ME_OPT_DIR/javacc/current
+
+# vim: ft=zsh

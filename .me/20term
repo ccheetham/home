@@ -1,5 +1,5 @@
 if [[ $TERM == xterm* ]] ; then
-    if [[ $ME_DIST_NAME == sol ]] ; then
+    if [[ $ME_OS_ == solaris ]] ; then
         if [[ -e /usr/share/lib/terminfo/x/xterm-256color ]] ; then
             TERM=xterm-256color
         elif [[ -e /usr/share/lib/terminfo/x/xterm-color ]] ; then

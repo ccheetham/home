@@ -1,10 +1,10 @@
-if [[ -d ~/src/appsuite-qa ]] ; then
-    prepend_path ~/src/appsuite-qa
-    export QA_TC_SERVER_HOME=$(qash 'echo $QA_TC_SERVER_HOME')
-    export QA_WEB_SERVER_HOME=$(qash 'echo $QA_WEB_SERVER_HOME')
-    export JDK_HOME=$(qash 'echo $JDK_HOME')
-    prepend_path $JDK_HOME
-fi
+#if [[ -d ~/src/appsuite-qa ]] ; then
+#    prepend_path ~/src/appsuite-qa
+#    export QA_TC_SERVER_HOME=$(qash 'echo $QA_TC_SERVER_HOME')
+#    export QA_WEB_SERVER_HOME=$(qash 'echo $QA_WEB_SERVER_HOME')
+#    export JDK_HOME=$(qash 'echo $JDK_HOME')
+#    prepend_path $JDK_HOME
+#fi
 
 pvpn() {
     local pdir=~/etc/openvpn/pivotal

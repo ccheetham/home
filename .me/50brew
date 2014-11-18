@@ -9,7 +9,7 @@ bsync() {
     b linkapps bleanup
 }
 
-if [[ $ME_DIST_NAME == darwin ]]; then
+if [[ $ME_OS == osx ]]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 

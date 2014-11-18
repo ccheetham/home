@@ -1,7 +1,7 @@
 checkexe sudo
 
 alias hosts='$EDITOR /etc/hosts'
-[[ $ME_DIST_NAME == darwin ]] && alias dmesg='sudo dmesg'
+[[ $ME_OS == osx ]] && alias dmesg='sudo dmesg'
 
 sys() {
     local cmd
