@@ -3,7 +3,7 @@ if which vim > /dev/null 2>&1 ; then
     vi=vim
     alias vi=vim
 fi
-EDITOR="$vi"
-VISUAL="$vi -f"
+export EDITOR="$vi"
+export VISUAL="$vi -f"
 
 # vim: ft=zsh
