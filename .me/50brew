@@ -6,7 +6,8 @@ bsync() {
     echo -n 'Upgrade? '
     read
     b upgrade
-    b linkapps cleanup
+    b linkapps
+    b cleanup
 }
 
 if [[ $ME_DIST_NAME == darwin ]]; then
