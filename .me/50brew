@@ -6,7 +6,8 @@ bsync() {
     echo -n 'Upgrade? '
     read
     b upgrade
-    b linkapps bleanup
+    b linkapps
+    b cleanup
 }
 
 if [[ $ME_OS == osx ]]; then
