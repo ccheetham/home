@@ -4,4 +4,4 @@ bundledir=$ME/Library/Application\ Support/TextMate/Bundles
 mkdir -p $bundledir
 cd $bundledir
 rm -f Cucumber.tmbundle
-ln -s $ME_REPO_DIR/cucumber-tmbundle.git Cucumber.tmbundle
+cp -r $ME_REPO_DIR/cucumber-tmbundle Cucumber.tmbundle
