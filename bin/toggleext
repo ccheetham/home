@@ -1,12 +1,96 @@
 #!/usr/bin/env zsh
 
-if [[ ! $ME_OSNAME == osx ]] ; then
-  echo OS X platform only
+if [[ ! $OSTYPE == darwin* ]] ; then
+  echo OS X platform only >&2
   exit 1
 fi
 
-if [[ $(GetFileInfo -ae $1) == 1 ]]; then
-  SetFile -a e $1
-else
-  SetFile -a E $1
+program=$(basename $0)
+
+toggle=0
+hidden=1
+unhidden=2
+visibility=$toggle
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$program [options] <paths>"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tpaths\tone or more file paths"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\targ\ttoggle file extension visbility in Finder"
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-H\thide file extension"
+    echo -e "\t-u\tunhide file extension"
+    echo -e "\t-h\tdisplay this message"
+    echo
+    echo "NOTES"
+    echo
+    echo -e "\tif no option, toggles the extension visibility"
+    echo
+}
+
+while getopts ":Huh" opt ; do
+    case $opt in
+        H)
+            visibility=$hidden
+            ;;
+        u)
+            visibility=$unhidden
+            ;;
+        h)
+            usage
+            exit
+            ;;
+        :)
+            echo "$opt requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option $opt" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# < 1 ]] ; then
+    echo Usage: $(basename $0) path >&2
+    exit 1
 fi
+
+for p in $* ; do
+    unset pvis
+    case $visibility in
+        $toggle)
+            if [[ $(GetFileInfo -ae $p) == 1 ]]; then
+                pvis=$unhidden
+            else
+                pvis=$hidden
+            fi
+            ;;
+        $hidden)
+            pvis=$hidden
+            ;;
+        $unhidden)
+            pvis=$unhidden
+            ;;
+    esac
+    if [[ $pvis == $hidden ]] ; then
+        SetFile -a E $p
+        echo hid ext for $p
+    else
+        SetFile -a e $p
+        echo unhid ext for $p
+    fi
+done
