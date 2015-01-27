@@ -1,10 +1,12 @@
 #!/usr/bin/env zsh
 
+program=$(basename $0)
+
 usage() {
     echo
     echo "USAGE"
     echo
-    echo -e "\t$(basename $0) [options] <reqd_arg> [opt_arg]"
+    echo -e "\t$program [options] <reqd_arg> [opt_arg]"
     echo
     echo "WHERE"
     echo
