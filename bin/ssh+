@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+host=$(basename $0)
+ssh $host
