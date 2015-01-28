@@ -103,6 +103,7 @@ set history=50                  " 50 lines of command history
 
 " NERDTree
 map <leader>t :NERDTreeToggle<cr>
+let NERDTreeIgnore = ['\.pyc$']
 
 " grepping
 if executable('ag')
