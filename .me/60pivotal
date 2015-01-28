@@ -33,4 +33,6 @@ pvpn() {
     sudo openvpn config.ovpn
 }
 
+alias ttc='clear; t proj:tc'
+
 # vim: ft=zsh
