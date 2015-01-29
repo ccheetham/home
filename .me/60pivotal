@@ -33,6 +33,14 @@ pvpn() {
     sudo openvpn config.ovpn
 }
 
+goapp() {
+    cd ~/src/appsuite-qa
+}
+
+gotc() {
+    cd ~/src/appsuite-qa/projects/tc-server-qa
+}
+
 alias ttc='clear; t proj:tc'
 
 # vim: ft=zsh
