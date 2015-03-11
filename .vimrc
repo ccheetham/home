@@ -17,8 +17,9 @@ Plugin 'fluxbox.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-" vim-snipmate: end
 Plugin 'nginx.vim'
+Plugin 'tfnico/vim-gradle'
+" vim-snipmate: end
 call vundle#end()
 
 call pathogen#infect()
