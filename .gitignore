@@ -60,6 +60,7 @@
 .rediscli_history
 .restorecond
 .rnd
+.s3cfg
 .serverauth*
 .Skype
 .ssh
