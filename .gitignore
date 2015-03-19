@@ -38,6 +38,7 @@
 .gstreamer-*
 .gtk-bookmarks
 .gtkrc-*
+.htoprc
 .icons
 .ivy2
 .java
