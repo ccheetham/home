@@ -36,7 +36,7 @@ class RepoDB(object):
             rec = rec.strip()
             if rec.startswith("#"):
                 continue
-            repo = Repo(rec[:-1])
+            repo = Repo(rec)
             self.repo[repo.name] = repo
 
     def __len__(self):
