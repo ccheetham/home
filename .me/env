@@ -100,6 +100,17 @@ case $(uname -m) in
         ;;
 esac
 
+if [[ $ME_DISTRO_VENDOR == unknown ]] ; then
+    if [[ -f /etc/os-release ]] ; then
+        . /etc/os-release
+        ME_DISTRO_VENDOR=$ID
+        ME_DISTRO_VERSION=$VERSION_ID
+        for var in $(cut -d'=' -f1 /etc/os-release) ; do
+            unset $var
+        done
+    fi
+fi
+
 export ME_OS ME_DISTRO_VENDOR ME_DISTRO_VERSION ME_DISTRO_ARCH
 export ME_DISTRO=$ME_DISTRO_VENDOR-$ME_DISTRO_VERSION-$ME_DISTRO_ARCH
 export ME_DISTRO_DIR=$ME/distro/$ME_DISTRO
