@@ -29,6 +29,7 @@
 .fseventsd/
 .gconf
 .gem
+.gemfire/
 .gitconfig
 .gnome
 .gnome2
