@@ -33,6 +33,9 @@ class RepoDB(object):
     def reload(self):
         self.repo = {}
         for rec in (open(self.dbpath)).readlines():
+            rec = rec.strip()
+            if rec.startswith("#"):
+                continue
             repo = Repo(rec[:-1])
             self.repo[repo.name] = repo
 
