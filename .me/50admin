@@ -1,6 +1,6 @@
 checkexe sudo
 
-alias hosts='$EDITOR /etc/hosts'
+alias hosts='sudo $EDITOR /etc/hosts'
 [[ $ME_OS == osx ]] && alias dmesg='sudo dmesg'
 
 sys() {
