@@ -41,6 +41,7 @@ gotc() {
     cd ~/src/appsuite-qa/projects/tc-server-qa
 }
 
+alias tqa='clear; t proj:qa'
 alias ttc='clear; t proj:tc'
 
 # vim: ft=zsh

@@ -27,7 +27,7 @@ Xft.lcdfilter: lcddefault
 
 ! -- basic xterm ----------------------------------------------------------
 
-XTerm*faceName:             xft:Inconsolata:pixelsize=13
+XTerm*faceName:             xft:Inconsolata:pixelsize=15
 XTerm*pointerMode:          1
 
 XTerm*toolBar:              false
@@ -96,3 +96,4 @@ log*faceSize:               8
 task*geometry:              80x80+0+0
 task*background:            #101010
 task*faceName:              xft:Courier\ New:italic:pixelsize=10
+task*scrollBar:             false
