@@ -10,6 +10,7 @@ else
 fi
 export JDK_HOME
 export JAVA_HOME=$JDK_HOME
+export JRE_HOME=$JDK_HOME
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 
 append_path $JAVA_HOME
@@ -37,6 +38,5 @@ j7 () {
 j6 () {
     $JDK6_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
 }
-
 
 # vim: ft=zsh
