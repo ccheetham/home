@@ -4,7 +4,7 @@ filetype off
 
 " Vundle plugin manager
 " https://github.com/gmarik/Vundle.vim
-set rtp+=$ME_REPO_DIR/Vundle.vim
+set rtp+=~$USER/var/repo/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'        " required
 Plugin 'asciidoc.vim'
@@ -13,12 +13,13 @@ Plugin 'pydoc.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'ctrlp.vim'
 Plugin 'fluxbox.vim'
+Plugin 'tfnico/vim-gradle'
+Plugin 'nginx.vim'
+Plugin 'flazz/vim-colorschemes'
 " vim-snipmate: start
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'nginx.vim'
-Plugin 'tfnico/vim-gradle'
 " vim-snipmate: end
 call vundle#end()
 
@@ -119,22 +120,8 @@ endif
 " asciidoc extension variants
 au BufNewFile,BufRead *.adoc setlocal ft=asciidoc
 
-if $ITERM_PROFILE == 'Hotkey Window'
-  set background=dark
-  colorscheme Tomorrow
-elseif $ITERM_PROFILE == 'Tomorrow'
-  set background=light
-  colorscheme Tomorrow
-elseif $ITERM_PROFILE == 'Tomorrow Night'
-  set background=dark
-  colorscheme Tomorrow-Night
-elseif $ITERM_PROFILE == 'Visor'
-  set background=dark
-  colorscheme Tomorrow
-else
-  set background=dark
-  colorscheme Tomorrow-Night
-endif
+set background=dark
+colorscheme bvemu
 
 " edit/source vimrc
 nmap <silent> <leader>ev :edit $MYVIMRC<cr>
