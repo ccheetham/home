@@ -15,7 +15,7 @@ Plugin 'ctrlp.vim'
 Plugin 'fluxbox.vim'
 Plugin 'tfnico/vim-gradle'
 Plugin 'nginx.vim'
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'flazz/vim-colorschemes'
 " vim-snipmate: start
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -49,11 +49,12 @@ set ruler
 set numberwidth=3
 
 " line/col highlighting
-if version >= 703
+if exists('+colorcolumn')
   set colorcolumn=80
 endif
 set cursorline cursorcolumn
 nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
+let &colorcolumn="80,".join(range(120,999),",")
 
 " searching
 set incsearch
@@ -120,9 +121,12 @@ endif
 " asciidoc extension variants
 au BufNewFile,BufRead *.adoc setlocal ft=asciidoc
 
-set background=dark
-colorscheme bvemu
-
 " edit/source vimrc
 nmap <silent> <leader>ev :edit $MYVIMRC<cr>
 nmap <silent> <leader>sv :source $MYVIMRC<cr>
+
+" execute python on current buffer
+nmap <silent> <leader>q :w !python<cr>
+
+"set background=dark
+colorscheme cheetos
