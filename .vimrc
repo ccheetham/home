@@ -95,7 +95,8 @@ set listchars=tab:._    "   .___
 " toggle paste mode
 nmap <leader>p :set invpaste<cr>:set paste?<cr>
 
-" toggle wrap mode
+" wrap mode
+set nowrap
 nmap <leader>w :set invwrap<cr>
 
 " misc
