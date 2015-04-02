@@ -50,11 +50,10 @@ set numberwidth=3
 
 " line/col highlighting
 if exists('+colorcolumn')
-  set colorcolumn=80
+  let &colorcolumn="80,".join(range(120,999),",")
 endif
 set cursorline cursorcolumn
 nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
-let &colorcolumn="80,".join(range(120,999),",")
 
 " searching
 set incsearch
