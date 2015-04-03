@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+files=($argv[0,-2])
+ssh_host=$argv[-1]
+ssh_host_fields=(${(s/:/)ssh_host})
+
+if [[ $#ssh_host_fields != 2 ]] ; then
+    print "$ssh_host doesn't look like [user@]host:[path]" >&2
+    exit 1
+fi
+
+for f in $files ; do
+    scp $f $ssh_host && rm $f
+done
