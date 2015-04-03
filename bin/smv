@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 
+if [[ $# < 2 ]] ; then
+    print "error: not enough arguments" >&2
+    print "usage: $(basename $0) file [files...] [user@]host:[path]" >&2
+    exit 1
+fi
+
 files=($argv[0,-2])
 ssh_host=$argv[-1]
 ssh_host_fields=(${(s/:/)ssh_host})
