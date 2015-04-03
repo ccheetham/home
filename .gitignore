@@ -41,6 +41,7 @@
 .gtkrc-*
 .htoprc
 .icons
+.ipython/
 .ivy2
 .java
 .jline-jython.history
