@@ -1,11 +1,3 @@
-if which qash > /dev/null 2>&1 ; then
-    export QA_TC_SERVER_HOME=$(qash 'echo $QA_TC_SERVER_HOME')
-    export QA_WEB_SERVER_HOME=$(qash 'echo $QA_WEB_SERVER_HOME')
-    alias tca=$QA_TC_SERVER_HOME/tcruntime-admin.sh
-    alias tcc=$QA_TC_SERVER_HOME/tcruntime-ctl.sh
-    alias tci=$QA_TC_SERVER_HOME/tcruntime-instance.sh
-fi
-
 pvpn() {
     local pdir=~/etc/openvpn/pivotal
     if [[ ! -d $pdir ]] ; then
@@ -33,11 +25,15 @@ pvpn() {
     sudo openvpn config.ovpn
 }
 
-goapp() {
+sqa() {
+    source ~/src/appsuite-qa/qaenv/profile
+}
+
+cdqa() {
     cd ~/src/appsuite-qa
 }
 
-gotc() {
+cdtc() {
     cd ~/src/appsuite-qa/projects/tc-server-qa
 }
 
