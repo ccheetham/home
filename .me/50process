@@ -2,4 +2,6 @@ if [[ $ME_DIST_NAME == darwin ]] ; then
     alias top='top -o cpu'
 fi
 
+which htop > /dev/null  && alias htop='sudo htop'
+
 # vim: ft=zsh
