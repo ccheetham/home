@@ -4,12 +4,17 @@ export ME_VIRTUALENV_HOME=$ME/.virtualenv
 
 alias py3=python3
 alias ipy3=ipython3
+alias pydoc3='py3 -m pydoc'
+
 alias py2=python2
 alias ipy2=ipython2
+alias pydoc2='py2 -m pydoc'
 
 alias py=py3
 alias ipy=ipy3
 alias pip=pip3
+alias pydoc=pydoc3
+
 
 pypath() {
     if [[ $# == 0 ]] ; then
