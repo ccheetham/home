@@ -1,3 +1,11 @@
+if has('unix')
+    if system('uname') =~ 'Darwin'
+        let os = 'mac'
+    else
+        let os = 'unix'
+    endif
+endif
+
 set nocompatible                        " um, no
 
 filetype off                            " disable prior to Vundle setup
@@ -16,8 +24,11 @@ Plugin 'ivanov/vim-ipython'             " interact with iPython
 Plugin 'airblade/vim-gitgutter'         " Git Gutter
 Plugin 'MarcWeber/vim-addon-mw-utils'   " dependency for ...
 Plugin 'tomtom/tlib_vim'                " ... and another dependency for ...
-Plugin 'garbas/vim-snipmate'            " ... SnipMate snippet framework
+Plugin 'SirVer/ultisnips'               " ... UltiSnips snippet framework
 Plugin 'honza/vim-snippets'             " snippets for SnipMate
+"if os == 'mac'
+"    Plugin 'Valloric/YouCompleteMe'     " autocomplete as you type
+"endif
 
 call vundle#end()
 call pathogen#infect()
@@ -114,3 +125,6 @@ augroup resCur
     autocmd!
     autocmd BufWinEnter * call ResCur()
 augroup END
+
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
