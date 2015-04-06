@@ -39,6 +39,7 @@ venv() {
         echo -n "[ENTER] to create..."
         read
         virtualenv $ME_VIRTUALENV_HOME/$name \
+            --python python3 \
             --prompt "%{$fg[cyan]%}$name%{${reset_color}%} " \
             || return
     fi
