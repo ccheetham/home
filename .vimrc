@@ -1,74 +1,101 @@
-set nocompatible
+set nocompatible                        " um, no
 
-filetype off
+filetype off                            " disable prior to Vundle setup
 
-" Vundle plugin manager
-" https://github.com/gmarik/Vundle.vim
-set rtp+=~$USER/var/repo/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'        " required
-Plugin 'asciidoc.vim'
-Plugin 'pathogen.vim'
-Plugin 'pydoc.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'ctrlp.vim'
-Plugin 'fluxbox.vim'
-Plugin 'tfnico/vim-gradle'
-Plugin 'nginx.vim'
-"Plugin 'flazz/vim-colorschemes'
-" vim-snipmate: start
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-" vim-snipmate: end
+set rtp+=~/var/repo/Vundle.vim          " Vundle plugin manager ...
+call vundle#begin()                     " https://github.com/gmarik/Vundle.vim
+
+Plugin 'gmarik/Vundle.vim'              " this and ...
+Plugin 'pathogen.vim'                   " ... that setup Vundle plugin mgmt
+Plugin 'asciidoc.vim'                   " AsciiDoc syntax
+Plugin 'tfnico/vim-gradle'              " Gradle systax
+Plugin 'nginx.vim'                      " nginx web server syntax
+Plugin 'scrooloose/nerdtree'            " filesystem explorer
+Plugin 'ctrlp.vim'                      " fuzzy file/buffer finder
+Plugin 'ivanov/vim-ipython'             " interact with iPython
+Plugin 'airblade/vim-gitgutter'         " Git Gutter
+Plugin 'MarcWeber/vim-addon-mw-utils'   " dependency for ...
+Plugin 'tomtom/tlib_vim'                " ... and another dependency for ...
+Plugin 'garbas/vim-snipmate'            " ... SnipMate snippet framework
+Plugin 'honza/vim-snippets'             " snippets for SnipMate
+
 call vundle#end()
-
 call pathogen#infect()
 
-filetype on                       " enable file detection
-filetype plugin on                " load plugins for specific file types
-filetype indent on                " load indent spec for specific file types
+filetype on                             " enable file detection
+filetype plugin on                      " load plugins
+filetype indent on                      " indentation
 
-" syntax colors please
-syntax on
+syntax on                               " color please
+colorscheme cheetos                     " my colors
 
-" indentation
-set autoindent          " put the cursor where I'm thinking of next
-set shiftwidth=4        " number of spaces per indent
-set tabstop=8           " tab-formatted files expect this
-set expandtab           " spaces in lieu of TABs
-set softtabstop=4       " width when expanding tabs
-set list                " show TABs
-map <leader>i mzgg=G`z<cr>
-
-" line/col numbering
-set number
-nmap <leader>n :set invnumber<cr>
-nmap <leader>rn :set relativenumber<cr>
-set ruler
-set numberwidth=3
-
-" line/col highlighting
-if exists('+colorcolumn')
-  let &colorcolumn="80,".join(range(120,999),",")
+set laststatus=2                        " always display status line
+set showmode                            " show current mode
+set number                              " line numbers
+set numberwidth=3                       " line number gutter width
+set ruler                               " cursor line/column number,
+set cursorline cursorcolumn             " crosshairs
+if exists('+colorcolumn')               " indicates advised widths
+    let &colorcolumn="80,".join(range(120,999),",")
 endif
-set cursorline cursorcolumn
+set wildmenu                            " enhanced completion
+set history=50                          " command history lines
+
+set nowrap                              " don't wrap lines
+set foldlevelstart=1                    " initial fold level
+set incsearch                           "incremental search
+
+set autoindent                          " put the cursor where it should be
+set shiftwidth=4                        " spaces per indent
+set tabstop=8                           " tab-formatted files expect this
+set expandtab                           " spaces in lieu of tabs
+set softtabstop=4                       " spaces when expanding tabs
+set list                                " show TABs ...
+set listchars=tab:._                    " ... as  .___
+set bs=2                                " backspace over everything
+set visualbell                          " quiet please
+
+let NERDTreeIgnore = ['\.pyc$']         " ignore these files in NerdTree
+
+au BufNewFile,BufRead *.adoc setlocal ft=asciidoc       " addt'l asciidoc exts
+
+" grepping
+if executable('ag')                     " use silver searcher if available
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+endif
+
+" edit vimrc
+nmap <silent><leader>ev :edit $MYVIMRC<cr>
+" source vimrc
+nmap <leader>sv :source $MYVIMRC<cr>
+" toggle line numbers
+nmap <leader>n :set invnumber<cr>
+" toggle relativeline line numbers
+nmap <leader>rn :set relativenumber!<cr>
+" toggle crosshairs
 nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
-
-" searching
-set incsearch
+" toggle search highlighting
 nmap <leader>h :set invhlsearch<cr>
-
-" navigating errors/hits
+" toggle wrap mode
+nmap <leader>w :set invwrap<cr>
+" toggle paste mode
+nmap <leader>p :set invpaste<cr>:set paste?<cr>
+" format buffer
+map <silent><leader>f mzgg=G`z<cr>
+" next error
 nmap <c-n> :cnext<cr>
+" previous error
 nmap <c-m> :cprev<cr>
-
-" folds
-set foldlevelstart=1
-
-" status bar
-set laststatus=2                " always display status line
-set showmode                    " tell me what mode I'm in
+" git gutter
+nmap <leader>gg :GitGutterLineHighlightsToggle<cr>
+" execute python on current buffer
+nmap <silent><leader>q :w !python<cr>
+" insert timestamp (YY/MM/DD hh:mm)
+:nnoremap <leader>ts "=strftime("%D %R")<cr>P
+" toggle NerdTree window
+map <leader>t :NERDTreeToggle<cr>
 
 " remembering twixt sessions
 "  'N   :  marks will be remembered for up to N previously edited files
@@ -78,55 +105,12 @@ set showmode                    " tell me what mode I'm in
 "  n... :  where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
 function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
 endfunction
 augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
 augroup END
-
-" style aids
-set listchars=tab:._    "   .___
-
-" toggle paste mode
-nmap <leader>p :set invpaste<cr>:set paste?<cr>
-
-" wrap mode
-set nowrap
-nmap <leader>w :set invwrap<cr>
-
-" misc
-set wildmenu                    " enhanced completion
-set bs=2                        " backspacing over everything in insert mode
-set visualbell                  " quiet please
-set history=50                  " 50 lines of command history
-
-" NERDTree
-map <leader>t :NERDTreeToggle<cr>
-let NERDTreeIgnore = ['\.pyc$']
-
-" grepping
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
-endif
-
-" insert timestamp (YY/MM/DD hh:mm)
-:nnoremap <leader>ts "=strftime("%D %R")<cr>P
-
-" asciidoc extension variants
-au BufNewFile,BufRead *.adoc setlocal ft=asciidoc
-
-" edit/source vimrc
-nmap <silent> <leader>ev :edit $MYVIMRC<cr>
-nmap <silent> <leader>sv :source $MYVIMRC<cr>
-
-" execute python on current buffer
-nmap <silent> <leader>q :w !python<cr>
-
-"set background=dark
-colorscheme cheetos
