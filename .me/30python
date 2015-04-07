@@ -24,27 +24,14 @@ pypath() {
     fi
 }
 
-venv() {
-    local name=$1
-    if [[ $# == 0 ]] ; then
-        echo "name not provided"
+ve() {
+    if [[ $# != 1 ]] ; then
+        echo "$0 <name>" >&2
         return 1
     fi
-    if [[ $# > 1 ]] ; then
-        echo "too many arguments"
-        return 1
-    fi
-    mkdir -p $ME_VIRTUALENV_HOME
-    if [[ ! -d $ME_VIRTUALENV_HOME/$name ]] ; then
-        echo virtualenv $name does not exist
-        echo -n "[ENTER] to create..."
-        read
-        virtualenv $ME_VIRTUALENV_HOME/$name \
-            --python python3 \
-            --prompt "%{$fg[cyan]%}$name%{${reset_color}%} " \
-            || return
-    fi
-    source $ME_VIRTUALENV_HOME/$name/bin/activate
+    activate=$(venvmgr -s $1) || return
+    source $activate
 }
+alias vex=deactivate
 
 # vim: ft=zsh

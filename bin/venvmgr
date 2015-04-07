@@ -1,0 +1,130 @@
+#!/usr/bin/env zsh
+
+program=$(basename $0)
+delete=0
+list=0
+show=0
+prompt=1
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$program [options] <name>"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tname\tvirtualenv name"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tManage Python virtualenv environments."
+    echo
+    echo -e "\tIf run with no options, create the named environment."
+    echo -e "\tIf multiple options specified, last option takes precedent."
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-d\tdelete named environment"
+    echo -e "\t-l\tlist environments"
+    echo -e "\t-s\tprint the path to the named virtualenv activation source"
+    echo -e "\t-y\tdo not prompt for confirmations"
+    echo -e "\t-h\tdisplay this message"
+    echo
+}
+
+while getopts ":dlsyh" opt ; do
+    case $opt in
+        d)
+            delete=1
+            list=0
+            show=0
+            ;;
+        l)
+            delete=0
+            list=1
+            show=0
+            ;;
+        s)
+            delete=0
+            list=0
+            show=1
+            ;;
+        y)
+            prompt=0
+            ;;
+        h)
+            usage
+            exit
+            ;;
+        :)
+            echo "$opt requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option $opt" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+# list virtualenv names
+if [[ $list != 0 ]] ; then
+    if [[ $# > 0 ]] ; then
+        echo "-l options takes no arguments"
+        echo "run with -h for help" >&2
+        exit 1
+    fi
+    /bin/ls -1 $ME_VIRTUALENV_HOME
+    exit
+fi
+
+if [[ $# != 1 ]] ; then
+    echo "no name specified, or too many names" >&2
+    echo "run with -h for help" >&2
+    exit 1
+fi
+
+name=$1
+venv_dir=$ME_VIRTUALENV_HOME/$name
+
+# show path to named virtualenv activation source
+if [[ $show != 0 ]] ; then
+    if [[ ! -d $venv_dir ]] ; then
+        echo "virtualenv $name does not exist" >&2
+        exit 1
+    fi
+    activate=$venv_dir/bin/activate
+    if [[ ! -f $activate ]] ; then
+        echo "activate source does not exist: $activate" >&2
+        exit 1
+    fi
+    echo $activate
+    exit
+fi
+
+# delete named virtualenv
+if [[ $delete != 0 ]] ; then
+    if [[ ! -d $venv_dir ]] ; then
+        echo "virtualenv $name does not exist" 2>&1
+        exit 1
+    fi
+    if [[ $prompt != 0 ]] ; then
+        echo -n "[ENTER] to delete virtualenv $name ... "
+        read
+    fi
+    rm -rf $venv_dir && echo virtualenv $name deleted
+    exit
+fi
+
+# create named virtualenv
+if [[ -d $venv_dir ]] ; then
+    echo "virtualenv $name already exists" 2>&1
+    exit 1
+fi
+virtualenv $ME_VIRTUALENV_HOME/$name \
+    --python python3 \
+    --prompt "%{$fg[cyan]%}$name%{${reset_color}%} "
