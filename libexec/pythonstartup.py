@@ -27,5 +27,6 @@ def config_cli_history():
 if __name__ == '__main__':
     config_cli_history()
     # pre-import frequently used modules
+    import logging
     import re
     import os
