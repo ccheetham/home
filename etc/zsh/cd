@@ -1,0 +1,4 @@
+# guess cd dir using these roots
+cdpath=(~ ~/src ~/src/appsuite-qa ~/src/appsuite-qa/projects)
+
+# vim: ft=zsh

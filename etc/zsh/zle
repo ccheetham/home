@@ -1,0 +1,3 @@
+bindkey -e      # set keymap to emacs
+
+# vim: ft=zsh

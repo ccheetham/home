@@ -2,7 +2,7 @@ if [[ $ME_OS == osx ]] ; then
     prepend_path /opt/X11
 fi
 
-export XSESSION_LOG=$ME_LOG_DIR/xsession.$(hostname).log
+export XSESSION_LOG=$ME_LOG_DIR/xsession.$ME_HOST.log
 
 xtail() {
     tail -f $XSESSION_LOG

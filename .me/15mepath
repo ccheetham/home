@@ -1,0 +1,4 @@
+prepend_path $ME_PLATFORM_DIR
+prepend_path $ME_DISTRO_DIR
+
+# vim: ft=zsh

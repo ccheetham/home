@@ -1,9 +1,6 @@
-PATH=/bin:/usr/bin
-unset MANPATH; export MANPATH
-
-append_path /usr/local
-append_path /
-append_path /usr
-[[ -d /usr/games ]] && PATH=$PATH:/usr/games
+unset PATH
+for p in /usr/local / /usr ; do
+    append_path $p
+done
 
 # vim: ft=zsh

@@ -2,19 +2,17 @@ if [[ $ME_OS == osx ]] ; then
     JDK8_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
     JDK7_HOME=$(/usr/libexec/java_home -v 1.7 2> /dev/null)
     JDK6_HOME=$(/usr/libexec/java_home -v 1.6 2> /dev/null)
-    JDK_HOME=$JDK8_HOME
 else
     JDK8_HOME=$ME_PLATFORM_OPT_DIR/jdk/8
     JDK7_HOME=$ME_PLATFORM_OPT_DIR/jdk/7
     JDK6_HOME=$ME_PLATFORM_OPT_DIR/jdk/6
-    JDK_HOME=$JDK8_HOME
 fi
-export JDK_HOME
+export JDK_HOME=$JDK8_HOME
 export JAVA_HOME=$JDK_HOME
 export JRE_HOME=$JDK_HOME
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 
-append_path $JAVA_HOME
+prepend_path $JAVA_HOME
 
 j () {
     java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*

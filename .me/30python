@@ -1,6 +1,7 @@
 export PYTHONPATH=$ME_LIB_DIR/python
 export PYTHONSTARTUP=$ME_LIBEXEC_DIR/pythonstartup.py
 export ME_VIRTUALENV_HOME=$ME/.virtualenv
+export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 alias py3=python3
 alias ipy3=ipython3
@@ -14,12 +15,17 @@ alias ipy=ipy3
 
 pypath() {
     if [[ $# == 0 ]] ; then
-        echo $PYTHONPATH | tr ':' '\n'
+        for p in $(echo $PYTHONPATH | tr ':' ' ') ; do
+            if [[ -d $p ]] ; then
+                print $p
+            else
+                print $fg[red]$p$reset_color
+            fi
+        done
     else
         for p in $* ; do
-            PYTHONPATH=$p:$PYTHONPATH
+            PYTHONPATH=$PYTHONPATH:$p
         done
-        echo PYTHONPATH now:
         pypath
     fi
 }

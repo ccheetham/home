@@ -1,27 +1,3 @@
-# shell prompt
-PROMPT="%2~ %# "
-
-# term title
-precmd() {
-    print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
-}
-
-path() {
-    if [[ $# == 0 ]] ; then
-        echo $PATH | tr ':' '\n'
-    else
-        for p in $* ; do
-            PATH=$p:$PATH
-        done
-        echo PATH now:
-        path
-    fi
-}
-
-manpath() {
-    echo $MANPATH | tr ':' '\n'
-}
-
 alias h='history -d'
 
 alias PP=pushd
@@ -41,13 +17,13 @@ fi
 alias ls="$ls_cmd$ls_opts"
 unset ls_cmd ls_opts
 
-alias ll='ls -l'
-alias lh='ll -h'
-alias la='ls -a'
-alias lla='ls -la'
+alias ll='ls -lh'
 alias l1='ls -1'
 alias lF='ls *(.)'
 alias lD='ls -d *(/)'
+alias l.='ls -ad .*'
+alias l.F='ls -a .*(.)'
+alias l.D='ls -ad .*(/)'
 if ls -@ > /dev/null 2>&1 ; then
     alias l@='ll -@'
 fi
@@ -59,8 +35,5 @@ mcdir() {
 }
 
 alias cls='clear'
-
-# make CTRL-u behave like bash
-bindkey \^U backward-kill-line
 
 # vim: ft=zsh

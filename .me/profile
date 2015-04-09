@@ -1,31 +1,25 @@
 export ME_PROFILE_DIR=$(dirname $0)
-
-export ME_FUNCTIONS=$ME_PROFILE_DIR/functions
+source $ME_PROFILE_DIR/env
+export ME_FUNCTIONS=$ME_LIBEXEC_DIR/zsh/functions
 source $ME_FUNCTIONS
 
-source $ME_PROFILE_DIR/env
-
 for f in $ME_PROFILE_DIR/[[:digit:]]*~$ME_PROFILE_DIR/*.* ; do
-    shlog $0 sourcing $f
     source $f
     # override per os
     if [[ -f $f.$ME_OS ]] ; then
-        shlog $0 sourcing $f.$ME_OS
         source $f.$ME_OS
     fi
     # override per distribution
-    if [[ -f $f.$ME_DISTRO_VENDOR ]] ; then
+    if [[ -f $f.$ME_DISTRO_FLAVOR ]] ; then
         # don't resource for distros whose name is same as os name
         if [[ $ME_DISTRO_VENDOR != $ME_OS ]] ; then
-            shlog $0 sourcing $f.$ME_DISTRO_VENDOR
             source $f.$ME_DISTRO_VENDOR
         fi
     else
     fi
     # override per host
-    if [[ -f $f.$ME_HOSTNAME ]] ; then
-        shlog $0 sourcing $f.$ME_HOSTNAME
-        source $f.$ME_HOSTNAME
+    if [[ -f $f.$ME_HOST ]] ; then
+        source $f.$ME_HOST
     fi
 done
 

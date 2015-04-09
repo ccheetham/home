@@ -1,5 +1,5 @@
-export GEM_HOME=$ME_DIST_DIR/lib/ruby/gems
-append_path $GEM_HOME
+export GEM_HOME=$ME_DISTRO_DIR/lib/ruby/gems
+prepend_path $GEM_HOME
 
 alias rb='ruby'
 

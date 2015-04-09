@@ -1,26 +1,18 @@
-[[ -z $ME ]] && ME=$HOME
-export ME
+export ME=$HOME
 
 export ME_CONFIG_DIR=$ME/etc
 export ME_LIB_DIR=$ME/lib
 export ME_LIBEXEC_DIR=$ME/libexec
 export ME_VAR_DIR=$ME/var
 export ME_OPT_DIR=$ME/opt
-
-
 export ME_LOG_DIR=$ME_VAR_DIR/log
-
 export ME_REPO_CFG=$ME_CONFIG_DIR/repo
 export ME_REPO_DIR=$ME_VAR_DIR/repo
-
-export ME_HOSTNAME=$HOST:l
-
-export ME_SHELL_LOG=$ME_LOG_DIR/sh.$ME_HOSTNAME.$$.log
 
 # ME_OS
 case $OSTYPE in
     cygwin)
-        ME_OS=windows
+        ME_OS=cygwin
         ;;
     darwin*)
         ME_OS=osx
@@ -36,39 +28,42 @@ case $OSTYPE in
         ;;
 esac
 
-# ME_DISTRO_VENDOR
+# ME_DISTRO_FLAVOR
 if [[ $ME_OS == linux ]] ; then
     case $(cat /etc/issue) in
         *CentOS*)
-            ME_DISTRO_VENDOR=centos
+            ME_DISTRO_FLAVOR=centos
             ;;
         *Debian*)
-            ME_DISTRO_VENDOR=debian
+            ME_DISTRO_FLAVOR=debian
             ;;
         *Red\ Hat*)
-            ME_DISTRO_VENDOR=redhat
+            ME_DISTRO_FLAVOR=redhat
             ;;
         *SUSE*)
-            ME_DISTRO_VENDOR=suse
+            ME_DISTRO_FLAVOR=suse
             ;;
         *Ubuntu*)
-            ME_DISTRO_VENDOR=ubuntu
+            ME_DISTRO_FLAVOR=ubuntu
             ;;
         *)
-            ME_DISTRO_VENDOR=unknown
+            ME_DISTRO_FLAVOR=unknown
             ;;
     esac
 else
-    ME_DISTRO_VENDOR=$ME_OS
+    ME_DISTRO_FLAVOR=$ME_OS
 fi
 
 # ME_DISTRO_VERSION
-case $ME_DISTRO_VENDOR in
+case $ME_DISTRO_FLAVOR in
     centos)
         ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
         ;;
     debian)
         ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}')
+        ;;
+    osx)
+        ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d'.' -f1)
         ;;
     redhat)
         ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $7}' | cut -d'.' -f1)
@@ -100,10 +95,11 @@ case $(uname -m) in
         ;;
 esac
 
-if [[ $ME_DISTRO_VENDOR == unknown ]] ; then
+# some Linices are moving to /etc/os-release
+if [[ $ME_DISTRO_FLAVOR == unknown ]] ; then
     if [[ -f /etc/os-release ]] ; then
         . /etc/os-release
-        ME_DISTRO_VENDOR=$ID
+        ME_DISTRO_FLAVOR=$ID
         ME_DISTRO_VERSION=$VERSION_ID
         for var in $(cut -d'=' -f1 /etc/os-release) ; do
             unset $var
@@ -111,10 +107,27 @@ if [[ $ME_DISTRO_VENDOR == unknown ]] ; then
     fi
 fi
 
-export ME_OS ME_DISTRO_VENDOR ME_DISTRO_VERSION ME_DISTRO_ARCH
-export ME_DISTRO=$ME_DISTRO_VENDOR-$ME_DISTRO_VERSION-$ME_DISTRO_ARCH
-export ME_DISTRO_DIR=$ME/distro/$ME_DISTRO
+export ME_OS ME_DISTRO_FLAVOR ME_DISTRO_VERSION ME_DISTRO_ARCH
+export ME_DISTRO=$ME_DISTRO_FLAVOR-$ME_DISTRO_VERSION-$ME_DISTRO_ARCH
 export ME_PLATFORM=$ME_OS-$ME_DISTRO_ARCH
-export ME_PLATFORM_OPT_DIR=$ME_OPT_DIR/$ME_PLATFORM
+
+export ME_SHELL=$(basename $SHELL)
+export ME_HOST=$HOST
+
+export ME_LOCAL_DIR=$ME/local
+export ME_PLATFORM_DIR=$ME_LOCAL_DIR/$ME_PLATFORM
+export ME_DISTRO_DIR=$ME_LOCAL_DIR/$ME_DISTRO
+
+export ME_ZSH_CONFIG_DIR=$ME_CONFIG_DIR/zsh
+export ME_ZSH_VAR_DIR=$ME_VAR_DIR/zsh
+
+me() {
+    env | grep '^ME' | LC_ALL=C sort
+}
+
+reenv() {
+    source ~/.zshenv
+    source ~/.zshrc
+}
 
 # vim: ft=zsh

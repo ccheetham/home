@@ -1,6 +1,0 @@
-prepend_path $ME
-prepend_path $ME/local
-
-append_path $ME_DISTRO_DIR
-
-# vim: ft=zsh

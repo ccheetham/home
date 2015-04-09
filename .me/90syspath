@@ -1,5 +1,0 @@
-# push these paths to the rear now that I've loaded my profile
-append_path /
-append_path /usr
-
-# vim: ft=zsh

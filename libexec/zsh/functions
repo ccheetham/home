@@ -1,0 +1,110 @@
+path() {
+    for p in $path ; do
+        if [[ -d $p ]] ; then
+            print $p
+        else
+            print $fg[red]$p$reset_color
+        fi
+    done
+}
+
+manpath() {
+    for p in $manpath ; do
+        if [[ -d $p ]] ; then
+            print $p
+        else
+            print $fg[red]$p$reset_color
+        fi
+    done
+}
+
+is_in_path() {
+    if (( ${path[(i)${1}]} > ${#path} )) ; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+append_path() {
+    append_binpath ${1%/}/bin
+    if [[ -d ${1%/}/man ]] ; then
+        append_manpath ${1%/}/man
+    else
+        append_manpath ${1%/}/share/man
+    fi
+}
+
+prepend_path() {
+    prepend_binpath ${1%/}/bin
+    if [[ -d ${1%/}/man ]] ; then
+        prepend_manpath ${1%/}/man
+    else
+        prepend_manpath ${1%/}/share/man
+    fi
+}
+
+remove_path() {
+    remove_binpath ${1%/}/bin
+    remove_manpath ${1%/}/share/man
+}
+
+append_binpath() {
+    remove_binpath $1
+    path+=${1%/}
+}
+
+prepend_binpath() {
+    remove_binpath $1
+    path=(${1%/} $path)
+}
+
+remove_binpath() {
+    path=("${(@)path:#${1%/}}")
+}
+
+append_manpath() {
+    remove_manpath $1
+    manpath+=${1%/}
+}
+
+prepend_manpath() {
+    remove_manpath $1
+    manpath=(${1%/} $manpath)
+}
+
+remove_manpath() {
+    manpath=("${(@)manpath:#${1%/}}")
+}
+
+clean_path() {
+    clean_binpath
+    clean_manpath
+}
+
+clean_binpath() {
+    unset newpath
+    newpath=()
+    for p in $path ; do
+        [[ -d $p ]] && newpath+=$p
+    done
+    path=($newpath)
+}
+
+clean_manpath() {
+    newpath=()
+    for p in $manpath ; do
+        [[ -d $p ]] && newpath+=$p
+    done
+    manpath=($newpath)
+}
+
+checkexe() {
+    local exe=$1
+    if ! which $exe > /dev/null 2>&1 ; then
+        echo \'$exe\' command not found
+        return 1
+    fi
+}
+
+# vim: ft=zsh

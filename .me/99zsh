@@ -1,0 +1,14 @@
+autoload colors
+colors
+
+autoload -Uz compinit
+autoload -U promptinit
+
+compinit -d $ME_ZSH_VAR_DIR/compdump.$ME_HOST
+promptinit
+
+for z in $ME_ZSH_CONFIG_DIR/* ; do
+    source $z
+done
+
+# vim: ft=zsh

@@ -1,0 +1,49 @@
+typeset -A symbol
+symbol[rightwards-arrow-with-hook]=$(echo "\u21aa")
+symbol[leftwards-arrow-with-hook]=$(echo "\u21a9")
+
+xtitle() {
+    print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
+}
+
+rprompt-normal() {
+    echo '%F{cyan}'
+}
+
+prompt() {
+    echo '%(?,%F{green},%F{red})${symbol[rightwards-arrow-with-hook]}%f  '
+}
+
+rc-info() {
+    echo '%(?,,%F{red}[rc:%?]%f)'
+}
+
+history-info() {
+    echo '$(rprompt-normal)[!]%f'
+}
+
+venv-info() {
+    [[ -n $VIRTUAL_ENV ]] && echo "$(rprompt-normal)[p:$(basename $VIRTUAL_ENV)]%f"
+}
+
+git-branch() {
+    b=$(git name-rev --name-only --no-undefined --always HEAD 2> /dev/null)
+    [[ -n $b ]] && echo "$(rprompt-normal)[g:$b]%f"
+}
+
+git-info() {
+    git-branch
+}
+
+precmd() {
+    xtitle
+}
+
+preexec() {
+    echo $fg[green]${symbol[leftwards-arrow-with-hook]}$reset_color
+}
+
+PROMPT="$(prompt)%F{yellow}%3~%f %# "
+RPROMPT="$(rc-info)$(venv-info)$(git-info)$(history-info)"
+
+# vim: ft=zsh
