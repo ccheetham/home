@@ -30,3 +30,4 @@ if __name__ == '__main__':
     import logging
     import re
     import os
+    import shutil
