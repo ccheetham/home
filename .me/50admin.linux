@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 systail () {
     sudo tail -f /var/log/messages
 }
@@ -9,5 +11,3 @@ space () {
     df -Hl | grep ^/ | \
         awk '{printf "'$format'\n", $6, $2, $3, $4, $5, $1}' 
 }
-
-# vim: ft=zsh

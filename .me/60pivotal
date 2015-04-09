@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 pvpn() {
     local pdir=~/etc/openvpn/pivotal
     if [[ ! -d $pdir ]] ; then
@@ -39,5 +41,3 @@ cdtc() {
 
 alias tqa='clear; t proj:qa'
 alias ttc='clear; t proj:tc'
-
-# vim: ft=zsh

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 systail () {
     tail -f /var/log/system.log
 }
@@ -13,5 +15,3 @@ space () {
     sudo zfs list -H 2> /dev/null | \
         awk '{printf "'$format'\n", $5, $3, $2, "", "", $1}'
 }
-
-# vim: ft=zsh

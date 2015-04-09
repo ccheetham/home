@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 alias tude='sudo aptitude'
 
 purge_kernel() {
@@ -9,5 +11,3 @@ purge_kernel() {
     sudo dpkg --purge linux-image-$version linux-image-extra-$version
     sudo dpkg --configure --pending
 }
-
-# vim: ft=zsh

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 FUSION=/Applications/VMware\ Fusion.app/Contents/Library
 VMDIRS=(~/Documents/VMs ~/Documents/Virtual\ Machines)
 
@@ -75,5 +77,3 @@ vmplay() {
     fi
     vmrun -T ws unpause "$(fvmx $1)"
 }
-
-# vim: ft=zsh

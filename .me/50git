@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 alias g='git'
 alias g\?='g status'
 alias gc='g clone'
@@ -23,5 +25,3 @@ gP () {
         git push $*
     fi
 }
-
-# vim: ft=zsh

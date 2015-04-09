@@ -112,5 +112,3 @@ mep-title() {
 precmd() {
     mep-title
 }
-
-# vim: ft=zsh

@@ -1,3 +1,3 @@
-export TASKDDATA=$ME_VAR_DIR/taskd
+#!/usr/bin/env zsh
 
-# vim: ft=zsh
+export TASKDDATA=$ME_VAR_DIR/taskd

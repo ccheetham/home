@@ -1,6 +1,6 @@
+#!/usr/bin/env zsh
+
 export GROOVY_HOME=$ME_OPT_DIR/groovy/current
 append_path $GROOVY_HOME
 
 alias gru='groovy'
-
-# vim: ft=zsh

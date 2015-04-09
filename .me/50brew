@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 alias b='brew'
 
 bsync() {
@@ -13,5 +15,3 @@ bsync() {
 if [[ $ME_OS == osx ]]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
-
-# vim: ft=zsh

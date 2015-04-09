@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export ANT_HOME=$ME_OPT_DIR/ant/current
 append_path $ANT_HOME
 
@@ -39,5 +41,3 @@ refresh_ant () {
         fi
     done
 }
-
-# vim: ft=zsh

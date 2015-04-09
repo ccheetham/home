@@ -1,3 +1,3 @@
-alias yum='sudo yum'
+#!/usr/bin/env zsh
 
-# vim: ft=zsh
+alias yum='sudo yum'

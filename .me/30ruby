@@ -1,6 +1,6 @@
+#!/usr/bin/env zsh
+
 export GEM_HOME=$ME_DISTRO_DIR/lib/ruby/gems
 prepend_path $GEM_HOME
 
 alias rb='ruby'
-
-# vim: ft=zsh

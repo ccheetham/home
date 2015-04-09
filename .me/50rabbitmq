@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export RABBITMQ_HOME=$ME_OPT_DIR/rabbitmq/current
 append_path $RABBITMQ_HOME
 
@@ -11,5 +13,3 @@ alias rmqctl=rabbitmqctl
 
 alias rmqlog="$RMQ_LOG_CMD"
 alias xrmqlog='xterm -title "RabbitMQ Log" -name log -e "$RMQ_LOG_CMD" &'
-
-# vim: ft=zsh

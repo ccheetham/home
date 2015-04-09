@@ -1,4 +1,4 @@
+#!/usr/bin/env zsh
+
 prepend_path $ME
 prepend_path $ME_LOCAL_DIR
-
-# vim: ft=zsh

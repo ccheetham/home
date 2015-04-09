@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 REDIS_HOME=$ME_OPT_DIR/redis/current
 REDISD=$REDIS_HOME/src/redis-server
 REDIS_CLI=$REDIS_HOME/src/redis-cli
@@ -5,5 +7,3 @@ REDIS_CLI=$REDIS_HOME/src/redis-cli
 alias redis='$REDISD'
 alias xredis='xterm -title Redis -name log -e $REDISD &'
 alias redis-cli=$REDIS_CLI
-
-# vim: ft=zsh

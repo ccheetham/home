@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 if which keychain > /dev/null 2>&1 ; then
     keychain --quiet
     export KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
@@ -12,5 +14,3 @@ keychain_init() {
         eval keychain $keychain_opts $pri
     done
 }
-
-# vim: ft=zsh

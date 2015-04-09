@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export CATALINA_HOME=$ME_OPT_DIR/tomcat/current
 export CATALINA_BASE=$ME_VAR_DIR/tomcat
 TC_CMD="$CATALINA_HOME/bin/catalina.sh run"
@@ -31,5 +33,3 @@ refresh_tomcat () {
         fi
     done
 }
-
-# vim: ft=zsh

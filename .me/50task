@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 checkexe task
 
 t() {
@@ -8,5 +10,3 @@ t() {
         task $*
     fi
 }
-
-# vim: ft=zsh

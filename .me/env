@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export ME=$HOME
 
 export ME_CONFIG_DIR=$ME/etc
@@ -129,5 +131,3 @@ reenv() {
     source ~/.zshenv
     source ~/.zshrc
 }
-
-# vim: ft=zsh

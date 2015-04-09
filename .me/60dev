@@ -1,5 +1,5 @@
+#!/usr/bin/env zsh
+
 if checkexe gsed > /dev/null ; then
     alias sed=gsed
 fi
-
-# vim: ft=zsh

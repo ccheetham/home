@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 checkexe sudo
 
 alias hosts='sudo $EDITOR /etc/hosts'
@@ -34,5 +36,3 @@ reboot() {
 poweroff() {
     sudo /sbin/poweroff
 }
-
-# vim: ft=zsh

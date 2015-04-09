@@ -1,5 +1,5 @@
+#!/usr/bin/env zsh
+
 if checkexe colordiff ; then
     alias diff=colordiff
 fi
-
-# vim: ft=zsh

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export PYTHONPATH=$ME_LIB_DIR/python
 export PYTHONSTARTUP=$ME_LIBEXEC_DIR/pythonstartup.py
 export ME_VIRTUALENV_HOME=$ME/.virtualenv
@@ -39,5 +41,3 @@ ve() {
     source $activate
 }
 alias vex=deactivate
-
-# vim: ft=zsh

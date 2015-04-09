@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 vi=vi
 if which vim > /dev/null 2>&1 ; then
     vi=vim
@@ -5,5 +7,3 @@ if which vim > /dev/null 2>&1 ; then
 fi
 export EDITOR="$vi"
 export VISUAL="$vi -f"
-
-# vim: ft=zsh

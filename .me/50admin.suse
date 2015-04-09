@@ -1,3 +1,3 @@
-alias zypper='sudo zypper'
+#!/usr/bin/env zsh
 
-# vim: ft=zsh
+alias zypper='sudo zypper'

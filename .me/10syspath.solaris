@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 opencsw_home=/opt/csw
 if [[ -d $opencsw_home ]] ; then
     append_path $opencsw_home

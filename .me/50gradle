@@ -1,6 +1,6 @@
+#!/usr/bin/env zsh
+
 export GRADLE_HOME=$ME_OPT_DIR/gradle/current
 append_path $GRADLE_HOME
 
 alias gra='gradle'
-
-# vim: ft=zsh
