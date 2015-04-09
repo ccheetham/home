@@ -1,49 +1,116 @@
-typeset -A symbol
-symbol[rightwards-arrow-with-hook]=$(echo "\u21aa")
-symbol[leftwards-arrow-with-hook]=$(echo "\u21a9")
+# #!/usr/bin/env zsh
 
-xtitle() {
+
+# =============================================================================
+# zsh prompt
+# =============================================================================
+
+#
+# -----------------------------------------------------------------------------
+# NOTE:
+#     functions et al are visible in the global namespace
+#     prefix with "mep" to avoid potential collisions
+# -----------------------------------------------------------------------------
+
+
+# -----------------------------------------------------------------------------
+# color and symbol conveniences
+# -----------------------------------------------------------------------------
+
+typeset -A mep_color
+mep_color[info]='%F{green}'     # info: normal
+mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
+mep_color[err]='%F{red}'        # err: something really bad
+mep_color[hl]='%F{cyan}'        # hl: highlight
+
+typeset -A mep_uni              # unicode characters
+mep_uni[rightwards-arrow-with-hook]=$(echo "\u21aa")
+mep_uni[leftwards-arrow-with-hook]=$(echo "\u21a9")
+
+
+# -----------------------------------------------------------------------------
+# main prompt
+# -----------------------------------------------------------------------------
+
+# "incoming" message, displayed after command run
+mep-in() {
+    print "${mep_uni[rightwards-arrow-with-hook]}"
+}
+
+# "outgoing" message, displayed before command run
+mep-out() {
+    print "${mep_uni[leftwards-arrow-with-hook]}"
+}
+
+# prompt message, displayed before prompt sign
+mep-prompt-message() {
+    print "%(?,${mep_color[info]},${mep_color[warn]})$(mep-in)%f "
+}
+
+# prompt sign, indicates user to enter next command
+mep-prompt-sign() {
+    print "${mep_color[hl]}%3~%f %#"
+}
+
+# zsh hook invoked after command processed but before executed
+# displays "outgoing" message
+preexec() {
+    print "$fg[green]$(mep-out)$reset_color"
+}
+
+# zsh prompt variable
+PROMPT="$(mep-prompt-message) $(mep-prompt-sign) "
+
+
+# -----------------------------------------------------------------------------
+# status prompt (right side)
+# -----------------------------------------------------------------------------
+
+# return code status (enabled if rc!=0)
+mep-rc-status() {
+    print "%(?,,${mep_color[warn]}[rc:%?]%f)"
+}
+
+# command history status
+mep-history-status() {
+    print "${mep_color[info]}[!]%f"
+}
+
+# job status (enabled if background jobs detected)
+mep-job-status() {
+    print "%(1j,${mep_color[info]}[j:%j]%f,)"
+}
+
+# virtualenv status (enabled if virtualenv detected)
+mep-venv-status() {
+    if [[ -n $VIRTUAL_ENV ]] ; then
+        print "${mep_color[info]}[p:$(basename $VIRTUAL_ENV)]%f"
+    fi
+}
+
+# git status: enabled if git repo detected
+mep-git-status() {
+    b=$(git name-rev --name-only --no-undefined --always HEAD 2> /dev/null)
+    [[ -n $b ]] && print "${mep_color[info]}[g:$b]%f"
+}
+
+# zsh right prompt variable
+RPROMPT='$(mep-rc-status)$(mep-venv-status)$(mep-git-status)$(mep-job-status)$(mep-history-status)'
+
+# -----------------------------------------------------------------------------
+# misc
+# -----------------------------------------------------------------------------
+
+# set the titlebar of term
+mep-title() {
+    # xterm-compatible terms
     print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
 }
 
-rprompt-normal() {
-    echo '%F{cyan}'
-}
-
-prompt() {
-    echo '%(?,%F{green},%F{red})${symbol[rightwards-arrow-with-hook]}%f  '
-}
-
-rc-info() {
-    echo '%(?,,%F{red}[rc:%?]%f)'
-}
-
-history-info() {
-    echo '$(rprompt-normal)[!]%f'
-}
-
-venv-info() {
-    [[ -n $VIRTUAL_ENV ]] && echo "$(rprompt-normal)[p:$(basename $VIRTUAL_ENV)]%f"
-}
-
-git-branch() {
-    b=$(git name-rev --name-only --no-undefined --always HEAD 2> /dev/null)
-    [[ -n $b ]] && echo "$(rprompt-normal)[g:$b]%f"
-}
-
-git-info() {
-    git-branch
-}
-
+# zsh hook invoked just before prompt displayed
+# sets term title
 precmd() {
-    xtitle
+    mep-title
 }
-
-preexec() {
-    echo $fg[green]${symbol[leftwards-arrow-with-hook]}$reset_color
-}
-
-PROMPT="$(prompt)%F{yellow}%3~%f %# "
-RPROMPT="$(rc-info)$(venv-info)$(git-info)$(history-info)"
 
 # vim: ft=zsh
