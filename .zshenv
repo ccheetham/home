@@ -43,3 +43,10 @@ setopt prompt_subst             # eval params, cmds, etc in prompts
 # zle (zsh line editor)
 setopt no_beep                  # don't beep on error
 setopt share_history            # imports new cmds and append typed ones
+
+
+# ---------------------------------------------------------------------------
+# 3rd party options
+# ---------------------------------------------------------------------------
+
+skip_global_compinit=1          # defer compinit to me (debian derivatives)
