@@ -1,11 +1,6 @@
-autoload colors
-colors
-
-autoload -Uz compinit
-autoload -U promptinit
-
-compinit -d $ME_ZSH_VAR_DIR/compdump.$ME_HOST
-promptinit
+autoload -U promptinit;     promptinit
+autoload -Uz compinit;      compinit -d $ME_ZSH_VAR_DIR/compdump.$ME_HOST
+autoload colors;            colors
 
 for z in $ME_ZSH_CONFIG_DIR/* ; do
     source $z
