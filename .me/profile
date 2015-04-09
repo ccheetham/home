@@ -12,8 +12,8 @@ for f in $ME_PROFILE_DIR/[[:digit:]]*~$ME_PROFILE_DIR/*.* ; do
     # override per distribution
     if [[ -f $f.$ME_DISTRO_FLAVOR ]] ; then
         # don't resource for distros whose name is same as os name
-        if [[ $ME_DISTRO_VENDOR != $ME_OS ]] ; then
-            source $f.$ME_DISTRO_VENDOR
+        if [[ $ME_DISTRO_FLAVOR != $ME_OS ]] ; then
+            source $f.$ME_DISTRO_FLAVOR
         fi
     else
     fi
