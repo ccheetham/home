@@ -10,11 +10,14 @@
 # key bindings
 # ---------------------------------------------------------------------------
 
-bindkey -e                      # set keymap to emacs
-bindkey \^U backward-kill-line  # CTRL-U erases to beginning of line
+bindkey -e                           # set main keymap to emacs
+
+bindkey "^U"     backward-kill-line    # CTRL-U erases to beginning of line
+bindkey "^[[A"   up-line-or-search     # up arrow searches up
+bindkey "^[[B"   down-line-or-search   # down arrow searches down
 
 # ---------------------------------------------------------------------------
 # behavior
 # ---------------------------------------------------------------------------
 
-WORDCHARS=${WORDCHARS//[\/]}    # remove "/" so word kills stop at path sep
+WORDCHARS=${WORDCHARS//[\/-]}    # remove "/" so word kills stop at path sep
