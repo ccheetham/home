@@ -17,7 +17,7 @@ setopt pushd_silent             # don't print stack after pushd/popd
 setopt pushd_to_home            # pushd with no args == pushd $HOME
 # ---------------------------------------------------------------------------
 # completion
-setopt menu_complete            # insert first match immediately
+# defaults seem adequate
 # ---------------------------------------------------------------------------
 # expansion
 setopt extended_glob            # treat #~^ as filename patterns
