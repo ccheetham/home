@@ -49,7 +49,7 @@ mep-prompt-message() {
 
 # prompt sign, indicates user to enter next command
 mep-prompt-sign() {
-    print "${mep_color[hl]}%3~%f %#"
+    print "${mep_color[hl]}%2~%f %#"
 }
 
 # zsh hook invoked after command processed but before executed
