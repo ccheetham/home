@@ -41,3 +41,5 @@ ve() {
     source $activate
 }
 alias vex=deactivate
+
+PATH=$ME/bin:$PATH ve default
