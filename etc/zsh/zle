@@ -20,4 +20,4 @@ bindkey "^[[B"   down-line-or-search   # down arrow searches down
 # behavior
 # ---------------------------------------------------------------------------
 
-WORDCHARS=${WORDCHARS//[\/-]}    # remove "/" so word kills stop at path sep
+WORDCHARS=${WORDCHARS//[\/-{}]}    # remove "/" so word kills stop at path sep
