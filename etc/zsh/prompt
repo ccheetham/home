@@ -90,7 +90,7 @@ mep-venv-status() {
 
 # git status: enabled if git repo detected
 mep-git-status() {
-    b=$(git name-rev --name-only --no-undefined --always HEAD 2> /dev/null)
+    b=$(git symbolic-ref HEAD --short 2> /dev/null)
     [[ -n $b ]] && print "${mep_color[info]}[g:$b]%f"
 }
 
