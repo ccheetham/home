@@ -1,9 +1,9 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Redis: key-value cache/store
+# -----------------------------------------------------------------------------
+# http://redis.io/
+# =============================================================================
 
-REDIS_HOME=$ME_OPT_DIR/redis/current
-REDISD=$REDIS_HOME/src/redis-server
-REDIS_CLI=$REDIS_HOME/src/redis-cli
+alias redis='redis-server'
 
-alias redis='$REDISD'
-alias xredis='xterm -title Redis -name log -e $REDISD &'
-alias redis-cli=$REDIS_CLI
+# vim: ft=zsh

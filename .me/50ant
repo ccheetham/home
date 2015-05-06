@@ -1,7 +1,9 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Apache Ant
+# =============================================================================
 
 export ANT_HOME=$ME_OPT_DIR/ant/current
-append_path $ANT_HOME
+ME_PATH=$ANT_HOME/bin:$ME_PATH
 
 alias a='ant'
 
@@ -22,8 +24,7 @@ refresh_ant () {
     versions=(1.9.4 1.8.4)
 
     mkdir -p $instdir
-    for version in $versions
-    do
+    for version in $versions ; do
         local shortver=${version%.*}
         if [[ ! -h $instdir/current ]] ; then
             echo linking current to $shortver
@@ -41,3 +42,5 @@ refresh_ant () {
         fi
     done
 }
+
+# vim: ft=zsh

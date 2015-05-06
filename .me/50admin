@@ -1,25 +1,27 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# system administration
+# =============================================================================
 
 checkexe sudo
 
 alias hosts='sudo $EDITOR /etc/hosts'
 [[ $ME_OS == osx ]] && alias dmesg='sudo dmesg'
 
-sys() {
-    local cmd
-    local host
-    [[ $# > 0 ]] && cmd=$1 && shift
-    [[ $# > 0 ]] && host=$1 && shift
-    if [[ -z $cmd ]] || [[ $# > 0 ]] ; then
-        echo 'usage: sys <command> [host]'
-        return 1
-    fi
-    if [[ -n $host ]] ; then
-        ssh root@$host $cmd
-    else
-        sudo $cmd
-    fi
-}
+#sys() {
+#    local cmd
+#    local host
+#    [[ $# > 0 ]] && cmd=$1 && shift
+#    [[ $# > 0 ]] && host=$1 && shift
+#    if [[ -z $cmd ]] || [[ $# > 0 ]] ; then
+#        echo 'usage: sys <command> [host]'
+#        return 1
+#    fi
+#    if [[ -n $host ]] ; then
+#        ssh root@$host $cmd
+#    else
+#        sudo $cmd
+#    fi
+#}
 
 toor() {
     local display=
@@ -36,3 +38,80 @@ reboot() {
 poweroff() {
     sudo /sbin/poweroff
 }
+
+systail () {
+    if [[ $ME_OS == osx ]] ; then
+        tail -f /var/log/system.log
+    else
+        sudo tail -f /var/log/messages
+    fi
+}
+
+space () {
+    echo "Mount (Volume)            Size   Used  Avail   Pct   Filesystem"
+    echo "-----------------------  -----  -----  -----  ----   ----------------"
+    format="%-23s  %5s  %5s  %5s  %4s   %s"
+    if [[ $ME_OS == osx ]] ; then
+        for fs in /Volumes/* ; do
+            df -Hl $fs | tail -1 | \
+                awk '{printf "'$format'\n", $9, $2, $3, $4, $8, $1}'
+        done
+        sudo zfs list -H 2> /dev/null | \
+            awk '{printf "'$format'\n", $5, $3, $2, "", "", $1}'
+    else
+        df -Hl | grep ^/ | \
+            awk '{printf "'$format'\n", $6, $2, $3, $4, $5, $1}' 
+    fi
+}
+
+# -----------------------------------------------------------------------------
+# process management
+# -----------------------------------------------------------------------------
+
+if [[ $ME_OS == osx ]] ; then
+    alias top='top -o cpu'
+fi
+
+checkexe htop  && alias htop='sudo htop'
+
+# -----------------------------------------------------------------------------
+# package management
+# -----------------------------------------------------------------------------
+
+case $ME_OS in
+    centos | redhat)
+        alias yum='sudo yum'
+        ;;
+    debian | ubuntu)
+        alias tude='sudo aptitude'
+        ;;
+    gentoo)
+        alias e='sudo emerge --verbose'
+        ;;
+    solaris)
+        alias pkgutil='sudo pkgutil'
+        ;;
+    suse)
+        alias zyp='sudo zypper'
+        ;;
+esac
+
+# -----------------------------------------------------------------------------
+# kernel management
+# -----------------------------------------------------------------------------
+
+case $ME_OS in
+    debian | ubuntu)
+        purge_kernel() {
+            if [[ $# != 1 ]] ; then
+                echo usage: $0 version >&2
+                return 1
+            fi
+            version=$1
+            sudo dpkg --purge linux-image-$version linux-image-extra-$version
+            sudo dpkg --configure --pending
+        }
+        ;;
+esac
+
+# vim: ft=zsh et

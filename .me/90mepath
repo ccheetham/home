@@ -1,0 +1,18 @@
+# =============================================================================
+# finalize path setups
+# =============================================================================
+
+if [[ $ME_OS == solaris ]] ; then
+    opencsw_dir=/opt/csw
+    if [[ -d $opencsw_dir ]] ; then
+        ME_PATH=$ME_PATH:$opencsw_dir/bin
+        ME_MANPATH=$ME_MANPATH:$opencsw_dir/share/man
+    else
+        echo OpenCSW not installed: pkgadd -d http://get.opencsw.org/now
+    fi
+fi
+
+PATH=~/bin:$ME_PATH:$ME_ORIG_PATH
+MANPATH=$ME_MANPATH${ME_ORIG_MANPATH:+\:${ME_ORIG_MANPATH}}
+
+# vim: ft=zsh

@@ -1,8 +1,14 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# PostgreSQL
+# -----------------------------------------------------------------------------
+# http://www.postgresql.org/
+# =============================================================================
 
-export PGDATA=$ME/var/pg
+export PGDATA=$ME_VAR_DIR/pg
 
-PG_CMD='postgres -d2'
+ME_PG_CMD='postgres -d2'
 
-alias pg="$PG_CMD"
-alias xpg="xterm -title PostgreSQL -name log -e $PG_CMD &"
+alias pg="$ME_PG_CMD"
+alias xpg="xterm -title PostgreSQL -name log -e $ME_PG_CMD &"
+
+# vim: ft=zsh

@@ -1,7 +1,11 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Pivotal tooling
+# =============================================================================
+
+ME_PATH=~/src/appsuite-qa/bin:$ME_PATH
 
 pvpn() {
-    local pdir=~/etc/openvpn/pivotal
+    local pdir=$ME_CONFIG_DIR/openvpn/pivotal
     if [[ ! -d $pdir ]] ; then
         echo "no vpn configurations in $pdir" >&2
         return 1
@@ -31,13 +35,4 @@ sqa() {
     source ~/src/appsuite-qa/qaenv/profile
 }
 
-cdqa() {
-    cd ~/src/appsuite-qa
-}
-
-cdtc() {
-    cd ~/src/appsuite-qa/projects/tc-server-qa
-}
-
-alias tqa='clear; t proj:qa'
-alias ttc='clear; t proj:tc'
+# vim: ft=zsh

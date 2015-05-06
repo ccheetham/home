@@ -1,6 +1,8 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Apache Ant
+# =============================================================================
 
-append_path $ME_OPT_DIR/maven/current
+ME_PATH=$ME_OPT_DIR/maven/current/bin:$ME_PATH
 
 alias m='mvn'
 alias m32=$ME_OPT_DIR/maven/3.2/bin/mvn
@@ -15,22 +17,21 @@ refresh_maven () {
     versions=(3.2.1 3.1.1 3.0.5 2.2.1)
 
     mkdir -p $instdir
-    for version in $versions
-    do
+    for version in $versions ; do
         local shortver=${version%.*}
         if [[ ! -h $instdir/current ]] ; then
             echo linking current to $shortver
             (cd $instdir && ln -s $shortver current)
         fi
-        if [[ ! -d $instdir/apache-maven-$version ]]
-        then
+        if [[ ! -d $instdir/apache-maven-$version ]] ; then
             echo fetching maven dist for version $shortver
             wget -O - $disturl/apache-maven-${version}-bin.tar.gz 2> /dev/null | tar xfz - -C $instdir
         fi
-        if [[ ! -e $instdir/$shortver ]]
-        then
+        if [[ ! -e $instdir/$shortver ]] ; then
             echo linking apache-maven-$version to $shortver
             (cd $instdir && ln -s apache-maven-$version $shortver)
         fi
     done
 }
+
+# vim: ft=zsh

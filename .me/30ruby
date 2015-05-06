@@ -1,6 +1,10 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Ruby
+# =============================================================================
 
 export GEM_HOME=$ME_DISTRO_DIR/lib/ruby/gems
-prepend_path $GEM_HOME
+ME_PATH=$GEM_HOME/bin:$ME_PATH
 
 alias rb='ruby'
+
+# vim: ft=zsh

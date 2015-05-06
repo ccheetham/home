@@ -1,6 +1,12 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Groovy
+# -----------------------------------------------------------------------------
+# http://www.groovy-lang.org/
+# =============================================================================
 
 export GROOVY_HOME=$ME_OPT_DIR/groovy/current
-append_path $GROOVY_HOME
+ME_PATH=$GROOVY_HOME/bin:$ME_PATH
 
 alias gru='groovy'
+
+# vim: ft=zsh

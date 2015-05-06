@@ -1,4 +1,6 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# My major environment viariables
+# =============================================================================
 
 export ME=$HOME
 
@@ -6,12 +8,13 @@ export ME_CONFIG_DIR=$ME/etc
 export ME_LIB_DIR=$ME/lib
 export ME_LIBEXEC_DIR=$ME/libexec
 export ME_VAR_DIR=$ME/var
-export ME_OPT_DIR=$ME/opt
 export ME_LOG_DIR=$ME_VAR_DIR/log
 export ME_REPO_CFG=$ME_CONFIG_DIR/repo
 export ME_REPO_DIR=$ME_VAR_DIR/repo
 
+# -----------------------------------------------------------------------------
 # ME_OS
+# -----------------------------------------------------------------------------
 case $OSTYPE in
     cygwin)
         ME_OS=cygwin
@@ -30,7 +33,9 @@ case $OSTYPE in
         ;;
 esac
 
+# -----------------------------------------------------------------------------
 # ME_DISTRO_FLAVOR
+# -----------------------------------------------------------------------------
 if [[ $ME_OS == linux ]] ; then
     case $(cat /etc/issue) in
         *CentOS*)
@@ -56,7 +61,9 @@ else
     ME_DISTRO_FLAVOR=$ME_OS
 fi
 
+# -----------------------------------------------------------------------------
 # ME_DISTRO_VERSION
+# -----------------------------------------------------------------------------
 case $ME_DISTRO_FLAVOR in
     centos)
         ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
@@ -81,7 +88,9 @@ case $ME_DISTRO_FLAVOR in
         ;;
 esac
 
+# -----------------------------------------------------------------------------
 # ME_DISTRO_ARCH
+# -----------------------------------------------------------------------------
 case $(uname -m) in
     i686)
         ME_DISTRO_ARCH=x32
@@ -97,7 +106,9 @@ case $(uname -m) in
         ;;
 esac
 
-# some Linices are moving to /etc/os-release
+# -----------------------------------------------------------------------------
+# support for Linuces that use /etc/os-release
+# -----------------------------------------------------------------------------
 if [[ $ME_DISTRO_FLAVOR == unknown ]] ; then
     if [[ -f /etc/os-release ]] ; then
         . /etc/os-release
@@ -117,6 +128,7 @@ export ME_SHELL=$(basename $SHELL)
 export ME_HOST=$HOST
 
 export ME_LOCAL_DIR=$ME/local
+export ME_OPT_DIR=$ME/local/opt
 export ME_PLATFORM_DIR=$ME_LOCAL_DIR/$ME_PLATFORM
 export ME_DISTRO_DIR=$ME_LOCAL_DIR/$ME_DISTRO
 
@@ -131,3 +143,5 @@ reenv() {
     source ~/.zshenv
     source ~/.zshrc
 }
+
+# vim: ft=zsh

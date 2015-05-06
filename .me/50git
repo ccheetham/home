@@ -1,4 +1,8 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Git
+# -----------------------------------------------------------------------------
+# http://git-scm.com/
+# =============================================================================
 
 alias g='git'
 alias g\?='g status'
@@ -9,8 +13,7 @@ alias gp='g pull'
 alias gR='g checkout -f'
 
 ga () {
-    if [[ $# == 0 ]]
-    then
+    if [[ $# == 0 ]] ; then
         git add .
     else
         git add $*
@@ -18,10 +21,11 @@ ga () {
 }
 
 gP () {
-    if [[ $# == 0 ]]
-    then
+    if [[ $# == 0 ]] ; then
         git push origin master
     else
         git push $*
     fi
 }
+
+# vim: ft=zsh

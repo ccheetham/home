@@ -1,9 +1,17 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Vim
+# =============================================================================
 
-vi=vi
-if which vim > /dev/null 2>&1 ; then
-    vi=vim
+if checkexe vim ; then
+    _vi=vim
     alias vi=vim
+else
+    _vi=vi
 fi
-export EDITOR="$vi"
-export VISUAL="$vi -f"
+
+export EDITOR="$_vi"
+export VISUAL="$_vi -f"
+
+unset _vi
+
+# vim: ft=zsh

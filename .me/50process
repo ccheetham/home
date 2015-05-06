@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-if [[ $ME_OS == osx ]] ; then
-    alias top='top -o cpu'
-fi
-
-which htop > /dev/null  && alias htop='sudo htop'

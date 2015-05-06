@@ -1,9 +1,9 @@
 # =============================================================================
-# Cherokee web server
-# -----------------------------------------------------------------------------
-# http://cherokee-project.com/
+# sed util
 # =============================================================================
 
-alias cal='cherokee-admin-launcher'
+if checkexe gsed > /dev/null ; then
+    alias sed='gsed'
+fi
 
 # vim: ft=zsh

@@ -1,5 +1,9 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# XML tooling
+# =============================================================================
 
 if [[ -f /usr/local/etc/xml/catalog ]] ; then
     export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 fi
+
+# vim: ft=zsh

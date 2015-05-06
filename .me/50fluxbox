@@ -1,3 +1,9 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Fluxbox windowmanager
+# -----------------------------------------------------------------------------
+# http://www.fluxbox.org/
+# =============================================================================
 
-export FLUXBOX_LOG=$ME_LOG_DIR/fluxbox.$(hostname).log
+export FLUXBOX_LOG=$ME_LOG_DIR/fluxbox.$ME_HOST.log
+
+# vim: ft=zsh

@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-
-unset PATH
-for p in /usr/local / /usr ; do
-    append_path $p
-done

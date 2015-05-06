@@ -1,16 +1,27 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Keychain: SSH/GPG key manager
+# -----------------------------------------------------------------------------
+# http://www.funtoo.org/Keychain
+# =============================================================================
 
-if which keychain > /dev/null 2>&1 ; then
+if checkexe keychain ; then
     keychain --quiet
-    export KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
-    [[ -f $KEYCHAIN_ENV ]] && source $KEYCHAIN_ENV
+    ME_KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
+    if [[ -f $ME_KEYCHAIN_ENV ]] ; then
+        source $ME_KEYCHAIN_ENV
+    else
+        echo $ME_KEYCHAIN_ENV not found >&2
+    fi
 fi
 
 keychain_init() {
-    keychain_opts="--eval --agents ssh"
+    local pri
+    local keychain_opts="--eval --agents ssh"
     [[ $ME_OS == osx ]] && keychain_opts+=" --inherit any"
     for pub in ~/.ssh/*.pub ; do
         pri=$(basename $pub .pub)
         eval keychain $keychain_opts $pri
     done
 }
+
+# vim: ft=zsh

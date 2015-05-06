@@ -1,11 +1,14 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Apache Tomcat
+# =============================================================================
 
 export CATALINA_HOME=$ME_OPT_DIR/tomcat/current
 export CATALINA_BASE=$ME_VAR_DIR/tomcat
-TC_CMD="$CATALINA_HOME/bin/catalina.sh run"
 
-alias tc="$TC_CMD"
-alias xtc='xterm -title Tomcat -name log -e "$TC_CMD" &'
+ME_TC_CMD="$CATALINA_HOME/bin/catalina.sh run"
+
+alias tc="$ME_TC_CMD"
+alias xtc='xterm -title Tomcat -name log -e "$ME_TC_CMD" &'
 
 refresh_tomcat () {
     local instdir=$ME_OPT_DIR/tomcat
@@ -14,22 +17,21 @@ refresh_tomcat () {
     versions=(8.0.9 7.0.55 6.0.41)
 
     mkdir -p $instdir
-    for version in $versions
-    do
+    for version in $versions; do
         local shortver=${version%.*.*}
         if [[ ! -h $instdir/current ]] ; then
             echo linking current to $shortver
             (cd $instdir && ln -s $shortver current)
         fi
-        if [[ ! -d $instdir/apache-tomcat-$version ]]
-        then
+        if [[ ! -d $instdir/apache-tomcat-$version ]] ; then
             echo fetching tomcat dist for version $shortver
             wget -O - $disturl/tomcat-${shortver}/v${version}/bin/apache-tomcat-$version.tar.gz 2> /dev/null | tar xfz - -C $instdir
         fi
-        if [[ ! -h $instdir/$shortver ]]
-        then
+        if [[ ! -h $instdir/$shortver ]] ; then
             echo linking apache-ant-$version to $shortver
             (cd $instdir && ln -s apache-tomcat-$version $shortver)
         fi
     done
 }
+
+# vim: ft=zsh

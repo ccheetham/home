@@ -1,5 +1,11 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Jython: Python for Java
+# -----------------------------------------------------------------------------
+# http://www.jython.org/
+# =============================================================================
 
-append_path $ME_OPT_DIR/jython/current
+ME_PATH=$ME_OPT_DIR/jython/current:$ME_PATH
 
 alias jy='jython'
+
+# vim: ft=zsh

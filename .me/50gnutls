@@ -1,3 +1,9 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# GnuTLS
+# ----------------------------------------------------------------------------
+# http://www.gnutls.org/
+# =============================================================================
 
-checkexe gnutls-certtool > /dev/null && alias certtool=gnutls-certtool
+checkexe gnutls-certtool > /dev/null && alias certtool='gnutls-certtool'
+
+# vim: ft=zsh

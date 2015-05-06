@@ -1,4 +1,6 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# Java
+# =============================================================================
 
 if [[ $ME_OS == osx ]] ; then
     JDK8_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
@@ -14,7 +16,9 @@ export JAVA_HOME=$JDK_HOME
 export JRE_HOME=$JDK_HOME
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 
-prepend_path $JAVA_HOME
+ME_PATH=$ME_PATH:$JAVA_HOME/bin
+ME_MANPATH=$ME_MANPATH:$JAVA_HOME/man
+
 
 j () {
     java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
@@ -39,3 +43,5 @@ j7 () {
 j6 () {
     $JDK6_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
 }
+
+# vim: ft=zsh

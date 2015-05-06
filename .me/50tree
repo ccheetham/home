@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-alias tree='tree -C -I \*.pyc'

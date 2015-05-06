@@ -1,7 +1,14 @@
-#!/usr/bin/env zsh
+# =============================================================================
+# GCC settings
+# -----------------------------------------------------------------------------
+# https://gcc.gnu.org/
+# =============================================================================
 
+# TODO: maybe move this out of zsh startup?
 if echo "void f(int i) {i++;int j;}" | gcc -xc -c -o /dev/null -march=native - 2> /dev/null; then
     CFLAGS='-march=native'
     CXXFLAGS=$CFLAGS
     export CFLAGS CXXFLAGS
 fi
+
+# vim: ft=zsh
