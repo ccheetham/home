@@ -1,11 +1,3 @@
-if has('unix')
-    if system('uname') =~ 'Darwin'
-        let os = 'mac'
-    else
-        let os = 'unix'
-    endif
-endif
-
 set nocompatible                        " um, no
 
 filetype off                            " disable prior to Vundle setup
@@ -18,17 +10,20 @@ Plugin 'pathogen.vim'                   " ... that setup Vundle plugin mgmt
 Plugin 'asciidoc.vim'                   " AsciiDoc syntax
 Plugin 'tfnico/vim-gradle'              " Gradle systax
 Plugin 'nginx.vim'                      " nginx web server syntax
+"Plugin 'scrooloose/syntastic'            " syntax checker
 Plugin 'scrooloose/nerdtree'            " filesystem explorer
+Plugin 'TaskList.vim'                   " TODOs, FIXMEs, XXXs ...
 Plugin 'ctrlp.vim'                      " fuzzy file/buffer finder
 Plugin 'ivanov/vim-ipython'             " interact with iPython
-Plugin 'airblade/vim-gitgutter'         " Git Gutter
 Plugin 'MarcWeber/vim-addon-mw-utils'   " dependency for ...
 Plugin 'tomtom/tlib_vim'                " ... and another dependency for ...
 Plugin 'SirVer/ultisnips'               " ... UltiSnips snippet framework
 Plugin 'honza/vim-snippets'             " snippets for SnipMate
-"if os == 'mac'
-"    Plugin 'Valloric/YouCompleteMe'     " autocomplete as you type
-"endif
+Plugin 'airblade/vim-gitgutter'         " Git Gutter
+"Plugin 'benmills/vimux'                 " interact with tmux
+"Plugin 'pitluga/vimux-nose-test'         " ... nose testing
+"Plugin 'reinh/vim-makegreen'
+"Plugin 'kevinw/pyflakes-vim'
 
 call vundle#end()
 call pathogen#infect()
@@ -66,47 +61,46 @@ set listchars=tab:._                    " ... as  .___
 set bs=2                                " backspace over everything
 set visualbell                          " quiet please
 
-let NERDTreeIgnore = ['\.pyc$']         " ignore these files in NerdTree
+" editing
+nmap <silent><leader>n :set invnumber<cr>
+nmap <silent><leader>rn :set relativenumber!<cr>
+nnoremap <silent><leader>c :set cursorline! cursorcolumn! <cr>
+nmap <silent><leader>h :set invhlsearch<cr>
+nmap <silent><leader>w :set invwrap<cr>
+nmap <silent><leader>p :set invpaste<cr>:set paste?<cr>
+map <silent><leader>f mzgg=G`z<cr>
+nmap <c-n> :cnext<cr>
+nmap <c-m> :cprev<cr>
 
-au BufNewFile,BufRead *.adoc setlocal ft=asciidoc       " addt'l asciidoc exts
+" vimrc mamagement
+nmap <silent><leader>ev :edit $MYVIMRC<cr>
+nmap <leader>sv :source $MYVIMRC<cr>
 
-" grepping
+" nerdtree
+let NERDTreeIgnore=['\.pyc$', '__pycache__']
+map <silent><leader>q :NERDTreeToggle<cr>
+
+" tasklist
+let g:tlWindowPosition=1                " open tasklist on the bottom
+
+" asciidoc
+au BufNewFile,BufRead *.adoc setlocal ft=asciidoc
+
+" grep
 if executable('ag')                     " use silver searcher if available
     set grepprg=ag\ --nogroup\ --nocolor
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     let g:ctrlp_use_caching = 0
 endif
 
-" edit vimrc
-nmap <silent><leader>ev :edit $MYVIMRC<cr>
-" source vimrc
-nmap <leader>sv :source $MYVIMRC<cr>
-" toggle line numbers
-nmap <leader>n :set invnumber<cr>
-" toggle relativeline line numbers
-nmap <leader>rn :set relativenumber!<cr>
-" toggle crosshairs
-nnoremap <leader>c :set cursorline! cursorcolumn! <cr>
-" toggle search highlighting
-nmap <leader>h :set invhlsearch<cr>
-" toggle wrap mode
-nmap <leader>w :set invwrap<cr>
-" toggle paste mode
-nmap <leader>p :set invpaste<cr>:set paste?<cr>
-" format buffer
-map <silent><leader>f mzgg=G`z<cr>
-" next error
-nmap <c-n> :cnext<cr>
-" previous error
-nmap <c-m> :cprev<cr>
-" git gutter
-nmap <leader>gg :GitGutterLineHighlightsToggle<cr>
-" execute python on current buffer
-nmap <silent><leader>q :w !python<cr>
+" git
+nmap <silent><leader>gg :GitGutterLineHighlightsToggle<cr>
+
+" python
+nmap <silent><leader>y :w !python<cr>
+
 " insert timestamp (YY/MM/DD hh:mm)
-:nnoremap <leader>ts "=strftime("%D %R")<cr>P
-" toggle NerdTree window
-map <leader>t :NERDTreeToggle<cr>
+:nnoremap <silent><leader>ts "=strftime("%D %R")<cr>P
 
 " remembering twixt sessions
 "  'N   :  marks will be remembered for up to N previously edited files
@@ -126,5 +120,15 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
+
+"autocmd BufNewFile,BufRead *.py compiler nose
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+set t_Co=256
