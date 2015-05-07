@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
 # guess cd dir using these roots
-cdpath=(~ ~/src ~/src/appsuite-qa ~/src/appsuite-qa/projects)
+cdpath=(~/src)
