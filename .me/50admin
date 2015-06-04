@@ -78,7 +78,7 @@ checkexe htop  && alias htop='sudo htop'
 # package management
 # -----------------------------------------------------------------------------
 
-case $ME_OS in
+case $ME_DISTRO_FLAVOR in
     centos | redhat)
         alias yum='sudo yum'
         ;;
@@ -100,7 +100,7 @@ esac
 # kernel management
 # -----------------------------------------------------------------------------
 
-case $ME_OS in
+case $ME_DISTRO_FLAVOR in
     debian | ubuntu)
         purge_kernel() {
             if [[ $# != 1 ]] ; then
