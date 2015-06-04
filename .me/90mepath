@@ -12,7 +12,7 @@ if [[ $ME_OS == solaris ]] ; then
     fi
 fi
 
-PATH=~/bin:$ME_PATH:$ME_ORIG_PATH
+PATH=~/local/bin:~/bin:$ME_PATH:$ME_ORIG_PATH
 MANPATH=$ME_MANPATH${ME_ORIG_MANPATH:+\:${ME_ORIG_MANPATH}}
 
 # vim: ft=zsh
