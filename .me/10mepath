@@ -11,4 +11,7 @@ ME_MANPATH=$ME_PLATFORM_DIR/share/man
 ME_PATH=$ME_DISTRO_DIR/bin:$ME_PATH
 ME_MANPATH=$ME_DISTRO_DIR/share/man:$ME_MANPATH
 
+export ME_ZSH_FUNCTIONS=$ME_LIBEXEC_DIR/zsh/functions
+source $ME_ZSH_FUNCTIONS
+
 # vim: ft=zsh

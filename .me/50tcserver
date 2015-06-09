@@ -1,9 +1,0 @@
-# =============================================================================
-# Pivotal tc Server
-# =============================================================================
-
-export TC_SERVER_HOME=$ME_OPT_DIR/tcserver/current
-
-ME_PATH=$TC_SERVER_HOME:$ME_PATH
-
-# vim: ft=zsh

@@ -1,13 +1,7 @@
 #!/usr/bin/env zsh
 
 _profile_dir=$(dirname $0)
-
-source $_profile_dir/env
-export ME_ZSH_FUNCTIONS=$ME_LIBEXEC_DIR/zsh/functions
-source $ME_ZSH_FUNCTIONS
-
 for f in $_profile_dir/[[:digit:]]* ; do
     source $f
 done
-
 unset _profile_dir
