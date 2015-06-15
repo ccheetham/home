@@ -90,8 +90,16 @@ mep-venv-status() {
 
 # git status: enabled if git repo detected
 mep-git-status() {
-    b=$(git symbolic-ref HEAD --short 2> /dev/null)
-    [[ -n $b ]] && print "${mep_color[info]}[g:$b]%f"
+    stat=$(git status 2> /dev/null | head -1)
+    case $stat in
+        "On branch"*)
+            stat=$(echo $stat | cut -d' ' -f3)
+            ;;
+        *detached*)
+            stat=-detached-
+            ;;
+    esac
+    [[ -n $stat ]] && print "${mep_color[info]}[g:${stat}]%f"
 }
 
 # zsh right prompt variable
