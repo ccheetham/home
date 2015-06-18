@@ -23,12 +23,4 @@ ga () {
     fi
 }
 
-gP () {
-    if [[ $# == 0 ]] ; then
-        git push origin master
-    else
-        git push $*
-    fi
-}
-
 # vim: ft=zsh
