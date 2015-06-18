@@ -36,27 +36,31 @@ esac
 # -----------------------------------------------------------------------------
 # ME_DISTRO_FLAVOR
 # -----------------------------------------------------------------------------
-if [[ $ME_OS == linux ]] ; then
-    case $(cat /etc/issue) in
-        *CentOS*)
-            ME_DISTRO_FLAVOR=centos
-            ;;
-        *Debian*)
-            ME_DISTRO_FLAVOR=debian
-            ;;
-        *Red\ Hat*)
-            ME_DISTRO_FLAVOR=redhat
-            ;;
-        *SUSE*)
-            ME_DISTRO_FLAVOR=suse
-            ;;
-        *Ubuntu*)
-            ME_DISTRO_FLAVOR=ubuntu
-            ;;
-        *)
-            ME_DISTRO_FLAVOR=unknown
-            ;;
-    esac
+if [[ $ME_OS == linux ]]  ; then
+    if [ -f /etc/issue ] ; then
+        case $(cat /etc/issue) in
+            *CentOS*)
+                ME_DISTRO_FLAVOR=centos
+                ;;
+            *Debian*)
+                ME_DISTRO_FLAVOR=debian
+                ;;
+            *Red\ Hat*)
+                ME_DISTRO_FLAVOR=redhat
+                ;;
+            *SUSE*)
+                ME_DISTRO_FLAVOR=suse
+                ;;
+            *Ubuntu*)
+                ME_DISTRO_FLAVOR=ubuntu
+                ;;
+            *)
+                ME_DISTRO_FLAVOR=unknown
+                ;;
+        esac
+    else
+        [ -x /usr/bin/emerge ] && ME_DISTRO_FLAVOR=gentoo
+    fi
 else
     ME_DISTRO_FLAVOR=$ME_OS
 fi
