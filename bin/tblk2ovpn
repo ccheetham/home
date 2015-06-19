@@ -218,5 +218,3 @@ else
 fi
 
 cleanup
-
-# if fell thru to here, well ...
