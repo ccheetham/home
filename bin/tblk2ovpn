@@ -31,6 +31,8 @@ die() {
 
 # -- setup --------------------------------------------------------------------
 
+[[ Darwin == $(uname) ]] && die "OS X not supported yet"
+
 prog=$(basename $0)
 connect=0
 dump=0
