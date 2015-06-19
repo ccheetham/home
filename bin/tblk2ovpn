@@ -121,7 +121,13 @@ connect() {
     dump "$bundle" "$cfg_name"
     log connecting to $cfg_name
     cd $scratch/*.tblk/*.tblk
-    sudo $OPENVPN config.ovpn
+    sudo=$(which sudo 2> /dev/null)
+    if [[ -n $sudo ]] ; then
+        debug "using sudo $sudo"
+    else
+        error "sudo not found, trying as current user"
+    fi
+    $sudo $OPENVPN config.ovpn
 }
 
 dump() {
@@ -137,13 +143,17 @@ dump() {
     echo "script-security 2"            >> config.ovpn
     up=$(eval ls $HOOKUP 2> /dev/null)
     if [[ -n $up ]] ; then
-        log "found up hook $up"
+        debug "found up hook $up"
         echo "up $up"                   >> config.ovpn
+    else
+        debug "no up hook found"
     fi
     down=$(eval ls $HOOKDOWN 2> /dev/null)
     if [[ -n $down ]] ; then
-        log "found down hook $down"
+        debug "found down hook $down"
         echo "down $down"               >> config.ovpn
+    else
+        debug "no down hook found"
     fi
     cd - > /dev/null
 }
