@@ -106,6 +106,9 @@ list() {
 }
 
 connect() {
+    if [[ ! -x $OPENVPN ]] ; then
+        die "openvpn not at $OPENVPN; set OPENVPN if elsewhere"
+    fi
     local bundle=$1
     local cfg_name=$2
     tld=$(head -1 $scratch/toc)
