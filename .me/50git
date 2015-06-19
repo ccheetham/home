@@ -7,12 +7,10 @@
 alias g='git'
 alias g\?='g help'
 alias gg='g status'
-alias gc='g checkout'
 alias gf='g fetch'
 alias gm='g merge'
 alias gp='g pull'
 alias gd='g diff'
-alias gR='g checkout -f'
 alias gC='g commit'
 
 ga () {
