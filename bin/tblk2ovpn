@@ -162,7 +162,16 @@ list() {
     tail -n+2 $scratch/toc | sed -n 's_[^/]\+/\([^/]\+\).tblk/$_\1_p' | sort
 }
 
+cleanup() {
+    if [[ -d $scratch ]] ; then
+        debug "removing scratch $scratch"
+        rm -r $scratch
+    fi
+}
+
 # -- main  --------------------------------------------------------------------
+
+trap cleanup SIGINT
 
 bundle=$1
 
@@ -192,22 +201,22 @@ unzip -l "$bundle" | \
 # option -c
 if [[ $connect == 1 ]] ; then
     connect "$bundle" "$config"
-    exit
-fi
 
-# option -d
-if [[ $dump == 1 ]] ; then
+# option -c
+elif [[ $dump == 1 ]] ; then
     dump "$bundle" "$config"
     mv $scratch/*.tblk/*.tblk "$config"
     log "configuration dumped to \"$config\""
-    exit
-fi
 
 # option -l
-if [[ $list == 1 ]] ; then
+elif [[ $list == 1 ]] ; then
     list
-    exit
+
+# nada
+else
+    die "action not specified nor taken"
 fi
 
+cleanup
+
 # if fell thru to here, well ...
-die "action not specified nor taken"
