@@ -204,7 +204,7 @@ unzip -l "$bundle" | \
 if [[ $connect == 1 ]] ; then
     connect "$bundle" "$config"
 
-# option -c
+# option -d
 elif [[ $dump == 1 ]] ; then
     dump "$bundle" "$config"
     mv $scratch/*.tblk/*.tblk "$config"
