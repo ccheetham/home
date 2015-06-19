@@ -172,4 +172,5 @@ if [[ -n $config ]] ; then
     exit
 fi
 
-die "shouldn't have reached here ... impl error"
+# if fell thru to here, well ...
+die "action not specified nor taken"
