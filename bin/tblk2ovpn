@@ -1,0 +1,172 @@
+#!/usr/bin/env bash
+
+OPENVPN=${OPENVPN:-/usr/sbin/openvpn}
+HOOKUP=${HOOKUP:-/etc/openvpn/\{update-resolv-conf,up.sh\}}
+HOOKDOWN=${HOOKDOWN:-/etc/openvpn/\{update-resolv-conf,down.sh\}}
+
+# =============================================================================
+# tblk2ovpn
+# -----------------------------------------------------------------------------
+# extract a config from Tunnelblick bundle, massage, and pass it to OpenVPN
+# =============================================================================
+
+# -- utilities ----------------------------------------------------------------
+
+log() {
+    echo $*
+}
+
+debug() {
+    [[ $verbose != 0 ]] && log $*
+}
+
+error() {
+    echo $* >&2
+}
+
+die() {
+    [[ $# != 0 ]] && error $*
+    exit 1
+}
+
+# -- setup --------------------------------------------------------------------
+
+prog=$(basename $0)
+list=0
+verbose=0
+config=
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$prog [-h] [-v] (-c name | -l) bundle.zip"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tbundle.zip\tpath to a Tunnelblick bundle packaged for OS X"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tUse a named configuration in a Tunnelblick bundle to establish an"
+    echo -e "\tOpenVPN connection.  If the host uses resolvconf to manage DNS, use"
+    echo -e "\tresolvconf hooks when setting up and tearing down the VPN connection."
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-c name\t\tconnect using the named Tunnelblick configuration"
+    echo -e "\t-l\t\tlist Tunnelblick configurations"
+    echo -e "\t-v\t\tverbose output"
+    echo -e "\t-h\t\tdisplay this message"
+    echo
+    echo "NOTES"
+    echo
+    echo -e "\tOpenVPN will be run via sudo."
+    echo
+    echo -e "\tSet the following env vars to change defaults:"
+    echo -e "\t\t\tOPENVPN\t\t$OPENVPN"
+    echo -e "\t\t\tHOOKUP\t\t$HOOKUP"
+    echo -e "\t\t\tHOOKDOWN\t$HOOKDOWN"
+    echo
+}
+
+while getopts ":c:hlv" opt ; do
+    case $opt in
+        c)
+            config=$OPTARG
+            ;;
+        l)
+            list=1
+            ;;
+        v)
+            verbose=1
+            ;;
+        h)
+            usage
+            exit
+            ;;
+        :)
+            die "-$OPTARG requires an argument"
+            ;;
+        \?)
+            die "invalid option -$OPTARG" >&2
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+[[ $list != 0 ]] && [[ -n $config ]] && die "-c and -l are mutually exclusive"
+
+[[ $# == 1 ]] || die Tunnelblick bundle not specified
+
+# -- functions ----------------------------------------------------------------
+
+list() {
+    tail -n+2 $scratch/toc | sed -n 's_[^/]\+/\([^/]\+\).tblk/$_\1_p' | sort
+}
+
+connect() {
+    local bundle=$1
+    local cfg_name=$2
+    tld=$(head -1 $scratch/toc)
+    if ! unzip "$bundle" -d $scratch "${tld}${cfg_name}.tblk/*" > /dev/null 2>&1 ; then
+        die "failed to extract config $config"
+    fi
+    cd $scratch/*.tblk/*.tblk
+    echo                                >> config.ovpn
+    echo "# following added by $prog"   >> config.ovpn
+    echo "script-security 2"            >> config.ovpn
+    up=$(eval ls $HOOKUP 2> /dev/null)
+    if [[ -n $up ]] ; then
+        log "found up hook $up"
+        echo "up $up"                   >> config.ovpn
+    fi
+    down=$(eval ls $HOOKDOWN 2> /dev/null)
+    if [[ -n $down ]] ; then
+        log "found down hook $down"
+        echo "down $down"               >> config.ovpn
+    fi
+    log connecting to $cfg_name
+    sudo $OPENVPN config.ovpn
+}
+
+# -- main  --------------------------------------------------------------------
+
+bundle=$1
+
+debug "verifying: $bundle"
+if [[ ! -f "$bundle" ]] ; then
+    error "$bundle not found or not a file"
+    return 1
+fi
+if [[ ! -r "$bundle" ]] ; then
+    error "$bundle read permission denied"
+    return 1
+fi
+if ! unzip -t "$bundle" > /dev/null 2>&1; then
+    error "$bundle not a bundle (zipfile)"
+    return 1
+fi
+
+# scratch pad
+scratch=$(mktemp --directory $prog-XXXXXX --tmpdir)
+debug "scratch: $scratch"
+
+debug "toc: $scratch/toc"
+unzip -l "$bundle" | \
+    sed -n 's_[[:space:]]\+[[:digit:]]\+  [0-9-]\+ [0-9:]\+   \(.*\)_\1_p' \
+    > $scratch/toc
+
+# option -l
+if [[ $list != 0 ]] ; then
+    list
+    exit
+fi
+
+# option -c
+if [[ -n $config ]] ; then
+    connect "$bundle" "$config"
+    exit
+fi
+
+die "shouldn't have reached here ... impl error"
