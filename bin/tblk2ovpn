@@ -32,6 +32,8 @@ die() {
 # -- setup --------------------------------------------------------------------
 
 prog=$(basename $0)
+connect=0
+dump=0
 list=0
 verbose=0
 config=
@@ -40,7 +42,7 @@ usage() {
     echo
     echo "USAGE"
     echo
-    echo -e "\t$prog [-h] [-v] (-c name | -l) bundle.zip"
+    echo -e "\t$prog [-h] [-v] (-c name | -d name | -l) bundle.zip"
     echo
     echo "WHERE"
     echo
@@ -55,6 +57,8 @@ usage() {
     echo "OPTIONS"
     echo
     echo -e "\t-c name\t\tconnect using the named Tunnelblick configuration"
+    echo -e "\t-d name\t\tdump the named Tunnelblick configuration, adding resolvconf"
+    echo -e "\t\t\thooks if found"
     echo -e "\t-l\t\tlist Tunnelblick configurations"
     echo -e "\t-v\t\tverbose output"
     echo -e "\t-h\t\tdisplay this message"
@@ -70,9 +74,14 @@ usage() {
     echo
 }
 
-while getopts ":c:hlv" opt ; do
+while getopts ":c:d:hlv" opt ; do
     case $opt in
         c)
+            connect=1
+            config=$OPTARG
+            ;;
+        d)
+            dump=1
             config=$OPTARG
             ;;
         l)
@@ -95,15 +104,13 @@ while getopts ":c:hlv" opt ; do
 done
 shift $(($OPTIND-1))
 
-[[ $list != 0 ]] && [[ -n $config ]] && die "-c and -l are mutually exclusive"
+[[ $connect == 1 ]] && [[ $dump == 1 ]] && die "-c and -d are mutually exclusive"
+[[ $connect == 1 ]] && [[ $list == 1 ]] && die "-c and -l are mutually exclusive"
+[[ $dump == 1 ]] && [[ $list == 1 ]] && die "-d and -l are mutually exclusive"
 
 [[ $# == 1 ]] || die Tunnelblick bundle not specified
 
 # -- functions ----------------------------------------------------------------
-
-list() {
-    tail -n+2 $scratch/toc | sed -n 's_[^/]\+/\([^/]\+\).tblk/$_\1_p' | sort
-}
 
 connect() {
     if [[ ! -x $OPENVPN ]] ; then
@@ -111,9 +118,18 @@ connect() {
     fi
     local bundle=$1
     local cfg_name=$2
+    dump "$bundle" "$cfg_name"
+    log connecting to $cfg_name
+    cd $scratch/*.tblk/*.tblk
+    sudo $OPENVPN config.ovpn
+}
+
+dump() {
+    local bundle=$1
+    local cfg_name=$2
     tld=$(head -1 $scratch/toc)
-    if ! unzip "$bundle" -d $scratch "${tld}${cfg_name}.tblk/*" > /dev/null 2>&1 ; then
-        die "failed to extract config $config"
+    if ! unzip -o -d $scratch "$bundle" "${tld}${cfg_name}.tblk/*" > /dev/null 2>&1 ; then
+        die "failed to extract config $cfg_name"
     fi
     cd $scratch/*.tblk/*.tblk
     echo                                >> config.ovpn
@@ -129,8 +145,11 @@ connect() {
         log "found down hook $down"
         echo "down $down"               >> config.ovpn
     fi
-    log connecting to $cfg_name
-    sudo $OPENVPN config.ovpn
+    cd - > /dev/null
+}
+
+list() {
+    tail -n+2 $scratch/toc | sed -n 's_[^/]\+/\([^/]\+\).tblk/$_\1_p' | sort
 }
 
 # -- main  --------------------------------------------------------------------
@@ -160,15 +179,23 @@ unzip -l "$bundle" | \
     sed -n 's_[[:space:]]\+[[:digit:]]\+  [0-9-]\+ [0-9:]\+   \(.*\)_\1_p' \
     > $scratch/toc
 
-# option -l
-if [[ $list != 0 ]] ; then
-    list
+# option -c
+if [[ $connect == 1 ]] ; then
+    connect "$bundle" "$config"
     exit
 fi
 
-# option -c
-if [[ -n $config ]] ; then
-    connect "$bundle" "$config"
+# option -d
+if [[ $dump == 1 ]] ; then
+    dump "$bundle" "$config"
+    mv $scratch/*.tblk/*.tblk "$config"
+    log "configuration dumped to \"$config\""
+    exit
+fi
+
+# option -l
+if [[ $list == 1 ]] ; then
+    list
     exit
 fi
 
