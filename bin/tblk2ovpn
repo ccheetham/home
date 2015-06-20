@@ -179,16 +179,13 @@ bundle=$1
 
 debug "verifying: $bundle"
 if [[ ! -f "$bundle" ]] ; then
-    error "$bundle not found or not a file"
-    return 1
+    die "$bundle not found or not a file"
 fi
 if [[ ! -r "$bundle" ]] ; then
-    error "$bundle read permission denied"
-    return 1
+    die "$bundle read permission denied"
 fi
 if ! unzip -t "$bundle" > /dev/null 2>&1; then
-    error "$bundle not a bundle (zipfile)"
-    return 1
+    die "$bundle not a bundle (zipfile)"
 fi
 
 # scratch pad
