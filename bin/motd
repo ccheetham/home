@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-. ~/.me/functions
+. $ME_ZSH_FUNCTIONS
 
 checkexe cowsay || exit $?
 
