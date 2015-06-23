@@ -4,6 +4,7 @@
 
 checkexe sudo
 
+alias ho='hostname -f'
 alias hosts='sudo $EDITOR /etc/hosts'
 [[ $ME_OS == osx ]] && alias dmesg='sudo dmesg'
 
