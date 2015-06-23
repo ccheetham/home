@@ -24,6 +24,7 @@ var
 .cache
 .compiz
 .conda/
+.config/
 .cups
 .dbus
 .dmrc
