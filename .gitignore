@@ -60,6 +60,7 @@ var
 .mozilla
 .msgid.cache
 .ncftp
+.nfs*
 .pip
 .pki
 .pulse*
