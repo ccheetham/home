@@ -86,7 +86,10 @@ case $ME_DISTRO_FLAVOR in
         alias tude='sudo aptitude'
         ;;
     gentoo)
-        alias e='sudo emerge --verbose'
+        alias e='sudo -E emerge --verbose'
+        alias eup='e -auDNv @world --with-bdeps=y'
+        alias eclean='e -a --depclean'
+        alias elog='sudo view /var/log/portage/elog/summary.log'
         ;;
     solaris)
         alias pkgutil='sudo pkgutil'
