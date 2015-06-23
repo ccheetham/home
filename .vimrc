@@ -77,7 +77,7 @@ nmap <silent><leader>ev :edit $MYVIMRC<cr>
 nmap <leader>sv :source $MYVIMRC<cr>
 
 " nerdtree
-let NERDTreeIgnore=['\.pyc$', '__pycache__']
+let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
 map <silent><leader>q :NERDTreeToggle<cr>
 
 " tasklist
