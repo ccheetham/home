@@ -23,6 +23,7 @@ var
 .cisco
 .cache
 .compiz
+.conda/
 .cups
 .dbus
 .dmrc
