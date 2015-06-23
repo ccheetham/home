@@ -44,12 +44,12 @@ mep-out() {
 
 # prompt message, displayed before prompt sign
 mep-prompt-message() {
-    print "%(?,${mep_color[info]},${mep_color[warn]})$(mep-in)%f "
+    print "%(?,${mep_color[info]},${mep_color[warn]})$(mep-in)%f"
 }
 
 # prompt sign, indicates user to enter next command
 mep-prompt-sign() {
-    print "${mep_color[hl]}%2~%f %#"
+    print "${mep_color[hl]}%f %#"
 }
 
 # zsh hook invoked after command processed but before executed
@@ -89,7 +89,7 @@ mep-venv-status() {
 }
 
 # git status: enabled if git repo detected
-mep-git-status() {
+mep-git-status-text() {
     stat=$(git status 2> /dev/null | head -1)
     case $stat in
         "On branch"*)
@@ -99,7 +99,13 @@ mep-git-status() {
             stat=-detached-
             ;;
     esac
-    [[ -n $stat ]] && print "${mep_color[info]}[g:${stat}]%f"
+    echo $stat
+}
+
+# git status: enabled if git repo detected
+mep-git-status() {
+    local git=$(mep-git-status-text)
+    [[ -n $git ]] && print "${mep_color[info]}[g:${git}]%f"
 }
 
 # zsh right prompt variable
@@ -112,7 +118,9 @@ RPROMPT='$(mep-rc-status)$(mep-venv-status)$(mep-git-status)$(mep-job-status)$(m
 # set the titlebar of term
 mep-title() {
     # xterm-compatible terms
-    print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
+    local git=$(mep-git-status-text)
+    [[ -n $git ]] && git=" [$git]"
+    print -Pn "\e]0;"${XTITLE:-%~${git}}"\a"
 }
 
 # zsh hook invoked just before prompt displayed
