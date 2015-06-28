@@ -117,10 +117,13 @@ RPROMPT='$(mep-rc-status)$(mep-venv-status)$(mep-git-status)$(mep-job-status)$(m
 
 # set the titlebar of term
 mep-title() {
+    if [[ ! $TERM == xterm* ]] ; then
+        return
+    fi
     # xterm-compatible terms
     local git=$(mep-git-status-text)
     [[ -n $git ]] && git=" [$git]"
-    print -Pn "\e]0;"${XTITLE:-%~${git}}"\a"
+    print -Pn "\e]0;"${XTITLE:-%m:%~${git}}"\a"
 }
 
 # zsh hook invoked just before prompt displayed
