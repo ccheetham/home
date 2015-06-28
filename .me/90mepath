@@ -2,17 +2,36 @@
 # finalize path setups
 # =============================================================================
 
-if [[ $ME_OS == solaris ]] ; then
-    opencsw_dir=/opt/csw
-    if [[ -d $opencsw_dir ]] ; then
-        ME_PATH=$ME_PATH:$opencsw_dir/bin
-        ME_MANPATH=$ME_MANPATH:$opencsw_dir/share/man
-    else
+ME_PATH=$ME_PATH:/usr/local/bin:/usr/local/sbin
+ME_MANPATH=$ME_MANPATH:/usr/local/share/man
+
+if [[ solaris == $ME_OS ]] ; then
+    if [[ ! -d /opt/csw ]] ; then
         echo OpenCSW not installed: pkgadd -d http://get.opencsw.org/now
     fi
+    ME_PATH=$ME_PATH:/opt/csw/bin
+    ME_MANPATH=$ME_MANPATH:/opt/csw/share/man
+    ME_PATH=$ME_PATH:/usr/gnu/bin
+    ME_MANPATH=$ME_MANPATH:/usr/gnu/share/man
 fi
 
-PATH=~/local/bin:~/bin:$ME_PATH:$ME_ORIG_PATH
-MANPATH=$ME_MANPATH${ME_ORIG_MANPATH:+\:${ME_ORIG_MANPATH}}
+[[ solaris != $ME_OS ]] && ME_PATH=$ME_PATH:/bin
+ME_PATH=$ME_PATH:/usr/bin
+
+if [[ -d /usr/X11 ]] ; then
+    ME_PATH=$ME_PATH:/usr/X11/bin
+    ME_MANPATH=$ME_MANPATH:/usr/X11/share/man
+fi
+
+[[ solaris != $ME_OS ]] && ME_PATH=$ME_PATH:/sbin
+ME_PATH=$ME_PATH:/usr/sbin
+ME_MANPATH=$ME_MANPATH:/usr/share/man
+
+ME_PATH=~/local/bin:~/bin:$ME_PATH
+
+PATH=$ME_PATH
+MANPATH=$ME_MANPATH
+
+rehash
 
 # vim: ft=zsh
