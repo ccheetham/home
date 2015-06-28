@@ -62,6 +62,7 @@ set bs=2                                " backspace over everything
 set visualbell                          " quiet please
 
 " editing
+map <c-d> dd
 nmap <silent><leader>n :set invnumber<cr>
 nmap <silent><leader>rn :set relativenumber!<cr>
 nnoremap <silent><leader>c :set cursorline! cursorcolumn! <cr>
