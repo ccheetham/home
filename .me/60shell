@@ -32,11 +32,10 @@ if ls -@ > /dev/null 2>&1 ; then
     alias l@='ll -@'
 fi
 
-alias mkdir='mkdir -p'
-mcdir() {
-    mkdir $1
-    chdir $1
-}
+alias mkdir='mkdir -vp'
+alias ln='ln -v'
+alias mv='mv -v'
+alias rm='rm -v'
 
 alias cls='clear'
 
