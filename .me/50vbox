@@ -23,9 +23,14 @@ vbstart() {
     state=$(vbstatus $vm)
     case $state in
         stopped)
-            vbmanage startvm $vm --type headless ;;
+            vbmanage startvm $vm --type headless
+            local rdp=$(vbmanage showvminfo $vm | \
+                sed -n 's/VRDE:.*Ports \([[:digit:]]*\).*/\1/p')
+            echo "rdp port $rdp"
+            ;;
         *)
-            _error $vm $state ;;
+            _error $vm $state
+            ;;
     esac
 }
 
@@ -34,9 +39,11 @@ vbstop() {
     state=$(vbstatus $vm)
     case $state in
         paused | running)
-            vbmanage controlvm $vm poweroff ;;
+            vbmanage controlvm $vm poweroff
+            ;;
         *)
-            _error $vm $state ;;
+            _error $vm $state
+            ;;
     esac
 }
 
@@ -45,9 +52,11 @@ vbreset() {
     state=$(vbstatus $vm)
     case $state in
         running)
-            vbmanage controlvm $vm reset ;;
+            vbmanage controlvm $vm reset
+            ;;
         *)
-            _error $vm $state ;;
+            _error $vm $state
+            ;;
     esac
 }
 
@@ -56,9 +65,11 @@ vbshutdown() {
     state=$(vbstatus $vm)
     case $state in
         running)
-            vbmanage controlvm $vm acpipowerbutton ;;
+            vbmanage controlvm $vm acpipowerbutton
+            ;;
         *)
-            _error $vm $state ;;
+            _error $vm $state
+            ;;
     esac
 }
 
@@ -67,9 +78,11 @@ vbpause() {
     state=$(vbstatus $vm)
     case $state in
         running)
-            vbmanage controlvm $vm pause ;;
+            vbmanage controlvm $vm pause
+            ;;
         *)
-            _error $vm $state ;;
+            _error $vm $state
+            ;;
     esac
 }
 
@@ -78,9 +91,11 @@ vbresume() {
     state=$(vbstatus $vm)
     case $state in
         paused)
-            vbmanage controlvm $vm resume ;;
+            vbmanage controlvm $vm resume
+            ;;
         *)
-            _error $vm $state ;;
+            _error $vm $state 
+            ;;
     esac
 }
 
