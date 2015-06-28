@@ -32,6 +32,10 @@ toor() {
     [[ -n display ]] && export DISPLAY=$display
 }
 
+joe() {
+    sudo su - joe
+}
+
 reboot() {
     sudo /sbin/reboot
 }
@@ -91,9 +95,6 @@ case $ME_DISTRO_FLAVOR in
         alias eup='e -auDNv @world --with-bdeps=y'
         alias eclean='e -a --depclean'
         alias elog='sudo view /var/log/portage/elog/summary.log'
-        ;;
-    solaris)
-        alias pkgutil='sudo pkgutil'
         ;;
     suse)
         alias zyp='sudo zypper'
