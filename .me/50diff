@@ -5,8 +5,6 @@
 # -----------------------------------------------------------------------------
 # http://www.colordiff.org/
 # -----------------------------------------------------------------------------
-if checkexe colordiff ; then
-    alias diff='colordiff'
-fi
+alias diff='colordiff'
 
 # vim: ft=zsh

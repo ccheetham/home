@@ -2,8 +2,6 @@
 # system administration
 # =============================================================================
 
-checkexe sudo
-
 alias ho='hostname -f'
 alias hosts='sudo $EDITOR /etc/hosts'
 [[ $ME_OS == osx ]] && alias dmesg='sudo dmesg'
@@ -77,7 +75,7 @@ if [[ $ME_OS == osx ]] ; then
     alias top='top -o cpu'
 fi
 
-checkexe htop  && alias htop='sudo htop'
+alias htop='sudo htop'
 
 # -----------------------------------------------------------------------------
 # package management

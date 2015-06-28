@@ -2,11 +2,11 @@
 # Vim
 # =============================================================================
 
-if checkexe vim ; then
+_vi=vi
+
+if checkexe vim > /dev/null ; then
     _vi=vim
     alias vi=vim
-else
-    _vi=vi
 fi
 
 export EDITOR="$_vi"
