@@ -6,9 +6,30 @@
 
 GRADLE_VERSION=2.4
 
-export GRADLE_HOME=$ME_OPT_DIR/gradle/gradle-$GRADLE_VERSION
+ME_GRADLE_HOMES=$ME_OPT_DIR/gradle
+GRADLE_HOME=$ME_OPT_DIR/gradle/gradle-$GRADLE_VERSION
 ME_PATH=$GRADLE_HOME/bin:$ME_PATH
 
 alias gra='gradle'
+
+
+alias gra24='$ME_GRADLE_HOMES/gradle-2.4/bin/gradle'
+alias gra='gra24'
+
+refresh_gradle () {
+    local disturl=https://services.gradle.org/distributions
+    local -a vers
+    local tmpfile 
+    versions=(2.4)
+
+    mkdir -p $ME_GRADLE_HOMES
+    for version in $versions ; do
+        echo fetching gradle dist $version
+        local dist=gradle-${version}-all.zip
+        wget $disturl/$dist
+        unzip -o $dist -d $ME_GRADLE_HOMES
+        rm -f $dist
+    done
+}
 
 # vim: ft=zsh
