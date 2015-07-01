@@ -2,44 +2,30 @@
 # Apache Ant
 # =============================================================================
 
-export ANT_HOME=$ME_OPT_DIR/ant/current
-ME_PATH=$ANT_HOME/bin:$ME_PATH
-
-alias a='ant'
+ME_ANT_HOMES=$ME_OPT_DIR/ant
 
 a19() {
-    ANT_HOME=$ME_OPT_DIR/ant/1.9
+    ANT_HOME=$ME_ANT_HOMES/apache-ant-1.9.4
     $ANT_HOME/bin/ant $*
 }
 
 a18() {
-    ANT_HOME=$ME_OPT_DIR/ant/1.8
+    ANT_HOME=$ME_ANT_HOMES/apache-ant-1.8.4
     $ANT_HOME/bin/ant $*
 }
 
+alias a='a19'
+
 refresh_ant () {
-    local instdir=$ME_OPT_DIR/ant
     local disturl=http://archive.apache.org/dist/ant/binaries
     local -a vers
     versions=(1.9.4 1.8.4)
 
-    mkdir -p $instdir
+    mkdir -p $ME_ANT_HOMES
     for version in $versions ; do
-        local shortver=${version%.*}
-        if [[ ! -h $instdir/current ]] ; then
-            echo linking current to $shortver
-            (cd $instdir && ln -s $shortver current)
-        fi
-        if [[ ! -d $instdir/apache-ant-$version ]]
-        then
-            echo fetching ant dist for version $shortver
-            wget -O - $disturl/apache-ant-${version}-bin.tar.gz 2> /dev/null | tar xfz - -C $instdir
-        fi
-        if [[ ! -e $instdir/$shortver ]]
-        then
-            echo linking apache-ant-$version to $shortver
-            (cd $instdir && ln -s apache-ant-$version $shortver)
-        fi
+        echo fetching ant dist $version
+        wget -O - $disturl/apache-ant-${version}-bin.tar.gz 2> /dev/null \
+            | tar xfz - -C $ME_ANT_HOMES
     done
 }
 
