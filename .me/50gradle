@@ -4,7 +4,9 @@
 # http://gradle.org/
 # =============================================================================
 
-export GRADLE_HOME=$ME_OPT_DIR/gradle/current
+GRADLE_VERSION=2.4
+
+export GRADLE_HOME=$ME_OPT_DIR/gradle/gradle-$GRADLE_VERSION
 ME_PATH=$GRADLE_HOME/bin:$ME_PATH
 
 alias gra='gradle'
