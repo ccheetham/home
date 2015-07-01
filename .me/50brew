@@ -12,7 +12,7 @@ bsync() {
     echo -n 'Upgrade? '
     read
     b upgrade --all
-    b linkapps
+    #b linkapps
     b cleanup
 }
 
