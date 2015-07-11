@@ -2,7 +2,8 @@ set nocompatible                        " um, no
 
 filetype off                            " disable prior to Vundle setup
 
-set rtp+=~/var/repo/Vundle.vim          " Vundle plugin manager ...
+set rtp+=$HOME/src/color-scheme/vim
+set rtp+=$HOME/var/repo/Vundle.vim          " Vundle plugin manager ...
 call vundle#begin()                     " https://github.com/gmarik/Vundle.vim
 
 Plugin 'gmarik/Vundle.vim'              " this and ...
