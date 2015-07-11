@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo $0
+HOME=$(cd $(dirname $0)/.. && pwd)
+cd $HOME
+exec env -i HOME=$HOME TERM=$TERM /bin/zsh
