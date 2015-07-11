@@ -33,6 +33,7 @@ if ls -@ > /dev/null 2>&1 ; then
 fi
 
 alias mkdir='mkdir -vp'
+alias cp='cp -v'
 alias ln='ln -v'
 alias mv='mv -v'
 alias rm='rm -v'

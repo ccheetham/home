@@ -1,0 +1,13 @@
+# =============================================================================
+# HyperSQL
+# -----------------------------------------------------------------------------
+# http://hsqldb.org/
+# =============================================================================
+
+HSQLDB_VERSION=2.3.3
+
+HSQLDB_HOME=$ME_OPT_DIR/hsqldb/hsqldb-$HSQLDB_VERSION/hsqldb
+
+alias hsqlmgr='j -cp $HSQLDB_HOME/lib/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing'
+
+# vim: ft=zsh
