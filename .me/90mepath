@@ -32,6 +32,8 @@ ME_PATH=~/local/bin:~/bin:$ME_PATH
 PATH=$ME_PATH
 MANPATH=$ME_MANPATH
 
+ve default
+
 rehash
 
 # vim: ft=zsh
