@@ -109,7 +109,7 @@ mep-git-status() {
 }
 
 # zsh right prompt variable
-RPROMPT='$(mep-rc-status)$(mep-venv-status)$(mep-git-status)$(mep-job-status)$(mep-history-status)'
+RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-job-status)$(mep-history-status)'
 
 # -----------------------------------------------------------------------------
 # misc
