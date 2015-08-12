@@ -34,12 +34,12 @@ mep_uni[leftwards-arrow-with-hook]=$(echo "\u21a9")
 
 # "incoming" message, displayed after command run
 mep-in() {
-    print "${mep_uni[rightwards-arrow-with-hook]}"
+    [[ $TERM == xterm* ]] && print "${mep_uni[rightwards-arrow-with-hook]}"
 }
 
 # "outgoing" message, displayed before command run
 mep-out() {
-    print "${mep_uni[leftwards-arrow-with-hook]}"
+    [[ $TERM == xterm* ]] && print "${mep_uni[leftwards-arrow-with-hook]}"
 }
 
 # prompt message, displayed before prompt sign
