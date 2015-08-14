@@ -40,4 +40,6 @@ mcdir() {
 
 alias cls='clear'
 
+unalias which > /dev/null 2<&1
+
 # vim: ft=zsh
