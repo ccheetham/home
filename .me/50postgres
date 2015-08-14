@@ -6,9 +6,27 @@
 
 export PGDATA=$ME_VAR_DIR/pg
 
+PG_JDBC_VERSION=9.4-1201
+
 ME_PG_CMD='postgres -d2'
+ME_PG_HOME=$ME_OPT_DIR/postgresql
 
 alias pg="$ME_PG_CMD"
 alias xpg="xterm -title PostgreSQL -name log -e $ME_PG_CMD &"
+
+
+refresh_postgresql () {
+    local disturl=https://jdbc.postgresql.org/download
+    local -a vers
+    versions=($PG_JDBC_VERSION)
+
+    mkdir -p $ME_PG_HOME
+    for version in $versions ; do
+        echo fetching postgresql jdbc dist $version
+        local dist=postgresql-${version}.jdbc4.jar
+        wget -c $disturl/$dist -P $ME_PG_HOME
+
+    done
+}
 
 # vim: ft=zsh

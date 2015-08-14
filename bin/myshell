@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+export OLDHOME=$HOME
 HOME=$(cd $(dirname $0)/.. && pwd)
 SHELL="zsh"
 OLDPWD=$PWD

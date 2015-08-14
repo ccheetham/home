@@ -1,0 +1,93 @@
+#!/usr/bin/env zsh
+
+prog=$(basename $0)
+mbytes=256
+volume="RAM Disk"
+
+die() {
+    [[ $# > 0 ]] && echo $* >&2
+    exit 1
+}
+
+[[ osx != $ME_OS ]] && die "$ME_OS not supported"
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$prog [-svh] mount"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tmount\tdirectory where RAM disk to be mounted"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tCreate a RAM disk at the specified directory."
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-s\tRAM disk size in MB, default $mbytes"
+    echo -e "\t-v\tvolume name, default \"$volume\""
+    echo -e "\t-h\tdisplay this message"
+    echo
+    echo "NOTES"
+    echo
+    echo -e "\tGood rule of thumb is to not create RAM disks with a total size greater"
+    echo -e "\tthan half available system RAM."
+    echo
+    echo "SEE ALSO"
+    echo
+    echo -e "\tdiskutil, hdiutil"
+    echo
+}
+
+while getopts ":hs:v:" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        s)
+            mbytes=$OPTARG
+            ;;
+        v)
+            volume=$OPTARG
+            ;;
+        :)
+            echo "-$OPTARG requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+[[ $# == 0 ]] && die "mount not specified"
+[[ $# > 1 ]] && die "too many args"
+mount=$1
+
+[[ ! $mbytes =~ "^[[:digit:]]+$" ]] && die "$mbytes is not a positive integer"
+bytes=$(($mbytes * 1024 * 2))
+
+mount_point=$HOME/mem
+
+dev=$(hdiutil attach -nomount ram://$bytes | tr -d "[[:space:]]")
+[[ -n $dev ]] || die "failed to create RAM disk"
+
+newfs_hfs -v "$volume" $dev
+
+mkdir -p $mount
+mount -o noatime -t hfs $dev $mount
+
+echo "mounted $dev at $mount"
+echo
+echo "when done with disk, run:"
+echo "    umount $mount (optional)"
+echo "    diskutil eject $dev"
+echo

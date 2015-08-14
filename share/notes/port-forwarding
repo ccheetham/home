@@ -1,0 +1,4 @@
+source: http://www.debiantutorials.com/port-forwarding-with-iptables/
+
+iptables -t nat -A PREROUTING -p tcp -s 0/0 -d {local_ip} --dport {local_port} -j DNAT --to {destination_ip}:{destination_port}
+iptables -t nat -A POSTROUTING -o eth0 -d {destination_ip} -j SNAT --to-source {local_ip}

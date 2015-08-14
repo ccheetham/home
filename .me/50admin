@@ -2,8 +2,6 @@
 # system administration
 # =============================================================================
 
-checkexe sudo
-
 alias ho='hostname -f'
 alias hosts='sudo $EDITOR /etc/hosts'
 [[ $ME_OS == osx ]] && alias dmesg='sudo dmesg'
@@ -30,6 +28,10 @@ toor() {
     unset DISPLAY
     sudo su -
     [[ -n display ]] && export DISPLAY=$display
+}
+
+joe() {
+    sudo su - joe
 }
 
 reboot() {
@@ -73,7 +75,7 @@ if [[ $ME_OS == osx ]] ; then
     alias top='top -o cpu'
 fi
 
-checkexe htop  && alias htop='sudo htop'
+alias htop='sudo htop'
 
 # -----------------------------------------------------------------------------
 # package management
@@ -91,9 +93,6 @@ case $ME_DISTRO_FLAVOR in
         alias eup='e -auDNv @world --with-bdeps=y'
         alias eclean='e -a --depclean'
         alias elog='sudo view /var/log/portage/elog/summary.log'
-        ;;
-    solaris)
-        alias pkgutil='sudo pkgutil'
         ;;
     suse)
         alias zyp='sudo zypper'

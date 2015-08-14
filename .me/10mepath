@@ -2,9 +2,6 @@
 # paths to my local tools
 # =============================================================================
 
-ME_ORIG_PATH=${ME_ORIG_PATH-$PATH}
-ME_ORIG_MANPATH=${ME_ORIG_MANPATH-$MANPATH}
-
 ME_PATH=$ME_PLATFORM_DIR/bin
 ME_MANPATH=$ME_PLATFORM_DIR/share/man
 

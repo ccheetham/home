@@ -12,7 +12,7 @@ ls_cmd=ls
 if [[ $ME_OS == osx ]] ; then
     ls_opts=' -FGH'
 else
-    for opt in classify color group-directories-first ; do
+    for opt in classify color dereference group-directories-first ; do
         if $ls_cmd --$opt > /dev/null 2>&1 ; then
             ls_opts+=" --$opt"
         fi
@@ -32,11 +32,11 @@ if ls -@ > /dev/null 2>&1 ; then
     alias l@='ll -@'
 fi
 
-alias mkdir='mkdir -p'
-mcdir() {
-    mkdir $1
-    chdir $1
-}
+alias mkdir='mkdir -vp'
+alias cp='cp -v'
+alias ln='ln -v'
+alias mv='mv -v'
+alias rm='rm -v'
 
 alias cls='clear'
 

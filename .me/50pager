@@ -2,7 +2,7 @@
 # paging
 # =============================================================================
 
-if checkexe less ; then
+if checkexe less > /dev/null ; then
     export PAGER=less
     export LESS="-RSM~gIsw"
 fi

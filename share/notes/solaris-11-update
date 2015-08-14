@@ -1,0 +1,7 @@
+pkg list -u             # show available updates
+
+pretend update:
+  pkg update -nv
+
+update:
+  pkg update

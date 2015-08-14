@@ -1,11 +1,13 @@
 # =============================================================================
-# Jython: Python for Java
+# HyperSQL
 # -----------------------------------------------------------------------------
-# http://www.jython.org/
+# http://hsqldb.org/
 # =============================================================================
 
-ME_PATH=$ME_OPT_DIR/jython/current:$ME_PATH
+HSQLDB_VERSION=2.3.3
 
-alias jy='jython'
+HSQLDB_HOME=$ME_OPT_DIR/hsqldb/hsqldb-$HSQLDB_VERSION/hsqldb
+
+alias hsqlmgr='j -cp $HSQLDB_HOME/lib/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing'
 
 # vim: ft=zsh

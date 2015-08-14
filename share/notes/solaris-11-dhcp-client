@@ -1,0 +1,13 @@
+http://docs.oracle.com/cd/E23824_01/html/821-1453/eyhuv.html
+
+if interface already exists:
+  ipadm delete-addr -r <dhcp-addrobj>
+
+if interface doesn't exist:
+  ipadm create-ip <interface>
+
+associate hostname with dhcp address:
+  ipadm create-addr -T dhcp -h <hostname> <dhcp-addrobj>
+
+sample <dhcp-addrobj>:
+  net0/v4

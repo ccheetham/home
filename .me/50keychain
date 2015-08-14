@@ -4,7 +4,7 @@
 # http://www.funtoo.org/Keychain
 # =============================================================================
 
-if checkexe keychain ; then
+if checkexe keychain > /dev/null ; then
     keychain --quiet
     ME_KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
     if [[ -f $ME_KEYCHAIN_ENV ]] ; then

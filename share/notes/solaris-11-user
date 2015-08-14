@@ -1,0 +1,5 @@
+effectively make user root:
+  usermod -K defaultpriv=ALL <user>
+
+see missing privileges:
+  priv -D -e <cmd>

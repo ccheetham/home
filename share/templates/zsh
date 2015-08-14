@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 
-program=$(basename $0)
+prog=$(basename $0)
 
 usage() {
     echo
     echo "USAGE"
     echo
-    echo -e "\t$program [options] <reqd_arg> [opt_arg]"
+    echo -e "\t$prog [-options] <reqd_arg> [opt_arg]"
     echo
     echo "WHERE"
     echo
@@ -38,12 +38,12 @@ while getopts ":h" opt ; do
             exit
             ;;
         :)
-            echo "$opt requires an argument" >&2
+            echo "$OPTARG requires an argument" >&2
             echo "run with -h for help" >&2
             exit 1
             ;;
         \?)
-            echo "invalid option $opt" >&2
+            echo "invalid option -$OPTARG" >&2
             echo "run with -h for help" >&2
             exit 1
             ;;

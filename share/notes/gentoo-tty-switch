@@ -1,0 +1,9 @@
+following prevents console form switching ttys when hitting meta keys
+
+edit /etc/conf.d/keymaps:
+  windowkeys="NO"
+
+remove current keymap:
+  % rm /lib/rc/console/keymap
+
+reboot
