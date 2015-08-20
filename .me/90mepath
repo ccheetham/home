@@ -32,7 +32,8 @@ ME_PATH=~/local/bin:~/bin:$ME_PATH
 PATH=$ME_PATH
 MANPATH=$ME_MANPATH
 
-ve me
+# following disabled because it messes up brew; left comnented for doc purposes
+#ve me
 
 rehash
 
