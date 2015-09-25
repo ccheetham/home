@@ -1,3 +1,5 @@
+auto_view text/html
+
 #unignore *
 #ignore received
 #ignore thread-index

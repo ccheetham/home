@@ -1,9 +1,15 @@
-source ~/.mutt/account.muttrc
-source ~/.mutt/mailbox.muttrc
-source ~/.mutt/maillist.muttrc
+# ============================================================================
+# mutt configuration
+# ============================================================================
+
+source ~/.mutt/mail-in.muttrc
+source ~/.mutt/mail-out.muttrc
+source ~/.mutt/mail-view.muttrc
+source ~/.mutt/cache.muttrc
 source ~/.mutt/tool.muttrc
-source ~/.mutt/color.muttrc
-source ~/.mutt/layout.muttrc
-source ~/.mutt/ignore.muttrc
 source ~/.mutt/macro.muttrc
-source ~/.mutt/alias.muttrc
+source ~/.mutt/layout.muttrc
+source ~/.mutt/color.muttrc
+
+source ~/.mutt/$MUTT_INSTANCE.muttrc
+source ~/.mutt/$MUTT_INSTANCE.aliases

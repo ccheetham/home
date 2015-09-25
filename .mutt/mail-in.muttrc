@@ -1,0 +1,8 @@
+set folder = ~/var/mail/$MUTT_INSTANCE
+set mbox_type = Maildir
+set mbox = "[GMail]/All Mail"
+set spoolfile = "+INBOX"
+set postponed = "+[GMail]/Drafts"
+set record    = "+[GMail]/Sent Mail"
+
+# vim: filetype=muttrc

@@ -1,0 +1,5 @@
+alias mutt-me='MUTT_INSTANCE=me mutt'
+alias mutt-bucket='MUTT_INSTANCE=bucket mutt'
+alias mutt-work='MUTT_INSTANCE=work mutt'
+
+# vim: ft=zsh
