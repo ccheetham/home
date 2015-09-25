@@ -1,0 +1,70 @@
+#!/usr/bin/env zsh
+
+# TODO: ensure OS X
+
+prog=$(basename $0)
+
+die() {
+    echo $* >&2
+    exit 1
+}
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$prog [-h] <service> <user>"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tdisplay the Keyring/Keychain password"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tservice\tservice name"
+    echo -e "\tuser\tuser name"
+    echo
+    echo "OPTIONS"
+    echo
+    echo -e "\t-h\tdisplay this message"
+    echo
+}
+
+while getopts ":k:h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        k)
+            keychain=$OPTARG
+            ;;
+        :)
+            echo "$OPTARG requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# < 2 ]] ; then
+    die "service and/or user not specified"
+fi
+if [[ $# > 2 ]] ; then
+    die "specify service and user only"
+fi
+service=$1
+user=$2
+
+python - <<EOF
+import keyring
+password = keyring.get_password('$service', '$user')
+if password:
+    print password
+EOF
