@@ -12,6 +12,7 @@ alias gm='g merge'
 alias gp='g pull'
 alias gd='g diff'
 alias gC='g commit'
+alias gR='g checkout'
 alias gtidy='gC -mtidy'
 
 ga () {
