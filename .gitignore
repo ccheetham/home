@@ -28,6 +28,7 @@ var
 .cups
 .dbus
 .dmrc
+.docker/
 .dropbox*
 .dvdcss
 .eclipse*
