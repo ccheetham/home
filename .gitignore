@@ -64,6 +64,7 @@ var
 .msgid.cache
 .ncftp
 .nfs*
+.offlineimap/
 .pip
 .pki
 .pulse*

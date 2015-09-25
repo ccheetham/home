@@ -1,0 +1,50 @@
+# ============================================================================
+# OfflineIMAP
+# ----------------------------------------------------------------------------
+# http://offlineimap.org/
+# ============================================================================
+
+[general]
+accounts = me, work
+pythonfile = ~/.offlineimap.py
+
+# ---- me --------------------------------------------------------------------
+
+[Account me]
+localrepository = mail-me-local
+remoterepository = mail-me-remote
+status_backend = sqlite
+
+[Repository mail-me-local]
+type = Maildir
+localfolders = ~/var/mail/me
+
+[Repository mail-me-remote]
+type = Gmail
+remoteuser = ccheetham@gmail.com
+remotepasseval = keyring.get_password('google-me', 'ccheetham@gmail.com')
+realdelete = no
+maxconnections = 3
+sslcacertfile = ~/etc/ssl/certificates.pem
+folderfilter = lambda foldername: foldername not in ['[Gmail]/Spam']
+
+# ---- work ------------------------------------------------------------------
+
+[Account work]
+localrepository = mail-work-local
+remoterepository = mail-work-remote
+status_backend = sqlite
+
+[Repository mail-work-local]
+type = Maildir
+localfolders = ~/var/mail/work
+
+[Repository mail-work-remote]
+type = Gmail
+remoteuser = ccheetham@pivotal.io
+remotepasseval = keyring.get_password('google-work', 'ccheetham@pivotal.io')
+realdelete = no
+maxconnections = 3
+sslcacertfile = ~/etc/ssl/certificates.pem
+
+# vim: ft=dosini
