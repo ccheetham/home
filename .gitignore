@@ -58,6 +58,7 @@ var
 .keychain
 .lesshst
 .local
+.links/
 .m2
 .macromedia
 .mozilla
