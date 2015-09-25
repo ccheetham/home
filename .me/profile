@@ -4,4 +4,5 @@ _profile_dir=$(dirname $0)
 for f in $_profile_dir/[[:digit:]]* ; do
     source $f
 done
+[[ -r $_profile_dir/local ]] && source $_profile_dir/local
 unset _profile_dir
