@@ -67,6 +67,7 @@ var
 .ncftp
 .nfs*
 .offlineimap/
+.oracle_jre_usage/
 .pip
 .pki
 .pulse*
