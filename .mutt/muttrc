@@ -10,6 +10,6 @@ source ~/.mutt/tool.muttrc
 source ~/.mutt/macro.muttrc
 source ~/.mutt/layout.muttrc
 source ~/.mutt/color.muttrc
-
+source ~/.mutt/goobook.muttrc
 source ~/.mutt/$MUTT_INSTANCE.muttrc
 source ~/.mutt/$MUTT_INSTANCE.aliases

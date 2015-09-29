@@ -1,0 +1,24 @@
+# =============================================================================
+# GooBook
+# -----------------------------------------------------------------------------
+# https://gitlab.com/goobook/goobook
+# =============================================================================
+
+
+[DEFAULT]
+oauth_db_filename: ~/.goobook/auth.json
+client_secret_filename: ~/.goobook/client_secret.json
+cache_filename: ~/.goobook/cache
+
+# ---- untouched defaults -----------------------------------------------------
+
+;cache_expiry_hours: 24
+;filter_groupless_contacts: yes
+
+# New contacts will be added to this group in addition to "My Contacts"
+# Note that the group has to already exist on google or an error will occur.
+# One use for this is to add new contacts to an "Unsorted" group, which can
+# be sorted easier than all of "My Contacts".
+;default_group:
+
+# vim: ft=dosini

@@ -39,6 +39,7 @@ var
 .gem
 .gemfire/
 .gitconfig
+.goobook/
 .gnome
 .gnome2
 .godaddyrc
