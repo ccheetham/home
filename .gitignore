@@ -66,6 +66,7 @@ var
 .macromedia
 .mozilla
 .msgid.cache
+.muttdebug*
 .ncftp
 .nfs*
 .offlineimap/
