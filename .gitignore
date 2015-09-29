@@ -42,6 +42,7 @@ var
 .goobook/
 .gnome
 .gnome2
+.gnupg/
 .godaddyrc
 .gphostcache
 .gradle

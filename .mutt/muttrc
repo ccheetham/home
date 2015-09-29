@@ -2,6 +2,7 @@
 # mutt configuration
 # ============================================================================
 
+# general config
 source ~/.mutt/mail-in.muttrc
 source ~/.mutt/mail-out.muttrc
 source ~/.mutt/mail-view.muttrc
@@ -10,6 +11,11 @@ source ~/.mutt/tool.muttrc
 source ~/.mutt/macro.muttrc
 source ~/.mutt/layout.muttrc
 source ~/.mutt/color.muttrc
+
+# external tool configs
+source ~/.mutt/gnupg.muttrc
 source ~/.mutt/goobook.muttrc
+
+# account configs
 source ~/.mutt/$MUTT_INSTANCE.muttrc
 source ~/.mutt/$MUTT_INSTANCE.aliases
