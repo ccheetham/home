@@ -4,11 +4,11 @@
 # 'O' syncs all mail
 # 'o' syncs inbox only
 # ----------------------------------------------------------------------------
-macro index O \
-    "<shell-escape>offlineimap -a$MUTT_INSTANCE<enter>" \
+macro index,pager O \
+    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE<enter>" \
     "run offlineimap to sync all mail"
-macro index o \
-    "<shell-escape>offlineimap -a$MUTT_INSTANCE -qf INBOX<enter>" \
+macro index,pager o \
+    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE -qf INBOX<enter>" \
     "run offlineimap to sync inbox"
 
- im: filetype=muttrc
+ # vim: filetype=muttrc
