@@ -1,13 +1,31 @@
+unset mark_old           # read/new is good enough
+
+set index_format        = "%2C %Z %{%b %d}  %-15.15F  %s"
+set sort                = threads
+set sort_aux            = reverse-last-date-received
+set uncollapse_jump
+set pager_index_lines   = 16
+set folder_format       = "%2C %t %N   %-30f %8s %d"
+
+set delete
+set quit
+set wait_key = no
+
 auto_view text/html
 
-#unignore *
-#ignore received
-#ignore thread-index
-#ignore x-mailer
-#ignore x-virus-scanned
+ignore   *
+unignore  From: To: CC: Date: X-Mailer: Subject:
+unhdr_order *
+hdr_order From: To: CC: Date: X-Mailer: Subject:
 
-unignore from
-unignore to
-unignore cc
+bind index gg   first-entry
+bind index G    last-entry
+bind index R    group-reply
+bind index <space> collapse-thread
+
+macro index \Cr \
+    "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all messages as read"
+
 
 # vim: filetype=muttrc
