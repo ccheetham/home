@@ -11,6 +11,7 @@ export ME_VAR_DIR=$ME/var
 export ME_LOG_DIR=$ME_VAR_DIR/log
 export ME_REPO_CFG=$ME_CONFIG_DIR/repo
 export ME_REPO_DIR=$ME_VAR_DIR/repo
+export ME_MAIL_DIR=$ME_VAR_DIR/mail
 
 # -----------------------------------------------------------------------------
 # ME_OS

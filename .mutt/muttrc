@@ -15,6 +15,7 @@ source ~/.mutt/color.muttrc
 # external tool configs
 source ~/.mutt/gnupg.muttrc
 source ~/.mutt/goobook.muttrc
+source ~/.mutt/notmuch.muttrc
 
 # account configs
 source ~/.mutt/$MUTT_INSTANCE.muttrc

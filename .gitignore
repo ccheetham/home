@@ -69,6 +69,7 @@ var
 .muttdebug*
 .ncftp
 .nfs*
+.notmuch-config
 .offlineimap/
 .oracle_jre_usage/
 .pip
