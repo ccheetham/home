@@ -1,4 +1,3 @@
-set editor="vim %s"
 set sendmail = "msmtp -a$MUTT_INSTANCE"
 
 # vim: filetype=muttrc

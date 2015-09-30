@@ -7,12 +7,13 @@ source ~/.mutt/mail-in.muttrc
 source ~/.mutt/mail-out.muttrc
 source ~/.mutt/mail-view.muttrc
 source ~/.mutt/cache.muttrc
-source ~/.mutt/tool.muttrc
 source ~/.mutt/macro.muttrc
 source ~/.mutt/layout.muttrc
 source ~/.mutt/color.muttrc
 
 # external tool configs
+source ~/.mutt/vim.muttrc
+source ~/.mutt/msmtp.muttrc
 source ~/.mutt/gnupg.muttrc
 source ~/.mutt/goobook.muttrc
 source ~/.mutt/notmuch.muttrc
