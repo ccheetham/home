@@ -1,5 +1,6 @@
-set certificate_file = ~/var/mutt/certificates
-set header_cache=~/var/mutt/$MUTT_INSTANCE/headers
-set message_cachedir=~/var/mutt/$MUTT_INSTANCE/messages
+set tmpdir              = $ME_MUTT_CACHE_DIR/tmp
+set certificate_file    = $ME_MUTT_CACHE_DIR/certificates
+set header_cache        = $ME_MUTT_CACHE_DIR/$MUTT_INSTANCE/headers
+set message_cachedir    = $ME_MUTT_CACHE_DIR/$MUTT_INSTANCE/messages
 
 # vim: ft=muttrc
