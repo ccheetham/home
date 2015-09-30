@@ -1,12 +1,15 @@
+# ----------------------------------------------------------------------------
 # '/' performs a notmuch query, showing only the results
+# 'a' shows all messages again (supersedes default <alias> binding)
+# ----------------------------------------------------------------------------
 macro index / \
     "<enter-command>unset wait_key<enter>\
     <shell-escape>$ME_REPO_DIR/mutt-notmuch-py/mutt-notmuch-py \
     $ME_MAIL_DIR/$MUTT_INSTANCE/tmp/search<enter>\
     <change-folder-readonly>+tmp/search<enter>" \
     "search mail (using notmuch)"
-
-# 'a' shows all messages again (supersedes default <alias> binding)
-macro index a "<limit>all\n" "show all messages (undo limit)"
+macro index a \
+    "<limit>all\n" \
+    "show all messages (undo limit)"
 
 # vim: filetype=muttrc

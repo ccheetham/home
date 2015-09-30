@@ -4,10 +4,10 @@ set query_command = "goobook query %s"
 
 # ----------------------------------------------------------------------------
 # <tab> runs goobook query on alias
-# 'a' adds sender to contacts
+# 'c' adds sender to contacts
 # ----------------------------------------------------------------------------
 bind editor <tab> complete-query
-macro index,pager a \
+macro index,pager c \
     "<pipe-message>goobook add<return>" \
     "add sender to Google contacts"
 
