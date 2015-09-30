@@ -20,4 +20,3 @@ source ~/.mutt/notmuch.muttrc
 
 # account configs
 source ~/.mutt/$MUTT_INSTANCE.muttrc
-source ~/.mutt/$MUTT_INSTANCE.aliases
