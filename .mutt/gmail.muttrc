@@ -1,0 +1,10 @@
+set move = no
+
+# ----------------------------------------------------------------------------
+# '#' moves message top trash
+# ----------------------------------------------------------------------------
+macro index,pager \# \
+    "<save-message>+trash<enter>" \
+    "move message to the trash"
+
+# vim: filetype=muttrc
