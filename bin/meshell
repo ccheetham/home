@@ -1,6 +1,13 @@
 #!/bin/sh
 
-echo $0
-HOME=$(cd $(dirname $0)/.. && pwd)
-cd $HOME
-exec env -i HOME=$HOME TERM=$TERM /bin/zsh
+cfg=$HOME/.meshellrc
+
+if [ -r $cfg ] ; then
+    source $cfg
+fi
+
+cd `dirname $0`/..
+export ME_OLDHOME=$HOME
+HOME=`pwd`
+
+exec $SHELL $*
