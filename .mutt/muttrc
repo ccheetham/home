@@ -13,6 +13,7 @@ source ~/.mutt/color.muttrc
 source ~/.mutt/vim.muttrc
 source ~/.mutt/msmtp.muttrc
 source ~/.mutt/gnupg.muttrc
+source ~/.mutt/gmail.muttrc
 source ~/.mutt/goobook.muttrc
 source ~/.mutt/offlineimap.muttrc
 source ~/.mutt/notmuch.muttrc
