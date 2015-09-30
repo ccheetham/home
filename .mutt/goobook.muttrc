@@ -1,5 +1,10 @@
+# see ~/.goobookrc
+
 set query_command="goobook query %s"
-macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
 bind editor <Tab> complete-query
+
+# add sender to "My Contacts"
+macro index,pager a "<pipe-message>goobook add<return>" \
+    "add sender to Google contacts"
 
 # vim: filetype=muttrc
