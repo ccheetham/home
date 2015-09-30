@@ -1,10 +1,8 @@
+alias me                    Chris Cheetham <chris@cheetham.com>
+
 subscribe \
-  all@vmware.com \
-  cftest@vmware.com\
-  mrd-fte-adl@vmware.com \
-  s2-fliva-all@vmware.com \
-  s2-nashua@vmware.com \
-  s2-pce-all@vmware.com \
-  s2-rmacblane-all@vmware.com
+    pivotal-all@pivotal.io \
+    spring-all@pivotal.io \
+    spring-developer@pivotal.io
 
 # vim: filetype=muttrc
