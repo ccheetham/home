@@ -2,7 +2,6 @@ set nocompatible                        " um, no
 
 filetype off                            " disable prior to Vundle setup
 
-set rtp+=$HOME/src/color-scheme/vim
 set rtp+=$HOME/var/repo/Vundle.vim          " Vundle plugin manager ...
 call vundle#begin()                     " https://github.com/gmarik/Vundle.vim
 
@@ -33,8 +32,11 @@ filetype on                             " enable file detection
 filetype plugin on                      " load plugins
 filetype indent on                      " indentation
 
+set rtp+=$HOME/var/repo/solarized/vim-colors-solarized
+set background=light                    " use solarized ...
+colorscheme solarized                   " ... light color scheme
+
 syntax on                               " color please
-colorscheme cheetos                     " my colors
 
 set laststatus=2                        " always display status line
 set showmode                            " show current mode
