@@ -1,14 +1,10 @@
 # see ~/.offlineimaprc
 
 # ----------------------------------------------------------------------------
-# 'O' syncs all mail
-# 'o' syncs inbox only
+# 'o' sync all mail via offlineimap
 # ----------------------------------------------------------------------------
-macro index,pager O \
-    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE<enter><sync-mailbox>" \
-    "run offlineimap to sync all mail"
 macro index,pager o \
-    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE -qf INBOX<enter><sync-mailbox>" \
-    "run offlineimap to sync inbox"
+    "<sync-mailbox><shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE<enter><sync-mailbox>" \
+    "run offlineimap to sync all mail"
 
  # vim: filetype=muttrc
