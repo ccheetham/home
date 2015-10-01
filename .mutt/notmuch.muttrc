@@ -8,8 +8,8 @@ macro index / \
     $ME_MAIL_DIR/$MUTT_INSTANCE/tmp/search<enter>\
     <change-folder-readonly>+tmp/search<enter>" \
     "search mail (using notmuch)"
-macro index a \
-    "<limit>all\n" \
-    "show all messages (undo limit)"
+#macro index a \
+#    "<limit>all\n" \
+#    "show all messages (undo limit)"
 
 # vim: filetype=muttrc
