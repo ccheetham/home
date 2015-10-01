@@ -7,7 +7,7 @@ source ~/.mutt/cache.muttrc
 source ~/.mutt/mail-in.muttrc
 source ~/.mutt/mail-out.muttrc
 source ~/.mutt/mail-ui.muttrc
-source ~/.mutt/color.muttrc
+source $ME_REPO_DIR/solarized/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 
 # external tool configs
 source ~/.mutt/vim.muttrc
