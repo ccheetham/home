@@ -1,5 +1,7 @@
 unset mark_old           # read/new is good enough
 
+set help = no               # no menu
+
 set index_format        = "%2C %Z %{%b %d}  %-15.15F  %s"
 set sort                = threads
 set sort_aux            = reverse-last-date-received
