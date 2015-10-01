@@ -1,0 +1,3 @@
+OFFLINE_IMAP_OPTS="-a ACCOUNT"
+
+# vim: ft=sh
