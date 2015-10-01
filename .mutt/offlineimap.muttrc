@@ -5,10 +5,10 @@
 # 'o' syncs inbox only
 # ----------------------------------------------------------------------------
 macro index,pager O \
-    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE<enter>" \
+    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE<enter><sync-mailbox>" \
     "run offlineimap to sync all mail"
 macro index,pager o \
-    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE -qf INBOX<enter>" \
+    "<shell-escape>offlineimap -ubasic -a$MUTT_INSTANCE -qf INBOX<enter><sync-mailbox>" \
     "run offlineimap to sync inbox"
 
  # vim: filetype=muttrc
