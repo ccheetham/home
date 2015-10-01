@@ -1,10 +1,30 @@
 set move = no
 
 # ----------------------------------------------------------------------------
-# '#' moves message top trash
+# '#' delete message (save to trash) (index,pager)
+# 'ga' go to allmail (index,pager)
+# 'gi' go to inbox (index,pager)
+# 'gs' go to starred (index,pager)
+# 'gt' go to sent (index,pager)
+# 'lt' tag message (copy to folder) (index,pager)
 # ----------------------------------------------------------------------------
 macro index,pager \# \
-    "<save-message>+trash<enter>" \
-    "move message to the trash"
+    "<save-message>=trash<enter><enter>" \
+    "delete message (gmail)"
+macro index,pager ga \
+    "<change-folder>=allmail<enter>" \
+    "go to allmail (gmail)"
+macro index,pager gi \
+    "<change-folder>=INBOX<enter>" \
+    "go to inbox (gmail)"
+macro index,pager gs \
+    "<change-folder>=starred<enter>" \
+    "go to inbox (gmail)"
+macro index,pager gt \
+    "<change-folder>=sent<enter>" \
+    "go to sent (gmail)"
+macro index,pager tt \
+    "<copy-message>?" \
+    "tag message (gmail)"
 
 # vim: filetype=muttrc

@@ -39,12 +39,12 @@ status_backend = sqlite
 type = Maildir
 localfolders = ~/var/mail/work
 nametrans = lambda folder: {
-    'received' : '[Gmail]/All Mail',
-    'drafts'   : '[Gmail]/Drafts',
-    'flagged'  : '[Gmail]/Starred',
-    'spam'     : '[Gmail]/Spam',
-    'sent'     : '[Gmail]/Sent Mail',
-    'trash'    : '[Gmail]/Trash',
+    'allmail' : '[Gmail]/All Mail',
+    'drafts'  : '[Gmail]/Drafts',
+    'starred' : '[Gmail]/Starred',
+    'spam'    : '[Gmail]/Spam',
+    'sent'    : '[Gmail]/Sent Mail',
+    'trash'   : '[Gmail]/Trash',
     }.get(folder, folder)
 
 [Repository mail-work-remote]
@@ -60,11 +60,11 @@ folderfilter = lambda folder: folder not in [
     '[Gmail]/Spam',
     ]
 nametrans = lambda folder: {
-    '[Gmail]/All Mail'  : 'received',
-    '[Gmail]/Drafts'    : 'drafts',
-    '[Gmail]/Sent Mail' : 'sent',
-    '[Gmail]/Starred'   : 'flagged',
-    '[Gmail]/Trash'     : 'trash',
+    '[Gmail]/All Mail' : 'allmail',
+    '[Gmail]/Drafts'   : 'drafts',
+    '[Gmail]/Sent Mail': 'sent',
+    '[Gmail]/Starred'  : 'starred',
+    '[Gmail]/Trash'    : 'trash',
     }.get(folder, folder)
 postsynchook = notmuch new
 
