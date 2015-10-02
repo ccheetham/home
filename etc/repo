@@ -1,2 +1,3 @@
 git@github.com:gmarik/Vundle.vim.git
 git@github.com:ccheetham/solarized.git
+git@github.com:honza/mutt-notmuch-py.git
