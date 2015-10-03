@@ -2,5 +2,5 @@
 
 mkdir -p $ME_ZSH_VAR_DIR
 HISTFILE=$ME_ZSH_VAR_DIR/history
-HISTSIZE=500
-SAVEHIST=10000
+HISTSIZE=10000                          # lines to load at start ...
+SAVEHIST=10000                          # ... lines to save on exit
