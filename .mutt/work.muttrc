@@ -1,3 +1,5 @@
+set from = "ccheetham@pivotal.io"
+
 alias me                    Chris Cheetham <chris@cheetham.com>
 
 subscribe \
