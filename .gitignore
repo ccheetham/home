@@ -45,7 +45,6 @@ var
 .gnupg/
 .godaddyrc
 .gphostcache
-.gradle
 .grip/
 .gstreamer-*
 .gtk-bookmarks
