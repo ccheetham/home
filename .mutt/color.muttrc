@@ -1,0 +1,30 @@
+#color normal            default default
+
+color status            black color110
+color message           black  color119
+color error             color001 default
+
+color index             brightcolor111 default ~N   # new
+color index             color101 default ~Q         # replied
+color index             color108 default ~P         # from myself
+color index             color209 default ~F         # flagged
+color index             brightdefault default ~v    # collapsed thread
+color tree              color242 default
+color indicator         black color116
+
+color hdrdefault        color187 default
+color body              color027 default \
+                        "(ftp|http|https|mailto|news)://[^ >]*"
+color body              color187 default \
+                        "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color quoted            default color234
+color quoted2           default color236
+color quoted3           default color238
+color quoted4           default color240
+color attachment        color187 default
+color markers           color052 default
+
+color search            default color118
+color signature         brightdefault default
+
+# vim: filetype=muttrc

@@ -7,7 +7,7 @@ source ~/.mutt/cache.muttrc
 source ~/.mutt/mail-in.muttrc
 source ~/.mutt/mail-out.muttrc
 source ~/.mutt/mail-ui.muttrc
-source $ME_REPO_DIR/solarized/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+source ~/.mutt/color.muttrc
 
 # external tool configs
 source ~/.mutt/vim.muttrc
@@ -20,3 +20,7 @@ source ~/.mutt/notmuch.muttrc
 
 # account configs
 source ~/.mutt/$MUTT_INSTANCE.muttrc
+
+macro index,pager . \
+    ":source $HOME/.mutt/muttrc<enter>" \
+    "reload mutt configuration"
