@@ -9,23 +9,12 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 
-! -- TomorrowNight (https://github.com/chriskempson/tomorrow-theme) -------
+! -- Solarized (https://github.com/solarized/xresources) ---------------------
 
-#define tn_background       #1d1f21
-#define tn_current_line     #282a2e
-#define tn_selection        #373b41
-#define tn_foreground       #c5c8c6
-#define tn_comment          #969896
-#define tn_red              #cc6666
-#define tn_orange           #de935f
-#define tn_yellow           #f0c674
-#define tn_green            #b5bd68
-#define tn_aqua             #8abeb7
-#define tn_blue             #81a2be
-#define tn_purple           #b294bb
+#include "var/repo/solarized/xresources/solarized"
 
 
-! -- basic xterm ----------------------------------------------------------
+! -- basic xterm -------------------------------------------------------------
 
 XTerm*faceName:             xft:Inconsolata:pixelsize=15
 XTerm*pointerMode:          1
@@ -42,56 +31,21 @@ XTerm*visualBell:           true
 XTerm*altIsNotMeta:         true
 XTerm*altSendsEscape:       true
 
-XTerm*.foreground:          tn_foreground
-XTerm*.background:          tn_background
-XTerm*.cursorColor:         #aeafad
 
-! Black / Grey
-XTerm*.color0:              #000000
-XTerm*.color8:              #666666
+! -- root terms --------------------------------------------------------------
 
-! Red / Bright Red
-XTerm*.color1:              tn_red
-XTerm*.color9:              #FF3334
-
-! Green + Bright Green
-XTerm*.color2:              tn_green
-XTerm*.color10:             #9ec400
-
-! Yellow (Orange) + Bright Yellow (Yellow)
-XTerm*.color3:              tn_orange
-XTerm*.color11:             tn_yellow
-
-! Blue + Bright Blue
-XTerm*.color4:              tn_blue
-XTerm*.color12:             tn_blue
-
-! Magenta (Purple) + Bright Magenta
-XTerm*.color5:              tn_purple
-XTerm*.color13:             #b777e0
-
-! Cyan (Aqua) + Bright Cyan
-XTerm*.color6:              tn_aqua
-XTerm*.color14:             #54ced6
-
-! Light Grey (Selection) + White (Current Line)
-XTerm*.color7:              tn_selection
-XTerm*.color15:             tn_current_line
+wheel*foreground:           black
+wheel*background:           #ffaf00
 
 
-! -- root terms -----------------------------------------------------------
-
-wheel*background:           tomato
-
-
-! -- logging terms --------------------------------------------------------
+! -- logging terms -----------------------------------------------------------
 
 log*foreground:             dark khaki
 log*geometry:               120x20
 log*faceSize:               8
 
 
-! -- task warrior terms ---------------------------------------------------
+! -- task warrior terms ------------------------------------------------------
 
 task*geometry:              80x80+0+0
 task*background:            #101010

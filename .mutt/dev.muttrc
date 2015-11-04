@@ -1,0 +1,14 @@
+set from = "dev@cheetham.com"
+
+alias me                    Chris Cheetham <chris@cheetham.com>
+alias work                  Chris Cheetham <ccheetham@pivotal.io>
+alias tomcat-user           users@tomcat.apache.org
+alias tomcat-dev            dev@tomcat.apache.org
+
+subscribe \
+    announce@tomcat.apache.org \
+    dev@tomcat.apache.org \
+    taglibs-user@tomcat.apache.org \
+    users@tomcat.apache.org
+
+# vim: filetype=muttrc

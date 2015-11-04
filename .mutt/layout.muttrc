@@ -1,7 +1,0 @@
-set index_format        = "%2C %Z %{%b %d}  %-15.15F  %s"
-set sort                = threads
-set sort_aux            = reverse-last-date-received
-set pager_index_lines   = 16
-set folder_format       = "%2C %t %N   %-30f %8s %d"
-
-# vim: filetype=muttrc

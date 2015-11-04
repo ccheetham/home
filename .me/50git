@@ -13,7 +13,11 @@ alias gp='g pull'
 alias gd='g diff'
 alias gC='g commit'
 alias gR='g checkout'
+alias gmaster='g checkout master'
 alias gtidy='gC -mtidy'
+alias gtypo='gC -mtypo'
+alias gcrumbs='gC -mbreadcrumbs'
+alias gvestige='gC -mvestige'
 
 ga () {
     if [[ $# == 0 ]] ; then
