@@ -82,17 +82,23 @@ if [[ $list != 0 ]] ; then
     exit
 fi
 
-if [[ $# != 1 ]] ; then
-    echo "no name specified, or too many names" >&2
+if [[ $# == 0 ]] ; then
+    echo "no name specified" >&2
     echo "run with -h for help" >&2
     exit 1
 fi
 
 name=$1
+shift
 venv_dir=$ME_VIRTUALENV_HOME/$name
 
 # show path to named virtualenv activation source
 if [[ $show != 0 ]] ; then
+    if [[ $# > 0 ]] ; then
+        echo "too many names specified" >&2
+        echo "run with -h for help" >&2
+        exit 1
+    fi
     if [[ ! -d $venv_dir ]] ; then
         echo "virtualenv $name does not exist" >&2
         exit 1
@@ -108,6 +114,11 @@ fi
 
 # delete named virtualenv
 if [[ $delete != 0 ]] ; then
+    if [[ $# > 0 ]] ; then
+        echo "too many names specified" >&2
+        echo "run with -h for help" >&2
+        exit 1
+    fi
     if [[ ! -d $venv_dir ]] ; then
         echo "virtualenv $name does not exist" 2>&1
         exit 1
@@ -125,5 +136,4 @@ if [[ -d $venv_dir ]] ; then
     echo "virtualenv $name already exists" 2>&1
     exit 1
 fi
-virtualenv $ME_VIRTUALENV_HOME/$name \
-    --python python3
+virtualenv $ME_VIRTUALENV_HOME/$name $*
