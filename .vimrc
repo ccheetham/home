@@ -32,6 +32,8 @@ filetype on                             " enable file detection
 filetype plugin on                      " load plugins
 filetype indent on                      " indentation
 
+set shell=zsh                           " override what system thinks I want
+
 set rtp+=$HOME/var/repo/solarized/vim-colors-solarized
 set background=dark                     " use solarized ...
 colorscheme solarized                   " ... dark color scheme
