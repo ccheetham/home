@@ -2,4 +2,4 @@ gpg --gen-key
 gpg --output chris@cheetham.com.revoke --gen-revoke chris@cheetham.com
 gpg --list-keys
 gpg --delete-key "Chris Cheetham"
-gpg --search-keys Chris Cheetham"
+gpg --search-keys "Chris Cheetham"
