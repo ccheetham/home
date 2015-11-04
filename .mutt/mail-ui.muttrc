@@ -2,9 +2,11 @@ unset mark_old           # read/new is good enough
 
 set help = no               # no menu
 
-set index_format        = "%2C %Z %{%b %d}  %-15.15F  %s"
+set index_format        = "%2C %Z %{%b %d %R}  %-15.15F  %s"
 set sort                = threads
-set sort_aux            = reverse-last-date-received
+set sort_aux            = date
+set strict_threads
+set sort_re
 set uncollapse_jump
 set pager_index_lines   = 16
 set folder_format       = "%2C %t %N   %-30f %8s %d"
@@ -16,9 +18,9 @@ set wait_key = no
 auto_view text/html
 
 ignore   *
-unignore  From: To: CC: Date: X-Mailer: Subject:
+unignore  From: To: CC: Date: Subject:
 unhdr_order *
-hdr_order From: To: CC: Date: X-Mailer: Subject:
+hdr_order From: To: CC: Date: Subject:
 
 bind index gg   first-entry
 bind index G    last-entry
