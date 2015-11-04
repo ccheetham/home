@@ -136,4 +136,4 @@ if [[ -d $venv_dir ]] ; then
     echo "virtualenv $name already exists" 2>&1
     exit 1
 fi
-virtualenv $ME_VIRTUALENV_HOME/$name $*
+virtualenv $ME_VIRTUALENV_HOME/$name --python python2

@@ -14,4 +14,6 @@ xtail() {
 alias x='mkdir -p $(dirname $ME_XSESSION_LOG) && startx 2>! $ME_XSESSION_LOG'
 alias xlog='xterm -T "X Session" -name log -e tail -f $ME_XSESSION_LOG'
 
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
 # vim: ft=zsh
