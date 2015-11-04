@@ -8,7 +8,7 @@ if checkexe vmware-user-suid-wrapper ; then
 fi
 
 
-if [[ $ME_OS == osx ]] ; then
+if [[ $(uname) == Darwin ]] ; then
     exec /bin/sh /usr/X11/lib/X11/xinit/xinitrc
 else
     xrdb ~/.Xresources
