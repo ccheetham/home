@@ -33,4 +33,6 @@ sqa() {
     source ~/src/appsuite-qa/qaenv/profile
 }
 
+export QA_DOWNLOAD_DIR=~/var/bits
+
 # vim: ft=zsh
