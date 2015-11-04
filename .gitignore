@@ -1,7 +1,8 @@
-local
-src
-tmp
-var
+local/
+src/
+tmp/
+var/
+xfr/
 
 ._*
 *.swp
