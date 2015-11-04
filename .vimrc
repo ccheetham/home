@@ -33,8 +33,8 @@ filetype plugin on                      " load plugins
 filetype indent on                      " indentation
 
 set rtp+=$HOME/var/repo/solarized/vim-colors-solarized
-set background=light                    " use solarized ...
-colorscheme solarized                   " ... light color scheme
+set background=dark                     " use solarized ...
+colorscheme solarized                   " ... dark color scheme
 
 syntax on                               " color please
 
@@ -134,5 +134,3 @@ augroup END
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-
-set t_Co=256
