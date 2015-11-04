@@ -8,6 +8,7 @@
 accounts = me, work
 pythonfile = ~/.offlineimap.py
 
+
 # ---- me --------------------------------------------------------------------
 
 [Account me]
@@ -27,6 +28,7 @@ realdelete = no
 maxconnections = 3
 sslcacertfile = ~/etc/ssl/certificates.pem
 folderfilter = lambda foldername: foldername not in ['[Gmail]/Spam']
+
 
 # ---- work ------------------------------------------------------------------
 
@@ -68,4 +70,44 @@ nametrans = lambda folder: {
     }.get(folder, folder)
 postsynchook = notmuch new
 
+
+# ---- dev -------------------------------------------------------------------
+
+[Account dev]
+localrepository = mail-dev-local
+remoterepository = mail-dev-remote
+status_backend = sqlite
+
+[Repository mail-dev-local]
+type = Maildir
+localfolders = ~/var/mail/dev
+nametrans = lambda folder: {
+    'allmail' : '[Gmail]/All Mail',
+    'drafts'  : '[Gmail]/Drafts',
+    'starred' : '[Gmail]/Starred',
+    'spam'    : '[Gmail]/Spam',
+    'sent'    : '[Gmail]/Sent Mail',
+    'trash'   : '[Gmail]/Trash',
+    }.get(folder, folder)
+
+[Repository mail-dev-remote]
+type = Gmail
+remoteuser = dev.cheetham
+remotepasseval = keyring.get_password('dev@cheetham.com', 'dev@cheetham.com')
+realdelete = no
+maxconnections = 1
+sslcacertfile = ~/etc/ssl/certificates.pem
+folderfilter = lambda folder: folder not in [
+    '[Gmail]/Important',
+    'Notes',
+    '[Gmail]/Spam',
+    ]
+nametrans = lambda folder: {
+    '[Gmail]/All Mail' : 'allmail',
+    '[Gmail]/Drafts'   : 'drafts',
+    '[Gmail]/Sent Mail': 'sent',
+    '[Gmail]/Starred'  : 'starred',
+    '[Gmail]/Trash'    : 'trash',
+    }.get(folder, folder)
+postsynchook = notmuch new
 # vim: ft=dosini
