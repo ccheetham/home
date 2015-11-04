@@ -126,4 +126,4 @@ if [[ -d $venv_dir ]] ; then
     exit 1
 fi
 virtualenv $ME_VIRTUALENV_HOME/$name \
-    --python python3
+    --python python2
