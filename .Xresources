@@ -11,12 +11,12 @@ Xft.lcdfilter: lcddefault
 
 ! -- Solarized (https://github.com/solarized/xresources) ---------------------
 
-#include "var/repo/solarized/xresources/solarized"
+#include "var/repo/color-scheme/xresources/cheetos"
 
 
 ! -- basic xterm -------------------------------------------------------------
 
-XTerm*faceName:             xft:Inconsolata:pixelsize=15
+XTerm*faceName:             xft:DejaVu Sans Mono:pixelsize=13
 XTerm*pointerMode:          1
 
 XTerm*toolBar:              false
@@ -32,22 +32,13 @@ XTerm*altIsNotMeta:         true
 XTerm*altSendsEscape:       true
 
 
-! -- root terms --------------------------------------------------------------
-
-wheel*foreground:           black
-wheel*background:           #ffaf00
-
-
 ! -- logging terms -----------------------------------------------------------
 
-log*foreground:             dark khaki
 log*geometry:               120x20
 log*faceSize:               8
-
 
 ! -- task warrior terms ------------------------------------------------------
 
 task*geometry:              80x80+0+0
-task*background:            #101010
-task*faceName:              xft:Courier\ New:italic:pixelsize=10
+task*faceName:              xft:Courier New:italic:pixelsize=10
 task*scrollBar:             false
