@@ -14,7 +14,7 @@ t() {
 }
 
 if [[ $ME_HOST == mini ]] ; then
-    export TASKDDATA=$ME_VAR_DIR/taskd
+    export TASKDDATA=$ME_CACHE_DIR/taskd
 fi
 
 # vim: ft=zsh

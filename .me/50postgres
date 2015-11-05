@@ -4,7 +4,7 @@
 # http://www.postgresql.org/
 # =============================================================================
 
-export PGDATA=$ME_VAR_DIR/pg
+export PGDATA=$ME_CACHE_DIR/pg
 
 PG_JDBC_VERSION=9.4-1201
 
