@@ -7,6 +7,7 @@ export ME=$HOME
 export ME_CONFIG_DIR=$ME/etc
 export ME_LIB_DIR=$ME/lib
 export ME_LIBEXEC_DIR=$ME/libexec
+export ME_DATA_DIR=$ME/share
 export ME_VAR_DIR=$ME/var
 export ME_LOG_DIR=$ME_VAR_DIR/log
 export ME_REPO_CFG=$ME_CONFIG_DIR/repo
