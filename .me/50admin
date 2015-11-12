@@ -50,6 +50,22 @@ systail () {
     fi
 }
 
+# -----------------------------------------------------------------------------
+# service management
+# -----------------------------------------------------------------------------
+
+if [[ $ME_OS == osx ]] ; then
+    alias melaunch="launchctl list|grep '\sme\.'"
+fi
+
+if [[ $ME_OS == linux ]] ; then
+    alias chkconfig='sudo chkconfig'
+fi
+
+# -----------------------------------------------------------------------------
+# storage management
+# -----------------------------------------------------------------------------
+
 space () {
     echo "Mount (Volume)            Size   Used  Avail   Pct   Filesystem"
     echo "-----------------------  -----  -----  -----  ----   ----------------"
@@ -76,6 +92,13 @@ if [[ $ME_OS == osx ]] ; then
 fi
 
 alias htop='sudo htop'
+
+plist() {
+    pids=$(pgrep $1 | tr '\n' ' ')
+    [[ -z $pids ]] && return
+    shift
+    ps -p$pids $*
+}
 
 # -----------------------------------------------------------------------------
 # package management

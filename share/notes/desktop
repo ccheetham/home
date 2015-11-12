@@ -1,0 +1,2 @@
+fc-cache -f -v      # rebuild font cache
+fc-list             # list fonts

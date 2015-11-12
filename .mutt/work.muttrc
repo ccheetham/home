@@ -1,0 +1,10 @@
+set from = "ccheetham@pivotal.io"
+
+alias me                    Chris Cheetham <chris@cheetham.com>
+
+subscribe \
+    pivotal-all@pivotal.io \
+    spring-all@pivotal.io \
+    spring-developer@pivotal.io
+
+# vim: filetype=muttrc

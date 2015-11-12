@@ -1,9 +1,26 @@
-source ~/.mutt/account.muttrc
-source ~/.mutt/mailbox.muttrc
-source ~/.mutt/maillist.muttrc
-source ~/.mutt/tool.muttrc
+# ============================================================================
+# mutt configuration
+# ============================================================================
+
+# general config
+source ~/.mutt/cache.muttrc
+source ~/.mutt/mail-in.muttrc
+source ~/.mutt/mail-out.muttrc
+source ~/.mutt/mail-ui.muttrc
 source ~/.mutt/color.muttrc
-source ~/.mutt/layout.muttrc
-source ~/.mutt/ignore.muttrc
-source ~/.mutt/macro.muttrc
-source ~/.mutt/alias.muttrc
+
+# external tool configs
+source ~/.mutt/vim.muttrc
+source ~/.mutt/msmtp.muttrc
+source ~/.mutt/gnupg.muttrc
+source ~/.mutt/gmail.muttrc
+source ~/.mutt/goobook.muttrc
+source ~/.mutt/offlineimap.muttrc
+source ~/.mutt/notmuch.muttrc
+
+# account configs
+source ~/.mutt/$MUTT_INSTANCE.muttrc
+
+macro index,pager . \
+    ":source $HOME/.mutt/muttrc<enter>" \
+    "reload mutt configuration"

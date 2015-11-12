@@ -1,6 +1,0 @@
-set realname="Chris Cheetham"
-set from="ccheetham@vmware.com"
-set use_from=yes
-set envelope_from=yes
-
-# vim: filetype=muttrc

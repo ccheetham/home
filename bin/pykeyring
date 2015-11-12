@@ -1,0 +1,97 @@
+#!/usr/bin/env zsh
+
+# TODO: ensure OS X
+
+prog=$(basename $0)
+
+die() {
+    echo $* >&2
+    exit 1
+}
+
+indent="    "
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo "${indent}$prog [-h] <service> <user> [<pass>]"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo "${indent}get or set the Keyring/Keychain password"
+    echo
+    echo "WHERE"
+    echo
+    echo "${indent}service\tservice name"
+    echo "${indent}user\tuser name"
+    echo "${indent}pass\tuser password"
+    echo
+    echo "OPTIONS"
+    echo
+    echo "${indent}-h\tdisplay this message"
+    echo
+    echo "EXAMPLES"
+    echo
+    echo "${indent}get a password:"
+    echo "${indent}${indent}\$ $prog myserver myuser"
+    echo "${indent}set a password:"
+    echo "${indent}${indent}\$ $prog myserver myuser mypass"
+    echo
+}
+
+while getopts ":k:h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        k)
+            keychain=$OPTARG
+            ;;
+        :)
+            echo "$OPTARG requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# < 2 ]] ; then
+    die "service and/or user not specified"
+fi
+
+service=$1
+user=$2
+shift 2
+
+if [[ $# > 0 ]] ; then
+    pass=$1
+    shift 1
+else
+    unset pass
+fi
+
+if [[ $# > 0 ]] ; then
+    die "too many arguments"
+fi
+
+if [[ -z $pass ]] ; then
+    python - <<EOF
+import keyring
+password = keyring.get_password('$service', '$user')
+if password:
+    print password
+EOF
+else
+    python - <<EOF
+import keyring
+keyring.set_password('$service', '$user', '$pass')
+EOF
+fi

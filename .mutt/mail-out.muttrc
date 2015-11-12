@@ -1,0 +1,7 @@
+set realname        = "Chris Cheetham"
+set use_from        = yes
+set envelope_from   = yes
+set text_flowed     = yes
+set signature       = ~/.mutt/$MUTT_INSTANCE.signature
+
+# vim: ft=muttrc

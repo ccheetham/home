@@ -1,0 +1,6 @@
+set tmpdir              = $ME_MUTT_CACHE_DIR/tmp
+set certificate_file    = $ME_MUTT_CACHE_DIR/certificates
+set header_cache        = $ME_MUTT_CACHE_DIR/$MUTT_INSTANCE/headers
+set message_cachedir    = $ME_MUTT_CACHE_DIR/$MUTT_INSTANCE/messages
+
+# vim: ft=muttrc

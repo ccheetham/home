@@ -1,8 +1,0 @@
-set folder=$HOME/var/mail
-set spoolfile=+inbox
-set mbox=+read
-set record=+sent
-mailboxes `for d in $(ls ~/var/mail); do echo -n '+'$d' '; done`
-set move=no
-
-# vim: filetype=muttrc

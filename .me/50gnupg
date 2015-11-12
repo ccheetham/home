@@ -1,9 +1,11 @@
 # =============================================================================
-# pkg-config
+# GNU Privacy Guard
 # -----------------------------------------------------------------------------
-# http://www.freedesktop.org/wiki/Software/pkg-config/
+# https://www.gnupg.org/
 # =============================================================================
 
-export PKG_CONFIG_PATH=$ME_DISTRO_DIR/lib/pkgconfig
+if which gpg2 > /dev/null 2>&1 ; then
+    alias gpg=gpg2
+fi
 
 # vim: ft=zsh

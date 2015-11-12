@@ -1,0 +1,14 @@
+# see ~/.goobookrc
+
+set query_command = "goobook query %s"
+
+# ----------------------------------------------------------------------------
+# <tab> run goobook query on alias
+# 'ac' adds sender to contacts
+# ----------------------------------------------------------------------------
+bind editor <tab> complete-query
+macro index,pager ac \
+    "<pipe-message>goobook add<return>" \
+    "add sender to Google contacts"
+
+# vim: filetype=muttrc

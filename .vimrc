@@ -2,7 +2,6 @@ set nocompatible                        " um, no
 
 filetype off                            " disable prior to Vundle setup
 
-set rtp+=$HOME/src/color-scheme/vim
 set rtp+=$HOME/var/repo/Vundle.vim          " Vundle plugin manager ...
 call vundle#begin()                     " https://github.com/gmarik/Vundle.vim
 
@@ -33,8 +32,12 @@ filetype on                             " enable file detection
 filetype plugin on                      " load plugins
 filetype indent on                      " indentation
 
+set shell=zsh                           " override what system thinks I want
+
+set rtp+=$HOME/var/repo/color-scheme/vim
+colorscheme cheetos
+
 syntax on                               " color please
-colorscheme cheetos                     " my colors
 
 set laststatus=2                        " always display status line
 set showmode                            " show current mode
@@ -132,5 +135,3 @@ augroup END
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-
-set t_Co=256

@@ -1,4 +1,0 @@
-set editor="/usr/local/bin/vim %s"
-set sendmail="/usr/local/bin/msmtp"
-
-# vim: filetype=muttrc

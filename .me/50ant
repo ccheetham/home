@@ -4,14 +4,17 @@
 
 ME_ANT_HOMES=$ME_OPT_DIR/ant
 
-alias a19='$ME_ANT_HOMES/apache-ant-1.9.4/bin/ant'
-alias a18='$ME_ANT_HOMES/apache-ant-1.8.4/bin/ant'
+a19_version=1.9.6
+a18_version=1.8.4
+
+alias a19='$ME_ANT_HOMES/apache-ant-${a19_version}/bin/ant'
+alias a18='$ME_ANT_HOMES/apache-ant-${a18_version}/bin/ant'
 alias a='a19'
 
 refresh_ant () {
     local disturl=http://archive.apache.org/dist/ant/binaries
     local -a vers
-    versions=(1.9.4 1.8.4)
+    versions=($a19_version $a18_version)
 
     mkdir -p $ME_ANT_HOMES
     for version in $versions ; do

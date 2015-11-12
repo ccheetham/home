@@ -3,6 +3,7 @@
 OPENVPN=${OPENVPN:-/usr/sbin/openvpn}
 HOOKUP=${HOOKUP:-/etc/openvpn/\{update-resolv-conf,up.sh\}}
 HOOKDOWN=${HOOKDOWN:-/etc/openvpn/\{update-resolv-conf,down.sh\}}
+PROG=$(basename $0)
 
 # =============================================================================
 # tblk2ovpn
@@ -177,6 +178,10 @@ trap cleanup SIGINT
 
 bundle=$1
 
+if ! which unzip > /dev/null 2>&1 ; then
+    die "$PROG requires unzip"
+fi
+
 debug "verifying: $bundle"
 if [[ ! -f "$bundle" ]] ; then
     die "$bundle not found or not a file"
@@ -189,7 +194,7 @@ if ! unzip -t "$bundle" > /dev/null 2>&1; then
 fi
 
 # scratch pad
-scratch=$(mktemp --directory $prog-XXXXXX --tmpdir)
+scratch=$(mktemp -d $prog-XXXXXX -t)
 debug "scratch: $scratch"
 
 debug "toc: $scratch/toc"

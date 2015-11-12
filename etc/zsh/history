@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-mkdir -p $ME_ZSH_VAR_DIR
-HISTFILE=$ME_ZSH_VAR_DIR/history
-HISTSIZE=500
-SAVEHIST=10000
+mkdir -p $ME_ZSH_CACHE_DIR
+HISTFILE=$ME_ZSH_CACHE_DIR/history
+HISTSIZE=10000                          # lines to load at start ...
+SAVEHIST=10000                          # ... lines to save on exit

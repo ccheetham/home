@@ -14,13 +14,14 @@ alias gra='gradle'
 
 
 alias gra24='$ME_GRADLE_HOMES/gradle-2.4/bin/gradle'
+alias gra22='$ME_GRADLE_HOMES/gradle-2.2/bin/gradle'
 alias gra='gra24'
 
 refresh_gradle () {
     local disturl=https://services.gradle.org/distributions
     local -a vers
     local tmpfile 
-    versions=(2.4)
+    versions=(2.4 2.2)
 
     mkdir -p $ME_GRADLE_HOMES
     for version in $versions ; do

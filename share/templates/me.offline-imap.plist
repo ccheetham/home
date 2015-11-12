@@ -1,0 +1,22 @@
+<?xml version="2.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>KeepAlive</key>
+    <false/>
+    <key>Label</key>
+    <string>me.offline-imap</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/ccheetham/bin/offlineimap-wrapper</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>300</integer>
+    <key>RunAtLoad</key>
+    <true />
+    <key>StandardErrorPath</key>
+    <string>/Users/ccheetham/var/log/offlineimap.log</string>
+    <key>StandardOutPath</key>
+    <string>/dev/null</string>
+  </dict>
+</plist>

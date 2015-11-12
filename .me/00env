@@ -7,10 +7,12 @@ export ME=$HOME
 export ME_CONFIG_DIR=$ME/etc
 export ME_LIB_DIR=$ME/lib
 export ME_LIBEXEC_DIR=$ME/libexec
-export ME_VAR_DIR=$ME/var
-export ME_LOG_DIR=$ME_VAR_DIR/log
+export ME_DATA_DIR=$ME/share
+export ME_CACHE_DIR=$ME/var
+export ME_LOG_DIR=$ME_CACHE_DIR/log
 export ME_REPO_CFG=$ME_CONFIG_DIR/repo
-export ME_REPO_DIR=$ME_VAR_DIR/repo
+export ME_REPO_DIR=$ME_CACHE_DIR/repo
+export ME_MAIL_DIR=$ME_CACHE_DIR/mail
 
 # -----------------------------------------------------------------------------
 # ME_OS
@@ -135,10 +137,11 @@ export ME_HOST=$HOST
 export ME_LOCAL_DIR=$ME/local
 export ME_OPT_DIR=$ME/local/opt
 export ME_PLATFORM_DIR=$ME_LOCAL_DIR/$ME_PLATFORM
+export ME_PLATFORM_OPT_DIR=$ME_PLATFORM_DIR/opt
 export ME_DISTRO_DIR=$ME_LOCAL_DIR/$ME_DISTRO
 
 export ME_ZSH_CONFIG_DIR=$ME_CONFIG_DIR/zsh
-export ME_ZSH_VAR_DIR=$ME_VAR_DIR/zsh
+export ME_ZSH_CACHE_DIR=$ME_CACHE_DIR/zsh
 
 me() {
     env | grep '^ME' | LC_ALL=C sort

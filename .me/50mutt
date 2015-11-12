@@ -1,0 +1,8 @@
+export ME_MUTT_CACHE_DIR=$ME_CACHE_DIR/mutt
+
+alias mutt-me='MUTT_INSTANCE=me mutt'
+alias mutt-bucket='MUTT_INSTANCE=bucket mutt'
+alias mutt-work='MUTT_INSTANCE=work mutt'
+alias mutt-dev='MUTT_INSTANCE=dev mutt'
+
+# vim: ft=zsh

@@ -2,31 +2,33 @@
 
 prog=$(basename $0)
 
+indent="    "
+
 usage() {
     echo
     echo "USAGE"
     echo
-    echo -e "\t$prog [-options] <reqd_arg> [opt_arg]"
+    echo "${indent}$prog [-options] <reqd_arg> [opt_arg]"
     echo
     echo "WHERE"
     echo
-    echo -e "\targ\tdescription"
+    echo "${indent}arg\tdescription"
     echo
     echo "DESCRIPTION"
     echo
-    echo -e "\t..."
+    echo "${indent}..."
     echo
     echo "OPTIONS"
     echo
-    echo -e "\t-h\tdisplay this message"
+    echo "${indent}-h\tdisplay this message"
     echo
     echo "NOTES"
     echo
-    echo -e "\tif applicable"
+    echo "${indent}if applicable"
     echo
     echo "SEE ALSO"
     echo
-    echo -e "\tif applicable"
+    echo "${indent}if applicable"
     echo
     echo
 }

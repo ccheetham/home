@@ -1,7 +1,8 @@
-local
-src
-tmp
-var
+local/
+src/
+tmp/
+var/
+xfr/
 
 ._*
 *.swp
@@ -28,6 +29,7 @@ var
 .cups
 .dbus
 .dmrc
+.docker/
 .dropbox*
 .dvdcss
 .eclipse*
@@ -38,11 +40,12 @@ var
 .gem
 .gemfire/
 .gitconfig
+.goobook/
 .gnome
 .gnome2
+.gnupg/
 .godaddyrc
 .gphostcache
-.gradle
 .grip/
 .gstreamer-*
 .gtk-bookmarks
@@ -58,12 +61,17 @@ var
 .keychain
 .lesshst
 .local
+.links/
 .m2
 .macromedia
 .mozilla
 .msgid.cache
+.muttdebug*
 .ncftp
 .nfs*
+.notmuch-config
+.offlineimap/
+.oracle_jre_usage/
 .pip
 .pki
 .pulse*
