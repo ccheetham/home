@@ -33,6 +33,16 @@ sqa() {
     source ~/src/appsuite-qa/qaenv/profile
 }
 
-export QA_DOWNLOAD_DIR=~/var/bits
+pjdk() {
+    if [[ -z $QA_JDK6_HOME ]] ; then
+        echo QA_JDK6_HOME not set >&2
+        return
+    fi
+    JAVA_HOME=$QA_JDK6_HOME
+    PATH=$JAVA_HOME/bin:$PATH
+    path
+}
+
+export QA_DOWNLOAD_DIR=~/xfr
 
 # vim: ft=zsh
