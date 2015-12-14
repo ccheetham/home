@@ -117,6 +117,9 @@ case $ME_DISTRO_FLAVOR in
         alias eclean='e -a --depclean'
         alias elog='sudo view /var/log/portage/elog/summary.log'
         ;;
+    solaris)
+        alias pkgutil='sudo /opt/csw/bin/pkgutil'
+        ;;
     suse)
         alias zyp='sudo zypper'
         ;;

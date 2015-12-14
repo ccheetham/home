@@ -32,12 +32,18 @@ if ls -@ > /dev/null 2>&1 ; then
     alias l@='ll -@'
 fi
 
-alias mkdir='mkdir -vp'
+if [[ $ME_DISTRO_FLAVOR == solaris ]] ; then
+    alias mkdir='mkdir -p'
+else
+    alias mkdir='mkdir -vp'
+fi
 alias cp='cp -v'
 alias ln='ln -v'
 alias mv='mv -v'
 #alias rm='rm -v'
 
 alias cls='clear'
+
+unalias which > /dev/null 2<&1
 
 # vim: ft=zsh
