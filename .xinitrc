@@ -7,19 +7,15 @@ if checkexe vmware-user-suid-wrapper ; then
     vmware-user-suid-wrapper
 fi
 
-
-if [[ $(uname) == Darwin ]] ; then
-    exec /bin/sh /usr/X11/lib/X11/xinit/xinitrc
+PATH=/usr/local/bin:$PATH
+xrdb ~/.Xresources
+xset r rate 250 30
+if checkexe i3 ; then
+    exec i3
+elif checkexe startfluxbox ; then
+    exec startfluxbox
 else
-    xrdb ~/.Xresources
-    xterm &
-    if checkexe i3 ; then
-        exec i3
-    elif checkexe startfluxbox ; then
-        exec startfluxbox
-    else
-        exec twm
-    fi
+    exec twm
 fi
 
 # vim: ft=sh

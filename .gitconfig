@@ -1,0 +1,7 @@
+[user]
+	name = Chris Cheetham
+	email = chris@cheetham.com
+[push]
+	default = simple
+[alias]
+	undo = reset --soft @~1

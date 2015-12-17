@@ -1,2 +1,3 @@
-fc-cache -f -v      # rebuild font cache
-fc-list             # list fonts
+fc-cache -f -v          # rebuild font cache
+fc-list                 # list fonts
+fc-list :spacing=mono   # list monospaced fonts

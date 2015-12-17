@@ -97,31 +97,38 @@ plist() {
     pids=$(echo $(pgrep $1))
     [[ -z $pids ]] && return
     shift
-    ps -p$pids $*
+    ps -p${pids} $*
 }
 
 # -----------------------------------------------------------------------------
 # package management
 # -----------------------------------------------------------------------------
 
-case $ME_DISTRO_FLAVOR in
-    centos | redhat)
-        alias yum='sudo yum'
+case $ME_OS in
+    bsd)
+        alias pkg='sudo pkg'
         ;;
-    debian | ubuntu)
-        alias tude='sudo aptitude'
-        ;;
-    gentoo)
-        alias e='sudo -E emerge --verbose'
-        alias eup='e -auDNv @world --with-bdeps=y'
-        alias eclean='e -a --depclean'
-        alias elog='sudo view /var/log/portage/elog/summary.log'
+    linux)
+        case $ME_DISTRO_FLAVOR in
+            centos | redhat)
+                alias yum='sudo yum'
+                ;;
+            debian | ubuntu)
+                alias tude='sudo aptitude'
+                ;;
+            gentoo)
+                alias e='sudo -E emerge --verbose'
+                alias eup='e -auDNv @world --with-bdeps=y'
+                alias eclean='e -a --depclean'
+                alias elog='sudo view /var/log/portage/elog/summary.log'
+                ;;
+            suse)
+                alias zyp='sudo zypper'
+                ;;
+        esac
         ;;
     solaris)
         alias pkgutil='sudo /opt/csw/bin/pkgutil'
-        ;;
-    suse)
-        alias zyp='sudo zypper'
         ;;
 esac
 
