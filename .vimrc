@@ -65,6 +65,9 @@ set listchars=tab:._                    " ... as  .___
 set bs=2                                " backspace over everything
 set visualbell                          " quiet please
 
+" control
+map QQ :quitall<cr>
+
 " editing
 map <c-d> dd
 nmap <silent><leader>n :set invnumber<cr>

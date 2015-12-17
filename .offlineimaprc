@@ -110,4 +110,5 @@ nametrans = lambda folder: {
     '[Gmail]/Trash'    : 'trash',
     }.get(folder, folder)
 postsynchook = notmuch new
+
 # vim: ft=dosini
