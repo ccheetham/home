@@ -59,7 +59,8 @@ preexec() {
 }
 
 # zsh prompt variable
-PROMPT="$(mep-prompt-message) $(mep-prompt-sign) "
+#PROMPT="$(mep-prompt-message) $(mep-prompt-sign) "
+PROMPT="$(mep-prompt-sign) "
 
 
 # -----------------------------------------------------------------------------
