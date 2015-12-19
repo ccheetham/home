@@ -107,6 +107,7 @@ plist() {
 case $ME_OS in
     bsd)
         alias pkg='sudo pkg'
+        alias pcup='sudo pc-updatemanager'
         ;;
     linux)
         case $ME_DISTRO_FLAVOR in
