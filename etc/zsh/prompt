@@ -112,6 +112,7 @@ mep-git-status() {
 # zsh right prompt variable
 
 # toggle righthand prompt
+unset RPROMPT
 rprompt() {
     if [[ -z $RPROMPT ]] ; then
         #RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-job-status)$(mep-history-status)'
