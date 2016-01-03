@@ -1,4 +1,4 @@
-include ~/share/task/holidays.rc
+include ~/share/task/work.rc
 include ~/share/task/me.theme
 
 data.location=~/var/db/task

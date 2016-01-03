@@ -94,10 +94,10 @@ fi
 alias htop='sudo htop'
 
 plist() {
-    pids=$(pgrep $1 | tr '\n' ' ')
+    pids=$(echo $(pgrep $1))
     [[ -z $pids ]] && return
     shift
-    ps -p$pids $*
+    ps -p${pids} $*
 }
 
 # -----------------------------------------------------------------------------

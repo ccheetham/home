@@ -2,6 +2,11 @@
 # Pivotal tooling
 # =============================================================================
 
+export QA_DOWNLOAD_DIR=~/xfr
+if [[ cygwin == $ME_OS ]] ; then
+    QA_DOWNLOAD_DIR=/cygdrive/v/xfr
+fi
+
 pvpn() {
     local pdir=$ME_CONFIG_DIR/openvpn/pivotal
     if [[ ! -d $pdir ]] ; then
@@ -31,7 +36,7 @@ pvpn() {
 
 sqa() {
     local qaprof
-    if [[ $ME_OS == cygwin ]] ; then
+    if [[ cygwin == $ME_OS ]] ; then
         qaprof=/qa/qaenv/profile
     else
         qaprof=~/src/appsuite-qa/qaenv/profile
@@ -39,6 +44,14 @@ sqa() {
     source $qaprof
 }
 
-export QA_DOWNLOAD_DIR=/cygdrive/v/xfr
+pjdk() {
+    if [[ -z $QA_JDK6_HOME ]] ; then
+        echo QA_JDK6_HOME not set >&2
+        return
+    fi
+    JAVA_HOME=$QA_JDK6_HOME
+    PATH=$JAVA_HOME/bin:$PATH
+    path
+}
 
 # vim: ft=zsh
