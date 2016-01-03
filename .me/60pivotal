@@ -30,9 +30,15 @@ pvpn() {
 }
 
 sqa() {
-    source ~/src/appsuite-qa/qaenv/profile
+    local qaprof
+    if [[ $ME_OS == cygwin ]] ; then
+        qaprof=/qa/qaenv/profile
+    else
+        qaprof=~/src/appsuite-qa/qaenv/profile
+    fi
+    source $qaprof
 }
 
-export QA_DOWNLOAD_DIR=~/var/bits
+export QA_DOWNLOAD_DIR=/cygdrive/v/xfr
 
 # vim: ft=zsh
