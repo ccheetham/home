@@ -91,7 +91,7 @@ if [[ $ME_OS == osx ]] ; then
     alias top='top -o cpu'
 fi
 
-alias htop='sudo htop'
+alias htop='sudo htop --sort-key PERCENT_CPU'
 
 plist() {
     pids=$(echo $(pgrep $1))
