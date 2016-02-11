@@ -117,6 +117,7 @@ case $ME_OS in
             debian | ubuntu)
                 alias tude='sudo aptitude'
                 alias apt-get='sudo apt-get'
+                alias apt-key='sudo apt-key'
                 ;;
             gentoo)
                 alias e='sudo -E emerge --verbose'
