@@ -14,7 +14,7 @@ case $ME_OS in
         ls_opts=' -FGH'
         ;;
     *)
-        for opt in classify color dereference group-directories-first ; do
+        for opt in classify color group-directories-first ; do
             if $ls_cmd --$opt > /dev/null 2>&1 ; then
                 ls_opts+=" --$opt"
             fi
