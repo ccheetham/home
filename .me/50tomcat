@@ -2,9 +2,9 @@
 # Apache Tomcat
 # =============================================================================
 
-TC_8_VERSION=8.0.24
-TC_7_VERSION=7.0.63
-TC_6_VERSION=6.0.44
+TC_8_VERSION=8.0.32
+TC_7_VERSION=7.0.68
+TC_6_VERSION=6.0.45
 
 refresh_tomcat () {
     local instdir=$ME_OPT_DIR/tomcat
