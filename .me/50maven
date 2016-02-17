@@ -4,21 +4,23 @@
 
 ME_MAVEN_HOMES=$ME_OPT_DIR/maven
 
-alias m32=$ME_MAVEN_HOMES/apache-maven-3.2.1/bin/mvn
+alias m33=$ME_MAVEN_HOMES/apache-maven-3.3.9/bin/mvn
+alias m32=$ME_MAVEN_HOMES/apache-maven-3.2.5/bin/mvn
 alias m31=$ME_MAVEN_HOMES/apache-maven-3.1.1/bin/mvn
 alias m30=$ME_MAVEN_HOMES/apache-maven-3.0.5/bin/mvn
 alias m22=$ME_MAVEN_HOMES/apache-maven-2.2.1/bin/mvn
 alias m='m32'
 
 refresh_maven () {
-    local disturl=http://archive.apache.org/dist/maven/binaries
+    local disturl=http://archive.apache.org/dist/maven
     local -a vers
-    versions=(3.2.1 3.1.1 3.0.5 2.2.1)
+    versions=(3.3.9 3.2.5 3.1.1 3.0.5 2.2.1)
 
     mkdir -p $ME_MAVEN_HOMES
     for version in $versions ; do
+        local major=$(echo $version | cut -d. -f1)
         echo fetching maven dist $version
-        wget -O - $disturl/apache-maven-${version}-bin.tar.gz 2> /dev/null \
+        wget -O - $disturl/maven-$major/$version/binaries/apache-maven-${version}-bin.tar.gz 2> /dev/null \
             | tar xfz - -C $ME_MAVEN_HOMES
     done
 }
