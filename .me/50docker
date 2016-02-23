@@ -12,25 +12,33 @@ alias d\?='d help'
 # -----------------------------------------------------------------------------
 dman () {
     if [[ $# != 1 ]] ; then
-        echo specify one and only one docker command >&2
+        echo "specify one and only one docker command" >&2
         return 1
     fi
     man docker-$1
 }
 
 # -----------------------------------------------------------------------------
-# dbash: run image interactively via bash (or other command)
+# drun: run image interactively
 # -----------------------------------------------------------------------------
-dbash () {
-    local image
-    local args
+drun () {
     if [[ $# == 0 ]] ; then
-        echo docker image not specified >&2
+        echo "docker image not specified" >&2
         return 1
     fi
-    image=$1 ; shift
-    [[ $# == 0 ]] && args=bash || args=$@
-    docker run -it --rm $image $args
+    local image=$1; shift
+    docker run -it --rm $image $@
+}
+
+# -----------------------------------------------------------------------------
+# dbash: run image interactively via bash
+# -----------------------------------------------------------------------------
+dbash () {
+    if [[ $# != 1 ]] ; then
+        echo "specify one and only one docker image" >&2
+        return 1
+    fi
+    drun $image $1 bash
 }
 
 # -----------------------------------------------------------------------------
@@ -47,7 +55,7 @@ dtags () {
     local image
     local tags
     if [[ $# != 1 ]] ; then
-        echo specify one and only one docker image >&2
+        echo "specify one and only one docker image" >&2
         return 1
     fi
     image=$1
@@ -63,6 +71,26 @@ tags.sort()
 for tag in tags:
     print "{}:{}".format('$image', tag)
 EOF
+}
+
+# -----------------------------------------------------------------------------
+# dbuild: build image
+# -----------------------------------------------------------------------------
+dbuild () {
+    local tag
+    case $# in
+        0)
+            tag=$(basename $(pwd))
+            ;;
+        1)
+            tag=$1
+            ;;
+        *)
+            echo "specify at most one tag" >&2
+            return 1
+    esac
+    docker build -t $tag .
+    echo "tagged as $tag"
 }
 
 # vim: ft=zsh
