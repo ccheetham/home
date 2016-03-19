@@ -35,8 +35,9 @@ filetype indent on                      " indentation
 
 set shell=zsh                           " override what system thinks I want
 
-set rtp+=$HOME/var/repo/color-scheme/vim
-colorscheme cheetos
+set rtp+=$HOME/var/repo/solarized/vim-colors-solarized
+set background=light
+colorscheme solarized
 
 syntax on                               " color please
 
