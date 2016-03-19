@@ -7,6 +7,7 @@ call vundle#begin()                     " https://github.com/gmarik/Vundle.vim
 
 Plugin 'gmarik/Vundle.vim'              " this and ...
 Plugin 'pathogen.vim'                   " ... that setup Vundle plugin mgmt
+Plugin 'tpope/vim-fugitive'             " git integration
 Plugin 'asciidoc.vim'                   " AsciiDoc syntax
 Plugin 'tfnico/vim-gradle'              " Gradle systax
 Plugin 'nginx.vim'                      " nginx web server syntax
