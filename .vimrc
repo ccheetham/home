@@ -140,3 +140,6 @@ augroup END
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+
+" statusline -> file [filetype] [gitinfo]
+set statusline=%f\ %y\ %{fugitive#statusline()}
