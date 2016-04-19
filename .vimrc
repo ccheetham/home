@@ -131,4 +131,8 @@ augroup resCur
 augroup END
 
 " statusline -> file [filetype] [gitinfo]
-set statusline=%f\ %y\ %{fugitive#statusline()}
+set statusline=%f%m                     " filename[modified]
+set statusline+=\ %y                    " filetype
+set statusline+=%=                      " proceeeding flags ppear on right side
+set statusline+=%{fugitive#statusline()} " vim status
+set statusline+=\ %l:%c/%P              " lineno:col/pct
