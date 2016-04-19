@@ -9,15 +9,18 @@ alias pp=popd
 
 unset ls_opts
 ls_cmd=ls
-if [[ $ME_OS == osx ]] ; then
-    ls_opts=' -FGH'
-else
-    for opt in classify color dereference group-directories-first ; do
-        if $ls_cmd --$opt > /dev/null 2>&1 ; then
-            ls_opts+=" --$opt"
-        fi
-    done
-fi
+case $ME_OS in
+    bsd | osx )
+        ls_opts=' -FGH'
+        ;;
+    *)
+        for opt in classify color group-directories-first ; do
+            if $ls_cmd --$opt > /dev/null 2>&1 ; then
+                ls_opts+=" --$opt"
+            fi
+        done
+        ;;
+esac
 alias ls="$ls_cmd$ls_opts"
 unset ls_cmd ls_opts
 
@@ -32,12 +35,18 @@ if ls -@ > /dev/null 2>&1 ; then
     alias l@='ll -@'
 fi
 
-alias mkdir='mkdir -vp'
+if [[ $ME_DISTRO_FLAVOR == solaris ]] ; then
+    alias mkdir='mkdir -p'
+else
+    alias mkdir='mkdir -vp'
+fi
 alias cp='cp -v'
 alias ln='ln -v'
 alias mv='mv -v'
 #alias rm='rm -v'
 
 alias cls='clear'
+
+unalias which > /dev/null 2<&1
 
 # vim: ft=zsh

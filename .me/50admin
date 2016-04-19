@@ -91,7 +91,7 @@ if [[ $ME_OS == osx ]] ; then
     alias top='top -o cpu'
 fi
 
-alias htop='sudo htop'
+alias htop='sudo htop --sort-key PERCENT_CPU'
 
 plist() {
     pids=$(echo $(pgrep $1))
@@ -104,21 +104,34 @@ plist() {
 # package management
 # -----------------------------------------------------------------------------
 
-case $ME_DISTRO_FLAVOR in
-    centos | redhat)
-        alias yum='sudo yum'
+case $ME_OS in
+    bsd)
+        alias pkg='sudo pkg'
+        alias pcup='sudo pc-updatemanager'
         ;;
-    debian | ubuntu)
-        alias tude='sudo aptitude'
+    linux)
+        case $ME_DISTRO_FLAVOR in
+            centos | redhat)
+                alias yum='sudo yum'
+                ;;
+            debian | ubuntu)
+                alias tude='sudo aptitude'
+                alias apt-get='sudo apt-get'
+                alias apt-key='sudo apt-key'
+                ;;
+            gentoo)
+                alias e='sudo -E emerge --verbose'
+                alias eup='e -auDNv @world --with-bdeps=y'
+                alias eclean='e -a --depclean'
+                alias elog='sudo view /var/log/portage/elog/summary.log'
+                ;;
+            suse)
+                alias zyp='sudo zypper'
+                ;;
+        esac
         ;;
-    gentoo)
-        alias e='sudo -E emerge --verbose'
-        alias eup='e -auDNv @world --with-bdeps=y'
-        alias eclean='e -a --depclean'
-        alias elog='sudo view /var/log/portage/elog/summary.log'
-        ;;
-    suse)
-        alias zyp='sudo zypper'
+    solaris)
+        alias pkgutil='sudo /opt/csw/bin/pkgutil'
         ;;
 esac
 

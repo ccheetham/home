@@ -7,6 +7,9 @@ ME_ANT_HOMES=$ME_OPT_DIR/ant
 a19_version=1.9.6
 a18_version=1.8.4
 
+export ANT_HOME=$ME_ANT_HOMES/apache-ant-${a19_version}
+ME_PATH=$ANT_HOME/bin:$ME_PATH
+
 alias a19='$ME_ANT_HOMES/apache-ant-${a19_version}/bin/ant'
 alias a18='$ME_ANT_HOMES/apache-ant-${a18_version}/bin/ant'
 alias a='a19'

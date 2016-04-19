@@ -7,6 +7,7 @@ call vundle#begin()                     " https://github.com/gmarik/Vundle.vim
 
 Plugin 'gmarik/Vundle.vim'              " this and ...
 Plugin 'pathogen.vim'                   " ... that setup Vundle plugin mgmt
+Plugin 'tpope/vim-fugitive'             " git integration
 Plugin 'asciidoc.vim'                   " AsciiDoc syntax
 Plugin 'tfnico/vim-gradle'              " Gradle systax
 Plugin 'nginx.vim'                      " nginx web server syntax
@@ -34,8 +35,9 @@ filetype indent on                      " indentation
 
 set shell=zsh                           " override what system thinks I want
 
-set rtp+=$HOME/var/repo/color-scheme/vim
-colorscheme cheetos
+set rtp+=$HOME/var/repo/solarized/vim-colors-solarized
+set background=light
+colorscheme solarized
 
 syntax on                               " color please
 
@@ -128,13 +130,5 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
-
-"autocmd BufNewFile,BufRead *.py compiler nose
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+" statusline -> file [filetype] [gitinfo]
+set statusline=%f\ %y\ %{fugitive#statusline()}

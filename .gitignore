@@ -39,7 +39,6 @@ xfr/
 .gconf
 .gem
 .gemfire/
-.gitconfig
 .goobook/
 .gnome
 .gnome2
@@ -59,6 +58,7 @@ xfr/
 .jmc
 .juniper_networks
 .keychain
+.lastlogin
 .lesshst
 .local
 .links/
@@ -72,6 +72,7 @@ xfr/
 .notmuch-config
 .offlineimap/
 .oracle_jre_usage/
+.pcdm-startup.log
 .pip
 .pki
 .pulse*
@@ -130,6 +131,7 @@ SendTo
 Sites
 Start Menu
 TODO
+downloads/
 foo*
 images
 inbox

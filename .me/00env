@@ -24,6 +24,9 @@ case $OSTYPE in
     darwin*)
         ME_OS=osx
         ;;
+    *bsd*)
+        ME_OS=bsd
+        ;;
     linux*)
         ME_OS=linux
         ;;
@@ -63,6 +66,12 @@ if [[ $ME_OS == linux ]]  ; then
     else
         [ -x /usr/bin/emerge ] && ME_DISTRO_FLAVOR=gentoo
     fi
+elif [[ $ME_OS == bsd ]] ; then
+    if [[ -f /usr/local/bin/pc-updatemanager ]] ; then
+        ME_DISTRO_FLAVOR=pcbsd
+    else
+        ME_DISTRO_FLAVOR=unknown
+    fi
 else
     ME_DISTRO_FLAVOR=$ME_OS
 fi
@@ -70,27 +79,32 @@ fi
 # -----------------------------------------------------------------------------
 # ME_DISTRO_VERSION
 # -----------------------------------------------------------------------------
-case $ME_DISTRO_FLAVOR in
-    centos)
-        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
+ME_DISTRO_VERSION=unknown
+case $ME_OS in
+    bsd)
+        ME_DISTRO_VERSION=$(uname -r | cut -d'.' -f1)
         ;;
-    debian)
-        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}')
-        ;;
-    osx)
-        ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d'.' -f1)
-        ;;
-    redhat)
-        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $7}' | cut -d'.' -f1)
-        ;;
-    solaris)
-        ME_DISTRO_VERSION=$(echo $OSTYPE | cut -d'.' -f2)
-        ;;
-    ubuntu)
-        ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $2}' | cut -d'.' -f1)
-        ;;
-    *)
-        ME_DISTRO_VERSION=unknown
+    linux)
+        case $ME_DISTRO_FLAVOR in
+            centos)
+                ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
+                ;;
+            debian)
+                ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}')
+                ;;
+            osx)
+                ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d'.' -f1)
+                ;;
+            redhat)
+                ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $7}' | cut -d'.' -f1)
+                ;;
+            solaris)
+                ME_DISTRO_VERSION=$(echo $OSTYPE | cut -d'.' -f2)
+                ;;
+            ubuntu)
+                ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $2}' | cut -d'.' -f1)
+                ;;
+        esac
         ;;
 esac
 
@@ -101,7 +115,7 @@ case $(uname -m) in
     i686)
         ME_DISTRO_ARCH=x32
         ;;
-    x86_64)
+    amd64 | x86_64)
         ME_DISTRO_ARCH=x64
         ;;
     i86pc)

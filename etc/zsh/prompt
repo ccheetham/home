@@ -23,43 +23,44 @@ mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
 mep_color[err]='%F{red}'        # err: something really bad
 mep_color[hl]='%F{cyan}'        # hl: highlight
 
-typeset -A mep_uni              # unicode characters
-mep_uni[rightwards-arrow-with-hook]=$(echo "\u21aa")
-mep_uni[leftwards-arrow-with-hook]=$(echo "\u21a9")
+#typeset -A mep_uni              # unicode characters
+#mep_uni[rightwards-arrow-with-hook]=$(echo "\u21aa")
+#mep_uni[leftwards-arrow-with-hook]=$(echo "\u21a9")
 
 
 # -----------------------------------------------------------------------------
 # main prompt
 # -----------------------------------------------------------------------------
 
-# "incoming" message, displayed after command run
-mep-in() {
-    [[ $TERM == xterm* ]] && print "${mep_uni[rightwards-arrow-with-hook]}"
-}
-
-# "outgoing" message, displayed before command run
-mep-out() {
-    [[ $TERM == xterm* ]] && print "${mep_uni[leftwards-arrow-with-hook]}"
-}
-
-# prompt message, displayed before prompt sign
-mep-prompt-message() {
-    print "%(?,${mep_color[info]},${mep_color[warn]})$(mep-in)%f"
-}
+## "incoming" message, displayed after command run
+#mep-in() {
+#    [[ $TERM == xterm* ]] && print "${mep_uni[rightwards-arrow-with-hook]}"
+#}
+#
+## "outgoing" message, displayed before command run
+#mep-out() {
+#    [[ $TERM == xterm* ]] && print "${mep_uni[leftwards-arrow-with-hook]}"
+#}
+#
+## prompt message, displayed before prompt sign
+#mep-prompt-message() {
+#    print "%(?,${mep_color[info]},${mep_color[warn]})$(mep-in)%f"
+#}
 
 # prompt sign, indicates user to enter next command
 mep-prompt-sign() {
-    print "${mep_color[hl]}%f %#"
+    print "${mep_color[hl]}%f%#"
 }
 
-# zsh hook invoked after command processed but before executed
-# displays "outgoing" message
-preexec() {
-    print "$fg[green]$(mep-out)$reset_color"
-}
+## zsh hook invoked after command processed but before executed
+## displays "outgoing" message
+#preexec() {
+#    print "$fg[green]$(mep-out)$reset_color"
+#}
 
 # zsh prompt variable
-PROMPT="$(mep-prompt-message) $(mep-prompt-sign) "
+#PROMPT="$(mep-prompt-message) $(mep-prompt-sign) "
+PROMPT="$(mep-prompt-sign) "
 
 
 # -----------------------------------------------------------------------------
@@ -109,7 +110,18 @@ mep-git-status() {
 }
 
 # zsh right prompt variable
-RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-job-status)$(mep-history-status)'
+
+# toggle righthand prompt
+rprompt() {
+    if [[ -z $RPROMPT ]] ; then
+        #RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-job-status)$(mep-history-status)'
+        RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-job-status)'
+    else
+        unset RPROMPT
+    fi
+}
+# enable by default
+rprompt
 
 # -----------------------------------------------------------------------------
 # misc

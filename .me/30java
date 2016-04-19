@@ -7,11 +7,11 @@ if [[ $ME_OS == osx ]] ; then
     JDK7_HOME=$(/usr/libexec/java_home -v 1.7 2> /dev/null)
     JDK6_HOME=$(/usr/libexec/java_home -v 1.6 2> /dev/null)
 else
-    JDK8_HOME=$ME_PLATFORM_DIR/jdk/jdk1.8.0_45
-    JDK7_HOME=$ME_PLATFORM_DIR/jdk/jdk1.7.0_79
-    JDK6_HOME=$ME_PLATFORM_DIR/jdk/jdk1.6.0_45
+    JDK8_HOME=$ME_PLATFORM_DIR/java/jdk1.8
+    JDK7_HOME=$ME_PLATFORM_DIR/java/jdk1.7
+    JDK6_HOME=$ME_PLATFORM_DIR/java/jdk1.6
 fi
-export JDK_HOME=$JDK7_HOME
+export JDK_HOME=$JDK8_HOME
 export JAVA_HOME=$JDK_HOME
 export JRE_HOME=$JDK_HOME
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
