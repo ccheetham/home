@@ -97,7 +97,8 @@ mep-git-status-text() {
             stat=$(echo $stat | cut -d' ' -f3)
             ;;
         *detached*)
-            stat=-detached-
+            tag=$(echo $stat | awk '{print $4}')
+            stat="$tag/T"
             ;;
     esac
     echo $stat
