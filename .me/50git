@@ -7,24 +7,27 @@
 alias g='git'
 alias g\?='g help'
 alias gg='g status'
-alias gf='g fetch'
-alias gm='g merge'
-alias gp='g pull'
 alias gd='g diff'
-alias gC='g commit'
+alias ga='g add'
 alias gR='g checkout'
 alias gmaster='g checkout master'
-alias gtidy='gC -mtidy'
-alias gtypo='gC -mtypo'
-alias gcrumbs='gC -mbreadcrumbs'
-alias gvestige='gC -mvestige'
+alias gtidy='g commit -mtidy'
+alias gtypo='g commit -mtypo'
+alias gcrumbs='g commit -mbreadcrumbs'
+alias gvestige='g commit -m"remove vestige(s)"'
 
-ga () {
+g+ () {
     if [[ $# == 0 ]] ; then
         git add .
     else
         git add $*
     fi
+}
+
+gitme () {
+    git config --global alias.co checkout
+    git config --global alias.ci commit
+    git config --global alias.br branch
 }
 
 # vim: ft=zsh
