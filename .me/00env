@@ -121,6 +121,9 @@ case $(uname -m) in
     i86pc)
         [[ $(isainfo -b) == 64 ]] && ME_DISTRO_ARCH=x64 || ME_DISTRO_ARCH=x32
         ;;
+    ppc64)
+        ME_DISTRO_ARCH=p64
+        ;;
     *)
         ME_DISTRO_ARCH=unknown
         ;;
