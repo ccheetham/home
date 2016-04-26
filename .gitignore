@@ -51,6 +51,7 @@ xfr/
 .gtk-bookmarks
 .gtkrc-*
 .htoprc
+.homebrew_analytics_user_uuid
 .icons
 .ipython/
 .ivy2
