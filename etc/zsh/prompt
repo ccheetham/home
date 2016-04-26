@@ -133,6 +133,9 @@ mep-title() {
     if [[ ! $TERM == xterm* ]] ; then
         return
     fi
+    if [[ $ITERM_PROFILE == Task ]] ; then
+        return
+    fi
     # xterm-compatible terms
     local git=$(mep-git-status-text)
     [[ -n $git ]] && git=" [$git]"
