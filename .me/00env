@@ -106,6 +106,9 @@ case $ME_OS in
                 ;;
         esac
         ;;
+    osx)
+        ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d. -f2)
+        ;;
 esac
 
 # -----------------------------------------------------------------------------
