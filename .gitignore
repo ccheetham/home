@@ -23,6 +23,7 @@ xfr/
 .boto
 .cisco
 .cache
+.cf/
 .compiz
 .conda/
 .config/
