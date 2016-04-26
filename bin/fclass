@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+prog=$(basename $0)
+
+usage() {
+    echo -e "USAGE:\t$prog expr [paths]"
+    echo -e "WHERE:\texpr     search expression"
+    echo -e "      \tpaths    list of jars and/or directories (default pwd)"
+}
+
+if [[ $# == 0 ]] ; then
+    echo "missing expression" >&2
+    exit 1
+fi
+xpr=$1
+shift
+
+if [[ $# == 0 ]] ; then
+    paths=.
+else
+    paths=$@
+fi
+
+checkjar() {
+    local xpr=$1
+    local jar=$2
+    jar tf $jar | grep $xpr > /dev/null && echo $jar
+}
+
+for p in $paths ; do
+    if [[ $p == *jar ]] ; then
+        checkjar $xpr $p
+    elif [[ -d $p ]] ; then
+        for jar in $p/*jar ; do
+            checkjar $xpr $jar
+        done
+    else
+        echo "$p does not exist or is not a directory or jarfile" >&2
+    fi
+done
+
+# vim: ft=sh
