@@ -66,6 +66,7 @@ xfr/
 .links/
 .m2
 .macromedia
+.matplotlib/
 .mozilla
 .msgid.cache
 .muttdebug*
