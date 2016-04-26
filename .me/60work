@@ -45,7 +45,6 @@ pjdk() {
     path
 }
 
-
 alias work='ssh -X work'
 alias qadmz='ssh dmz.qa'
 alias qapws='ssh dmz.pws'
