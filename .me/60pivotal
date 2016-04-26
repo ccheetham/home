@@ -30,7 +30,7 @@ pvpn() {
 }
 
 sqa() {
-    source ~/src/appsuite-qa/qaenv/profile
+    source ~/src/appsuite-qa/etc/profile
 }
 
 pjdk() {
@@ -43,6 +43,6 @@ pjdk() {
     path
 }
 
-export QA_DOWNLOAD_DIR=~/xfr
+export QA_DISTFILES=~/thekeep
 
 # vim: ft=zsh
