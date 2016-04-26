@@ -22,11 +22,13 @@ dman () {
 # drun: run image interactively
 # -----------------------------------------------------------------------------
 drun () {
+    local image
     if [[ $# == 0 ]] ; then
-        echo "docker image not specified" >&2
-        return 1
+        image=$(basename $(pwd))
+    else
+        image=$1
+        shift
     fi
-    local image=$1; shift
     docker run -it --rm $image $@
 }
 
