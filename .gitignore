@@ -75,6 +75,7 @@ xfr/
 .notmuch-config
 .offlineimap/
 .oracle_jre_usage/
+.p2/
 .pcdm-startup.log
 .pip
 .pki
