@@ -134,6 +134,7 @@ case $ME_OS in
         esac
         ;;
     solaris)
+        alias pkg='sudo pkg'
         alias pkgutil='sudo /opt/csw/bin/pkgutil'
         ;;
 esac

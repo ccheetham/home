@@ -109,6 +109,9 @@ case $ME_OS in
     osx)
         ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d. -f2)
         ;;
+    solaris)
+        ME_DISTRO_VERSION=$(uname -r | cut -d. -f2)
+        ;;
 esac
 
 # -----------------------------------------------------------------------------
