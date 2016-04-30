@@ -46,7 +46,7 @@ pjdk() {
 }
 
 alias work='ssh -X work'
-alias qadmz='ssh dmz.qa'
-alias qapws='ssh dmz.pws'
+alias labtcs='ssh dmz.qa'
+alias labpws='ssh dmz.pws'
 
 # vim: ft=zsh
