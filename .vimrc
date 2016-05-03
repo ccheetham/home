@@ -21,6 +21,7 @@ Plugin 'ivanov/vim-ipython'             " interact with iPython
 "Plugin 'SirVer/ultisnips'               " ... UltiSnips snippet framework
 "Plugin 'honza/vim-snippets'             " snippets for SnipMate
 Plugin 'airblade/vim-gitgutter'         " Git Gutter
+Plugin 'ntpeters/vim-better-whitespace' " highlight trailing whitespace
 "Plugin 'benmills/vimux'                 " interact with tmux
 "Plugin 'pitluga/vimux-nose-test'         " ... nose testing
 "Plugin 'reinh/vim-makegreen'
