@@ -119,6 +119,9 @@ case $ME_OS in
                 alias apt-get='sudo apt-get'
                 alias apt-key='sudo apt-key'
                 ;;
+            fedora)
+                alias dnf='sudo dnf'
+                ;;
             gentoo)
                 alias e='sudo -E emerge --verbose'
                 alias eup='e -auDNv @world --with-bdeps=y'
@@ -131,6 +134,7 @@ case $ME_OS in
         esac
         ;;
     solaris)
+        alias pkg='sudo pkg'
         alias pkgutil='sudo /opt/csw/bin/pkgutil'
         ;;
 esac

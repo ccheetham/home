@@ -5,3 +5,7 @@
 	default = simple
 [alias]
 	undo = reset --soft @~1
+	co = checkout
+	ci = commit
+	br = branch
+	cpick = cherry-pick

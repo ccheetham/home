@@ -1,5 +1,6 @@
 local/
 src/
+thekeep/
 tmp/
 var/
 xfr/
@@ -23,6 +24,7 @@ xfr/
 .boto
 .cisco
 .cache
+.cf/
 .compiz
 .conda/
 .config/
@@ -50,6 +52,7 @@ xfr/
 .gtk-bookmarks
 .gtkrc-*
 .htoprc
+.homebrew_analytics_user_uuid
 .icons
 .ipython/
 .ivy2
@@ -64,6 +67,7 @@ xfr/
 .links/
 .m2
 .macromedia
+.matplotlib/
 .mozilla
 .msgid.cache
 .muttdebug*
@@ -72,6 +76,7 @@ xfr/
 .notmuch-config
 .offlineimap/
 .oracle_jre_usage/
+.p2/
 .pcdm-startup.log
 .pip
 .pki

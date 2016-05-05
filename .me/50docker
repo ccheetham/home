@@ -12,10 +12,24 @@ alias d\?='d help'
 # -----------------------------------------------------------------------------
 dman () {
     if [[ $# != 1 ]] ; then
-        echo specify one and only one docker command
+        echo "specify one and only one docker command" >&2
         return 1
     fi
     man docker-$1
+}
+
+# -----------------------------------------------------------------------------
+# drun: run image interactively
+# -----------------------------------------------------------------------------
+drun () {
+    local image
+    if [[ $# == 0 ]] ; then
+        image=$(basename $(pwd))
+    else
+        image=$1
+        shift
+    fi
+    docker run -it --rm $image $@
 }
 
 # -----------------------------------------------------------------------------
@@ -23,10 +37,10 @@ dman () {
 # -----------------------------------------------------------------------------
 dbash () {
     if [[ $# != 1 ]] ; then
-        echo specify one and only one docker image
+        echo "specify one and only one docker image" >&2
         return 1
     fi
-    docker run -it --rm $1 bash
+    drun $image $1 bash
 }
 
 # -----------------------------------------------------------------------------
@@ -34,6 +48,51 @@ dbash () {
 # -----------------------------------------------------------------------------
 drmx () {
     docker ps --quiet --filter status=exited | xargs docker rm
+}
+
+# -----------------------------------------------------------------------------
+# dtags: list image tags
+# -----------------------------------------------------------------------------
+dtags () {
+    local image
+    local tags
+    if [[ $# != 1 ]] ; then
+        echo "specify one and only one docker image" >&2
+        return 1
+    fi
+    image=$1
+    tags=$(wget -q -O- https://registry.hub.docker.com/v2/repositories/library/$image/tags)
+    if [[ $? != 0 ]] ; then
+        echo "no tags for $image" >&2
+        return 1
+    fi
+    python - <<EOF
+import json
+tags = [t['name'] for t in json.loads('''$tags''')['results']]
+tags.sort()
+for tag in tags:
+    print "{}:{}".format('$image', tag)
+EOF
+}
+
+# -----------------------------------------------------------------------------
+# dbuild: build image
+# -----------------------------------------------------------------------------
+dbuild () {
+    local tag
+    case $# in
+        0)
+            tag=$(basename $(pwd))
+            ;;
+        1)
+            tag=$1
+            ;;
+        *)
+            echo "specify at most one tag" >&2
+            return 1
+    esac
+    docker build -t $tag .
+    echo "tagged as $tag"
 }
 
 # vim: ft=zsh

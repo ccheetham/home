@@ -18,10 +18,12 @@
 # -----------------------------------------------------------------------------
 
 typeset -A mep_color
-mep_color[info]='%F{green}'     # info: normal
-mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
-mep_color[err]='%F{red}'        # err: something really bad
-mep_color[hl]='%F{cyan}'        # hl: highlight
+if [[ $TERM == xterm* ]] ; then
+    mep_color[info]='%F{green}'     # info: normal
+    mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
+    mep_color[err]='%F{red}'        # err: something really bad
+    mep_color[hl]='%F{cyan}'        # hl: highlight
+fi
 
 #typeset -A mep_uni              # unicode characters
 #mep_uni[rightwards-arrow-with-hook]=$(echo "\u21aa")
@@ -97,7 +99,8 @@ mep-git-status-text() {
             stat=$(echo $stat | cut -d' ' -f3)
             ;;
         *detached*)
-            stat=-detached-
+            tag=$(echo $stat | awk '{print $4}')
+            stat="$tag/T"
             ;;
     esac
     echo $stat
@@ -131,6 +134,9 @@ rprompt
 # set the titlebar of term
 mep-title() {
     if [[ ! $TERM == xterm* ]] ; then
+        return
+    fi
+    if [[ $ITERM_PROFILE == Task ]] ; then
         return
     fi
     # xterm-compatible terms

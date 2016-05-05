@@ -1,6 +1,8 @@
 # =============================================================================
-# Pivotal tooling
+# work settings
 # =============================================================================
+
+export QA_DISTFILES=~/thekeep
 
 pvpn() {
     local pdir=$ME_CONFIG_DIR/openvpn/pivotal
@@ -30,7 +32,7 @@ pvpn() {
 }
 
 sqa() {
-    source ~/src/appsuite-qa/qaenv/profile
+    source ~/src/appsuite-qa/etc/profile
 }
 
 pjdk() {
@@ -43,6 +45,8 @@ pjdk() {
     path
 }
 
-export QA_DOWNLOAD_DIR=~/xfr
+alias work='ssh -X work'
+alias labtcs='ssh dmz.qa'
+alias labpws='ssh dmz.pws'
 
 # vim: ft=zsh
