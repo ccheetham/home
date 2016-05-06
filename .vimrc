@@ -1,44 +1,14 @@
+" ============================================================================
+" vim setup and configuration
+" ============================================================================
+
 set nocompatible                        " um, no
 
-filetype off                            " disable prior to Vundle setup
-
-set rtp+=$HOME/var/repo/Vundle.vim          " Vundle plugin manager ...
-call vundle#begin()                     " https://github.com/gmarik/Vundle.vim
-
-Plugin 'gmarik/Vundle.vim'              " this and ...
-Plugin 'pathogen.vim'                   " ... that setup Vundle plugin mgmt
-Plugin 'tpope/vim-fugitive'             " git integration
-Plugin 'asciidoc.vim'                   " AsciiDoc syntax
-Plugin 'tfnico/vim-gradle'              " Gradle systax
-Plugin 'nginx.vim'                      " nginx web server syntax
-"Plugin 'scrooloose/syntastic'            " syntax checker
-Plugin 'scrooloose/nerdtree'            " filesystem explorer
-Plugin 'TaskList.vim'                   " TODOs, FIXMEs, XXXs ...
-Plugin 'ctrlp.vim'                      " fuzzy file/buffer finder
-Plugin 'ivanov/vim-ipython'             " interact with iPython
-"Plugin 'MarcWeber/vim-addon-mw-utils'   " dependency for ...
-"Plugin 'tomtom/tlib_vim'                " ... and another dependency for ...
-"Plugin 'SirVer/ultisnips'               " ... UltiSnips snippet framework
-"Plugin 'honza/vim-snippets'             " snippets for SnipMate
-Plugin 'airblade/vim-gitgutter'         " Git Gutter
-Plugin 'ntpeters/vim-better-whitespace' " highlight trailing whitespace
-"Plugin 'benmills/vimux'                 " interact with tmux
-"Plugin 'pitluga/vimux-nose-test'         " ... nose testing
-"Plugin 'reinh/vim-makegreen'
-"Plugin 'kevinw/pyflakes-vim'
-
-call vundle#end()
-call pathogen#infect()
-
-filetype on                             " enable file detection
-filetype plugin on                      " load plugins
-filetype indent on                      " indentation
+if filereadable(expand('~/.vimrc.plugins'))
+    source ~/.vimrc.plugins
+endif
 
 set shell=zsh                           " override what system thinks I want
-
-set rtp+=$HOME/var/repo/solarized/vim-colors-solarized
-set background=light
-colorscheme solarized
 
 syntax on                               " color please
 
@@ -86,26 +56,6 @@ nmap <c-m> :cprev<cr>
 " vimrc mamagement
 nmap <silent><leader>ev :edit $MYVIMRC<cr>
 nmap <leader>sv :source $MYVIMRC<cr>
-
-" nerdtree
-let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
-map <silent><leader>q :NERDTreeToggle<cr>
-
-" tasklist
-let g:tlWindowPosition=1                " open tasklist on the bottom
-
-" asciidoc
-au BufNewFile,BufRead *.adoc setlocal ft=asciidoc
-
-" grep
-if executable('ag')                     " use silver searcher if available
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
-endif
-
-" git
-nmap <silent><leader>gg :GitGutterLineHighlightsToggle<cr>
 
 " python
 nmap <silent><leader>y :w !python<cr>

@@ -1,0 +1,65 @@
+" ============================================================================
+" vim plugin setup and configuration
+" ============================================================================
+
+" ----------------------------------------------------------------------------
+" setup
+" ----------------------------------------------------------------------------
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'                 " [solarized]
+Plug 'ntpeters/vim-better-whitespace'                   " [whitespace]
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " [nerdtree]
+Plug 'ctrlpvim/ctrlp.vim'                               " [ctrlp]
+Plug 'tpope/vim-fugitive'                               " [fugitive]
+Plug 'airblade/vim-gitgutter'                           " [gitgutter]
+
+call plug#end()
+
+" ----------------------------------------------------------------------------
+" configuration
+" ----------------------------------------------------------------------------
+
+" [ctrpl]
+" fuzzy file, buffer, mru, tag, etc finder
+" https://github.com/ctrlpvim/ctrlp.vim
+if executable('ag')
+  " Use Silver Searcher over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_working_path_mode = 'r'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+"  let g:ctrlp_extensions = ['line']
+endif
+
+" ----------------------------------------------------------------------------
+" [fugitive]
+" git wrapper
+" https://github.com/tpope/vim-fugitive
+
+" ----------------------------------------------------------------------------
+" [gitgutter]
+" show git diff in the gutter, stages/undoes hunks
+" https://github.com/airblade/vim-gitgutter
+nmap <silent><leader>gg :GitGutterLineHighlightsToggle<cr>
+
+" ----------------------------------------------------------------------------
+" [nerdtree]
+" tree explorer
+" https://github.com/scrooloose/nerdtree
+let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
+map <silent><leader>\ :NERDTreeToggle<cr>
+
+" ----------------------------------------------------------------------------
+" [solarized]
+" solarized colorscheme
+" https://github.com/altercation/vim-colors-solarized
+colorscheme solarized
+
+" ----------------------------------------------------------------------------
+" [whitespace]
+" highlight trailing whitespace
+" https://github.com/ntpeters/vim-better-whitespace
