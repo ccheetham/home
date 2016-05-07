@@ -13,7 +13,7 @@ else
 fi
 export JDK_HOME=$JDK8_HOME
 export JAVA_HOME=$JDK_HOME
-export JRE_HOME=$JDK_HOME
+unset JRE_HOME
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 
 ME_PATH=$ME_PATH:$JAVA_HOME/bin

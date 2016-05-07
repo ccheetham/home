@@ -1,9 +1,7 @@
 #!/usr/bin/env zsh
 
-bundle_dir=$ME/.vim/bundle
-mkdir -p $bundle_dir
-cd $bundle_dir
-rm -f Vundle.vim
-ln -s $ME_REPO_DIR/Vundle.vim
+mkdir -p $ME/.vim/autoload
+rm -f $ME/.vim/autoload/plug.vim
+ln -s ../../var/repo/vim-plug/plug.vim $ME/.vim/autoload/plug.vim
 
-vim +PluginClean! +PluginUpdate +qall
+vim +PlugInstall +qall

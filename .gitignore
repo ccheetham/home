@@ -95,9 +95,9 @@ xfr/
 .synaptic
 .vim/.netrwhist
 .vim/autoload
-.vim/bundle
 .vim/colors
 .vim/ftdetect
+.vim/plugged
 .vim/syntax
 .viminfo
 .vimperator/info/default/history-*
