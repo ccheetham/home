@@ -4,9 +4,7 @@
 
 set nocompatible                        " um, no
 
-if filereadable(expand('~/.vimrc.plugins'))
-    source ~/.vimrc.plugins
-endif
+source ~/.vimrc.plugins
 
 set shell=zsh                           " override what system thinks I want
 
@@ -80,10 +78,3 @@ augroup resCur
     autocmd!
     autocmd BufWinEnter * call ResCur()
 augroup END
-
-" statusline -> file [filetype] [gitinfo]
-set statusline=%f%m                     " filename[modified]
-set statusline+=\ %y                    " filetype
-set statusline+=%=                      " proceeeding flags ppear on right side
-set statusline+=%{fugitive#statusline()} " vim status
-set statusline+=\ %l:%c/%P              " lineno:col/pct
