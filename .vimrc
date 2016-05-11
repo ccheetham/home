@@ -12,7 +12,8 @@ syntax on                               " color please
 
 set laststatus=2                        " always display status line
 set showmode                            " show current mode
-set number                              " line numbers
+set relativenumber                      " relative line numbers ...
+set number                              " ... but show current line as absolute
 set numberwidth=3                       " line number gutter width
 set ruler                               " cursor line/column number,
 set cursorline cursorcolumn             " crosshairs
