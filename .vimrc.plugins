@@ -44,7 +44,7 @@ nmap <silent><leader>gg :GitGutterLineHighlightsToggle<cr>
 " tree explorer
 " https://github.com/scrooloose/nerdtree
 let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
-map <silent><leader>\ :NERDTreeToggle<cr>
+map <silent><leader>q :NERDTreeToggle<cr>
 
 " [powerline]
 " statusline plugin for vim et al

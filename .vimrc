@@ -3,23 +3,15 @@
 " ============================================================================
 
 set nocompatible                        " um, no
+syntax on                               " color, et al please
 
-source ~/.vimrc.plugins
+let mapleader=" "                       " \ is a bit archaic
 
 set shell=zsh                           " override what system thinks I want
 
-syntax on                               " color please
-
 set laststatus=2                        " always display status line
 set showmode                            " show current mode
-set relativenumber                      " relative line numbers ...
-set number                              " ... but show current line as absolute
-set numberwidth=3                       " line number gutter width
-set ruler                               " cursor line/column number,
-set cursorline cursorcolumn             " crosshairs
-if exists('+colorcolumn')               " indicates advised widths
-    let &colorcolumn="80,".join(range(120,999),",")
-endif
+
 set wildmenu                            " enhanced completion
 set history=50                          " command history lines
 
@@ -37,30 +29,65 @@ set listchars=tab:._                    " ... as  .___
 set bs=2                                " backspace over everything
 set visualbell                          " quiet please
 
-" control
-map QQ :quitall<cr>
+" column and line numbering
+set ruler                               " cursor line/column number,
+set cursorline                          " highlight current line
+nnoremap <silent><leader>c :set cursorcolumn! <cr>
+if exists('+colorcolumn')               " indicates advised widths
+    let &colorcolumn="80,".join(range(120,999),",")
+endif
+set relativenumber                      " relative line numbers ...
+set number                              " ... but show current line as absolute
+function! ToggleRelativeNumbers()
+    set relativenumber!
+    set number
+endfunction
+autocmd InsertEnter * call ToggleRelativeNumbers()
+autocmd InsertLeave * call ToggleRelativeNumbers()
+set numberwidth=3                       " line number gutter width
 
 " editing
 map <c-d> dd
-nmap <silent><leader>n :set invnumber<cr>
-nmap <silent><leader>rn :set relativenumber!<cr>
-nnoremap <silent><leader>c :set cursorline! cursorcolumn! <cr>
 nmap <silent><leader>h :set invhlsearch<cr>
 nmap <silent><leader>w :set invwrap<cr>
 nmap <silent><leader>p :set invpaste<cr>:set paste?<cr>
 map <silent><leader>f mzgg=G`z<cr>
+
+" error navigation
 nmap <c-n> :cnext<cr>
 nmap <c-m> :cprev<cr>
+
+" simplify cursor window movement
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" resize windows
+nnoremap <right> :vertical resize +1<cr>
+nnoremap <left> :vertical resize -1<cr>
+nnoremap <up> :resize +1<cr>
+nnoremap <down> :resize -1<cr>
+
+" when lines wrapper, navigate as one would expect
+nnoremap k gk
+nnoremap j gj
+
+" support mouse scrolling
+set ttyfast
+set mouse=a
+
+" say 'no' to horizontal diffs, even if window too narrow
+set diffopt+=vertical
+
+" control
+map <leader>s :w<cr>
+map <leader>Q :quitall<cr>
+map <leader>x :x<cr>
 
 " vimrc mamagement
 nmap <silent><leader>ev :edit $MYVIMRC<cr>
 nmap <leader>sv :source $MYVIMRC<cr>
-
-" python
-nmap <silent><leader>y :w !python<cr>
-
-" insert timestamp (YY/MM/DD hh:mm)
-:nnoremap <silent><leader>ts "=strftime("%D %R")<cr>P
 
 " remembering twixt sessions
 "  'N   :  marks will be remembered for up to N previously edited files
@@ -79,3 +106,5 @@ augroup resCur
     autocmd!
     autocmd BufWinEnter * call ResCur()
 augroup END
+
+source ~/.vimrc.plugins                 " plugins and their settings
