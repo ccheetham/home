@@ -8,10 +8,10 @@ execdir=$basedir/libexec/$prog
 usage () {
     echo
     echo "  USAGE"
-    echo "      $prog [options] <reqd_arg> [opt_arg]"
+    echo "      $prog [options] TOOL"
     echo
     echo "  WHERE"
-    echo -n "      arg          where <command> one of: "
+    echo "      TOOL            where TOOL one of: "
     if [ -d $execdir ]
     then
         local delim
@@ -19,8 +19,7 @@ usage () {
         do
             if [[ -f $cmd && -x $cmd ]]
             then
-                echo -n "$delim$(basename $cmd)"
-                delim=', '
+                echo "                          $(basename $cmd)"
             fi
         done
     else
@@ -28,21 +27,11 @@ usage () {
         echo "!!! dispatch dir $execdir does not exist" >&2
     fi
     echo
-    echo
     echo "  DESCRIPTION"
-    echo "      ..."
+    echo "      Refresh the specified tool.  If tool not installed, install tool."
     echo
     echo "  OPTIONS"
     echo "      -h              display this message"
-    echo
-    echo "  EXAMPLES"
-    echo "      ..."
-    echo
-    echo "  NOTES"
-    echo "      ..."
-    echo
-    echo "  SEE ALSO"
-    echo "      ..."
     echo
 }
 
