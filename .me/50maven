@@ -1,28 +1,23 @@
 # =============================================================================
-# Apache Ant
+# Apache Maven
 # =============================================================================
 
-ME_MAVEN_HOMES=$ME_OPT_DIR/maven
+export ME_MAVEN_HOMES=$ME_OPT_DIR/maven
 
-alias m33=$ME_MAVEN_HOMES/apache-maven-3.3.9/bin/mvn
-alias m32=$ME_MAVEN_HOMES/apache-maven-3.2.5/bin/mvn
-alias m31=$ME_MAVEN_HOMES/apache-maven-3.1.1/bin/mvn
-alias m30=$ME_MAVEN_HOMES/apache-maven-3.0.5/bin/mvn
-alias m22=$ME_MAVEN_HOMES/apache-maven-2.2.1/bin/mvn
-alias m='m32'
+export ME_MAVEN_VERSION_33=3.3.9
+export ME_MAVEN_VERSION_32=3.2.5
+export ME_MAVEN_VERSION_31=3.1.1
+export ME_MAVEN_VERSION_30=3.0.5
+export ME_MAVEN_VERSION_22=2.2.1
+export ME_MAVEN_VERSION_DEFAULT=$ME_MAVEN_VERSION_32
 
-refresh_maven () {
-    local disturl=http://archive.apache.org/dist/maven
-    local -a vers
-    versions=(3.3.9 3.2.5 3.1.1 3.0.5 2.2.1)
+alias m=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_DEFAULT/bin/mvn
+alias m33=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_33/bin/mvn
+alias m32=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_32/bin/mvn
+alias m31=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_31/bin/mvn
+alias m30=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_30/bin/mvn
+alias m22=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_22/bin/mvn
 
-    mkdir -p $ME_MAVEN_HOMES
-    for version in $versions ; do
-        local major=$(echo $version | cut -d. -f1)
-        echo fetching maven dist $version
-        wget -O - $disturl/maven-$major/$version/binaries/apache-maven-${version}-bin.tar.gz 2> /dev/null \
-            | tar xfz - -C $ME_MAVEN_HOMES
-    done
-}
+ME_PATH=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_DEFAULT/bin:$ME_PATH
 
 # vim: ft=zsh

@@ -2,26 +2,8 @@
 # Apache Tomcat
 # =============================================================================
 
-TC_8_VERSION=8.0.32
-TC_7_VERSION=7.0.68
-TC_6_VERSION=6.0.45
-
-refresh_tomcat () {
-    local instdir=$ME_OPT_DIR/tomcat
-    local disturl=http://www.gtlib.gatech.edu/pub/apache/tomcat
-    local -a versions
-    versions=($TC_8_VERSION $TC_7_VERSION $TC_6_VERSION)
-
-    mkdir -p $instdir
-    for version in $versions; do
-        local shortver=${version%.*.*}
-        if [[ ! -d $instdir/apache-tomcat-$version ]] ; then
-            echo fetching tomcat dist for version $version
-            wget -O - \
-                $disturl/tomcat-${shortver}/v${version}/bin/apache-tomcat-$version.tar.gz 2> /dev/null \
-                | tar xfz - -C $instdir
-        fi
-    done
-}
+export ME_TOMCAT_VERSION_8=8.0.33
+export ME_TOMCAT_VERSION_7=7.0.69
+export ME_TOMCAT_VERSION_6=6.0.45
 
 # vim: ft=zsh

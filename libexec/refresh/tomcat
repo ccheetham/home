@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+instdir=$ME_OPT_DIR/tomcat
+disturl=http://www.gtlib.gatech.edu/pub/apache/tomcat
+versions=($ME_TOMCAT_VERSION_8 $ME_TOMCAT_VERSION_7 $ME_TOMCAT_VERSION_6)
+mkdir -p $instdir
+for version in $versions ; do
+    shortver=${version%.*.*}
+    echo fetching tomcat dist version $version
+    wget -O - \
+        $disturl/tomcat-${shortver}/v${version}/bin/apache-tomcat-$version.tar.gz 2> /dev/null \
+        | tar xfz - -C $instdir || exit
+done
+
+# vim: ft=zsh

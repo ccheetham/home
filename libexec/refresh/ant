@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+disturl=http://archive.apache.org/dist/ant/binaries
+versions=($ME_ANT_VERSION_19 $ME_ANT_VERSION_18)
+
+mkdir -p $ME_ANT_HOMES || exit
+for version in $versions ; do
+    echo fetching ant dist $version
+    wget -O - $disturl/apache-ant-${version}-bin.tar.gz 2> /dev/null \
+        | tar xfz - -C $ME_ANT_HOMES || exit
+done
+
+# vim: ft=zsh
