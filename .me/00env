@@ -13,6 +13,7 @@ export ME_LOG_DIR=$ME_CACHE_DIR/log
 export ME_REPO_CFG=$ME_CONFIG_DIR/repo
 export ME_REPO_DIR=$ME_CACHE_DIR/repo
 export ME_MAIL_DIR=$ME_CACHE_DIR/mail
+export ME_DISTFILE_DIR=$ME/thekeep
 
 # -----------------------------------------------------------------------------
 # ME_OS
