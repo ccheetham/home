@@ -63,6 +63,11 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" scrolling
+set scrolloff=4
+set sidescroll=1
+set sidescrolloff=8
+
 " resize windows
 nnoremap <right> :vertical resize +1<cr>
 nnoremap <left> :vertical resize -1<cr>
