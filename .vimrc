@@ -48,6 +48,7 @@ set numberwidth=3                       " line number gutter width
 
 " editing
 map <c-d> dd
+noremap <cr> o<esc>
 nmap <silent><leader>h :set invhlsearch<cr>
 nmap <silent><leader>w :set invwrap<cr>
 nmap <silent><leader>p :set invpaste<cr>:set paste?<cr>
