@@ -77,9 +77,7 @@ nnoremap j gj
 set diffopt+=vertical
 
 " control
-map <leader>s :w<cr>
-map <leader>Q :quitall<cr>
-map <leader>x :x<cr>
+map <leader>q :quit<cr>
 
 " vimrc mamagement
 nmap <silent><leader>ev :edit $MYVIMRC<cr>
