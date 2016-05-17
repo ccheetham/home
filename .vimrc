@@ -73,10 +73,6 @@ nnoremap <down> :resize -1<cr>
 nnoremap k gk
 nnoremap j gj
 
-" support mouse scrolling
-set ttyfast
-set mouse=a
-
 " say 'no' to horizontal diffs, even if window too narrow
 set diffopt+=vertical
 
