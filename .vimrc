@@ -84,6 +84,7 @@ set diffopt+=vertical
 
 " control
 map <leader>q :quit<cr>
+map <leader>bd :bp\|bd #<cr>
 
 " vimrc mamagement
 nmap <silent><leader>ev :edit $MYVIMRC<cr>
