@@ -2,8 +2,6 @@
 # Apache Maven
 # =============================================================================
 
-export ME_MAVEN_HOMES=$ME_OPT_DIR/maven
-
 export ME_MAVEN_VERSION_33=3.3.9
 export ME_MAVEN_VERSION_32=3.2.5
 export ME_MAVEN_VERSION_31=3.1.1
@@ -11,13 +9,43 @@ export ME_MAVEN_VERSION_30=3.0.5
 export ME_MAVEN_VERSION_22=2.2.1
 export ME_MAVEN_VERSION_DEFAULT=$ME_MAVEN_VERSION_32
 
-alias m=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_DEFAULT/bin/mvn
-alias m33=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_33/bin/mvn
-alias m32=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_32/bin/mvn
-alias m31=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_31/bin/mvn
-alias m30=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_30/bin/mvn
-alias m22=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_22/bin/mvn
+alias m=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_DEFAULT/bin/mvn
+alias m33=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_33/bin/mvn
+alias m32=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_32/bin/mvn
+alias m31=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_31/bin/mvn
+alias m30=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_30/bin/mvn
+alias m22=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_22/bin/mvn
 
-ME_PATH=$ME_MAVEN_HOMES/apache-maven-$ME_MAVEN_VERSION_DEFAULT/bin:$ME_PATH
+ME_PATH=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_DEFAULT/bin:$ME_PATH
+
+_mvn () {
+    local version=$1
+    shift
+    $ME_OPT_DIR/apache-maven-${version}/bin/mvn $*
+}
+
+mvn () {
+    _mvn $ME_MAVEN_VERSION_DEFAULT $*
+}
+
+mvn33 () {
+    _mvn $ME_MAVEN_VERSION_33 $*
+}
+
+mvn32 () {
+    _mvn $ME_MAVEN_VERSION_32 $*
+}
+
+mvn31 () {
+    _mvn $ME_MAVEN_VERSION_31 $*
+}
+
+mvn30 () {
+    _mvn $ME_MAVEN_VERSION_30 $*
+}
+
+mvn22 () {
+    _mvn $ME_MAVEN_VERSION_22 $*
+}
 
 # vim: ft=zsh

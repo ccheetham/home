@@ -3,12 +3,15 @@
 disturl=http://archive.apache.org/dist/maven
 versions=($ME_MAVEN_VERSION_33 $ME_MAVEN_VERSION_32 $ME_MAVEN_VERSION_31 $ME_MAVEN_VERSION_30 $ME_MAVEN_VERSION_22)
 
-mkdir -p $ME_MAVEN_HOMES || exit
+mkdir -p $ME_OPT_DIR || exit
 for version in $versions ; do
-    echo fetching maven dist $version
+    echo refreshing maven version $version
+    distfile=apache-maven-${version}-bin.tar.gz
     local major=$(echo $version | cut -d. -f1)
-    wget -O - $disturl/maven-$major/$version/binaries/apache-maven-${version}-bin.tar.gz 2> /dev/null \
-        | tar xfz - -C $ME_MAVEN_HOMES
+    echo ...fetching
+    wget --continue -P $ME_DISTFILE_DIR $disturl/maven-$major/$version/binaries/$distfile || exit
+    echo ...extracting
+    tar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
 done
 
 # vim: ft=zsh

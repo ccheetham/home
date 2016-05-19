@@ -1,11 +1,11 @@
 #!/usr/bin/env zsh
 
-disturl=https://dl.bintray.com/groovy/maven
-versions=($ME_GROOVY_VERSION_24)
+disturl=https://services.gradle.org/distributions
+versions=($ME_GRADLE_VERSION_24)
 mkdir -p $ME_OPT_DIR || exit
 for version in $versions ; do
-    echo refreshing groovy version $version
-    distfile=apache-groovy-binary-${version}.zip
+    echo refreshing gradle version $version
+    distfile=gradle-${version}-bin.zip
     echo ...fetching
     wget --continue -P $ME_DISTFILE_DIR $disturl/$distfile || exit
     echo ...extracting
