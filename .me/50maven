@@ -16,8 +16,6 @@ alias m31=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_31/bin/mvn
 alias m30=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_30/bin/mvn
 alias m22=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_22/bin/mvn
 
-ME_PATH=$ME_OPT_DIR/apache-maven-$ME_MAVEN_VERSION_DEFAULT/bin:$ME_PATH
-
 _mvn () {
     local version=$1
     shift
