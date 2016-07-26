@@ -39,7 +39,9 @@ reboot() {
 }
 
 poweroff() {
-    sudo /sbin/poweroff
+    local poweroff=/sbin/poweroff
+    [[ $ME_OS == solaris ]] && poweroff=/usr/sbin/poweroff
+    sudo $poweroff
 }
 
 systail () {
