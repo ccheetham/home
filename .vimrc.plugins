@@ -34,11 +34,13 @@ endif
 " [fugitive]
 " git wrapper
 " https://github.com/tpope/vim-fugitive
+nnoremap <silent><leader>gd :Gdiff<cr>
+nnoremap <silent><leader>gg :Gstatus<cr>
 
 " [gitgutter]
 " show git diff in the gutter, stages/undoes hunks
 " https://github.com/airblade/vim-gitgutter
-nmap <silent><leader>gg :GitGutterLineHighlightsToggle<cr>
+nmap <silent><leader>gh :GitGutterLineHighlightsToggle<cr>
 
 " [nerdtree]
 " tree explorer
@@ -54,6 +56,7 @@ map <silent><leader><leader> :NERDTreeToggle<cr>
 " solarized colorscheme
 " https://github.com/altercation/vim-colors-solarized
 colorscheme solarized
+hi CursorLine term=underline cterm=underline ctermbg=none
 
 " [whitespace]
 " highlight trailing whitespace
