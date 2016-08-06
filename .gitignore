@@ -57,6 +57,7 @@ xfr/
 .ipython/
 .ivy2
 .java
+.jenkins/
 .jline-jython.history
 .jmc
 .juniper_networks
