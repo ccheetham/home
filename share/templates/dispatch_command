@@ -1,0 +1,54 @@
+#!/usr/bin/env zsh
+
+prog=$(basename $0)
+
+indent="    "
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo "${indent}$prog [-options] <reqd_arg> [opt_arg]"
+    echo
+    echo "WHERE"
+    echo
+    echo "${indent}arg\tdescription"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo "${indent}..."
+    echo
+    echo "OPTIONS"
+    echo
+    echo "${indent}-h\tdisplay this message"
+    echo
+    echo "NOTES"
+    echo
+    echo "${indent}if applicable"
+    echo
+    echo "SEE ALSO"
+    echo
+    echo "${indent}if applicable"
+    echo
+    echo
+}
+
+while getopts ":h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            echo "$OPTARG requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))

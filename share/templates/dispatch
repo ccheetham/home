@@ -1,0 +1,79 @@
+#!/usr/bin/env zsh
+
+prog=$(basename $0)
+basedir=$(dirname $0)/..
+source $basedir/libexec/sh_functions
+execdir=$basedir/libexec/$prog
+
+usage () {
+    echo
+    echo "  USAGE"
+    echo "      $prog [options] <reqd_arg> [opt_arg]"
+    echo
+    echo "  WHERE"
+    echo -n "      arg          where <command> one of: "
+    local delim
+    for cmd in $execdir/*
+    do
+        echo -n "$delim$(basename $cmd)"
+        delim=', '
+    done
+    echo
+    echo
+    echo "  DESCRIPTION"
+    echo "      ..."
+    echo
+    echo "  OPTIONS"
+    echo "      -h              display this message"
+    echo
+    echo "  EXAMPLES"
+    echo "      ..."
+    echo
+    echo "  NOTES"
+    echo "      ..."
+    echo
+    echo "  SEE ALSO"
+    echo "      ..."
+    echo
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            echo "-$OPTARG requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [ $# -eq 0 ]
+then
+    echo "command not specified; run with -h for help" >&2
+    exit 1
+fi
+
+cmd=$execdir/$1
+shift
+
+if [ ! -x $cmd ]
+then
+    echo "command not found: $(basename $cmd)" >&2
+    exit 1
+fi
+
+export QA_PROG=$prog
+exec $cmd $@
+
+# vim: ft=sh et sw=4 sts=4
