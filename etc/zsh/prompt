@@ -98,6 +98,9 @@ mep-git-status-text() {
         "On branch"*)
             stat=$(echo $stat | cut -d' ' -f3)
             ;;
+        "rebase in progress"*)
+            stat="rebase"
+            ;;
         *detached*)
             tag=$(echo $stat | awk '{print $4}')
             stat="$tag/T"
