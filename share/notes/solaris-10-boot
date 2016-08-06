@@ -1,0 +1,5 @@
+boot 32-bit mode
+    eeprom boot-file=kernel/unix
+
+boot 64-bit mode
+    eeprom boot-file=kernel/amd64/unix
