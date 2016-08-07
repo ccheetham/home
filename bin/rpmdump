@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+
+'''
+
+RPM repo package dump
+
+    known URLs:
+        production   http://packages.gopivotal.com/pub/rpm
+        staging      http://packages-staging.pivotal.com.s3.amazonaws.com/pub/rpm
+        development  http://packages-dev.pivotal.com.s3.amazonaws.com/pub/rpm
+
+'''
+
+from __future__ import print_function
+import argparse
+import urllib2
+import xml.etree.ElementTree as xml
+import sys
+import zlib
+
+ns = { 'md': 'http://linux.duke.edu/metadata/common' }
+
+dists = {
+        'rhel7': ['x86_64'],
+        'rhel6': ['x86_64', 'i386', 'ppc'],
+        'rhel5': ['x86_64', 'i386', 'ppc'],
+        }
+
+parser = argparse.ArgumentParser(description='dump RPM repo packages')
+parser.add_argument('url')
+args = parser.parse_args(sys.argv[1:])
+
+dist_names = dists.keys()
+dist_names.sort()
+dist_names.reverse()
+
+baseurl = args.url
+
+for dist_name in dist_names:
+    print('distribution: {}'.format(dist_name))
+    dist_arches = dists[dist_name]
+    dist_arches.sort()
+    for dist_arch in dist_arches:
+        print('    architecture: {}'.format(dist_arch))
+        pkgs_url = '{}/{}/app-suite/{}/repodata/primary.xml.gz'.format(baseurl, dist_name, dist_arch)
+        try:
+            pkgs_doc = urllib2.urlopen(pkgs_url).read()
+        except urllib2.HTTPError:
+            print('        <not available>')
+            continue
+        pkgs_xml = xml.fromstring(zlib.decompress(pkgs_doc, 16+zlib.MAX_WBITS))
+        pkgs = {}
+        for pkg in pkgs_xml.findall('md:package', ns):
+            pkg_name = pkg.find('md:name', ns).text
+            pkg_version = pkg.find('md:version', ns).get('ver')
+            if pkg_name in pkgs:
+                pkgs[pkg_name].append(pkg_version)
+            else:
+                pkgs[pkg_name] = [pkg_version]
+        pkg_names = pkgs.keys()
+        pkg_names.sort()
+        for pkg_name in pkg_names:
+            pkg_versions = pkgs[pkg_name]
+            pkg_versions.sort()
+            pkg_versions.reverse()
+            print('        {}: {}'.format(pkg_name, ', '.join(pkg_versions)))
+
+# vim: et sw=4 sts=4
