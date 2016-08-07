@@ -1,1 +1,1 @@
-source ~/.me/profile
+source ~/etc/profile
