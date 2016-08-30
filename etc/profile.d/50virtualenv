@@ -4,7 +4,7 @@
 # http://docs.python-guide.org/en/latest/dev/virtualenvs/
 # =============================================================================
 
-export ME_VIRTUALENV_HOME=$ME_DISTRO_DIR/lib/virtualenv
+export ME_VIRTUALENV_HOME=$ME_DISTRO_TOOL_DIR/lib/virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 ve() {

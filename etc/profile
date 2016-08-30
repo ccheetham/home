@@ -1,8 +1,15 @@
 #!/usr/bin/env zsh
 
-_profile_dir=$(dirname $0)/profile.d
-for f in $_profile_dir/[[:digit:]]* ; do
+basedir=$(dirname $0)/..
+profile_dir=$(dirname $0)/profile.d
+
+for f in $profile_dir/[[:digit:]]* ; do
     source $f
 done
-[[ -r $_profile_dir/local ]] && source $_profile_dir/local
+
+if [[ -r $profile_dir/local ]]
+then
+    source $profile_dir/local
+fi
+
 unset _profile_dir

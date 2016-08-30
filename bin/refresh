@@ -2,8 +2,9 @@
 
 prog=$(basename $0)
 basedir=$(dirname $0)/..
-source $basedir/libexec/zsh/functions
 execdir=$basedir/libexec/$prog
+
+source $basedir/libexec/sh_functions
 
 usage () {
     echo
@@ -43,13 +44,13 @@ do
             exit
             ;;
         :)
-            echo "-$OPTARG requires an argument" >&2
-            echo "run with -h for help" >&2
+            err "-$OPTARG requires an argument"
+            err "run with -h for help"
             exit 1
             ;;
         \?)
-            echo "invalid option -$OPTARG" >&2
-            echo "run with -h for help" >&2
+            err "invalid option -$OPTARG"
+            err "run with -h for help"
             exit 1
             ;;
     esac
@@ -58,8 +59,7 @@ shift $(($OPTIND-1))
 
 if [ $# -eq 0 ]
 then
-    echo "command not specified; run with -h for help" >&2
-    exit 1
+    die "command not specified; run with -h for help"
 fi
 
 cmd=$execdir/$1
@@ -67,8 +67,7 @@ shift
 
 if [ ! -x $cmd ]
 then
-    echo "command not found: $(basename $cmd)" >&2
-    exit 1
+    die "command not found: $(basename $cmd)"
 fi
 
 export QA_PROG=$prog

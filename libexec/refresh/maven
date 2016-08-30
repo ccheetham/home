@@ -1,17 +1,43 @@
 #!/usr/bin/env zsh
 
-disturl=http://archive.apache.org/dist/maven
-versions=($ME_MAVEN_VERSION_33 $ME_MAVEN_VERSION_32 $ME_MAVEN_VERSION_31 $ME_MAVEN_VERSION_30 $ME_MAVEN_VERSION_22)
+basedir=$(dirname $0)/../..
 
-mkdir -p $ME_OPT_DIR || exit
-for version in $versions ; do
-    echo refreshing maven version $version
-    distfile=apache-maven-${version}-bin.tar.gz
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+main () {
+    hdr refreshing maven
+    local destdir=$ME_TOOL_DIR/opt
+    for version in $ME_MAVEN_VERSIONS
+    do
+        install_version $destdir $version || exit
+    done
+    link_default $destdir $ME_MAVEN_VERSIONS[1] || exit
+}
+
+install_version () {
+    local destdir=$1
+    local version=$2
     local major=$(echo $version | cut -d. -f1)
-    echo ...fetching
-    wget --continue -P $ME_DISTFILE_DIR $disturl/maven-$major/$version/binaries/$distfile || exit
-    echo ...extracting
-    tar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
-done
+    local distfile=apache-maven-${version}-bin.tar.gz
+    local disturl=http://archive.apache.org/dist/maven/maven-$major/$version/binaries/$distfile || exit
+    msg installing maven $version
+    msg fetching $disturl
+    wget --continue -P $ME_DISTFILE_DIR $disturl || return
+    msg extracting $distfile
+    mkdir -p $destdir || return
+    rm -rf $destdir/apache-maven-$version
+    tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir || return
+}
+
+link_default () {
+    local destdir=$1
+    local version=$2
+    msg linking default maven to $version
+    rm -f $destdir/maven || return
+    ln -s apache-maven-$version $destdir/maven
+}
+
+main $@
 
 # vim: ft=zsh

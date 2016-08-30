@@ -1,15 +1,44 @@
 #!/usr/bin/env zsh
 
-disturl=https://services.gradle.org/distributions
-versions=($ME_GRADLE_VERSION_24)
-mkdir -p $ME_OPT_DIR || exit
-for version in $versions ; do
-    echo refreshing gradle version $version
-    distfile=gradle-${version}-bin.zip
-    echo ...fetching
-    wget --continue -P $ME_DISTFILE_DIR $disturl/$distfile || exit
-    echo ...extracting
-    unzip -oq $ME_DISTFILE_DIR/$distfile -d $ME_OPT_DIR || exit
-done
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+# ----------------------------------------------------------------------------
+
+main () {
+    hdr refreshing gradle
+    local destdir=$ME_TOOL_DIR/opt
+    for version in $ME_GRADLE_VERSIONS
+    do
+        install_version $destdir $version || exit
+    done
+    link_default $destdir $ME_GRADLE_VERSIONS[1] || exit
+}
+
+install_version () {
+    local destdir=$1
+    local version=$2
+    local distfile=gradle-${version}-bin.zip
+    local disturl=https://services.gradle.org/distributions/$distfile
+    msg installing gradle $version
+    msg fetching $disturl
+    wget --continue -P $ME_DISTFILE_DIR $disturl || return
+    msg extracting $distfile
+    mkdir -p $destdir || return
+    rm -rf $destdir/gradle-$version
+    unzip -qo $ME_DISTFILE_DIR/$distfile -d $destdir || return
+}
+
+link_default () {
+    local destdir=$1
+    local version=$2
+    msg linking default gradle to $version
+    rm -f $destdir/gradle || return
+    ln -s gradle-$version $destdir/gradle
+}
+
+main $@
 
 # vim: ft=zsh

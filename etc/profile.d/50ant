@@ -2,27 +2,8 @@
 # Apache Ant
 # =============================================================================
 
-export ME_ANT_VERSION_19=1.9.6
-export ME_ANT_VERSION_18=1.8.4
-export ME_ANT_VERSION_DEFAULT=$ME_ANT_VERSION_19
+ME_ANT_VERSIONS=(1.9.6 1.8.4)
 
-_ant () {
-    local version=$1
-    shift
-    ANT_HOME=$ME_OPT_DIR/apache-ant-${version} \
-        $ME_OPT_DIR/apache-ant-${version}/bin/ant $*
-}
-
-ant () {
-    _ant $ME_ANT_VERSION_DEFAULT $*
-}
-
-ant19 () {
-    _ant $ME_ANT_VERSION_19 $*
-}
-
-ant18 () {
-    _ant $ME_ANT_VERSION_18 $*
-}
+ME_PATH+=:$ME_TOOL_DIR/opt/ant/bin
 
 # vim: ft=zsh

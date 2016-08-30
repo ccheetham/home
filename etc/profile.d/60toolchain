@@ -2,7 +2,7 @@
 # GNU (et al) toolchain
 # =============================================================================
 
-export PKG_CONFIG_PATH=$ME_DISTRO_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=$ME_DISTRO_TOOL_DIR/lib/pkgconfig
 
 if [[ osx == $ME_OS ]] ; then
     alias ldd='otool -L'

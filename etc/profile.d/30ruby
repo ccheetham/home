@@ -2,8 +2,8 @@
 # Ruby
 # =============================================================================
 
-export GEM_HOME=$ME_DISTRO_DIR/lib/ruby/gems
-ME_PATH=$GEM_HOME/bin:$ME_PATH
+export GEM_HOME=$ME_DISTRO_TOOL_DIR/lib/ruby/gems
+ME_PATH+=:$GEM_HOME/bin
 
 alias rb='ruby'
 

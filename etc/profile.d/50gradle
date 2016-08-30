@@ -4,22 +4,10 @@
 # http://gradle.org/
 # =============================================================================
 
-export ME_GRADLE_VERSION_24=2.4
-export ME_GRADLE_VERSION_DEFAULT=$ME_GRADLE_VERSION_24
+ME_GRADLE_VERSIONS=(2.14.1 2.4)
+GRADLE_HOME=$ME_TOOL_DIR/opt/gradle
+ME_PATH+=:$GRADLE_HOME/bin
 
-_gradle () {
-    local version=$1
-    shift
-    GRADLE_HOME=$ME_OPT_DIR/gradle-${version} \
-        $ME_OPT_DIR/gradle-${version}/bin/gradle $*
-}
-
-gradle () {
-    _gradle $ME_GRADLE_VERSION_DEFAULT $*
-}
-
-gradle24 () {
-    _gradle $ME_GRADLE_VERSION_24 $*
-}
+export GRADLE_HOME
 
 # vim: ft=zsh

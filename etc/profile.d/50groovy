@@ -4,22 +4,7 @@
 # http://www.groovy-lang.org/
 # =============================================================================
 
-export ME_GROOVY_VERSION_24=2.4.6
-export ME_GROOVY_VERSION_DEFAULT=$ME_GROOVY_VERSION_24
-
-_groovy () {
-    local version=$1
-    shift
-    GROOVY_HOME=$ME_OPT_DIR/groovy-${version} \
-        $ME_OPT_DIR/groovy-${version}/bin/groovy $*
-}
-
-groovy () {
-    _groovy $ME_GROOVY_VERSION_DEFAULT $*
-}
-
-groovy24 () {
-    _groovy $ME_GROOVY_VERSION_24 $*
-}
+ME_GROOVY_VERSIONS=(2.4.7)
+ME_PATH+=:$ME_TOOL_DIR/opt/groovy/bin
 
 # vim: ft=zsh
