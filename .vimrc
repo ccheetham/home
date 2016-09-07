@@ -7,7 +7,9 @@ syntax on                               " color, et al please
 
 let mapleader=" "                       " \ is a bit archaic
 
-set shell=zsh                           " override what system thinks I want
+if executable('zsh')
+  set shell=zsh                         " override what system thinks I want
+endif
 
 set laststatus=2                        " always display status line
 set showmode                            " show current mode
@@ -89,6 +91,10 @@ map <leader>bd :bp\|bd #<cr>
 " vimrc mamagement
 nmap <silent><leader>ev :edit $MYVIMRC<cr>
 nmap <leader>sv :source $MYVIMRC<cr>
+nmap <silent><leader>eg :edit $MYGVIMRC<cr>
+nmap <leader>sg :source $MYGVIMRC<cr>
+nmap <silent><leader>ep :edit $MYVIMRC.plugins<cr>
+nmap <leader>sp :source $MYVIMRC.plugins<cr>
 
 " remembering twixt sessions
 "  'N   :  marks will be remembered for up to N previously edited files

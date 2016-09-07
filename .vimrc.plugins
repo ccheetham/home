@@ -4,7 +4,7 @@
 
 " plugins from local repositories
 set rtp+=~/var/repo/powerline/powerline/bindings/vim    " powerline
-
+source ~/var/repo/vim-plug/plug.vim
 
 " vim-pligged managed plugins
 " https://github.com/junegunn/vim-plug

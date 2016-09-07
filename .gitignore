@@ -3,6 +3,7 @@ src/
 thekeep/
 tmp/
 var/
+vimfiles/
 xfr/
 
 ._*
