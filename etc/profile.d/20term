@@ -1,19 +1,24 @@
 # =============================================================================
 # terminal settings
+# -----------------------------------------------------------------------------
+# run "refresh terminfo" to setup my terminfo directory
 # =============================================================================
 
-if [[ $TERM == xterm* ]] ; then
-    if [[ $ME_OS_ == solaris ]] ; then
-        if [[ -e /usr/share/lib/terminfo/x/xterm-256color ]] ; then
-            TERM=xterm-256color
-        elif [[ -e /usr/share/lib/terminfo/x/xterm-color ]] ; then
-            TERM=xterm-color
-        else
-            TERM=xterm
+if [[ -d $ME_CONFIG_DIR/terminfo/$ME_HOST ]]
+then
+    export TERMINFO=$ME_CONFIG_DIR/terminfo/$ME_HOST
+fi
+
+if [[ $TERM == xterm* ]]
+then
+    for term in xterm-256color-italic xterm-256color xterm-color xterm
+    do
+        if infocmp $term > /dev/null 2>&1
+        then
+            TERM=$term
+            break
         fi
-    else
-        TERM=xterm-256color
-    fi
+    done
 fi
 
 # vim: ft=zsh

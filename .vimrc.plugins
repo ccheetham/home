@@ -59,6 +59,7 @@ map <silent><leader><leader> :NERDTreeToggle<cr>
 if $TERM != 'sun-color'
     colorscheme solarized
     hi CursorLine term=underline cterm=underline ctermbg=none
+    highlight Comment cterm=italic
 endif
 
 " [whitespace]
