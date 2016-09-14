@@ -105,6 +105,7 @@ xfr/
 .vimperator/info/default/history-*
 .vinevncauth
 .virtualenv/
+.wget-hsts
 .wireshark*
 .xchat2
 .xscreensaver
