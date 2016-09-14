@@ -2,21 +2,23 @@
 " vim plugin setup and configuration
 " ============================================================================
 
-" plugins from local repositories
-if $TERM != 'sun-color'
-    set rtp+=~/var/repo/powerline/powerline/bindings/vim    " powerline
-endif
-
 " vim-plugged managed plugins
 " https://github.com/junegunn/vim-plug
-call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'                 " [solarized]
-Plug 'ntpeters/vim-better-whitespace'                   " [whitespace]
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " [nerdtree]
-Plug 'ctrlpvim/ctrlp.vim'                               " [ctrlp]
-Plug 'tpope/vim-fugitive'                               " [fugitive]
-Plug 'airblade/vim-gitgutter'                           " [gitgutter]
-call plug#end()
+if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
+    source ~/var/repo/vim-plug/plug.vim
+    call plug#begin('~/.vim/plugged')
+    Plug 'altercation/vim-colors-solarized'                 " [solarized]
+    Plug 'ntpeters/vim-better-whitespace'                   " [whitespace]
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " [nerdtree]
+    Plug 'ctrlpvim/ctrlp.vim'                               " [ctrlp]
+    Plug 'tpope/vim-fugitive'                               " [fugitive]
+    Plug 'airblade/vim-gitgutter'                           " [gitgutter]
+    if $TERM != 'sun-color'
+        " [powerline]
+        Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+    endif
+    call plug#end()
+endif
 
 " [ctrpl]
 " fuzzy file, buffer, mru, tag, etc finder
@@ -65,3 +67,7 @@ endif
 " [whitespace]
 " highlight trailing whitespace
 " https://github.com/ntpeters/vim-better-whitespace
+
+" [powerline]
+" status line plugin
+" https://github.com/powerline/powerline
