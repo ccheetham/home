@@ -5,7 +5,6 @@
 " plugins from local repositories
 if $TERM != 'sun-color'
     set rtp+=~/var/repo/powerline/powerline/bindings/vim    " powerline
-    source ~/var/repo/vim-plug/plug.vim
 endif
 
 " vim-pligged managed plugins
