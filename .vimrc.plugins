@@ -3,8 +3,10 @@
 " ============================================================================
 
 " plugins from local repositories
-set rtp+=~/var/repo/powerline/powerline/bindings/vim    " powerline
-source ~/var/repo/vim-plug/plug.vim
+if $TERM != 'sun-color'
+    set rtp+=~/var/repo/powerline/powerline/bindings/vim    " powerline
+    source ~/var/repo/vim-plug/plug.vim
+endif
 
 " vim-pligged managed plugins
 " https://github.com/junegunn/vim-plug
@@ -55,8 +57,10 @@ map <silent><leader><leader> :NERDTreeToggle<cr>
 " [solarized]
 " solarized colorscheme
 " https://github.com/altercation/vim-colors-solarized
-colorscheme solarized
-hi CursorLine term=underline cterm=underline ctermbg=none
+if $TERM != 'sun-color'
+    colorscheme solarized
+    hi CursorLine term=underline cterm=underline ctermbg=none
+endif
 
 " [whitespace]
 " highlight trailing whitespace
