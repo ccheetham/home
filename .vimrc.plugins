@@ -7,7 +7,7 @@ if $TERM != 'sun-color'
     set rtp+=~/var/repo/powerline/powerline/bindings/vim    " powerline
 endif
 
-" vim-pligged managed plugins
+" vim-plugged managed plugins
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'                 " [solarized]
