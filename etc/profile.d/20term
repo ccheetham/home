@@ -11,7 +11,7 @@ fi
 
 if [[ $TERM == xterm* ]]
 then
-    for term in xterm-256color-italic xterm-256color xterm-color xterm
+    for term in xterm-256color xterm-color xterm
     do
         if infocmp $term > /dev/null 2>&1
         then
