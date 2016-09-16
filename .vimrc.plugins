@@ -54,6 +54,8 @@ map <silent><leader><leader> :NERDTreeToggle<cr>
 " [powerline]
 " statusline plugin for vim et al
 " https://github.com/powerline/powerline
+" compatible Consolas font:
+"   https://github.com/nicolalamacchia/powerline-consolas/blob/master/consola.ttf
 
 " [solarized]
 " solarized colorscheme

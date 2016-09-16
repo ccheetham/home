@@ -1,17 +1,8 @@
 # =============================================================================
-# Vim
+# editor settings
 # =============================================================================
 
-_vi=vi
-
-if checkexe vim > /dev/null ; then
-    _vi=vim
-    alias vi=vim
-fi
-
-export EDITOR="$_vi"
-export VISUAL="$_vi -f"
-
-unset _vi
+export EDITOR="vi"
+export VISUAL="vi -f"
 
 # vim: ft=zsh
