@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # =============================================================================
 # vi wrapper
@@ -6,6 +6,9 @@
 # to install xterm-256color-italic, run:
 #   refresh terminfo
 # =============================================================================
+
+
+source $(dirname $0)/../etc/profile
 
 for term in xterm-256color-italic xterm-256color xterm-color xterm
 do
