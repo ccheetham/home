@@ -65,6 +65,14 @@ if $TERM != 'sun-color'
     hi CursorLine term=underline cterm=underline ctermbg=none
     highlight Comment cterm=italic
 endif
+function! MeToggleBackground()
+    if (&background == "light")
+        set background=dark
+    else
+        set background=light
+    endif
+endfunction
+map <silent><leader>tb :call MeToggleBackground()<cr>
 
 " [whitespace]
 " highlight trailing whitespace
