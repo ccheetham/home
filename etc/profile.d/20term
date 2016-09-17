@@ -2,10 +2,7 @@
 # terminal settings
 # =============================================================================
 
-if [[ -d $ME_CONFIG_DIR/terminfo/$ME_HOST ]]
-then
-    export TERMINFO=$ME_CONFIG_DIR/terminfo/$ME_HOST
-fi
+export TERMINFO=$ME_DATA_DIR/terminfo/$ME_HOST
 
 if [[ $TERM == xterm* ]]
 then
