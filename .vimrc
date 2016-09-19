@@ -27,6 +27,7 @@ source ~/.vim/me/navigate.vim
 source ~/.vim/me/rulers.vim
 source ~/.vim/me/windows.vim
 source ~/.vim/me/scroll.vim
+source ~/.vim/me/mouse.vim
 source ~/.vim/me/errors.vim
 source ~/.vim/me/diff.vim
 source ~/.vim/me/shell.vim
