@@ -16,7 +16,7 @@ bsync() {
     b outdated
     echo -n 'Upgrade? '
     read
-    b upgrade --all
+    b upgrade
     #b linkapps
     b cleanup
 }
