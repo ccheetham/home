@@ -20,7 +20,7 @@ main () {
 install_version () {
     local destdir=$1
     local version=$2
-    local distfile=gradle-${version}-bin.zip
+    local distfile=gradle-${version}-all.zip
     local disturl=https://services.gradle.org/distributions/$distfile
     msg installing gradle $version
     msg fetching $disturl
