@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+if [[ $# == 0 ]]
+then
+    echo "search string not specified" >&2
+    exit 1
+fi
+search=$1
+shift
+
+if [[ $# == 0 ]]
+then
+    echo "path(s) not specified" >&2
+    exit 1
+fi
+paths=$*
+
+for path in $*
+do
+    if [[ -d $path ]]
+    then
+        jars=$(find $path -name '*.jar')
+    else
+        jars=$path
+    fi
+    for jar in $jars
+    do
+        echo '---' $jar
+        jar tf $jar | grep $search
+    done
+done
