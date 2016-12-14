@@ -51,6 +51,9 @@ if [[ $ME_OS == linux ]]  ; then
             *Debian*)
                 ME_DISTRO_FLAVOR=debian
                 ;;
+            *neon*)
+                ME_DISTRO_FLAVOR=neon
+                ;;
             *Red\ Hat*)
                 ME_DISTRO_FLAVOR=redhat
                 ;;
@@ -92,6 +95,9 @@ case $ME_OS in
                 ;;
             debian)
                 ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}')
+                ;;
+            neon)
+                ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
                 ;;
             osx)
                 ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d'.' -f1)
