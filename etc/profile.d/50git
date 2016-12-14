@@ -8,21 +8,16 @@ alias g='git'
 alias g\?='g help'
 alias gg='g status'
 alias gd='g diff'
+alias gdc='g diff --cached'
 alias ga='g add'
+alias greset='g reset HEAD'
 alias gR='g checkout'
 alias gmaster='g checkout master'
 alias gtidy='g commit -mtidy'
 alias gtypo='g commit -mtypo'
+alias grefactor='g commit -mrefactor'
 alias gcrumbs='g commit -mbreadcrumbs'
-alias gvestige='g commit -m"remove vestige(s)"'
-
-g+ () {
-    if [[ $# == 0 ]] ; then
-        git add .
-    else
-        git add $*
-    fi
-}
+alias gvestige='g commit -m"remove vestige"'
 
 gitme () {
     git config --global alias.co checkout
