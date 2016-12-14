@@ -10,6 +10,7 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     if $TERM != 'sun-color'
