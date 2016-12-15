@@ -4,8 +4,12 @@
 [push]
 	default = simple
 [alias]
-	undo = reset --soft @~1
-	co = checkout
-	ci = commit
 	br = branch
+	ci = commit
+	co = checkout
 	cpick = cherry-pick
+	diffc = diff --cached
+	last = log -1 HEAD
+	log1 = log --pretty=oneline
+	undo = reset --soft @~1
+	unstage = reset HEAD --
