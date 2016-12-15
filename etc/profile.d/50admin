@@ -116,7 +116,7 @@ case $ME_OS in
             centos | redhat)
                 alias yum='sudo yum'
                 ;;
-            debian | ubuntu)
+            debian | ubuntu | neon)
                 alias tude='sudo aptitude'
                 alias apt-get='sudo apt-get'
                 alias apt-key='sudo apt-key'
