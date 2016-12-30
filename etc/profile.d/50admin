@@ -118,6 +118,7 @@ case $ME_OS in
                 ;;
             debian | ubuntu | neon)
                 alias tude='sudo aptitude'
+                alias apt='sudo apt'
                 alias apt-get='sudo apt-get'
                 alias apt-key='sudo apt-key'
                 ;;
