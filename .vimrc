@@ -31,6 +31,7 @@ source ~/.vim/me/mouse.vim
 source ~/.vim/me/errors.vim
 source ~/.vim/me/diff.vim
 source ~/.vim/me/shell.vim
+source ~/.vim/me/commentary.vim
 source ~/.vim/me/fugitive.vim
 source ~/.vim/me/gutter.vim
 source ~/.vim/me/silver_searcher.vim
