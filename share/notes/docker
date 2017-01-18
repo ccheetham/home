@@ -1,0 +1,8 @@
+* ps utils
+  * last created container
+    % docker ps -q -l
+* restart exited container
+  * restart in background
+    % docker start CONTAINER
+  * reattach terminal & stdin
+    % docker attach CONTAINER
