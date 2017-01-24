@@ -7,7 +7,7 @@ if $TERM != 'sun-color'
     hi CursorLine term=underline cterm=underline ctermbg=none
 endif
 
-set background=dark
+"set background=dark
 function! MeToggleBackground()
     if (&background == "light")
         set background=dark
