@@ -13,6 +13,7 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
+    Plug 'vim-scripts/bats.vim'
     if $TERM != 'sun-color'
         " [powerline]
         Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
