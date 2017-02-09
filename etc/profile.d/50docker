@@ -47,7 +47,14 @@ dbash () {
 # drmx: remove exited containers
 # -----------------------------------------------------------------------------
 drmx () {
-    docker ps --quiet --filter status=exited | xargs docker rm
+    docker ps --all --quiet --filter status=exited | xargs docker rm
+}
+
+# -----------------------------------------------------------------------------
+# drmix: remove images
+# -----------------------------------------------------------------------------
+drmix () {
+    docker images --all --quiet | xargs docker rmi
 }
 
 # -----------------------------------------------------------------------------
