@@ -45,11 +45,16 @@ poweroff() {
 }
 
 systail () {
-    if [[ $ME_OS == osx ]] ; then
-        tail -f /var/log/system.log
-    else
-        sudo tail -f /var/log/messages
-    fi
+    for syslog in /var/log/syslog /var/log/messages /var/log/system.log
+    do
+        if [[ -f $syslog ]]
+        then
+            tail -f $syslog
+            return
+        fi
+    done
+    echo "do not know how to tail system log on this plaform/host" >&2
+    return 1
 }
 
 # -----------------------------------------------------------------------------
