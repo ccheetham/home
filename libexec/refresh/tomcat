@@ -5,11 +5,20 @@ versions=($ME_TOMCAT_VERSION_85 $ME_TOMCAT_VERSION_80 $ME_TOMCAT_VERSION_70 $ME_
 mkdir -p $ME_OPT_DIR || exit
 for version in $versions ; do
     echo refreshing tomcat version $version
-    distfile=apache-tomcat-$version.tar.gz
+    dist=apache-tomcat-$version
+    distfile=$dist.tar.gz
     echo ...fetching
     wget --continue -P $ME_DISTFILE_DIR $disturl/tomcat-${version%.*.*}/v${version}/bin/$distfile || exit
+    if [[ -d $ME_OPT_DIR/$dist ]] ; then
+        echo ...remove previous
+        rm -rf $ME_OPT_DIR/$dist
+    fi
     echo ...extracting
     tar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
+    echo ...linking
+    link=$ME_OPT_DIR/apache-tomcat-${version%%\.*}
+    rm -f $link
+    ln -s $dist $link
 done
 
 # vim: ft=zsh
