@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+
+prog=$(basename $0)
+
+password=password
+
+usage() {
+    echo
+    echo "  USAGE"
+    echo "      $prog [-h] NAME <PASSWORD>"
+    echo
+    echo "  WHERE"
+    echo "      NAME            base name of artifacts to generate"
+    echo "      PASSWORD        keystore password (default $password)"
+    echo
+    echo "  OPTIONS"
+    echo "      -h              display this message"
+    echo
+    echo "  DESCRIPTION"
+    echo "      Generate SSL artifacts suitable for simple testing."
+    echo "      List of generated artifacts, where '*' replaced by NAME:"
+    echo
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            die "-$OPTARG requires an argument"
+            ;;
+        \?)
+            die "invalid option -$OPTARG" >&2
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if ! type keytool >/dev/null 2>&1
+then
+    echo "this utility requires keytool"
+    exit 1
+fi
+
+if [[ $# == 0 ]]
+then
+    echo "NAME not specified; run with -h for help"
+    exit 1
+fi
+
+name=$1
+keystore=${name}.jks
+cert=${name}.crt
+key=${name}.key
+pem=${name}.pem
+
+shift
+
+if [[ $# > 0 ]]
+
+then
+    echo "too many arguments; run with -h for help"
+    exit 1
+fi
+
+msg() {
+    echo "--- $*"
+}
+
+msg "creating Java keystore"
+rm -f $keystore
+keytool -genkeypair -keystore $keystore \
+    -keyalg RSA \
+    -alias $name -dname "CN=locahost,O=${name}" \
+    -storepass $password -keypass $password \
+    -validity 365
+
+msg "extracting certificate from Java keystore"
+rm -f $cert
+keytool -export -file $cert -rfc \
+    -alias $name -keystore $keystore -storepass $password
+
+msg "extracting private key from Java keystore"
+keytool -importkeystore \
+    -srckeystore $keystore -srcstorepass $password \
+    -destkeystore $name.tmp -deststoretype PKCS12 -deststorepass $password
+openssl pkcs12 -in $name.tmp -nocerts -nodes -passin pass:${password} -out $key
+rm -f $name.tmp
+
+msg "creating key/cert PEM"
+rm -f $pem
+cat $key $cert > $pem
+
+echo
+echo "  keystore          $keystore"
+echo "  certificate       $cert"
+echo "  key               $key"
+echo "  certificate/key   $pem"
+echo

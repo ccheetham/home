@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 pgm=$(basename $0)
-source ~/.me/functions
-source ~/.me/*gnutls
+source ~/libexec/sh_functions
+source ~/etc/profile.d/*gnutls
 
 usage() {
     echo
@@ -75,7 +75,7 @@ fi
 key=$name.key
 tmpl=$name.tmpl
 
-checkexe certtool || exit
+type certtool >/dev/null || exit
 if certtool --generate-self-signed \
     --load-privkey $key \
     --template $tmpl \

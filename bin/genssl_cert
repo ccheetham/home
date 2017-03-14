@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 pgm=$(basename $0)
-source ~/.me/functions
-source ~/.me/*gnutls
+source ~/libexec/sh_functions
+source ~/etc/profile.d/*gnutls
 
 usage() {
     echo
@@ -77,7 +77,7 @@ if [[ -e $cert ]] ; then
     exit 1
 fi
 
-checkexe certtool || exit
+type certtool >/dev/null || exit
 if certtool --generate-certificate \
     --load-ca-certificate $caname.crt \
     --load-ca-privkey $caname.key \
