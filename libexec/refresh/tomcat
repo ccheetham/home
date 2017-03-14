@@ -16,7 +16,9 @@ for version in $versions ; do
     echo ...extracting
     tar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
     echo ...linking
-    link=$ME_OPT_DIR/apache-tomcat-${version%%\.*}
+    shortver=$(echo $version | awk -F. '{print $1$2}')
+    shortver=${shortver%%0}
+    link=$ME_OPT_DIR/apache-tomcat-$shortver
     rm -f $link
     ln -s $dist $link
 done
