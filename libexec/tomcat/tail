@@ -1,0 +1,67 @@
+#!/usr/bin/env zsh
+
+cmd=$(basename $0)
+source $(dirname $0)/profile
+
+usage () {
+    echo
+    echo "  USAGE"
+    echo
+    echo "      $PROG $cmd [-h] NAME"
+    echo
+    echo "  DESCRIPTION"
+    echo
+    echo "      Tail the specified Tomcat instance log file."
+    echo
+    echo "  OPTIONS"
+    echo
+    echo "      -h              display this message"
+    echo
+    echo "  WHERE"
+    echo
+    echo "      NAME            instance name"
+    echo
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            err "-$OPTARG requires an argument"
+            err "run with -h for help"
+            exit 1
+            ;;
+        \?)
+            err "invalid option -$OPTARG"
+            err "run with -h for help"
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# == 0 ]]
+then
+    die "NAME not specified; run with -h for help"
+fi
+name=$1
+shift
+
+if [[ $# > 0 ]]
+then
+    die "too many arguments; run with -h for help"
+fi
+
+instanceDir=$(instanceDirForName $name)
+
+if [[ ! -d $instanceDir ]]
+then
+    die "instance $name does not exists"
+fi
+
+tail -f $instanceDir/logs/catalina.$(date '+%Y-%m-%d').log
+# vim: ft=zsh

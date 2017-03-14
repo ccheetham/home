@@ -1,0 +1,53 @@
+#!/usr/bin/env zsh
+
+cmd=$(basename $0)
+source $(dirname $0)/profile
+
+usage () {
+    echo
+    echo "  USAGE"
+    echo
+    echo "      $PROG $cmd [-h]"
+    echo
+    echo "  DESCRIPTION"
+    echo
+    echo "      List available Tomcat instances."
+    echo
+    echo "  OPTIONS"
+    echo
+    echo "      -h              display this message"
+    echo
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            err "-$OPTARG requires an argument"
+            err "run with -h for help"
+            exit 1
+            ;;
+        \?)
+            err "invalid option -$OPTARG"
+            err "run with -h for help"
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# > 0 ]]
+then
+    die "too many arguments; run with -h for help"
+fi
+
+for instance in $INSTANCE_HOME/*
+do
+    echo "    $(basename $instance)"
+done
+
+# vim: ft=zsh

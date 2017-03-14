@@ -1,0 +1,94 @@
+#!/usr/bin/env zsh
+
+cmd=$(basename $0)
+basedir=$(dirname $0)
+source $basedir/profile
+
+
+usage () {
+    echo
+    echo "  USAGE"
+    echo
+    echo "      $PROG $cmd [-h] NAME VERSION"
+    echo
+    echo "  DESCRIPTION"
+    echo
+    echo "      Create a Tomcat instance with the given name."
+    echo
+    echo "  OPTIONS"
+    echo
+    echo "      -h              display this message"
+    echo
+    echo "  WHERE"
+    echo
+    echo "      NAME            instance name"
+    echo "      VERSION         one of:"
+    for dist in $distHome/apache-tomcat-*
+    do
+        echo "                          ${$(basename $dist)#apache-tomcat-}"
+    done
+    echo
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            err "-$OPTARG requires an argument"
+            err "run with -h for help"
+            exit 1
+            ;;
+        \?)
+            err "invalid option -$OPTARG"
+            err "run with -h for help"
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# == 0 ]]
+then
+    die "NAME not specified; run with -h for help"
+fi
+name=$1
+shift
+
+if [[ $# == 0 ]]
+then
+    die "VERSION not specified; run with -h for help"
+fi
+version=$1
+shift
+
+if [[ $# > 0 ]]
+then
+    die "too many arguments; run with -h for help"
+fi
+
+dist=apache-tomcat-$version
+distDir=$DIST_HOME/$dist
+if [[ ! -d $distDir ]]
+then
+    die "tomcat $version not available; run with -h for a list of available versions"
+fi
+
+instanceDir=$(instanceDirForName $name)
+if [[ -d $instanceDir ]]
+then
+    die "instance $name exists; run '$PROG destroy $name' to remove"
+fi
+
+mkdir -p $(dirname $instanceDir) || exit
+cp -r $basedir/instance.in $instanceDir || exit
+echo $version > $instanceDir/version
+cp $distDir/conf/* $instanceDir/conf
+cp $distDir/bin/tomcat-juli.jar $instanceDir/bin
+
+msg "tomcat instance $name created"
+
+# vim: ft=zsh

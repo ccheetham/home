@@ -1,0 +1,81 @@
+#!/usr/bin/env zsh
+
+prog=$(basename $0)
+basedir=$(dirname $0)/..
+execdir=$basedir/libexec/$prog
+
+source $basedir/libexec/sh_functions
+
+usage () {
+    echo
+    echo "  USAGE"
+    echo
+    echo "      $prog [-h] COMMAND [ARGS]"
+    echo
+    echo "  WHERE"
+    echo
+    echo "      COMMAND         one of: "
+    if [ -d $execdir ]
+    then
+        local delim
+        for cmd in $execdir/*
+        do
+            if [[ -f $cmd && -x $cmd ]]
+            then
+                echo "                          $(basename $cmd)"
+            fi
+        done
+    else
+        echo
+        echo "!!! dispatch dir $execdir does not exist" >&2
+    fi
+    echo
+    echo "  DESCRIPTION"
+    echo
+    echo "      Run the specified command."
+    echo "      For command-specific help, run: $prog COMMAND -h"
+    echo
+    echo "  OPTIONS"
+    echo
+    echo "      -h              display this message"
+    echo
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            err "-$OPTARG requires an argument"
+            err "run with -h for help"
+            exit 1
+            ;;
+        \?)
+            err "invalid option -$OPTARG"
+            err "run with -h for help"
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [ $# -eq 0 ]
+then
+    die "command not specified; run with -h for help"
+fi
+
+cmd=$execdir/$1
+shift
+
+if [ ! -x $cmd ]
+then
+    die "command not found: $(basename $cmd)"
+fi
+
+export PROG=$prog
+exec $cmd $@
+
+# vim: ft=sh et sw=4 sts=4
