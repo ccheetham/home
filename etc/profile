@@ -3,13 +3,18 @@
 basedir=$(dirname $0)/..
 profile_dir=$(dirname $0)/profile.d
 
+if [[ -r $profile_dir/local.pre ]]
+then
+    source $profile_dir/local.pre
+fi
+
 for f in $profile_dir/[[:digit:]]* ; do
     source $f
 done
 
-if [[ -r $profile_dir/local ]]
+if [[ -r $profile_dir/local.post ]]
 then
-    source $profile_dir/local
+    source $profile_dir/local.post
 fi
 
 unset _profile_dir
