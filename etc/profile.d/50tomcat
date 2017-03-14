@@ -2,8 +2,9 @@
 # Apache Tomcat
 # =============================================================================
 
-export ME_TOMCAT_VERSION_8=8.0.41
-export ME_TOMCAT_VERSION_7=7.0.75
-export ME_TOMCAT_VERSION_6=6.0.48
+export ME_TOMCAT_VERSION_85=8.5.12
+export ME_TOMCAT_VERSION_80=8.0.41
+export ME_TOMCAT_VERSION_70=7.0.75
+export ME_TOMCAT_VERSION_60=6.0.48
 
 # vim: ft=zsh

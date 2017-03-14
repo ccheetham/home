@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 disturl=http://www.gtlib.gatech.edu/pub/apache/tomcat
-versions=($ME_TOMCAT_VERSION_8 $ME_TOMCAT_VERSION_7 $ME_TOMCAT_VERSION_6)
+versions=($ME_TOMCAT_VERSION_85 $ME_TOMCAT_VERSION_80 $ME_TOMCAT_VERSION_70 $ME_TOMCAT_VERSION_60)
 mkdir -p $ME_OPT_DIR || exit
 for version in $versions ; do
     echo refreshing tomcat version $version
