@@ -120,6 +120,7 @@ case $ME_OS in
         case $ME_DISTRO_FLAVOR in
             centos | redhat)
                 alias yum='sudo yum'
+                alias systemctl='sudo systemctl'
                 ;;
             debian | ubuntu | neon)
                 alias tude='sudo aptitude'
