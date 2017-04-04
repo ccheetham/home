@@ -13,3 +13,4 @@
 	log1 = log --pretty=oneline
 	undo = reset --soft @~1
 	unstage = reset HEAD --
+	mm = merge --no-ff
