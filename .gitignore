@@ -16,3 +16,6 @@
 /Pictures
 /Public
 /Sites
+
+# vim
+*.swp
