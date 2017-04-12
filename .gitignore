@@ -17,6 +17,9 @@
 /Public
 /Sites
 
+# amazon
+.s3cfg
+
 # osx
 .DS_Store
 
