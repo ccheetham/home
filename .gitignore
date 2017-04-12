@@ -20,6 +20,9 @@
 # amazon
 .s3cfg
 
+# openssl
+.rnd
+
 # osx
 .DS_Store
 .Trash
