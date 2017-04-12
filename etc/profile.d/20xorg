@@ -5,6 +5,12 @@
 # http://xquartz.macosforge.org/
 # =============================================================================
 
+if [[ -d /opt/X11 ]]
+then
+    ME_PATH+=:/opt/X11/bin
+    ME_MANPATH+=:/opt/X11/share/man
+fi
+
 export ME_XSESSION_LOG=$ME_LOG_DIR/xsession.$ME_HOST.log
 
 xtail() {
