@@ -33,6 +33,7 @@
 # utils
 .htoprc
 .lesshst
+.sudo_*
 
 # vim
 *.swp
