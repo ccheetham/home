@@ -33,6 +33,7 @@
 .rnd
 
 # osx
+.CFUserTextEncoding
 .DS_Store
 .Trash
 
