@@ -36,11 +36,11 @@ sqa() {
 }
 
 pjdk() {
-    if [[ -z $QA_JDK6_HOME ]] ; then
-        echo QA_JDK6_HOME not set >&2
+    if [[ -z $JDK6_HOME ]] ; then
+        echo JDK6_HOME not set >&2
         return
     fi
-    JAVA_HOME=$QA_JDK6_HOME
+    JAVA_HOME=$JDK6_HOME
     PATH=$JAVA_HOME/bin:$PATH
     path
 }
