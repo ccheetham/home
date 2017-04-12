@@ -23,6 +23,9 @@
 .sudo_*
 .wget-hsts
 
+# bash
+.bash_history
+
 # vim
 *.swp
 
