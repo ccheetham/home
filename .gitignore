@@ -17,8 +17,17 @@
 /Public
 /Sites
 
-# amazon
-.s3cfg
+# utils
+.htoprc
+.lesshst
+.sudo_*
+.wget-hsts
+
+# vim
+*.swp
+
+# python
+*.pyc
 
 # openssl
 .rnd
@@ -27,16 +36,5 @@
 .DS_Store
 .Trash
 
-# python
-*.pyc
-
-# utils
-.htoprc
-.lesshst
-.sudo_*
-
-# vim
-*.swp
-
-# wget
-.wget-hsts
+# amazon
+.s3cfg
