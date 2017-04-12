@@ -98,6 +98,7 @@
 /.subversion
 /.sudo_as_admin_successful
 /.synaptic
+/.travis/
 /.vim/.netrwhist
 /.vim/autoload
 /.vim/colors
