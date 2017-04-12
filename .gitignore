@@ -36,5 +36,9 @@
 .DS_Store
 .Trash
 
+# X11
+.Xauthority
+.serverauth.*
+
 # amazon
 .s3cfg
