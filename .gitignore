@@ -17,5 +17,8 @@
 /Public
 /Sites
 
+# python
+*.pyc
+
 # vim
 *.swp
