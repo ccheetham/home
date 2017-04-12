@@ -17,6 +17,9 @@
 /Public
 /Sites
 
+# osx
+.DS_Store
+
 # python
 *.pyc
 
