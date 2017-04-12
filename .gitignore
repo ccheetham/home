@@ -30,6 +30,9 @@
 # python
 *.pyc
 
+# utils
+.lesshst
+
 # vim
 *.swp
 
