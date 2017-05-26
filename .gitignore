@@ -46,3 +46,6 @@
 
 # amazon
 .s3cfg
+
+# work
+.pivotal
