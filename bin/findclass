@@ -1,31 +1,101 @@
 #!/usr/bin/env bash
 
+pgm=$(basename $0)
+source ~/libexec/sh_functions
+
+usage() {
+    echo
+    echo "USAGE"
+    echo "     $prog [-h] pattern [path...]"
+    echo
+    echo "WHERE"
+    echo "     path    files and/or directories; default current directory"
+    echo "     pattern"
+    echo "             class pattern, e.g 'com.example.Main' or 'com.example'"
+    echo
+    echo "OPTIONS"
+    echo "     -h      print this message"
+    echo
+}
+
+while getopts ":h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
 if [[ $# == 0 ]]
 then
-    echo "search string not specified" >&2
-    exit 1
+    die "pattern not specified; run with -h for help"
 fi
-search=$1
+pattern=$1
 shift
 
 if [[ $# == 0 ]]
 then
-    echo "path(s) not specified" >&2
-    exit 1
+    paths=.
+else
+    paths=$@
 fi
-paths=$*
 
-for path in $*
-do
+checkfile() {
+    local pattern=$(echo $1 | tr '.' '/')
+    local path=$2
+    if [[ $path != *.jar ]]
+    then
+        return
+    fi
+    local results=$(jar tf $path | grep $pattern)
+    if [[ -n $results ]]
+    then
+        echo $path
+        for result in $results
+        do
+            echo "    $result"
+        done
+    fi
+}
+
+checkdir() {
+    local pattern=$1
+    local path=$2
+    for child in $path/*
+    do
+        check $pattern $child
+    done
+}
+
+check() {
+    local pattern=$1
+    local path=$2
     if [[ -d $path ]]
     then
-        jars=$(find $path -name '*.jar')
+        checkdir $pattern $path
     else
-        jars=$path
+        checkfile $pattern $path
     fi
-    for jar in $jars
-    do
-        echo '---' $jar
-        jar tf $jar | grep $search
-    done
+}
+
+for path in $paths
+do
+    check $pattern $path
+#    for jar in $jars
+#    do
+#        echo '---' $jar
+#        jar tf $jar | grep $search
+#    done
 done
