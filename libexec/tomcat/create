@@ -4,7 +4,6 @@ cmd=$(basename $0)
 basedir=$(dirname $0)
 source $basedir/profile
 
-
 usage () {
     echo
     echo "  USAGE"
@@ -23,7 +22,7 @@ usage () {
     echo
     echo "      NAME            instance name"
     echo "      VERSION         one of:"
-    for dist in $distHome/apache-tomcat-*
+    for dist in $DIST_HOME/apache-tomcat-*
     do
         echo "                          ${$(basename $dist)#apache-tomcat-}"
     done
