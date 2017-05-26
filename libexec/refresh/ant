@@ -12,7 +12,7 @@ main () {
     do
         install_version $destdir $version || exit
     done
-    link_default $destdir $ME_ANT_VERSIONS[1] || exit
+    link $destdir/apache-ant $ME_ANT_VERSIONS[1] || exit
 }
 
 install_version () {
@@ -30,12 +30,12 @@ install_version () {
     tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir || return
 }
 
-link_default () {
+link () {
     local destdir=$1
     local version=$2
     msg linking default ant to $version
-    rm -f $destdir/ant || return
-    ln -s apache-ant-$version $destdir/apache-ant
+    rm -f $destdir || return
+    ln -s apache-ant-$version $destdir
 }
 
 main $@
