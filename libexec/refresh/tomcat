@@ -1,14 +1,14 @@
 #!/usr/bin/env zsh
 
-disturl=http://www.gtlib.gatech.edu/pub/apache/tomcat
-versions=($ME_TOMCAT_VERSION_85 $ME_TOMCAT_VERSION_80 $ME_TOMCAT_VERSION_70 $ME_TOMCAT_VERSION_60)
+disturl=http://apache.mirrors.pair.com/tomcat
+versions=($ME_TOMCAT_VERSION_85 $ME_TOMCAT_VERSION_80 $ME_TOMCAT_VERSION_70 $ME_TOMCAT_VERSION_60 $ME_TOMCAT_VERSION_90)
 mkdir -p $ME_OPT_DIR || exit
 for version in $versions ; do
     echo refreshing tomcat version $version
     dist=apache-tomcat-$version
     distfile=$dist.tar.gz
     echo ...fetching
-    wget --continue -P $ME_DISTFILE_DIR $disturl/tomcat-${version%.*.*}/v${version}/bin/$distfile || exit
+    wget --continue -P $ME_DISTFILE_DIR $disturl/tomcat-${version%%.*.*}/v${version}/bin/$distfile || exit
     if [[ -d $ME_OPT_DIR/$dist ]] ; then
         echo ...remove previous
         rm -rf $ME_OPT_DIR/$dist
