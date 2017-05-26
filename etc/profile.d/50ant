@@ -2,8 +2,10 @@
 # Apache Ant
 # =============================================================================
 
-ME_ANT_VERSIONS=(1.9.6 1.8.4)
+ME_ANT_VERSIONS=(1.9.9 1.10.1 1.8.4)
 
-ME_PATH+=:$ME_TOOL_DIR/opt/ant/bin
+export ANT_HOME=$ME_TOOL_DIR/opt/apache-ant
+
+ME_PATH+=:$ANT_HOME/bin
 
 # vim: ft=zsh

@@ -35,22 +35,9 @@ link_default () {
     local version=$2
     msg linking default ant to $version
     rm -f $destdir/ant || return
-    ln -s apache-ant-$version $destdir/ant
+    ln -s apache-ant-$version $destdir/apache-ant
 }
 
 main $@
-
-# vim: ft=zsh
-
-#versions=($ME_ANT_VERSION_19 $ME_ANT_VERSION_18)
-
-#mkdir -p $ME_OPT_DIR || exit
-#for version in $versions ; do
-#    echo refreshing ant version $version
-#    echo ...fetching
-#    wget --continue -P $ME_DISTFILE_DIR $disturl/$distfile || exit
-#    echo ...extracting
-#    tar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
-#done
 
 # vim: ft=zsh
