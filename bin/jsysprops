@@ -1,20 +1,3 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env groovy
 
-die() {
-    echo $* >&2
-    exit 1
-}
-
-basedir=$(dirname $0)/..
-jdir=$basedir/libexec/java/foo-sysprops
-jlibdir=$jdir/build/libs
-jar=$jlibdir/foo-sysprops.jar
-
-if [[ ! -e $jar ]] ; then
-    which gradle > /dev/null 2>&1 || die "gradle not found"
-    cd $jdir
-    gradle jar
-    cd -
-fi
-
-java -jar $jar
+System.properties.keys().sort().each { k -> println "$k=${System.properties[k]}" }
