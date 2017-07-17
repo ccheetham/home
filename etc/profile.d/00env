@@ -2,7 +2,7 @@
 # My major environment viariables
 # =============================================================================
 
-export ME=$(cd $(dirname $0)/../.. && pwd)
+export ME=$(cd "$(dirname $0)/../.." && pwd)
 
 export ME_CONFIG_DIR=$ME/etc
 export ME_LIB_DIR=$ME/lib
