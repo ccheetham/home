@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+source $(dirname $0)/../sh_functions
+
 disturl=http://apache.mirrors.pair.com/tomcat
 versions=($ME_TOMCAT_VERSION_85 $ME_TOMCAT_VERSION_80 $ME_TOMCAT_VERSION_70 $ME_TOMCAT_VERSION_60 $ME_TOMCAT_VERSION_90)
 mkdir -p $ME_OPT_DIR || exit
@@ -14,7 +16,7 @@ for version in $versions ; do
         rm -rf $ME_OPT_DIR/$dist
     fi
     echo ...extracting
-    tar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
+    gnutar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
     echo ...linking
     shortver=$(echo $version | awk -F. '{print $1$2}')
     shortver=${shortver%%0}

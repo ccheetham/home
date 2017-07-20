@@ -31,4 +31,13 @@ die() {
     exit 1
 }
 
+# -----------------------------------------------------------------------------
+# gnutar: try to invoke GNU tar over system tar
+# -----------------------------------------------------------------------------
+gnutar() {
+    local tarcmd=tar
+    type gtar >/dev/null 2>&1 && tarcmd=gtar
+    $tarcmd $@
+}
+
 # vim: ft=sh et sw=4 sts=4
