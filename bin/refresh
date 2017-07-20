@@ -4,6 +4,7 @@ prog=$(basename $0)
 basedir=$(dirname $0)/..
 execdir=$basedir/libexec/$prog
 
+source $basedir/etc/profile
 source $basedir/libexec/sh_functions
 
 usage () {
