@@ -3,7 +3,7 @@
 # =============================================================================
 
 export ME_TOMCAT_VERSION_90=9.0.0.M20
-export ME_TOMCAT_VERSION_85=8.5.14
+export ME_TOMCAT_VERSION_85=8.5.16
 export ME_TOMCAT_VERSION_80=8.0.43
 export ME_TOMCAT_VERSION_70=7.0.77
 export ME_TOMCAT_VERSION_60=6.0.53
