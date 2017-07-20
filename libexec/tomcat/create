@@ -85,7 +85,7 @@ fi
 mkdir -p $(dirname $instanceDir) || exit
 cp -r $basedir/instance.in $instanceDir || exit
 echo $version > $instanceDir/version
-cp $distDir/conf/* $instanceDir/conf
+cp -r $distDir/conf $instanceDir
 cp $distDir/bin/tomcat-juli.jar $instanceDir/bin
 
 msg "tomcat instance $name created"
