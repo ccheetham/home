@@ -6,16 +6,8 @@
 /var
 /xfr
 
-/Applications
-/Desktop
-/Documents
-/Downloads
-/Library
-/Movies
-/Music
-/Pictures
-/Public
-/Sites
+# desktop files
+/[A-z]*
 
 # utils
 .htoprc
