@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+
+prog=$(basename $0)
+basedir=$(dirname $0)/..
+
+source $basedir/etc/profile
+source $basedir/libexec/sh_functions
+
+usage () {
+    echo
+    echo "  USAGE"
+    echo
+    echo "      $prog [-h]"
+    echo
+    echo "  DESCRIPTION"
+    echo
+    echo "      Run the Thread-Dump Analyzer."
+    echo
+    echo "  OPTIONS"
+    echo
+    echo "      -h              display this message"
+    echo
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            err "-$OPTARG requires an argument"
+            err "run with -h for help"
+            exit 1
+            ;;
+        \?)
+            err "invalid option -$OPTARG"
+            err "run with -h for help"
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+cd $ME_TOOL_DIR/opt/tda-$ME_TDA_VERSION/bin
+sh ./tda.sh $@ &
+
+# vim: ft=sh et sw=4 sts=4
