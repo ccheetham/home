@@ -11,6 +11,6 @@
 	diffc = diff --cached
 	last = log -1 HEAD
 	ll = log --pretty=oneline
-	undo = reset --soft @~1
+	rollback = reset --soft @~1
 	unstage = reset HEAD --
 	mm = merge --no-ff
