@@ -10,7 +10,6 @@ ME_PATH+=:$GRADLE_HOME/bin
 
 export GRADLE_HOME
 
-alias gr='./gradlew'
 alias grr='gr --refresh-dependencies'
 
 # vim: ft=zsh
