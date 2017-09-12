@@ -39,5 +39,8 @@
 # amazon
 .s3cfg
 
+# IntelliJ
+.Idea*
+
 # work
 .pivotal
