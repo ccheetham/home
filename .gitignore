@@ -50,3 +50,8 @@
 
 # Consource
 .flyrc
+
+# DotNet
+.dotnet
+.nuget
+.templateengine
