@@ -9,6 +9,9 @@
 # desktop files
 /[A-z]*
 
+# work
+.pivotal
+
 # utils
 .htoprc
 .lesshst
@@ -41,6 +44,3 @@
 
 # IntelliJ
 .Idea*
-
-# work
-.pivotal
