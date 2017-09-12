@@ -39,6 +39,9 @@
 .Xauthority
 .serverauth.*
 
+# Ruby
+.bundle
+
 # amazon
 .s3cfg
 
