@@ -4,6 +4,8 @@
 # https://www.docker.com/
 # =============================================================================
 
+export DOCKER_ID_USER=ccheetham
+
 alias d='docker'
 alias d\?='d help'
 
