@@ -58,3 +58,6 @@
 .dotnet
 .nuget
 .templateengine
+
+# Docker
+.docker
