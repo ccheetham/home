@@ -1,0 +1,56 @@
+#!/usr/bin/env zsh
+
+source $(dirname $0)/../sh_functions
+cmd=$(basename $0)
+
+description() {
+    echo "List vitual machines."
+}
+
+usage() {
+    echo "`b USAGE`"
+    echo "     `c $PROG $cmd` [-h]"
+    echo
+    echo "`b DESCRIPTION`"
+    echo "     $(description)"
+    echo
+    echo "`b OPTIONS`"
+    echo "     `c -h`      print this message"
+}
+
+do_all=0
+
+while getopts ":ahH" opt
+do
+    case $opt in
+        a)
+            do_all=1
+            ;;
+        h)
+            usage
+            exit
+            ;;
+        H)
+            description
+            exit
+            ;;
+        :)
+            echo "-$OPTARG requires an argument; run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option -$OPTARG; run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $do_all != 0 ]]
+then
+    VBoxManage list vms | awk -F'"' '{print $2}'
+else
+    VBoxManage list runningvms | awk -F'"' '{print $2}'
+fi
+
+# vim: ft=zsh

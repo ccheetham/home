@@ -40,4 +40,34 @@ gnutar() {
     $tarcmd $@
 }
 
+# -----------------------------------------------------------------------------
+# formatting
+# -----------------------------------------------------------------------------
+
+# bold
+b() {
+    tput bold
+    printf "%s" "$*"
+    tput sgr0
+}
+
+# underline
+u() {
+    tput smul
+    printf "%s" "$*"
+    tput rmul
+}
+
+# uppercase
+U() {
+    echo "$*" | awk '{print toupper($0)}'
+}
+
+# code
+c() {
+    tput bold
+    printf "%s" "$*"
+    tput sgr0
+}
+
 # vim: ft=sh et sw=4 sts=4

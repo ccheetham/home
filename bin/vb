@@ -1,0 +1,77 @@
+#!/usr/bin/env zsh
+
+prog=$(basename $0)
+basedir=$(dirname $0)/..
+execdir=$basedir/libexec/$prog
+
+source $basedir/etc/profile
+source $basedir/libexec/sh_functions
+
+usage () {
+    echo "`b USAGE`"
+    echo "     `c $prog` [-h] `u command...`"
+    echo
+    echo "`b DESCRIPTION`"
+    echo "     Helper for VirtualBox vm management."
+    echo
+    echo "`b WHERE`"
+    echo "     `c command`"
+    echo "             name of `c $prog` command"
+    echo
+    echo "`b OPTIONS`"
+    echo "     `c -h`      Print this message (run `c $TCS_PROG command -h` for specific help)."
+    echo
+    echo "`b COMMANDS`"
+    for cmdpath in $execdir/*
+    do
+        if [[ -x $cmdpath ]]
+        then
+            cmd=$(basename $cmdpath)
+            printf "     `b %-8s`" "$cmd"
+            if [[ ${#cmd} -gt 6 ]]
+            then
+                printf "\n             "
+            fi
+            printf "%s\n" "$($cmdpath -H)"
+        fi
+    done
+}
+
+while getopts ":h" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            err "-$OPTARG requires an argument"
+            err "run with -h for help"
+            exit 1
+            ;;
+        \?)
+            err "invalid option -$OPTARG"
+            err "run with -h for help"
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [ $# -eq 0 ]
+then
+    die "command not specified; run with -h for help"
+fi
+
+cmd=$execdir/$1
+shift
+
+if [ ! -x $cmd ]
+then
+    die "command not found: $(basename $cmd)"
+fi
+
+export PROG=$prog
+exec $cmd $@
+
+# vim: ft=sh et sw=4 sts=4

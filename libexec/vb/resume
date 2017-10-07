@@ -1,0 +1,62 @@
+#!/usr/bin/env zsh
+
+source $(dirname $0)/../sh_functions
+cmd=$(basename $0)
+
+description() {
+    echo "Resume a paused vitual machine."
+}
+
+usage() {
+    echo "`b USAGE`"
+    echo "     `c $PROG $cmd` [-h] `u name`"
+    echo
+    echo "`b DESCRIPTION`"
+    echo "     $(description)"
+    echo
+    echo "`b WHERE`"
+    echo "     `c name`  virtual machine name"
+    echo
+    echo "`b OPTIONS`"
+    echo "     `c -h`      print this message"
+}
+
+while getopts ":hH" opt
+do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        H)
+            description
+            exit
+            ;;
+        :)
+            echo "-$OPTARG requires an argument; run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option -$OPTARG; run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# == 0 ]]
+then
+    die "virtual machine name not specified; run with -h for help"
+fi
+
+name=$1
+shift
+
+if [[ $# > 0 ]]
+then
+    die "too many arguments; run with -h for help"
+fi
+
+VBoxManage controlvm $name resume
+
+# vim: ft=zsh
