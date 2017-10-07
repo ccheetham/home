@@ -79,3 +79,6 @@
 
 # VirtualBox
 /VirtualBox VMs
+
+# Oracle
+.oracle_jre_usage
