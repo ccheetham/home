@@ -7,7 +7,16 @@
 /xfr
 
 # desktop files
-/[A-z]*
+/Applications
+/Desktop
+/Documents
+/Downloads
+/Library
+/Movies
+/Music
+/Pictures
+/Public
+/Sites
 
 # work
 .pivotal
