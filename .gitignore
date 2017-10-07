@@ -61,3 +61,6 @@
 
 # Docker
 .docker
+
+# LastPass
+.lpass
