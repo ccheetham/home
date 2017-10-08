@@ -1,0 +1,3 @@
+@ECHO OFF
+
+.\gradlew.bat %*
