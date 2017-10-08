@@ -82,3 +82,6 @@
 
 # Oracle
 .oracle_jre_usage
+
+# keychain
+.keychain
