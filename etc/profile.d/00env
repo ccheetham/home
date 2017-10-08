@@ -137,6 +137,9 @@ case $(uname -m) in
     ppc64)
         ME_DISTRO_ARCH=p64
         ;;
+    sun4v)
+        [[ $(isainfo -b) == 64 ]] && ME_DISTRO_ARCH=s64 || ME_DISTRO_ARCH=s32
+        ;;
     *)
         ME_DISTRO_ARCH=unknown
         ;;
