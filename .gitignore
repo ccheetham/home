@@ -7,16 +7,37 @@
 /xfr
 
 # desktop files
+/AppData
+/Application Data
 /Applications
+/Contacts
+/Cookies
 /Desktop
 /Documents
 /Downloads
+/Favorites
 /Library
+/Links
+/Local Settings
 /Movies
 /Music
+/My Documents
+/NetHood
 /Pictures
+/PrintHood
 /Public
+/Recent
+/Saved Games
+/Searches
+/SendTo
 /Sites
+/Start Menu
+/Templates
+/Videos
+
+# Windows
+NTUSER.*
+ntuser.*
 
 # work
 .pivotal
