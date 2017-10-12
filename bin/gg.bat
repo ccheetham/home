@@ -1,0 +1,3 @@
+@ECHO OFF
+
+g status %*
