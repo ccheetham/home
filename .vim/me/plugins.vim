@@ -9,6 +9,7 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'jnurmine/Zenburn'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'majutsushi/tagbar'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
