@@ -17,5 +17,10 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'vim-scripts/bats.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'tpope/vim-surround'
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'elzr/vim-json'
+    Plug 'luan/vim-concourse'
     call plug#end()
 endif
