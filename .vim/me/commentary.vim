@@ -1,1 +1,1 @@
-nmap <silent><leader>// :Commentary<cr>
+map // :Commentary<cr>
