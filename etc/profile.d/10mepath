@@ -2,7 +2,7 @@
 # paths to my local tools
 # =============================================================================
 
-ME_PATH=~/local/bin:~/bin:$ME_DISTRO_TOOL_DIR/bin
+ME_PATH=~/local/bin:~/bin:$ME_DISTRO_TOOL_DIR/bin:$ME_PLATFORM_TOOL_DIR/bin
 
 export ME_ZSH_FUNCTIONS=$ME_LIBEXEC_DIR/zsh/functions
 source $ME_ZSH_FUNCTIONS
