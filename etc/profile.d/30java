@@ -34,6 +34,10 @@ jc () {
     javac $*
 }
 
+j9 () {
+    $JDK9_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
+}
+
 j8 () {
     $JDK8_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
 }
