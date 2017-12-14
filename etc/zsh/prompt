@@ -146,7 +146,7 @@ mep-title() {
     # xterm-compatible terms
     local git=$(mep-git-status-text)
     [[ -n $git ]] && git=" [$git]"
-    print -Pn "\e]0;"${XTITLE:-%m:%~${git}}"\a"
+    print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
 }
 
 # zsh hook invoked just before prompt displayed
