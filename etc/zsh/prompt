@@ -55,6 +55,10 @@ mep-prompt-sign() {
     print "${mep_color[prompt]}%c%f %#"
 }
 
+mep-date() {
+    print "${mep_color[info]}%*%f"
+}
+
 ## zsh hook invoked after command processed but before executed
 ## displays "outgoing" message
 #preexec() {
@@ -63,7 +67,7 @@ mep-prompt-sign() {
 
 # zsh prompt variable
 #PROMPT="$(mep-prompt-message) $(mep-prompt-sign) "
-PROMPT="$(mep-prompt-sign) "
+PROMPT="$(mep-date) $(mep-prompt-sign) "
 
 
 # -----------------------------------------------------------------------------
