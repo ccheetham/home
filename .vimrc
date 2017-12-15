@@ -23,6 +23,7 @@ source ~/.vim/me/editing.vim
 source ~/.vim/me/command.vim
 source ~/.vim/me/search.vim
 source ~/.vim/me/nerdtree.vim
+source ~/.vim/me/tagbar.vim
 source ~/.vim/me/navigate.vim
 source ~/.vim/me/rulers.vim
 source ~/.vim/me/windows.vim
