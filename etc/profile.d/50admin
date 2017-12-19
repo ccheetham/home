@@ -69,6 +69,10 @@ if [[ $ME_OS == linux ]] ; then
     alias chkconfig='sudo chkconfig'
 fi
 
+if [[ $ME_OS == solaris ]] ; then
+    alias svcadm='sudo svcadm'
+fi
+
 # -----------------------------------------------------------------------------
 # storage management
 # -----------------------------------------------------------------------------
