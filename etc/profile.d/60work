@@ -2,7 +2,60 @@
 # work settings
 # =============================================================================
 
-export QA_DISTFILES=~/thekeep
+TCS_QA=~/src/appsuite/tcs-tc-server-qa
+PATH=$TCS_QA/bin:$PATH
+
+alias tcd='cd $TCS_QA'
+
+tcs() {
+    if [ -f $TCS_QA/target/distro/.path ]
+    then
+        local cmd=$TCS_QA/target/distro/$(cat $TCS_QA/target/distro/.path)/tcserver
+        _tcrun $cmd $*
+    else
+        echo tc Server QA target 4.x not installed >&2
+        return 1
+    fi
+}
+
+tci() {
+    _tc3xrun tcruntime-instance.sh $*
+}
+
+tca() {
+    _tc3xrun tcruntime-admin.sh $*
+}
+
+tcc() {
+    _tc3xrun tcruntime-ctl.sh $*
+}
+
+_tcrun() {
+    echo % $*
+    $*
+}
+
+_tc3xrun() {
+    local cmd=$TCS_QA/target/distro/$1
+    shift
+    if [ -f $cmd ]
+    then
+        _tcrun $cmd $*
+    else
+        echo tc Server QA target 3.x not installed >&2
+        return 1
+    fi
+}
+
+pdevjdk() {
+    if [[ -z $JDK6_HOME ]] ; then
+        echo JDK6_HOME not set >&2
+        return
+    fi
+    JAVA_HOME=$JDK6_HOME
+    PATH=$JAVA_HOME/bin:$PATH
+    path
+}
 
 pvpn() {
     local pdir=$ME_CONFIG_DIR/openvpn/pivotal
@@ -30,23 +83,5 @@ pvpn() {
     cd $pdir/$dest
     sudo openvpn config.ovpn
 }
-
-sqa() {
-    source ~/src/appsuite-qa/etc/profile
-}
-
-pjdk() {
-    if [[ -z $JDK6_HOME ]] ; then
-        echo JDK6_HOME not set >&2
-        return
-    fi
-    JAVA_HOME=$JDK6_HOME
-    PATH=$JAVA_HOME/bin:$PATH
-    path
-}
-
-alias work='ssh -X work'
-alias labtcs='ssh dmz.qa'
-alias labpws='ssh dmz.pws'
 
 # vim: ft=zsh
