@@ -1,0 +1,727 @@
+---
+https://uaa-0a563203-d22f-4ec1-8922-0e2229eb5ee8.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJmN2NmODI2N2MzMzQ0NTllYjllOTA1ZmQ3OTRjNTBiMSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI1YzFjY2M1NCIsImlhdCI6MTUxMDg1MTcwMSwiZXhwIjoxNTEwODk0OTAxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.Ib2SErndHppI5Pa9f5XgKmoGR-pYdcpN2xoXzqzITog
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: f7cf8267c334459eb9e905fd794c50b1
+https://uaa-8250a5c7-9598-42c9-9f56-8ee18fd1d843.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJjYmYwZDIwYzFjNTI0YmZmOGZiMDVlMzJhODY1MjM1MCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI5NzQ2OGFkNyIsImlhdCI6MTUxMDg1MjQ5MCwiZXhwIjoxNTEwODk1NjkwLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.QNPwzQsgVosvUezn0ePlQT01k6BNRagwWzpiCxqRUrI
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: cbf0d20c1c524bff8fb05e32a8652350
+https://uaa-20b0e9b3-fb02-475b-82d2-b2ee2c319006.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJjMTRhYjc4NjFkNDc0ZTE0OGJmMzMzZTBkZmZlYWMyZSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJiYzc2MTU5ZCIsImlhdCI6MTUxMDg1MzE1OCwiZXhwIjoxNTEwODk2MzU4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.dmgMENVexty7GTuz2rfJKzRmgYEnhXmUXfepyhrU5KM
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: c14ab7861d474e148bf333e0dffeac2e
+https://uaa-0f2878aa-56ed-4983-bd3b-891fa6d2060c.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJhODk3MWFlODY4MTE0MzM3OTg2MzE4YmY3M2MxZDE3NiIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI1MGQ4M2ZjZiIsImlhdCI6MTUxMDg1NTM5MCwiZXhwIjoxNTEwODk4NTkwLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.eKGfp7bJSYbNPkZ1L41ImaJioHB2yk2qh6Wv584O89U
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: a8971ae868114337986318bf73c1d176
+https://uaa-88203c5c-ef1c-43b1-8502-b5ff749dbdf3.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI3MmVjZGVhMmJkM2Q0MzQ4OTIyNTVlMjI4Njc2N2VmNiIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJkOGQzYWQzMCIsImlhdCI6MTUxMDg1NjI2MSwiZXhwIjoxNTEwODk5NDYxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.3ORAJZK1INbeOrMYqnJ2uyvWHD2J634-alLHa7K64QM
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 72ecdea2bd3d434892255e2286767ef6
+https://uaa-e4d602cd-06fd-4eb7-8913-49c762be2481.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI1MjNjYWIwZDY5Y2U0NDYwOGI1OGFkMDQ2YzAyYjMwMyIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI0N2JlZWY1OSIsImlhdCI6MTUxMDg1Njc0NCwiZXhwIjoxNTEwODk5OTQ0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.rt75cjpQmnRnyprwZMPFsJ-NvsKKjIP9wXADVWLiCXw
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 523cab0d69ce44608b58ad046c02b303
+https://uaa-ee3e92fc-4568-4ecd-98bd-e48333f2bdfc.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJmYTdkOWRhY2Y3NWM0ZDY3YWVmZjdjZWYwNWRjOTQ3ZSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI4OWVmOWFjYiIsImlhdCI6MTUxMDg2NTA4NywiZXhwIjoxNTEwOTA4Mjg3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.KdPoqeOHROgmb8LRQQG3fVQM8V9IXrsCxN0lkiReafI
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: fa7d9dacf75c4d67aeff7cef05dc947e
+https://uaa-cb60cbde-10d2-4eac-8b88-fd4762a8ca3e.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJkOTRkMDk3NDQzZTY0YmMyODg0NWIxODY5MjIyNzJkNyIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJmNWFhNmE5NCIsImlhdCI6MTUxMDg2OTc0MCwiZXhwIjoxNTEwOTEyOTQwLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.W64rSjhA_Hu8cp4zvrLKNZGw3tUX8xcYAynN5p4RB4U
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: d94d097443e64bc28845b186922272d7
+https://uaa-d17b36f4-2a20-4c43-ab92-c9c1906200f2.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI0MGY2NWI1MTgzMGE0MDNkYTcyYjQ5NWQzNzk4NDU5YSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJiN2U3OTE4YSIsImlhdCI6MTUxMDg3MDUzNSwiZXhwIjoxNTEwOTEzNzM1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.4dKQ1LkXP_xOxNaW7pnNQtnMXe2k7Bs1syWLVBxsrLY
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 40f65b51830a403da72b495d3798459a
+https://uaa-7e9783a7-115d-49d0-85e2-42bed5265fad.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI0MWQyM2VhNGNiZDY0N2JmYWRjNWI0YWI5Y2ZhMzBiMCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI5ODI2NmQzYSIsImlhdCI6MTUxMDg3Mjg2OSwiZXhwIjoxNTEwOTE2MDY5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.iNfMHBQ-NdXIINsf9cG-QD3KxmNKWHua4-Ei6yTVBgg
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 41d23ea4cbd647bfadc5b4ab9cfa30b0
+https://uaa-46863e81-e5c4-4402-9e86-b8c44d003351.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI4YzcxOTQ4MGNhNjY0MGYxOWVmNGIxYmQ2YTM2OTJkYyIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJhM2EzN2M3ZSIsImlhdCI6MTUxMDg3MzM0OSwiZXhwIjoxNTEwOTE2NTQ5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.26J-9V8z5pS-wsfWo3BekA3KwuIsRhJzjOYEs-4-uBg
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 8c719480ca6640f19ef4b1bd6a3692dc
+https://uaa-a61b3311-a9eb-4c98-a73f-1b49f674dd96.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI4NDZjMTNhMmU1MzU0ZTU0Yjk3MWE0NTUxNDdkN2RkMSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIzYTliNzI0YSIsImlhdCI6MTUxMDkyNzUxOCwiZXhwIjoxNTEwOTcwNzE4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.XxYMS9QtZW4T-25pySENhsCewcEDmT4IZtHk3tOzLoc
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 846c13a2e5354e54b971a455147d7dd1
+https://uaa-57933e16-cf3b-4650-96af-756a82032b14.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiIwM2JlZjkyNmU4OTA0MjdlODZkMWY2M2EwYzM5ZjQzNiIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJhOGIxZGUxZCIsImlhdCI6MTUxMDkyODExNywiZXhwIjoxNTEwOTcxMzE3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.LnAlPzu2FYBI6HdrOXchBgh6Hkc-8jmenI8gnxd0AbI
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 03bef926e890427e86d1f63a0c39f436
+https://uaa-41146f2f-fa01-4d0a-a2da-a43f9ae746ee.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI1ZjU4ODFjMDIyMDA0M2JjYTQ0ZmU0ZjAxNDY1NjM5NSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI3YTZiNGI2YiIsImlhdCI6MTUxMTAxNzcyNCwiZXhwIjoxNTExMDYwOTI0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.vDvtJRjkc78Zqs4YZigOvZfeGY4H7_L2SOHzflsclBU
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 5f5881c0220043bca44fe4f014656395
+https://uaa-17c68c3b-c3dc-4b11-aa7b-88604cf44b07.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiIyNWZkM2IzY2UwZmU0MWIzYjAyYWEyMWJmODNmN2Q4ZSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIyYjFkZjRmYiIsImlhdCI6MTUxMTAxODEwNCwiZXhwIjoxNTExMDYxMzA0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.uMuQ1B1osQXEmlM65EVSCUNV8FnXlok0FcmAB4xqAg4
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 25fd3b3ce0fe41b3b02aa21bf83f7d8e
+https://uaa-5adf23b7-dfe8-4b6b-ae3b-0c0e7f1f99d8.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI4ZTM4YWZmYjRkY2M0NTNiOTg3ZDdjM2M3MTNlZDBlMCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJjNzMxZmYyMyIsImlhdCI6MTUxMTAxODQ0MSwiZXhwIjoxNTExMDYxNjQxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.JuyyZEQVCmehvXfrhnntkmXlc6t7Z_XcyaGSrqefam0
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 8e38affb4dcc453b987d7c3c713ed0e0
+https://uaa-aa29fa66-5001-4dfd-8818-bb9871a2d4e2.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI3ODMxMmE3Y2NmMDk0MzdiODUyZGYxMzFjMjU0YjliMiIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI2OTVmN2I5YyIsImlhdCI6MTUxMTEwNjk2NywiZXhwIjoxNTExMTUwMTY3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.mZS1GzjZ_rfYxxzKihTzOX0WaEnce-bJIfOeBPQW_Q4
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 78312a7ccf09437b852df131c254b9b2
+https://uaa-4fababc1-1cbd-44be-a27a-a476b5474820.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI4NGIyNTY0ZWNhOTY0ZDlkOTY3ZDU0NTA4Y2M3NzdmOSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJiMzNkMDM0YyIsImlhdCI6MTUxMTEwNzI1NiwiZXhwIjoxNTExMTUwNDU2LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.Z3O5goyqfOCH1XC5VGMpfYjUBdRdJyq5iOT65aS6XOI
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 84b2564eca964d9d967d54508cc777f9
+https://uaa-35b62e76-05e0-4d11-af3e-3d44a0e7bd06.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJlZDZhYmYzYmQ1MmQ0ZDUzYjMwZmYyZTUxNTBhY2VlYSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIzN2JmYmI5OCIsImlhdCI6MTUxMTEwNzY5NSwiZXhwIjoxNTExMTUwODk1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.StuJzd6ZbHfYzVFIcmbaAkwCxXeiZuOPFiQjF3jBkgY
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: ed6abf3bd52d4d53b30ff2e5150aceea
+https://uaa-a618d385-59c6-488e-aed2-55f66c2bd086.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI2MTQ1NThlYTg3ODQ0NWJkOTFiOTQ5NzI1OTJjNTY0ZCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIyODg1NTU0IiwiaWF0IjoxNTExMTA4MTkxLCJleHAiOjE1MTExNTEzOTEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC91YWEvb2F1dGgvdG9rZW4iLCJ6aWQiOiJ1YWEiLCJhdWQiOlsic2NpbSIsImNsaWVudHMiLCJ1YWEiLCJhZG1pbiJdfQ.q78XkyGmll69pLldtsiNs8nmSqHYlpPCIvV7l_yCLpA
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 614558ea878445bd91b94972592c564d
+https://uaa-1b8e3011-b521-4972-9f4a-caa3796b86f1.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJmMWRiY2JkYjE0ZmY0YWUxYWE2OGUwMDZjNmVmMmZlMSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJkNWM0NjkyMCIsImlhdCI6MTUxMTEwOTExNCwiZXhwIjoxNTExMTUyMzE0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.jGDkCgx-Un5wrrh5cqsZx23lQTyDE2muiLtWAndrDcQ
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: f1dbcbdb14ff4ae1aa68e006c6ef2fe1
+https://uaa-54e1e58d-a211-4bfd-bff7-9f9c981020dc.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJkZmE2NGRiZTY0MjU0YmEzOTYwOWYzNGNjMTJhNzg4MSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIyM2VkZDQ3OSIsImlhdCI6MTUxMTIwNTIzMywiZXhwIjoxNTExMjQ4NDMzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.S7MKahBSGHot7ylzd6VlTZew-T00Thh-4JZXpeAV1_A
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: dfa64dbe64254ba39609f34cc12a7881
+https://uaa-4809d6ce-a330-473b-a50b-925f64b3d6f5.pcfbeta.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJkMTIxMTRmNWI4ZjY0MDE4YjljYzYyMmM3OTk2YWYwMSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIyYTRhNWU3OCIsImlhdCI6MTUxMTIwNTQ3NiwiZXhwIjoxNTExMjQ4Njc2LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.HKQki7XJTMTetwUhTpLcbL_vJzsQoqSXwpbQG9EqMNM
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: d12114f5b8f64018b9cc622c7996af01
+https://uaa-1b9bed50-34c6-48f0-8051-815748882e41.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI2ZTE3MTU0MGMwM2Y0NWEzOTZjYTg3NGY3Yjg0YjgyYyIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIyNWE2YjY3ZCIsImlhdCI6MTUxMTIwODczMiwiZXhwIjoxNTExMjUxOTMyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.y7iEjRtn6U2HkNzNAf9TGGSz9NKtX4FiNuPduYLCAIU
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 6e171540c03f45a396ca874f7b84b82c
+https://uaa-2b70d01c-c224-4a73-b67b-22a35266b349.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiIwNzlkMDE1YjY2YmE0NGZkOWY1YzZhZDU3YWNiNzg4NSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJjNTYxZDAwMiIsImlhdCI6MTUxMTIwOTAyOSwiZXhwIjoxNTExMjUyMjI5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.mvVjF2oDjx4WKTJ0VqF_OKtAK5YYyZQ6iQao-P2opNk
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: '079d015b66ba44fd9f5c6ad57acb7885'
+https://uaa-a9390d3a-d0c7-47fd-95dd-ddeca90da3f7.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiI2MGYxNzgwOGU0MWI0YmRkOTIzNGNlMDVjODY4MjQ0YiIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiIzY2IxY2U5ZSIsImlhdCI6MTUxMTIwOTQyOSwiZXhwIjoxNTExMjUyNjI5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.pbPYuPqAoMqP3R44YtlblpRALvo71_wy4e-VkA5PtPI
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 60f17808e41b4bdd9234ce05c868244b
+https://uaa-a8b925bd-79ec-4579-b36a-8052d0d84a29.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiIxY2M5MTUzODZjMWI0Mzg4YjIwOTA1NTk1M2MyNjJjZiIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI0YjYyNjFiIiwiaWF0IjoxNTExMjEwMDcyLCJleHAiOjE1MTEyNTMyNzIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC91YWEvb2F1dGgvdG9rZW4iLCJ6aWQiOiJ1YWEiLCJhdWQiOlsic2NpbSIsImNsaWVudHMiLCJ1YWEiLCJhZG1pbiJdfQ.Bx0lDJkWgid4T5Eky_1r735MjTPBwuvSfqqgp-qapAU
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: 1cc915386c1b4388b209055953c262cf
+https://uaa-6e84218f-1101-4d55-a879-7a6d0b7fc021.cfapps.pez.pivotal.io:
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJkOWY0NDc5ODAxN2M0ZmVhYjQ4ZDFiYWYyNjFhZmZjMyIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJmNTRlYmQwMCIsImlhdCI6MTUxMTIxMDMzNCwiZXhwIjoxNTExMjUzNTM0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.WOH1NFVgIWO5ZR40jDB3MS4MixIssw5vLVg9dPMtBJU
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: d9f44798017c4feab48d1baf261affc3
+https://uaa-2ab0ace7-aa16-48c4-8982-e4ea0b630670.pcfbeta.io:
+  current: true
+  ca_cert: 
+  prompts:
+    username:
+    - text
+    - Email
+    password:
+    - password
+    - Password
+  contexts:
+    admin:
+      current: true
+      client_id: admin
+      access_token: eyJhbGciOiJIUzI1NiIsImtpZCI6ImxlZ2FjeS10b2tlbi1rZXkiLCJ0eXAiOiJKV1QifQ.eyJqdGkiOiJjMGI0NjkwNTk4MGE0M2ZlYWUyNzZiNDY5MWZkMzhjNSIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJkMzc3ZmRjNyIsImlhdCI6MTUxNTUxNDcxMiwiZXhwIjoxNTE1NTU3OTEyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.6L_nkBNeIapPlBvCbDhntJVUVsup6zj4Hc4Er5YXue8
+      token_type: bearer
+      expires_in: 43199
+      scope:
+      - clients.read
+      - clients.secret
+      - clients.write
+      - uaa.admin
+      - clients.admin
+      - scim.write
+      - scim.read
+      jti: c0b46905980a43feae276b4691fd38c5
