@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+usage() {
+    echo
+    echo "USAGE"
+    echo
+    echo -e "\t$program [options] jarfile"
+    echo
+    echo "WHERE"
+    echo
+    echo -e "\tjarfile\tpath to jarfile"
+    echo
+    echo "DESCRIPTION"
+    echo
+    echo -e "\tDump the jarfile manifest."
+    echo
+    echo -e "\t-h\tdisplay this message"
+    echo
+}
+
+while getopts ":h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        :)
+            echo "$opt requires an argument" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+        \?)
+            echo "invalid option $opt" >&2
+            echo "run with -h for help" >&2
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# == 0 ]] ; then
+    echo "jarfile not specified; run with -h for help" >&2
+    exit 1
+fi
+
+jarfile=$1
+shift
+
+if [[ $# > 0 ]] ; then
+    echo "too many arguments; run with -h for help" >&2
+    exit 1
+fi
+
+if ! type unzip >/dev/null 2>&1
+then
+    echo "unzip not found; install and rerun" >&2
+    exit 1
+fi
+
+unzip -cq $jarfile META-INF/MANIFEST.MF
+
+# vim: ft=sh et ts=4 sw=4
