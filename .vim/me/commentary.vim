@@ -1,1 +1,1 @@
-map // :Commentary<cr>
+map // :Commentary<cr>j
