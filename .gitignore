@@ -85,7 +85,11 @@ ntuser.*
 .flyrc
 
 # DotNet
+.IdentityService
+.ServiceHub
+.aspnet
 .dotnet
+.mono
 .nuget
 .templateengine
 
