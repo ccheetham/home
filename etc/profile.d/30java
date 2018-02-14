@@ -21,6 +21,20 @@ export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 ME_PATH+=:$JAVA_HOME/bin
 ME_MANPATH+=:$JAVA_HOME/man
 
+case $ME_DISTRO_FLAVOR in
+    centos)
+        export OPENJDK9_HOME=/usr/lib/jvm/java-1.9.0
+        export OPENJDK8_HOME=/usr/lib/jvm/java-1.8.0
+        export OPENJDK7_HOME=/usr/lib/jvm/java-1.7.0
+        export OPENJDK6_HOME=/usr/lib/jvm/java-1.6.0
+        ;;
+    ubuntu)
+        export OPENJDK9_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+        export OPENJDK8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+        export OPENJDK7_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+        export OPENJDK6_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+        ;;
+esac
 
 j () {
     java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
