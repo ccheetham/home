@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-while [[ 1 ]]
+while [ 1 ]
 do
     pwd=$(pwd)
     if [[ -f $pwd/gradlew ]]
