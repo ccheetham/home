@@ -2,7 +2,9 @@
 # work settings
 # =============================================================================
 
-TCS_QA=~/src/appsuite/tcs-tc-server-qa
+QA_HOME=${QA_HOME:-$ME/src}
+TCS_QA=$QA_HOME/appsuite/tcs-tc-server-qa
+
 PATH=$TCS_QA/bin:$PATH
 
 alias tcd='cd $TCS_QA'
