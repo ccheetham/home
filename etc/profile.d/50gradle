@@ -9,6 +9,7 @@ GRADLE_HOME=$ME_TOOL_DIR/opt/gradle
 ME_PATH+=:$GRADLE_HOME/bin
 
 export GRADLE_HOME
+export GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.console=rich"
 
 alias grr='gr --refresh-dependencies'
 
