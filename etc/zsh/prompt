@@ -120,6 +120,17 @@ mep-git-status() {
     [[ -n $git ]] && print "${mep_color[info]}[g:${git}]%f"
 }
 
+# mercurial status: enabled if mercurial repo detected
+mep-hg-status-text() {
+    hg sum 2> /dev/null | head -1 | awk '{print $NF}'
+}
+
+# mercurial status: enabled if mercurial repo detected
+mep-hg-status() {
+    local hg=$(mep-hg-status-text)
+    [[ -n $hg ]] && print "${mep_color[info]}[m:${hg}]%f"
+}
+
 # zsh right prompt variable
 
 # toggle righthand prompt
@@ -127,7 +138,7 @@ unset RPROMPT
 rprompt() {
     if [[ -z $RPROMPT ]] ; then
         #RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-job-status)$(mep-history-status)'
-        RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-job-status)'
+        RPROMPT='$(mep-venv-status)$(mep-rc-status)$(mep-git-status)$(mep-hg-status)$(mep-job-status)'
     else
         unset RPROMPT
     fi
