@@ -5,7 +5,7 @@
 QA_HOME=${QA_HOME:-$ME/src}
 TCS_QA=$QA_HOME/appsuite/tcs-tc-server-qa
 
-ME_PATH=$TCS_QA/bin:$PATH
+ME_PATH=$TCS_QA/bin:$ME_PATH
 
 alias tcd='cd $TCS_QA'
 
