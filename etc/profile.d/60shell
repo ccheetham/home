@@ -28,9 +28,7 @@ alias ll='ls -lh'
 alias l1='ls -1'
 alias lF='ls *(.)'
 alias lD='ls -d *(/)'
-alias l.='ls -ad .*'
-alias l.F='ls -a .*(.)'
-alias l.D='ls -ad .*(/)'
+alias la='ls -a'
 if ls -@ > /dev/null 2>&1 ; then
     alias l@='ll -@'
 fi
@@ -41,4 +39,7 @@ alias cls='clear'
 
 unalias which > /dev/null 2<&1
 
+function topcommands() {
+    history 0 | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -10
+}
 # vim: ft=zsh
