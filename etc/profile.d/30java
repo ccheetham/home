@@ -28,7 +28,7 @@ case $ME_DISTRO_FLAVOR in
         export OPENJDK7_HOME=/usr/lib/jvm/java-1.7.0
         export OPENJDK6_HOME=/usr/lib/jvm/java-1.6.0
         ;;
-    ubuntu)
+    neon|ubuntu)
         export OPENJDK9_HOME=/usr/lib/jvm/java-9-openjdk-amd64
         export OPENJDK8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
         export OPENJDK7_HOME=/usr/lib/jvm/java-7-openjdk-amd64
