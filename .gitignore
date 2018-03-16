@@ -73,6 +73,9 @@ ntuser.*
 .gnome
 .gtk*
 
+# KDE
+.kde*
+
 # Gradle
 .gradle
 
