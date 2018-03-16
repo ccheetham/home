@@ -118,7 +118,8 @@
 # VirtualBox
 /VirtualBox VMs
 
-# Oracle
+# Java
+/.java
 /.oracle_jre_usage
 
 # keychain
