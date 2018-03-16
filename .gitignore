@@ -35,35 +35,7 @@
 /Templates
 /Videos
 
-# Windows
-/NTUSER.*
-/ntuser.*
-
-# appliction caches
-/.cache
-
-# work
-/.pivotal
-
-# utils
-/.htoprc
-/.lesshst
-/.sudo_*
-/.wget-hsts
-
-# bash
-/.bash_history
-
-# vim
-*.swp
-
-# python
-*.pyc
-
-# openssl
-.rnd
-
-# osx
+# OS X
 .CFUserTextEncoding
 .DS_Store
 .Trash
@@ -72,6 +44,9 @@
 /.Xauthority
 /.serverauth.*
 /.xsession*
+
+# freedesktop.org
+/.config
 
 # Gnome/GTK
 /.gnome
@@ -82,23 +57,66 @@
 /.face*
 /.kde*
 
-# Gradle
-/.gradle
+# Windows
+/NTUSER.*
+/ntuser.*
+
+# appliction caches
+/.cache
+
+# D-Bus
+/.dbus
+
+# work
+/.pivotal
+# bash
+/.bash_history
+
+# vim
+*.swp
+
+# utils
+/.htoprc
+/.lesshst
+/.sudo_*
+/.wget-hsts
+
+# OpenSSL
+/.rnd
+
+# Python
+*.pyc
+
+# Java
+/.java
+/.oracle_jre_usage
 
 # Ruby
 /.bundle
 
-# amazon
-/.s3cfg
+# Gradle
+/.gradle
+
+# Maven
+/.m2
 
 # IntelliJ
 .Idea*
 
+# GnuPG
+/.gnupg
+
+# PKI
+/.pki
+
+# keychain
+/.keychain
+
+# LastPass
+/.lpass
+
 # bosh
 /.bosh*
-
-# Consource
-/.flyrc
 
 # DotNet
 /.IdentityService
@@ -112,36 +130,17 @@
 # Docker
 /.docker
 
-# LastPass
-/.lpass
-
-# Google
-/Google Drive
-
 # VirtualBox
 /VirtualBox VMs
-
-# Java
-/.java
-/.oracle_jre_usage
-
-# keychain
-/.keychain
-
-# Maven
-/.m2
 
 # CloudFoundry
 /.pcfdev/
 
-# GnuPG
-/.gnupg
+# Concourse
+/.flyrc
 
-# PKI
-/.pki
+# Google
+/Google Drive
 
-# D-Bus
-/.dbus
-
-# freedesktop.org
-/.config
+# Amazon
+/.s3cfg
