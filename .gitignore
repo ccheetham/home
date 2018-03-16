@@ -39,6 +39,9 @@
 /NTUSER.*
 /ntuser.*
 
+# appliction caches
+/.cache
+
 # work
 /.pivotal
 
