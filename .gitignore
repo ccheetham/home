@@ -133,3 +133,6 @@
 
 # PKI
 /.pki
+
+# D-Bus
+/.dbus
