@@ -68,6 +68,7 @@ ntuser.*
 # X11
 .Xauthority
 .serverauth.*
+.xsession*
 
 # Gnome/GTK
 .gnome
