@@ -74,6 +74,8 @@ ntuser.*
 .gtk*
 
 # KDE
+.directory
+.face*
 .kde*
 
 # Gradle
