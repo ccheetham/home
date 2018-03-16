@@ -134,6 +134,9 @@
 # CloudFoundry
 /.pcfdev/
 
+# GnuPG
+/.gnupg
+
 # PKI
 /.pki
 
