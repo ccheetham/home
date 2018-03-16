@@ -69,6 +69,10 @@ ntuser.*
 .Xauthority
 .serverauth.*
 
+# Gnome/GTK
+.gnome
+.gtk*
+
 # Gradle
 .gradle
 
