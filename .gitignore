@@ -136,3 +136,6 @@
 
 # D-Bus
 /.dbus
+
+# freedesktop.org
+/.config
