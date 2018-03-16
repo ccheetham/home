@@ -36,20 +36,20 @@
 /Videos
 
 # Windows
-NTUSER.*
-ntuser.*
+/NTUSER.*
+/ntuser.*
 
 # work
-.pivotal
+/.pivotal
 
 # utils
-.htoprc
-.lesshst
-.sudo_*
-.wget-hsts
+/.htoprc
+/.lesshst
+/.sudo_*
+/.wget-hsts
 
 # bash
-.bash_history
+/.bash_history
 
 # vim
 *.swp
@@ -66,51 +66,51 @@ ntuser.*
 .Trash
 
 # X11
-.Xauthority
-.serverauth.*
-.xsession*
+/.Xauthority
+/.serverauth.*
+/.xsession*
 
 # Gnome/GTK
-.gnome
-.gtk*
+/.gnome
+/.gtk*
 
 # KDE
-.directory
-.face*
-.kde*
+/.directory
+/.face*
+/.kde*
 
 # Gradle
-.gradle
+/.gradle
 
 # Ruby
-.bundle
+/.bundle
 
 # amazon
-.s3cfg
+/.s3cfg
 
 # IntelliJ
 .Idea*
 
 # bosh
-.bosh*
+/.bosh*
 
 # Consource
-.flyrc
+/.flyrc
 
 # DotNet
-.IdentityService
-.ServiceHub
-.aspnet
-.dotnet
-.mono
-.nuget
-.templateengine
+/.IdentityService
+/.ServiceHub
+/.aspnet
+/.dotnet
+/.mono
+/.nuget
+/.templateengine
 
 # Docker
-.docker
+/.docker
 
 # LastPass
-.lpass
+/.lpass
 
 # Google
 /Google Drive
@@ -119,10 +119,10 @@ ntuser.*
 /VirtualBox VMs
 
 # Oracle
-.oracle_jre_usage
+/.oracle_jre_usage
 
 # keychain
-.keychain
+/.keychain
 
 # Maven
 /.m2
