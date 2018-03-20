@@ -4,7 +4,7 @@
 # http://brew.sh/
 # =============================================================================
 
-alias b='brew'
+alias br='brew'
 
 bsync() {
     if [[ $ME_OS != osx ]]
@@ -12,13 +12,9 @@ bsync() {
         echo "not on OS X" >&2
         return 1
     fi
-    b update
-    b outdated
-    echo -n 'Upgrade? '
-    read
-    b upgrade
-    #b linkapps
-    b cleanup
+    br update
+    br upgrade
+    br cleanup
 }
 
 # TODO: this isn't brew specific
