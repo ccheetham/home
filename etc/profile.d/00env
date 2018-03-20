@@ -42,7 +42,9 @@ esac
 case $ME_OS in
     bsd)
         if [[ -f /usr/local/bin/pc-updatemanager ]] ; then
-            ME_DISTRO_FLAVOR=pcbsd
+            ME_DISTRO_FLAVOR=trueos
+        else
+            ME_DISTRO_FLAVOR=freebsd
         fi
         ;;
     linux)
