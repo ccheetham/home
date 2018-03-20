@@ -64,4 +64,28 @@ j6 () {
     $JDK6_HOME/bin/java -d64 -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
 }
 
+jversions () {
+    local jname
+    local jinfo
+    local jhome
+    local jcmd
+    for jname in JDK9 JDK8 JDK7 JDK6 OPENJDK9 OPENJDK8 OPENJDK7 OPENJDK6
+    do
+        eval jhome='$'$jname'_HOME'
+        if [ -n "$jhome" ]
+        then
+            jcmd=$jhome/bin/java
+            if [ -x $jcmd ]
+            then
+                jinfo=$($jhome/bin/java -version 2>&1 | head -1 | sed 's/[^"]*"\([^"]*\).*/\1/')
+            else
+                jinfo='<not installed>'
+            fi
+        else
+            jinfo='<not defined>'
+        fi
+        printf "%-10s %-16s %s\n" $jname $jinfo $jhome
+    done
+}
+
 # vim: ft=zsh
