@@ -144,3 +144,6 @@
 
 # Amazon
 /.s3cfg
+
+# UAA
+/.uaac.yml
