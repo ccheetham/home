@@ -105,6 +105,9 @@
 # IntelliJ
 .Idea*
 
+# Visual Studio
+/.vscode
+
 # GnuPG
 /.gnupg
 
