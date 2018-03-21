@@ -6,7 +6,7 @@
 
 alias br='brew'
 
-bsync() {
+brsync() {
     if [[ $ME_OS != osx ]]
     then
         echo "not on OS X" >&2
