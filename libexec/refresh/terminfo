@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-wget --quiet https://gist.githubusercontent.com/sos4nt/3187620/raw/bca247b4f86da6be4f60a69b9b380a11de804d1e/xterm-256color-italic.terminfo
-TERMINFO=$ME_CONFIG_DIR/terminfo/$ME_HOST
-mkdir -p $TERMINFO
-TERMINFO=$TERMINFO tic xterm-256color-italic.terminfo
-rm xterm-256color-italic.terminfo
+tic $ME_DATA_DIR/terminfo/xterm-256color.terminfo
 
 # vim: ft=zsh

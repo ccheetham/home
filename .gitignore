@@ -40,6 +40,9 @@
 .DS_Store
 .Trash
 
+# terminals
+/.terminfo
+
 # X11
 /.Xauthority
 /.serverauth.*

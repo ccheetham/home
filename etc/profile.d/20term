@@ -2,18 +2,7 @@
 # terminal settings
 # =============================================================================
 
-export TERMINFO=$ME_DATA_DIR/terminfo/$ME_HOST
-
-if [[ $TERM == xterm* ]]
-then
-    for term in xterm-256color xterm-color xterm
-    do
-        if infocmp $term > /dev/null 2>&1
-        then
-            TERM=$term
-            break
-        fi
-    done
-fi
+export TERMINFO=~/.terminfo/$ME_HOST
+mkdir -p $TERMINFO
 
 # vim: ft=zsh
