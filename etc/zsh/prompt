@@ -19,7 +19,7 @@
 
 typeset -A mep_color
 case $TERM in
-    screen|xterm*)
+    screen*|tmux*|xterm*)
         mep_color[prompt]='%F{cyan}'    # prompt: non-message artifacts
         mep_color[info]='%F{green}'     # info: normal
         mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
