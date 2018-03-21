@@ -86,6 +86,8 @@
 
 # Python
 *.pyc
+/.idlerc
+/.pylint*
 
 # Java
 /.java
