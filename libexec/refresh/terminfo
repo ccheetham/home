@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
-tic $ME_DATA_DIR/terminfo/xterm-256color.terminfo
+for tinfo in $ME_DATA_DIR/terminfo/*
+do
+    tic $tinfo
+done
 
 # vim: ft=zsh
