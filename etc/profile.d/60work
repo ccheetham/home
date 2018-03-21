@@ -10,7 +10,11 @@ ME_PATH=$TCS_QA/bin:$ME_PATH
 alias tcd='cd $TCS_QA'
 
 tmtcs() {
-    tmux a -t tcsqa || tmux new -s tcsqa
+    if ! tmux a -t tcsqa
+    then
+        tcd
+        tmux new -s tcsqa
+    fi
 }
 
 tcs() {
