@@ -9,6 +9,10 @@ ME_PATH=$TCS_QA/bin:$ME_PATH
 
 alias tcd='cd $TCS_QA'
 
+tmtcs() {
+    tmux a -t tcsqa || tmux new -s tcsqa
+}
+
 tcs() {
     if [ -f $TCS_QA/target/distro/.path ]
     then
