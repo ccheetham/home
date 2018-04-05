@@ -96,6 +96,9 @@
 /.java
 /.oracle_jre_usage
 
+# Groovy
+/.groovy
+
 # Ruby
 /.bundle
 
