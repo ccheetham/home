@@ -2,17 +2,22 @@
 # Java
 # =============================================================================
 
-if [[ $ME_OS == osx ]] ; then
-    JDK9_HOME=$(/usr/libexec/java_home -v 9 2> /dev/null)
-    JDK8_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
-    JDK7_HOME=$(/usr/libexec/java_home -v 1.7 2> /dev/null)
-    JDK6_HOME=$(/usr/libexec/java_home -v 1.6 2> /dev/null)
-else
-    JDK9_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk9
-    JDK8_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk8
-    JDK7_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk7
-    JDK6_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk6
-fi
+case $ME_OS in
+    cygwin)
+        ;;
+    osx)
+        JDK9_HOME=$(/usr/libexec/java_home -v 9 2> /dev/null)
+        JDK8_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
+        JDK7_HOME=$(/usr/libexec/java_home -v 1.7 2> /dev/null)
+        JDK6_HOME=$(/usr/libexec/java_home -v 1.6 2> /dev/null)
+        ;;
+    *)
+        JDK9_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk9
+        JDK8_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk8
+        JDK7_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk7
+        JDK6_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk6
+        ;;
+esac
 export JDK_HOME=$JDK8_HOME
 export JAVA_HOME=$JDK_HOME
 unset JRE_HOME

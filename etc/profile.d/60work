@@ -41,8 +41,14 @@ tcc() {
 }
 
 _tcrun() {
-    echo % $*
-    $*
+    local cmd=$1
+    shift
+    if [[ $ME_OS == cygwin ]]
+    then
+        cmd+=.bat
+    fi
+    echo % $cmd $*
+    $cmd $*
 }
 
 _tc3xrun() {
