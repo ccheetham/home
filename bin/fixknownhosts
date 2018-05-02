@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+prog=$(basename $0)
+source ~/libexec/sh_functions
+known_hosts=~/.ssh/known_hosts
+
+usage() {
+    echo
+    echo "USAGE"
+    echo "     $prog [-h] lineno"
+    echo
+    echo "WHERE"
+    echo "     lineno  line number of error in ~/.ssh/known_hosts"
+    echo "OPTIONS"
+    echo "     -h      print this message"
+    echo
+}
+
+while getopts ":h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# == 0 ]]
+then
+    die "lineno not specified; run with -h for help"
+fi
+lineno=$1
+shift
+
+if [[ $# > 0 ]]
+then
+    die "too many arguments; run with -h for help"
+fi
+
+if [ ! -f $known_hosts ]
+then
+    echo "$known_hosts does not exist"
+    exit 0
+fi
+
+sed -i -e ${lineno}d $known_hosts
+
+# vim: et sw=4 sts=4
