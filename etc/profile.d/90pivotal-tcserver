@@ -1,8 +1,7 @@
 # =============================================================================
-# work settings
+# Pivotal tc Server
 # =============================================================================
 
-QA_HOME=${QA_HOME:-$ME/src}
 TCS_QA=$QA_HOME/appsuite/tcs-tc-server-qa
 
 ME_PATH=$TCS_QA/bin:$ME_PATH
@@ -71,33 +70,6 @@ pdevjdk() {
     JAVA_HOME=$JDK6_HOME
     PATH=$JAVA_HOME/bin:$PATH
     path
-}
-
-pvpn() {
-    local pdir=$ME_CONFIG_DIR/openvpn/pivotal
-    if [[ ! -d $pdir ]] ; then
-        echo "no vpn configurations in $pdir" >&2
-        return 1
-    fi
-    if [[ $# > 1 ]] ; then
-        echo "specify at most 1 destination" >&2
-        return 1
-    fi
-    if [[ $# == 0 ]] ; then
-        echo "available destinations:"
-        echo "======================="
-        for  i in $(/bin/ls $pdir) ; do
-            echo $i
-        done
-        return
-    fi
-    local dest=$1
-    if [[ ! -d $pdir/$dest ]] ; then
-        echo "no vpn configuration for destination $dest" >&2
-        return 1
-    fi
-    cd $pdir/$dest
-    sudo openvpn config.ovpn
 }
 
 # vim: ft=zsh

@@ -1,0 +1,11 @@
+# =============================================================================
+# Pivotal tc Server
+# =============================================================================
+
+STEELTOE_QA=$QA_HOME/SteeltoeOSS
+
+
+alias stsamples='cd $STEELTOE_QA/Samples'
+alias stci='cd $STEELTOE_QA/steeltoe-ci'
+
+# vim: ft=zsh
