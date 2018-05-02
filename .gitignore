@@ -111,6 +111,9 @@
 # Maven
 /.m2
 
+# Subversion
+/.subversion
+
 # IntelliJ
 .Idea*
 
