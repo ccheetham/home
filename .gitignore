@@ -102,6 +102,9 @@
 # Ruby
 /.bundle
 
+# Perl
+/.cpan
+
 # Gradle
 /.gradle
 
