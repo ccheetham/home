@@ -1,0 +1,12 @@
+# =============================================================================
+# .NET
+# -----------------------------------------------------------------------------
+# https://www.microsoft.com/net/
+# =============================================================================
+
+DOTNET_VERSION=${DOTNET_VERSION:-2.0.3}
+export DOTNET_HOME=$ME_PLATFORM_TOOL_DIR/opt/dotnet-sdk-$DOTNET_VERSION
+
+ME_PATH+=:$DOTNET_HOME
+
+# vim: ft=zsh
