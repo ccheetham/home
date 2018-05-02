@@ -145,6 +145,7 @@
 /VirtualBox VMs
 
 # CloudFoundry
+/.cf/
 /.pcfdev/
 
 # Concourse
