@@ -4,7 +4,7 @@
 # http://www.groovy-lang.org/
 # =============================================================================
 
-ME_GROOVY_VERSIONS=(2.4.14)
+ME_GROOVY_VERSIONS=(2.4.15)
 ME_PATH+=:$ME_TOOL_DIR/opt/groovy/bin
 
 # vim: ft=zsh
