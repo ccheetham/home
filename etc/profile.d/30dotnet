@@ -4,9 +4,9 @@
 # https://www.microsoft.com/net/
 # =============================================================================
 
-DOTNET_VERSION=${DOTNET_VERSION:-2.0.3}
-export DOTNET_HOME=$ME_PLATFORM_TOOL_DIR/opt/dotnet-sdk-$DOTNET_VERSION
+DOTNET_VERSION=${DOTNET_VERSION:-2.1.301}
+export DOTNET_ROOT=$ME_PLATFORM_TOOL_DIR/opt/dotnet-sdk-$DOTNET_VERSION
 
-ME_PATH+=:$DOTNET_HOME
+ME_PATH+=:~/.dotnet/tools:$DOTNET_ROOT
 
 # vim: ft=zsh
