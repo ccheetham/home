@@ -6,12 +6,14 @@ case $ME_OS in
     cygwin)
         ;;
     osx)
+        JDK10_HOME=$(/usr/libexec/java_home -v 10 2> /dev/null)
         JDK9_HOME=$(/usr/libexec/java_home -v 9 2> /dev/null)
         JDK8_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
         JDK7_HOME=$(/usr/libexec/java_home -v 1.7 2> /dev/null)
         JDK6_HOME=$(/usr/libexec/java_home -v 1.6 2> /dev/null)
         ;;
     *)
+        JDK10_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk10
         JDK9_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk9
         JDK8_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk8
         JDK7_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk7
@@ -74,7 +76,7 @@ jversions () {
     local jinfo
     local jhome
     local jcmd
-    for jname in JDK9 JDK8 JDK7 JDK6 OPENJDK9 OPENJDK8 OPENJDK7 OPENJDK6
+    for jname in JDK10 JDK9 JDK8 JDK7 JDK6 OPENJDK9 OPENJDK8 OPENJDK7 OPENJDK6
     do
         eval jhome='$'$jname'_HOME'
         if [ -n "$jhome" ]
