@@ -166,3 +166,6 @@
 
 # UAA
 /.uaac.yml
+
+# CUPS
+/.cups
