@@ -169,3 +169,7 @@
 
 # CUPS
 /.cups
+
+# MySQL
+/.mysql_history
+
