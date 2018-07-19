@@ -46,7 +46,7 @@ _tcrun() {
     then
         cmd+=.bat
     fi
-    echo % $cmd $*
+    echo % $(basename $cmd) $*
     $cmd $*
 }
 
