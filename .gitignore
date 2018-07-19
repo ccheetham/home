@@ -90,6 +90,7 @@
 # Python
 *.pyc
 /.idlerc
+/.ipython
 /.pylint*
 
 # Java
