@@ -145,6 +145,10 @@
 /.nuget
 /.templateengine
 
+# Node
+/.npm
+/.node-gyp
+
 # Docker
 /.docker
 
