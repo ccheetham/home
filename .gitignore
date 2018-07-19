@@ -173,3 +173,5 @@
 # MySQL
 /.mysql_history
 
+# matplotlib
+/.matplotlib
