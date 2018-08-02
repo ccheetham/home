@@ -186,3 +186,6 @@
 
 # Grip GitHub markdown viewer
 /.grip/
+
+# Andriod
+/.android/
