@@ -180,3 +180,6 @@
 
 # matplotlib
 /.matplotlib
+
+# Atom editor
+/.atom/
