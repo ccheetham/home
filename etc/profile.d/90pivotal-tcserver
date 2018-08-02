@@ -4,6 +4,13 @@
 
 TCS_QA=$QA_HOME/appsuite/tcs-tc-server-qa
 
+pathHint=$TCS_QA/target/distro/.path
+if [[ -f $pathHint ]]
+then
+    ME_PATH=$TCS_QA/target/distro/$(cat $pathHint):$ME_PATH
+else
+    ME_PATH=$TCS_QA/target/distro:$ME_PATH
+fi
 ME_PATH=$TCS_QA/bin:$ME_PATH
 
 alias tcd='cd $TCS_QA'
