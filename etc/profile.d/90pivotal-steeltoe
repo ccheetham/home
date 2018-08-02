@@ -2,10 +2,10 @@
 # Pivotal tc Server
 # =============================================================================
 
-STEELTOE_QA=$QA_HOME/SteeltoeOSS
+STEELTOE_REPOS=~/src/SteeltoeOSS
 
-
-alias stsamples='cd $STEELTOE_QA/Samples'
-alias stci='cd $STEELTOE_QA/steeltoe-ci'
+alias std='cd $STEELTOE_REPOS'
+alias sts='cd $STEELTOE_REPOS/Samples'
+alias stt='cd $STEELTOE_REPOS/Tooling'
 
 # vim: ft=zsh
