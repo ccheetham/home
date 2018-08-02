@@ -183,3 +183,6 @@
 
 # Atom editor
 /.atom/
+
+# Grip GitHub markdown viewer
+/.grip/
