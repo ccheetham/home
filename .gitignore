@@ -121,6 +121,7 @@
 # Visual Studio Code
 /.vscode
 /.VSCodeVim
+/.vsts/
 
 # GnuPG
 /.gnupg
