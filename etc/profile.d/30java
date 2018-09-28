@@ -57,6 +57,14 @@ jc () {
     javac $*
 }
 
+j11 () {
+    $JDK11_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
+}
+
+j10 () {
+    $JDK10_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
+}
+
 j9 () {
     $JDK9_HOME/bin/java -Djava.util.logging.config.file=$ME_JAVA_CONFIG_DIR/logging.properties $*
 }
