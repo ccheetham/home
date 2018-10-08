@@ -1,5 +1,6 @@
 set nowrap                              " don't wrap lines
 set foldlevelstart=1                    " initial fold level
+set foldmethod=syntax                   " use syntax to determine folds
 
 set autoindent                          " put the cursor where it should be
 set shiftwidth=4                        " spaces per indent
