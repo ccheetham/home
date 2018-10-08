@@ -4,7 +4,8 @@
 
 if checkexe less > /dev/null ; then
     export PAGER=less
-    export LESS="-RSM~gIsw"
+    # export LESS="-RSM~gIsw"
+    alias less="less -RSM~gIsw"
 fi
 
 # vim: ft=zsh
