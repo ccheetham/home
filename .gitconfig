@@ -14,5 +14,6 @@
 	rollback = reset --soft @~1
 	unstage = reset HEAD --
 	mm = merge --no-ff
+	mq = merge --squash
 [core]
 	pager = less -eFiJM~ -j3 --tabs=3
