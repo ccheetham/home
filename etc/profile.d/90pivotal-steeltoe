@@ -4,8 +4,10 @@
 
 STEELTOE_REPOS=~/src/SteeltoeOSS
 
-alias std='cd $STEELTOE_REPOS'
 alias sts='cd $STEELTOE_REPOS/Samples'
 alias stt='cd $STEELTOE_REPOS/Tooling'
+alias std='cd $STEELTOE_REPOS/Dockerfiles'
+
+alias st='steeltoe'
 
 # vim: ft=zsh
