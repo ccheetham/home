@@ -190,3 +190,6 @@
 
 # Andriod
 /.android/
+
+# Zoom
+/.zoomus
