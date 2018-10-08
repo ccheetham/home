@@ -2,7 +2,7 @@
 # Pivotal tc Server
 # =============================================================================
 
-TCS_QA=$QA_HOME/appsuite/tcs-tc-server-qa
+TCS_QA=~/src/repos/appsuite/tcs-tc-server-qa
 
 pathHint=$TCS_QA/target/distro/.path
 if [[ -f $pathHint ]]

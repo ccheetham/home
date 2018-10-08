@@ -2,7 +2,7 @@
 # Pivotal tc Server
 # =============================================================================
 
-STEELTOE_REPOS=~/src/SteeltoeOSS
+STEELTOE_REPOS=~/src/repos/SteeltoeOSS
 
 alias sts='cd $STEELTOE_REPOS/Samples'
 alias stt='cd $STEELTOE_REPOS/Tooling'

@@ -2,8 +2,6 @@
 # Pivotal settings
 # =============================================================================
 
-QA_HOME=${QA_HOME:-$ME/src}
-
 pvpn() {
     local pdir=$ME_CONFIG_DIR/openvpn/pivotal
     if [[ ! -d $pdir ]] ; then
