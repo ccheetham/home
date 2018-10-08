@@ -21,6 +21,7 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
     Plug 'elzr/vim-json'
+    Plug 'PProvost/vim-ps1'
     Plug 'luan/vim-concourse'
     call plug#end()
 endif
