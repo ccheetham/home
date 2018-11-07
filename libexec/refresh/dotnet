@@ -1,0 +1,54 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+main () {
+    hdr refreshing dotnet
+    local destdir=$ME_PLATFORM_TOOL_DIR/opt
+    for version in $ME_DOTNET_VERSIONS
+    do
+        install_version $destdir $version
+    done
+    link $destdir/dotnet-sdk $ME_DOTNET_VERSIONS[1]
+}
+
+install_version () {
+    local destdir=$1
+    local version=$2
+    msg installing dotnet $version
+    case $ME_PLATFORM in
+        linux-x64)
+            platform=linux-x64
+            ;;
+        osx-x64)
+            platform=macos-x64
+            ;;
+        *)
+            die "unsupported platform: $ME_PLATFORM"
+            ;;
+    esac
+    local distfile=dotnet-sdk-${version}-${platform}.tar.gz
+    local disturl=$(curl -s https://www.microsoft.com/net/download/thank-you/dotnet-sdk-${version}-${platform}-binaries | grep -o 'https:.*'$distfile | head -1)
+    msg fetching $disturl
+    wget --continue -P $ME_DISTFILE_DIR $disturl
+    msg extracting $distfile
+    mkdir -p $destdir
+    rm -rf $destdir/dotnet-sdk-$version
+    mkdir $destdir/dotnet-sdk-$version
+    tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir/dotnet-sdk-$version
+}
+
+link () {
+    local destdir=$1
+    local version=$2
+    msg linking default ant to $version
+    rm -f $destdir
+    ln -s dotnet-sdk-$version $destdir
+}
+
+main $@
+
+# vim: ft=zsh
