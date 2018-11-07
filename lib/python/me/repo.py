@@ -53,18 +53,18 @@ class GitClient(object):
 
     def refresh(self, repo):
         if os.path.exists(repo.path):
-            print "=== updating", repo.name
+            print("=== updating", repo.name)
             subprocess.Popen(["git", "pull"], cwd=repo.path).wait()
         else:
-            print "=== checking out", repo.name
+            print("=== checking out", repo.name)
             subprocess.Popen(["git", "clone", repo.url, repo.path]).wait()
 
     def status(self, repo):
-        print "=== status of", repo.name
+        print("=== status of", repo.name)
         if os.path.exists(repo.path):
             subprocess.Popen(["git", "status"], cwd=repo.path).wait()
         else:
-            print "not checked out"
+            print("not checked out")
 
 
 class Command(object):
@@ -74,21 +74,20 @@ class Command(object):
 
     def repos(self, names):
         if not names:
-            names = self.repodb.keys()
-            names.sort()
+            names = sorted(self.repodb.keys())
         repos = []
         for name in names:
             try:
                 repos.append(self.repodb[name])
             except KeyError as e:
-                print "repo not found:", name
+                print("repo not found:", name)
         return repos
 
     def info(self, names=[]):
         for repo in self.repos(names):
-            print repo.name
-            print "    path:", repo.path
-            print "    url :", repo.url
+            print(repo.name)
+            print("    path:", repo.path)
+            print("    url :", repo.url)
 
     def refresh(self, names=[]):
         for repo in self.repos(names):
