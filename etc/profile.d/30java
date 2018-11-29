@@ -6,20 +6,20 @@ case $ME_OS in
     cygwin)
         ;;
     osx)
-        JDK11_HOME=$(/usr/libexec/java_home -v 11 2> /dev/null)
-        JDK10_HOME=$(/usr/libexec/java_home -v 10 2> /dev/null)
-        JDK9_HOME=$(/usr/libexec/java_home -v 9 2> /dev/null)
-        JDK8_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
-        JDK7_HOME=$(/usr/libexec/java_home -v 1.7 2> /dev/null)
-        JDK6_HOME=$(/usr/libexec/java_home -v 1.6 2> /dev/null)
+        export JDK11_HOME=$(/usr/libexec/java_home -v 11 2> /dev/null)
+        export JDK10_HOME=$(/usr/libexec/java_home -v 10 2> /dev/null)
+        export JDK9_HOME=$(/usr/libexec/java_home -v 9 2> /dev/null)
+        export JDK8_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
+        export JDK7_HOME=$(/usr/libexec/java_home -v 1.7 2> /dev/null)
+        export JDK6_HOME=$(/usr/libexec/java_home -v 1.6 2> /dev/null)
         ;;
     *)
-        JDK11_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk11
-        JDK10_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk10
-        JDK9_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk9
-        JDK8_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk8
-        JDK7_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk7
-        JDK6_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk6
+        export JDK11_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk11
+        export JDK10_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk10
+        export JDK9_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk9
+        export JDK8_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk8
+        export JDK7_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk7
+        export JDK6_HOME=$ME_PLATFORM_TOOL_DIR/java/jdk6
         ;;
 esac
 export JDK_HOME=$JDK8_HOME
