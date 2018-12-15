@@ -1,0 +1,348 @@
+#!/usr/bin/env bash
+
+# ============================================================================
+# scdf
+# ----------------------------------------------------------------------------
+# helper for running Spring Cloud Data Flow
+# ============================================================================
+
+
+# --- vars -------------------------------------------------------------------
+
+scdf_dir=${SCDF_DIR:-~/.scdf}
+
+valid_commands=(start stop)
+valid_targets=(local docker)      # first entry considered the default
+target=${valid_targets[0]}
+
+release_repo=https://repo.spring.io/release/org/springframework/cloud
+snapshot_repo=https://repo.spring.io/snapshot/org/springframework/cloud
+
+dataflow_version=${SPRING_CLOUD_DATA_FLOW_VERSION:-1.7.3.RELEASE}
+dataflow_server_title='Spring Cloud Data Flow Server'
+dataflow_server_port=9393
+
+skipper_version=${SPRING_CLOUD_SKIPPER_VERSION:-1.1.2.RELEASE}
+skipper_server_title='Spring Cloud Skipper'
+skipper_server_port=7577
+
+dataflow_shell_title='Spring Cloud Data Flow Shell'
+
+rabbitmq_title='RabbitMQ'
+rabbitmq_port=4369
+
+stream_apps_url_1x=http://bit.ly/Celsius-SR3-stream-applications-rabbit-maven
+stream_apps_url_2x=http://bit.ly/Darwin-SR2-stream-applications-rabbit-maven
+stream_tasks_url=http://bit.ly/Clark-GA-task-applications-maven
+
+xterm_geom=120x32
+xterm_class=spring
+
+
+# --- help -------------------------------------------------------------------
+
+usage() {
+    echo "USAGE"
+    echo "     $(basename $0) [-h] [-t target] [-D version] [-S version] command"
+    echo
+    echo "WHERE"
+    echo "     command         one of: start, stop"
+    echo
+    echo "OPTIONS"
+    echo "     -h              print this message"
+    echo "     -t target       deployment target, one of: $(IFS=, eval 'echo "${valid_targets[*]}"') (default $target)"
+    echo "     -D version      Spring Cloud Data Flow version (default $dataflow_version)"
+    echo "     -S version      Spring Cloud Data Skipper version (default $skipper_version)"
+}
+
+while getopts ":ht:D:S:" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        t)
+            target=$OPTARG
+            ;;
+        D)
+            dataflow_version=$OPTARG
+            ;;
+        S)
+            skipper_version=$OPTARG
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+
+# --- args -------------------------------------------------------------------
+
+if [[ $# == 0 ]]; then
+  echo "not enough args; run -with -h for help" 2>&1
+  exit 1
+fi
+
+cmd=$1
+shift
+
+if [[ ! ${valid_commands[@]} =~ $cmd ]]; then
+  echo "invalid command; run with -h for help" 2>&1
+  exit 1
+fi
+
+if [[ $# > 0 ]]; then
+  echo "too many args; run -with -h for help" 2>&1
+  exit 1
+fi
+
+if [[ ! ${valid_targets[@]} =~ $target ]]; then
+  echo "invalid target $target; run with -h for help"
+  exit 1
+fi
+
+
+# --- dataflow shell ---------------------------------------------------------
+
+start_dataflow_shell() {
+    msg "starting dataflow shell"
+    local repo=$(get_spring_cloud_repo $dataflow_version)
+    local jarfile=$(get_artifact_path $repo/spring-cloud-dataflow-shell/${dataflow_version}/spring-cloud-dataflow-shell-${dataflow_version}.jar)
+
+    # wait for dataflow server to respond to requests
+    while ! curl http://localhost:${dataflow_server_port} >/dev/null 2>&1; do
+        msg "waiting for $dataflow_server_title [$(date +'%H:%M:%S')]"
+        sleep 1
+    done
+
+    # ensure shell not already running
+    local pidfile=$scdf_dir/run/shell.pid
+    mkdir -p $(dirname $pidfile)
+    if [[ -f $pidfile ]]; then
+        pid=$(cat $pidfile)
+        if ps -p$pid >/dev/null 2>&1; then
+            msg "shell looks to be already running with PID $pid"
+            return
+        fi
+        msg "removing stale pidfile $pidfile"
+        rm $pidfile
+    fi
+
+    # run the shell
+    local shell_dir=$scdf_dir/shell
+    mkdir -p $shell_dir
+    pushd $shell_dir >/dev/null
+    run_command $scdf_dir/run/shell.pid "$dataflow_shell_title" java -jar $jarfile --dataflow.mode=skipper
+    popd >/dev/null
+}
+
+stop_dataflow_shell() {
+    stop_command $scdf_dir/run/shell.pid "$dataflow_shell_title"
+}
+
+
+# --- local deployment ------------------------------------------------------------------
+
+start_local() {
+    start_local_rabbitmq
+    start_local_skipper_server
+    start_local_dataflow_server
+}
+
+stop_local() {
+    stop_command $scdf_dir/run/dataflow-server.pid "$dataflow_server_title"
+    stop_command $scdf_dir/run/skipper-server.pid "$skipper_server_title"
+    stop_command $scdf_dir/run/rabbitmq.pid "$rabbitmq_title"
+}
+
+start_local_dataflow_server() {
+    msg "starting dataflow server"
+    local repo=$(get_spring_cloud_repo $dataflow_version)
+    local dataflow_server_jar=$(get_artifact_path $repo/spring-cloud-dataflow-server-local/${dataflow_version}/spring-cloud-dataflow-server-local-${dataflow_version}.jar)
+
+    # wait for skipper server to respond to requests
+    while ! curl http://localhost:${skipper_server_port}/api >/dev/null 2>&1; do
+        msg "waiting for $skipper_server_title [$(date +'%H:%M:%S')]"
+        sleep 1
+    done
+
+    run_command $scdf_dir/run/dataflow-server.pid "$dataflow_server_title" java -jar $dataflow_server_jar --spring.cloud.dataflow.features.skipper-enabled=true
+}
+
+start_local_skipper_server() {
+    msg "starting skipper server"
+    local repo=$(get_spring_cloud_repo $skipper_version)
+    local skipper_server_jar=$(get_artifact_path $repo/spring-cloud-skipper-server/${skipper_version}/spring-cloud-skipper-server-${skipper_version}.jar)
+
+    # wait for rabbitmq to be available
+    while ! nc -z localhost $rabbitmq_port >/dev/null 2>&1; do
+        msg "waiting for $rabbitmq_title [$(date +'%H:%M:%S')]"
+        sleep 1
+    done
+
+    run_command $scdf_dir/run/skipper-server.pid "$skipper_server_title" java -jar $skipper_server_jar
+}
+
+start_local_rabbitmq() {
+    msg "starting rabbitmq"
+    RABBITMQ_LOGS=$scdf_dir/rabbitmq/rabbitmq.log \
+        run_command $scdf_dir/run/rabbitmq.pid 'RabbitMQ' rabbitmq-server
+}
+
+
+# --- docker deployment ------------------------------------------------------
+
+start_docker() {
+    local cfg=$(get_docker_compose_config_path)
+    create_docker_compose_config $cfg
+
+    # ensure empty directories for server tmp mounts
+    rm -rf $scdf_dir/dataflow-server
+    mkdir -p $scdf_dir/dataflow-server
+    rm -rf $scdf_dir/skipper-server
+    mkdir -p $scdf_dir/skipper-server
+
+    # run the server on Docker
+    run_command $scdf_dir/run/docker-compose.pid "$dataflow_server_title" docker-compose -f $cfg up
+}
+
+stop_docker() {
+    docker-compose -f $(get_docker_compose_config_path) down
+    rm $scdf_dir/run/docker-compose.pid
+}
+
+get_docker_compose_config_path() {
+    echo $scdf_dir/docker/docker-compose-${dataflow_version}.yml
+}
+
+create_docker_compose_config() {
+    local cfg=$1
+    mkdir -p $(dirname $cfg)
+    msg "creating Docker compose config $cfg"
+    cat <<EOF > $cfg
+version: '3'
+
+services:
+  dataflow-server:
+    image: springcloud/spring-cloud-dataflow-server-local:$dataflow_version
+    container_name: dataflow-server
+    ports:
+      - "${dataflow_server_port}:${dataflow_server_port}"
+    environment:
+      - spring.cloud.dataflow.applicationProperties.stream.spring.rabbitmq.host=rabbitmq
+      - spring.cloud.dataflow.features.skipper-enabled=true
+      - spring.cloud.skipper.client.serverUri=http://skipper-server:${skipper_server_port}/api
+    depends_on:
+      - rabbitmq
+      - skipper-server
+    volumes:
+      - ~/.m2:/root/.m2
+      - $scdf_dir/dataflow-server:/tmp
+  rabbitmq:
+    image: rabbitmq:3.7
+    expose:
+      - "5672"
+  skipper-server:
+    image: springcloud/spring-cloud-skipper-server:$skipper_version
+    container_name: skipper
+    ports:
+      - "${skipper_server_port}:${skipper_server_port}"
+      - "9000-9010:9000-9010"
+    volumes:
+      - $scdf_dir/skipper-server:/tmp
+EOF
+}
+
+
+# --- apps and tasks --------------------------------------------------------------------
+
+start_apps_and_tasks() {
+    local stream_apps_url
+    [[ $dataflow_version == 1.* ]] && stream_apps_url=$stream_apps_url_1x || stream_apps_url=$stream_apps_url_2x
+    msg "importing stream apps from $stream_apps_url"
+    curl --silent -X POST -d 'uri='$stream_apps_url'&force=true' http://localhost:${dataflow_server_port}/apps >/dev/null
+    msg "importing stream tasks from $stream_tasks_url"
+    curl --silent -X POST -d 'uri='$stream_tasks_url'&force=true' http://localhost:${dataflow_server_port}/apps >/dev/null
+}
+
+
+# --- util -------------------------------------------------------------------
+
+msg() {
+    echo '--- '$@
+}
+
+run_function() {
+    local fname=$1
+    type $fname >/dev/null 2>&1 || return
+    eval $fname
+}
+
+run_command() {
+    local pidfile=$1
+    local title=$2
+    shift 2
+    local cmd=$@
+    msg "running $title ($cmd)"
+    xterm -T "$title" -geom $xterm_geom -class $xterm_class -e $cmd &
+    mkdir -p $(dirname $pidfile)
+    echo $! > $pidfile
+}
+
+stop_command() {
+    local pidfile=$1
+    local title=$2
+    msg "stopping $title"
+
+    # ensure there's a pidfile
+    if [[ ! -f $pidfile ]]; then
+        msg "pidfile does not exist: $pidfile"
+        return
+    fi
+
+    # ensure process killed
+    local pid=$(cat $pidfile)
+    if ps -p$pid >/dev/null 2>&1; then
+        msg "killing process $pid"
+        kill $pid
+    else
+        msg "pidfile appears to be stale"
+    fi
+
+    # cleanup pidfile
+    rm $pidfile
+}
+
+get_spring_cloud_repo() {
+    local version=$1
+    [[ $version == *SNAPSHOT* ]] && echo $snapshot_repo || echo $release_repo
+}
+
+get_artifact_path() {
+    local url=$1
+    local artifact=$(basename $url)
+    local artifact_path=$scdf_dir/artifacts/$artifact
+    if [[ ! -f $artifact_path ]]; then
+        mkdir -p $(dirname $artifact_path)
+        wget -O $artifact_path $url
+    fi
+    echo $artifact_path
+}
+
+
+# --- main -------------------------------------------------------------------
+
+run_function ${cmd}_${target}
+run_function ${cmd}_dataflow_shell
+run_function ${cmd}_apps_and_tasks
+
+# vim: et sw=4 sts=4
