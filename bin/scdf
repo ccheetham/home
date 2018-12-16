@@ -9,6 +9,8 @@
 
 # --- vars -------------------------------------------------------------------
 
+prog=$(basename $0)
+
 scdf_dir=${SCDF_DIR:-~/.scdf}
 
 valid_commands=(start stop)
@@ -43,7 +45,7 @@ xterm_class=spring
 
 usage() {
     echo "USAGE"
-    echo "     $(basename $0) [-h] [-t target] [-D version] [-S version] command"
+    echo "     $prog [-h] [-t target] [-D version] [-S version] command"
     echo
     echo "WHERE"
     echo "     command         one of: start, stop"
@@ -119,8 +121,8 @@ start_dataflow_shell() {
     local jarfile=$(get_artifact_path $repo/spring-cloud-dataflow-shell/${dataflow_version}/spring-cloud-dataflow-shell-${dataflow_version}.jar)
 
     # wait for dataflow server to respond to requests
-    while ! curl http://localhost:${dataflow_server_port} >/dev/null 2>&1; do
-        msg "waiting for $dataflow_server_title [$(date +'%H:%M:%S')]"
+    while ! is_dataflow_server_listening; do
+        msg "waiting for $dataflow_server_title"
         sleep 1
     done
 
@@ -170,8 +172,8 @@ start_local_dataflow_server() {
     local dataflow_server_jar=$(get_artifact_path $repo/spring-cloud-dataflow-server-local/${dataflow_version}/spring-cloud-dataflow-server-local-${dataflow_version}.jar)
 
     # wait for skipper server to respond to requests
-    while ! curl http://localhost:${skipper_server_port}/api >/dev/null 2>&1; do
-        msg "waiting for $skipper_server_title [$(date +'%H:%M:%S')]"
+    while ! is_skipper_server_listening >/dev/null 2>&1; do
+        msg "waiting for $skipper_server_title"
         sleep 1
     done
 
@@ -183,25 +185,32 @@ start_local_skipper_server() {
     local repo=$(get_spring_cloud_repo $skipper_version)
     local skipper_server_jar=$(get_artifact_path $repo/spring-cloud-skipper-server/${skipper_version}/spring-cloud-skipper-server-${skipper_version}.jar)
 
-    # wait for rabbitmq to be available
-    while ! nc -z localhost $rabbitmq_port >/dev/null 2>&1; do
-        msg "waiting for $rabbitmq_title [$(date +'%H:%M:%S')]"
-        sleep 1
-    done
-
     run_command $scdf_dir/run/skipper-server.pid "$skipper_server_title" java -jar $skipper_server_jar
 }
 
 start_local_rabbitmq() {
+    if is_rabbitmq_listening; then
+        msg "rabbitmq appears to already be running"
+        return
+    fi
+
     msg "starting rabbitmq"
     RABBITMQ_LOGS=$scdf_dir/rabbitmq/rabbitmq.log \
         run_command $scdf_dir/run/rabbitmq.pid 'RabbitMQ' rabbitmq-server
+
+    # wait for rabbitmq to be available
+    while ! is_rabbitmq_listening; do
+        msg "waiting for $rabbitmq_title"
+        sleep 1
+    done
 }
 
 
 # --- docker deployment ------------------------------------------------------
 
 start_docker() {
+    check_apps docker-compose || return 1
+
     local cfg=$(get_docker_compose_config_path)
     create_docker_compose_config $cfg
 
@@ -278,7 +287,7 @@ start_apps_and_tasks() {
 # --- util -------------------------------------------------------------------
 
 msg() {
-    echo '--- '$@
+    echo "[$prog][$(date +'%H:%M:%S')] $@"
 }
 
 run_function() {
@@ -338,11 +347,32 @@ get_artifact_path() {
     echo $artifact_path
 }
 
+check_apps() {
+    for app in $@; do
+        if ! type $app >/dev/null 2>&1; then
+            echo "$app is required" >&2
+            return 1
+        fi
+    done
+}
+
+is_dataflow_server_listening() {
+    curl http://localhost:${dataflow_server_port} >/dev/null 2>&1
+}
+
+is_skipper_server_listening() {
+    curl http://localhost:${skipper_server_port}/api >/dev/null 2>&1
+}
+
+is_rabbitmq_listening() {
+    nc -z localhost $rabbitmq_port
+}
 
 # --- main -------------------------------------------------------------------
 
-run_function ${cmd}_${target}
-run_function ${cmd}_dataflow_shell
-run_function ${cmd}_apps_and_tasks
+check_apps java xterm curl wget || exit
+run_function ${cmd}_${target} || exit
+run_function ${cmd}_dataflow_shell || exit
+run_function ${cmd}_apps_and_tasks || exit
 
 # vim: et sw=4 sts=4
