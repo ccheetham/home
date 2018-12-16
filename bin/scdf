@@ -339,10 +339,13 @@ get_spring_cloud_repo() {
 get_artifact_path() {
     local url=$1
     local artifact=$(basename $url)
+    local download_path=$scdf_dir/downloads/$artifact
     local artifact_path=$scdf_dir/artifacts/$artifact
     if [[ ! -f $artifact_path ]]; then
+        mkdir -p $(dirname $download_path)
         mkdir -p $(dirname $artifact_path)
-        wget -O $artifact_path $url
+        curl -L -o $download_path $url
+        mv $download_path $artifact_path
     fi
     echo $artifact_path
 }
@@ -370,7 +373,7 @@ is_rabbitmq_listening() {
 
 # --- main -------------------------------------------------------------------
 
-check_apps java xterm curl wget || exit
+check_apps java xterm curl || exit
 run_function ${cmd}_${target} || exit
 run_function ${cmd}_dataflow_shell || exit
 run_function ${cmd}_apps_and_tasks || exit
