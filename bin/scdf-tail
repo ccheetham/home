@@ -1,0 +1,133 @@
+#!/usr/bin/env bash
+
+# ============================================================================
+# scdf-tail
+# ----------------------------------------------------------------------------
+# helper for tail Spring Cloud Data Flow app logs
+# ============================================================================
+
+
+# --- vars -------------------------------------------------------------------
+
+prog=$(basename $0)
+
+scdf_dir=${SCDF_DIR:-~/.scdf}
+
+stream=
+app=
+version=v1
+instance=0
+
+# --- help -------------------------------------------------------------------
+
+usage() {
+    echo "USAGE"
+    echo "     $prog [-h] stream app [version [instance]]"
+    echo
+    echo "WHERE"
+    echo "     stream         stream name"
+    echo "     app            app name"
+    echo "     version        version, default v1"
+    echo "     instance       version, default 0"
+    echo
+    echo "OPTIONS"
+    echo "     -h              print this message"
+}
+
+while getopts ":h" opt ; do
+    case $opt in
+        h)
+            usage
+            exit
+            ;;
+        \?)
+            echo "invalid option -$OPTARG" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+        :)
+            echo "option -$OPTARG requires an argument" 2>&1
+            echo "run with -h for help" 2>&1
+            exit 1
+            ;;
+    esac
+done
+shift $(($OPTIND-1))
+
+
+# --- args -------------------------------------------------------------------
+
+if [[ $# == 0 ]]; then
+    echo "stream not specified; run with -h for help"
+    exit 1
+fi
+stream=$1
+shift
+
+if [[ $# == 0 ]]; then
+    echo "app not specified; run with -h for help"
+    exit 1
+fi
+app=$1
+shift
+
+if [[ $# > 0 ]]; then
+    version=$1
+    shift
+fi
+
+if [[ $# > 0 ]]; then
+    instance=$1
+    shift
+fi
+
+if [[ $# > 0 ]]; then
+    echo "too many args; run with -h for help"
+    exit 1
+fi
+
+# --- util -------------------------------------------------------------------
+
+msg() {
+    echo "[$prog][$(date +'%H:%M:%S')] $@"
+}
+
+check_apps() {
+    local app=
+    for app in $@; do
+        if ! type $app >/dev/null 2>&1; then
+            echo "$app is required" >&2
+            return 1
+        fi
+    done
+}
+
+
+# --- main -------------------------------------------------------------------
+
+check_apps tail curl jq || exit
+
+json=$(curl --silent http://localhost:9393/runtime/apps/$stream.$app-$version/instances/$stream.$app-$version-$instance)
+
+error=$(echo $json | jq .error >/dev/null 2>&1)
+if [[ $? == 0 ]] && [[ -n $error ]]; then
+    echo "Hmm, seems to be an error with this app. JSON follows:"
+    echo $json
+    exit 1
+fi
+
+logfile=$(echo $json | jq .attributes.stdout 2>/dev/null)
+if [[ $? != 0 ]]; then
+    eval echo $(echo $json | jq .\[0\].message)
+    exit $?
+fi
+logfile=$(eval echo $logfile)
+
+tail_cmd="tail -f $logfile"
+if [[ ! -f $logfile ]]; then
+    tail_cmd="docker exec -it skipper-server $tail_cmd"
+fi
+
+exec $tail_cmd
+
+# vim: et sw=4 sts=4

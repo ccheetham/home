@@ -31,7 +31,7 @@ skipper_server_port=7577
 dataflow_shell_title='Spring Cloud Data Flow Shell'
 
 rabbitmq_title='RabbitMQ'
-rabbitmq_port=4369
+rabbitmq_port=5672
 
 stream_apps_url_1x=http://bit.ly/Celsius-SR3-stream-applications-rabbit-maven
 stream_apps_url_2x=http://bit.ly/Darwin-SR2-stream-applications-rabbit-maven
@@ -194,8 +194,18 @@ start_local_rabbitmq() {
         return
     fi
 
+    local rabbitmq_dir=$scdf_dir/rabbitmq
+    rm -rf $rabbitmq_dir
+    mkdir -p $rabbitmq_dir
+    local rabbitmq_cfg=$rabbitmq_dir/rabbitmq.conf
+    msg "creating rabbitmq config ($rabbitmq_cfg)"
     msg "starting rabbitmq"
-    RABBITMQ_LOGS=$scdf_dir/rabbitmq/rabbitmq.log \
+    cat <<EOF > $rabbitmq_cfg
+log.dir = $rabbitmq_dir
+log.console=true
+EOF
+
+    RABBITMQ_CONFIG_FILE=$rabbitmq_cfg \
         run_command $scdf_dir/run/rabbitmq.pid 'RabbitMQ' rabbitmq-server
 
     # wait for rabbitmq to be available
@@ -236,7 +246,7 @@ get_docker_compose_config_path() {
 create_docker_compose_config() {
     local cfg=$1
     mkdir -p $(dirname $cfg)
-    msg "creating Docker compose config $cfg"
+    msg "creating Docker compose config ($cfg)"
     cat <<EOF > $cfg
 version: '3'
 
@@ -262,7 +272,7 @@ services:
       - "5672"
   skipper-server:
     image: springcloud/spring-cloud-skipper-server:$skipper_version
-    container_name: skipper
+    container_name: skipper-server
     ports:
       - "${skipper_server_port}:${skipper_server_port}"
       - "9000-9010:9000-9010"
@@ -351,6 +361,7 @@ get_artifact_path() {
 }
 
 check_apps() {
+    local app=
     for app in $@; do
         if ! type $app >/dev/null 2>&1; then
             echo "$app is required" >&2
