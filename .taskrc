@@ -1,7 +1,7 @@
 include ~/share/task/theme.rc
 include ~/share/task/work.rc
 
-data.location=~/var/db/task
+data.location=~/var/task
 
 calendar.holidays=sparse
 
