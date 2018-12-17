@@ -18,5 +18,4 @@ rm -r $destdir || return
 mkdir -p $destdir || return
 unzip -qo $ME_DISTFILE_DIR/$distfile -d $destdir || return
 
-
 # vim: ft=zsh
