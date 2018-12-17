@@ -10,7 +10,7 @@ Xft.lcdfilter: lcddefault
 
 ! -- basic xterm -------------------------------------------------------------
 
-xterm*faceName:             xft:DejaVu Sans Mono:pixelsize=11
+xterm*faceName:             xft:DejaVu Sans Mono:pixelsize=12
 xterm*pointerMode:          1
 
 xterm*toolBar:              false
@@ -29,7 +29,7 @@ xterm*altSendsEscape:       true
 
 ! -- logging terms -----------------------------------------------------------
 
-task*faceName:              xft:Courier New:pixelsize=8
+log*faceName:              xft:Courier New:pixelsize=8
 
 ! -- task warrior terms ------------------------------------------------------
 
