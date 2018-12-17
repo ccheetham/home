@@ -5,6 +5,7 @@
 # =============================================================================
 
 export DOCKER_ID_USER=ccheetham
+export DOCKER_CONFIG=~/.docker/$ME_HOST
 
 alias d='docker'
 alias d\?='d help'
