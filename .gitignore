@@ -43,6 +43,9 @@
 # terminals
 /.terminfo
 
+# NFS
+.nfs*
+
 # X11
 /.Xauthority
 /.serverauth.*
