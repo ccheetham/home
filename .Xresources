@@ -2,11 +2,10 @@ Xft.autohint: true
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
-!Xft.dpi: 300
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-#include "var/repo/color-scheme/xresources/cheetos"
+#include "share/x/base16-zenburn-256.Xresources"
 
 ! -- basic xterm -------------------------------------------------------------
 
@@ -25,7 +24,6 @@ xterm*allowScrollLock:      false
 xterm*visualBell:           true
 xterm*altIsNotMeta:         true
 xterm*altSendsEscape:       true
-
 
 ! -- logging terms -----------------------------------------------------------
 
