@@ -113,13 +113,13 @@ error=$(echo $json | jq .error >/dev/null 2>&1)
 if [[ $? == 0 ]] && [[ -n $error ]]; then
     echo "Hmm, seems to be an error with this app. JSON follows:"
     echo $json
-    exit 1
+    exit 2
 fi
 
 logfile=$(echo $json | jq .attributes.stdout 2>/dev/null)
 if [[ $? != 0 ]]; then
     eval echo $(echo $json | jq .\[0\].message)
-    exit $?
+    exit 1
 fi
 logfile=$(eval echo $logfile)
 
