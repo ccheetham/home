@@ -1,0 +1,13 @@
+# =============================================================================
+# Google Cloud SDK
+# =============================================================================
+
+ME_GCLOUD_VERSIONS=(228.0.0)
+ME_GCLOUD_DIR=$ME_PLATFORM_TOOL_DIR/opt/google-cloud-sdk
+
+ME_PATH+=:$ME_GCLOUD_DIR/bin
+if [ -f $ME_GCLOUD_DIR/completion.zsh.inc ]; then
+    . $ME_GCLOUD_DIR/completion.zsh.inc ]
+fi
+
+# vim: ft=zsh
