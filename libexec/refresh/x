@@ -10,6 +10,7 @@ theme=$(basename $theme_url)
 
 msg fetching theme $theme
 rm -f $ME_DATA_DIR/x/$theme
+mkdir -p $ME_DATA_DIR/x
 wget -O $ME_DATA_DIR/x/$theme $theme_url
 
 # vim: ft=zsh
