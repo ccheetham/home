@@ -32,7 +32,7 @@ install_version () {
             ;;
     esac
     local distfile=dotnet-sdk-${version}-${ME_PLATFORM}.tar.gz
-    local disturl=$(curl -s https://www.microsoft.com/net/download/thank-you/dotnet-sdk-${version}-${platform}-binaries | grep -o -e 'https:.*'${distfile} | head -1)
+    local disturl=$(curl -s -L https://www.microsoft.com/net/download/thank-you/dotnet-sdk-${version}-${platform}-binaries | grep -o -e 'https:.*'${distfile} | head -1)
     msg fetching $disturl
     wget --continue -P $ME_DISTFILE_DIR $disturl
     msg extracting $distfile
