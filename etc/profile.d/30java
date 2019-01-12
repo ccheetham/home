@@ -32,13 +32,12 @@ ME_MANPATH+=:$JAVA_HOME/man
 
 case $ME_DISTRO_FLAVOR in
     centos)
-        export OPENJDK9_HOME=/usr/lib/jvm/java-1.9.0
         export OPENJDK8_HOME=/usr/lib/jvm/java-1.8.0
         export OPENJDK7_HOME=/usr/lib/jvm/java-1.7.0
         export OPENJDK6_HOME=/usr/lib/jvm/java-1.6.0
         ;;
     debian|neon|ubuntu)
-        export OPENJDK9_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+        export OPENJDK11_HOME=/usr/lib/jvm/java-11-openjdk-amd64
         export OPENJDK8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
         export OPENJDK7_HOME=/usr/lib/jvm/java-7-openjdk-amd64
         export OPENJDK6_HOME=/usr/lib/jvm/java-6-openjdk-amd64
@@ -86,7 +85,7 @@ jversions () {
     local jinfo
     local jhome
     local jcmd
-    for jname in JDK11 JDK10 JDK9 JDK8 JDK7 JDK6 OPENJDK9 OPENJDK8 OPENJDK7 OPENJDK6
+    for jname in JDK11 JDK10 JDK9 JDK8 JDK7 JDK6 OPENJDK11 OPENJDK8 OPENJDK7 OPENJDK6
     do
         eval jhome='$'$jname'_HOME'
         if [ -n "$jhome" ]
