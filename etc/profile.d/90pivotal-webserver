@@ -2,6 +2,6 @@
 # Pivotal HTTPD (Open Source builds of Apache httpd)
 # =============================================================================
 
-alias pws='cd ~/src/repos/appsuite/web-server-qa'
+alias pws='cd ~/src/appsuite/web-server-qa'
 
 # vim: ft=zsh

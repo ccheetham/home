@@ -2,7 +2,7 @@
 # Pivotal tc Server
 # =============================================================================
 
-TCS_QA=~/src/repos/appsuite/tcs-tc-server-qa
+TCS_QA=~/src/appsuite/tcs-tc-server-qa
 
 alias tcd='cd $TCS_QA'
 
