@@ -9,6 +9,7 @@ theme_url=https://raw.githubusercontent.com/mutantmonkey/dotfiles/master/task/ze
 theme=$(basename $theme_url)
 
 msg fetching theme $theme
+rm -f $ME_DATA_DIR/task/theme.rc
 wget --continue -O $ME_DATA_DIR/task/theme.rc $theme_url
 
 # vim: ft=zsh
