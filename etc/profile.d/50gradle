@@ -6,10 +6,11 @@
 
 ME_GRADLE_VERSIONS=(4.10.2 3.5.1)
 GRADLE_HOME=$ME_TOOL_DIR/opt/gradle
+GRADLE_USER_HOME=$ME/.gradle/$ME_HOST
+GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.console=rich"
 ME_PATH+=:$GRADLE_HOME/bin
 
-export GRADLE_HOME
-export GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.console=rich"
+export GRADLE_HOME GRADLE_USER_HOME GRADLE_OPTS
 
 alias grr='gr --refresh-dependencies'
 
