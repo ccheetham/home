@@ -6,7 +6,7 @@
 if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     source ~/var/repo/vim-plug/plug.vim
     call plug#begin("~/.vim/me/plugins")
-    Plug 'jnurmine/Zenburn'
+    Plug 'sonph/onehalf', {'rtp': 'vim/'}
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'majutsushi/tagbar'
