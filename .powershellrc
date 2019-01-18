@@ -1,0 +1,18 @@
+# =============================================================================
+# Powershell profile
+# ------------------------------------------------------------------------------
+# to use, run: mklink $profile $home\.powershellrc
+# =============================================================================
+
+# Vim
+set-alias   vi      gvim
+
+# Git
+set-alias   g       git
+function    gg      { & g status $args }
+
+# Docker
+set-alias   d       docker
+function    drun    { d run -it --rm $args }
+
+# vim: ft=ps1
