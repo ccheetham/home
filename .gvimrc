@@ -7,5 +7,5 @@ if has("gui_macvim")
     set guifont=Monaco:h12
 else
     " GVim on Windows (assumed)
-    set guifont=Consolas:h10
+    set guifont=Consolas:h11
 endif
