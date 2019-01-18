@@ -1,7 +1,9 @@
 # =============================================================================
 # Powershell profile
 # ------------------------------------------------------------------------------
-# to use, run: mklink $profile $home\.powershellrc
+# to use
+#   * windows:  mklink $profile $home\.powershellrc
+#   * posix:    ln -s ~/.powershellrc ${XDG_CONFIG_HOME:-$HOME/.config}/powershell/Microsoft.PowerShell_profile.ps1
 # =============================================================================
 
 # Vim
