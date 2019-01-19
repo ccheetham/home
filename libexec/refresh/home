@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+python=python
+type $python >/dev/null || python=python3
+type $python >/dev/null || python=python2
+type $python >/dev/null || die "python not found"
+
+src_dir=$basedir
+tgt_dir=$HOME
+rel_path=$($python -c "import os.path; print(os.path.relpath('$src_dir', '$tgt_dir'))")
+
+msg "installing into $tgt_dir"
+for src_path in $(/bin/ls -A $src_dir); do
+    msg "linking $src_path"
+    rm -rf $tgt_dir/$src_path
+    ln -s $rel_path/$src_path $tgt_dir/$src_path
+done
