@@ -7,6 +7,7 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     source ~/var/repo/vim-plug/plug.vim
     call plug#begin("~/.vim/me/plugins")
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
+    Plug 'itchyny/lightline.vim'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'majutsushi/tagbar'
@@ -15,8 +16,6 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'vim-scripts/bats.vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-surround'
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'

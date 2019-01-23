@@ -18,6 +18,7 @@ nmap <silent><leader>ep :edit ~/.vim/me/plugins.vim<cr>
 
 source ~/.vim/me/plugins.vim
 source ~/.vim/me/colorscheme.vim
+source ~/.vim/me/lightline.vim
 source ~/.vim/me/startup.vim
 source ~/.vim/me/editing.vim
 source ~/.vim/me/command.vim
