@@ -28,7 +28,7 @@ alias ll='ls -lh'
 alias l1='ls -1'
 alias lF='ls *(.)'
 alias lD='ls -d *(/)'
-alias la='ls -a'
+alias la='ls -A'
 if ls -@ > /dev/null 2>&1 ; then
     alias l@='ll -@'
 fi
