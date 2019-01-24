@@ -2,7 +2,7 @@
 # Pivotal Steeltoe
 # =============================================================================
 
-STEELTOE_REPOS=~/src/SteeltoeOSS
+STEELTOE_REPOS=~/src/steeltoe
 
 alias sts='cd $STEELTOE_REPOS/Samples'
 alias stt='cd $STEELTOE_REPOS/Tooling'
