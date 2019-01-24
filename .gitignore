@@ -160,6 +160,11 @@
 # Docker
 /.docker
 
+# JetBrains products
+/.IntelliJ*
+/.PyCharm*
+/.Rider*
+
 # VirtualBox
 /VirtualBox VMs
 
