@@ -16,11 +16,11 @@ if ($IsWindows) {
 }
 
 # Git
-set-alias   g       git
-function    gg      { & g status $args }
+set-alias g  git
+function gg { g status $args }
 
 # Docker
-set-alias   d       docker
-function    drun    { d run -it --rm $args }
+set-alias d docker
+function drun { d run -it --rm $args }
 
 # vim: ft=ps1
