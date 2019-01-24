@@ -199,3 +199,6 @@
 
 # SCDF
 /.scdf
+
+# GemFire/Geode
+/.geode
