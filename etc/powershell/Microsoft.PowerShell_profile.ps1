@@ -11,7 +11,9 @@ if (!($IsWindows)) {
 }
 
 # Vim
-set-alias   vi      gvim
+if ($IsWindows) {
+    set-alias vi gvim
+}
 
 # Git
 set-alias   g       git
