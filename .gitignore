@@ -35,6 +35,9 @@
 /Templates
 /Videos
 
+# Zsh
+/.zcompdump
+
 # OS X
 .CFUserTextEncoding
 .DS_Store
