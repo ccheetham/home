@@ -6,12 +6,13 @@
 # =============================================================================
 
 # PowerShell settings
-if (!($IsWindows)) {
+if ([System.Environment]::OSVersion.Platform -Eq 'Unix') {
     Set-PSReadLineOption -HistorySavePath $env:XDG_CACHE_HOME/powershell/History
 }
 
 # Vim
-if ($IsWindows) {
+
+if ([System.Environment]::OSVersion.Platform -Like 'Win*') {
     set-alias vi gvim
 }
 
