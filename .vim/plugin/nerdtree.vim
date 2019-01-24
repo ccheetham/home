@@ -4,5 +4,5 @@
 " ============================================================================
 
 let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
-let NERDTreeBookmarksFile = $HOME . '/.vim/nerdtree_bookmarks'
+let NERDTreeBookmarksFile = expand('~/var/vim/bookmarks')
 map <silent><leader><leader> :NERDTreeToggle<cr>
