@@ -1,1 +1,8 @@
-fusion
+.mono/
+chromium/
+gtk-2.0/
+NuGet/
+Slack/
+xfce4/
+wireshark/
+xbuild/

@@ -1,10 +1,14 @@
 # =============================================================================
-# Powershell profile
+# PowerShell profile
 # ------------------------------------------------------------------------------
-# to use
-#   * windows:  mklink $profile $home\.powershellrc
-#   * posix:    ln -s ~/.powershellrc ${XDG_CONFIG_HOME:-$HOME/.config}/powershell/Microsoft.PowerShell_profile.ps1
+# to use on windows (may need Developer mode enabled or run as Administrator):
+#   PS > cmd /c mklink $profile $home\etc\powershell\Microsoft.PowerShell_profile.ps1
 # =============================================================================
+
+# PowerShell settings
+if (!($IsWindows)) {
+    Set-PSReadLineOption -HistorySavePath $env:XDG_CACHE_HOME/powershell/History
+}
 
 # Vim
 set-alias   vi      gvim
