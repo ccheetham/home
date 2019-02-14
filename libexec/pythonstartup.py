@@ -2,22 +2,20 @@
 # startup actions upon entering Python's interactive interpreter
 # ===========================================================================
 
-# commonly needed modules
 import platform
 import re
 import os
-path = os.path
+import os.path as path
 import shutil
 import subprocess
 import sys
 
-# command history
 try:
     import readline, atexit
     histdir = os.path.join(os.environ['ME_CACHE_DIR'], 'python')
     try:
         os.makedirs(histdir)
-    except FileExistsError:
+    except:
         pass
     histfile = os.path.join(histdir, 'history')
     if os.path.exists(histfile):
