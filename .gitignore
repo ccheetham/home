@@ -214,3 +214,6 @@
 
 # GemFire/Geode
 /.geode
+
+# tcServer
+/.tcruntime-admin.properties
