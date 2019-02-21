@@ -9,6 +9,7 @@ set viminfo='10,\"100,:20,%,n~/var/vim/viminfo
 if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     source ~/var/repo/vim-plug/plug.vim
     call plug#begin($XDG_CACHE_HOME.'/vim/plugins')
+    Plug 'sheerun/vim-polyglot',
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
     Plug 'itchyny/lightline.vim'
     Plug 'ntpeters/vim-better-whitespace'
@@ -21,10 +22,6 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'vim-scripts/bats.vim'
     Plug 'tpope/vim-surround'
     Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
-    Plug 'elzr/vim-json'
-    Plug 'PProvost/vim-ps1'
-    Plug 'OrangeT/vim-csharp'
     Plug 'luan/vim-concourse'
     call plug#end()
 else
