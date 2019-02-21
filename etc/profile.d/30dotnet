@@ -4,7 +4,7 @@
 # https://www.microsoft.com/net/
 # =============================================================================
 
-ME_DOTNET_VERSIONS=(2.1.302 2.1.403)
+ME_DOTNET_VERSIONS=(2.2.103 2.1.503)
 export DOTNET_ROOT=$ME_PLATFORM_TOOL_DIR/opt/dotnet-sdk
 
 ME_PATH+=:~/.dotnet/tools:$DOTNET_ROOT
