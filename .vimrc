@@ -24,6 +24,8 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     Plug 'tpope/vim-surround'
     Plug 'godlygeek/tabular'
     Plug 'luan/vim-concourse'
+    Plug 'w0rp/ale'
+    Plug 'maximbaz/lightline-ale'
     call plug#end()
 else
     echo "vim-plug repo not found; try 'refresh vim'"
