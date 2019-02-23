@@ -10,6 +10,7 @@ if filereadable(expand("~/var/repo/vim-plug/plug.vim"))
     source ~/var/repo/vim-plug/plug.vim
     call plug#begin($XDG_CACHE_HOME.'/vim/plugins')
     Plug 'sheerun/vim-polyglot',
+    Plug 'editorconfig/editorconfig-vim'
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
     Plug 'itchyny/lightline.vim'
     Plug 'ntpeters/vim-better-whitespace'
