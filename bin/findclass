@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pgm=$(basename $0)
+prog=$(basename $0)
 source ~/libexec/sh_functions
 
 usage() {
