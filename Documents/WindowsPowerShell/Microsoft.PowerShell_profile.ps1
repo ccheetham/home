@@ -1,8 +1,5 @@
 # =============================================================================
 # PowerShell profile
-# ------------------------------------------------------------------------------
-# to use on windows (may need Developer mode enabled or run as Administrator):
-#   PS > cmd /c mklink $profile $home\etc\powershell\Microsoft.PowerShell_profile.ps1
 # =============================================================================
 
 # PowerShell settings
