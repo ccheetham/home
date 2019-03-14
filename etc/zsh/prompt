@@ -67,6 +67,7 @@ mep-divider() {
     echo -en '\033[38;5;238m'
     repeat $(tput cols) echo -n '.'
     echo -en '\033[0m'
+    echo
 }
 
 PROMPT='$(mep-divider)
