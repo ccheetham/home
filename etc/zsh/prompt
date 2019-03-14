@@ -22,7 +22,6 @@ case $TERM in
         mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
         mep_color[err]='%F{red}'        # err: something really bad
         mep_color[hl]='%F{cyan}'        # hl: highlight
-        mep_color[subtle]='%F{238}'    # subtle: just a tad brighter than background
         ;;
 esac
 
@@ -65,13 +64,19 @@ mep-venv() {
 }
 
 mep-divider() {
-    print "${mep_color[subtle]}$(repeat $(tput cols) echo -n '.')%f"
+    echo -en '\033[38;5;238m'
+    repeat $(tput cols) echo -n '.'
+    echo -en '\033[0m'
 }
 
 PROMPT='$(mep-divider)
 $(mep-git)$(mep-venv)$(mep-jobs)$(mep-rc)
 $(mep-path)
 %# '
+
+preexec() {
+    mep-divider
+}
 
 # -----------------------------------------------------------------------------
 # terminal title
