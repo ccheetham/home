@@ -37,15 +37,15 @@ vmstart() {
         echo "$0 name"
         return 1
     fi
-    $ME_VMMGR -T ws start "$(fvmx $1)"
+    $ME_VMMGR -T ws start "$(fvmx $1)" nogui
 }
 
 vmstop() {
-    if [[ $# != 1 ]]; then
+    if [ $# -lt 1 ]; then
         echo "$0 name"
         return 1
     fi
-    $ME_VMMGR -T ws stop "$(fvmx $1)"
+    $ME_VMMGR -T ws stop "$(fvmx $1)" $2
 }
 
 vmreset() {
