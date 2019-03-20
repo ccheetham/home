@@ -50,6 +50,7 @@
 .nfs*
 
 # X11
+/.ICEauthority
 /.Xauthority
 /.serverauth.*
 /.xsession*
