@@ -113,6 +113,9 @@
 # Perl
 /.cpan
 
+# Erlang
+/.erlang.cookie
+
 # Gradle
 /.gradle
 
