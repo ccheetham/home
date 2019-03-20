@@ -1,5 +1,6 @@
 .mono/
 chromium/
+configstore/
 gtk-2.0/
 NuGet/
 Slack/
