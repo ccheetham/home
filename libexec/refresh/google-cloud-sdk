@@ -51,12 +51,12 @@ link () {
 
 main () {
     hdr refreshing gcloud
-    local destdir=$(dirname $ME_GCLOUD_DIR)
-    for version in $ME_GCLOUD_VERSIONS
+    local destdir=$(dirname $ME_GCLOUD_SDK_DIR)
+    for version in $ME_GCLOUD_SDK_VERSIONS
     do
         install_version $destdir $version
     done
-    link $destdir/google-cloud-sdk ${ME_GCLOUD_VERSIONS[1]}
+    link $destdir/google-cloud-sdk ${ME_GCLOUD_SDK_VERSIONS[1]}
 }
 
 main $@
