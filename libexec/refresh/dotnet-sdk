@@ -7,12 +7,12 @@ source $ME_LIBEXEC_DIR/sh_functions
 
 main () {
     hdr refreshing dotnet
-    local destdir=$ME_PLATFORM_TOOL_DIR/opt
-    for version in $ME_DOTNET_VERSIONS
+    local destdir=$ME_PLATFORM_TOOL_DIR
+    for version in $ME_DOTNET_SDK_VERSIONS
     do
         install_version $destdir $version
     done
-    link $destdir/dotnet-sdk $ME_DOTNET_VERSIONS[1]
+    link $destdir/dotnet-sdk $ME_DOTNET_SDK_VERSIONS[1]
 }
 
 install_version () {
