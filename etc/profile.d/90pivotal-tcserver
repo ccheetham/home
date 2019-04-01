@@ -5,6 +5,7 @@
 TCS_QA=~/src/appsuite/tcs-tc-server-qa
 
 alias tcd='cd $TCS_QA'
+alias ftcs='fly --target tcs'
 
 tmtcs() {
     if ! tmux a -t tcsqa
