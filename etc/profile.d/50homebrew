@@ -17,6 +17,9 @@ brsync() {
     br cleanup
 }
 
+ME_HOMEBREW=$ME_PLATFORM_TOOL_DIR/homebrew.2
+ME_PATH+=:$ME_PLATFORM_TOOL_DIR/homebrew/bin
+
 # TODO: this isn't brew specific
 if [[ $ME_OS == osx ]]; then
     fpath=(/usr/local/share/zsh-completions $fpath)

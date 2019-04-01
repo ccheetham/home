@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+echo refreshing homebrew $ME_HOMEBREW
+
+[ -d $ME_HOMEBREW ] && die "homebrew directory already exists: $ME_HOMEBREW"
+
+mkdir -p $ME_HOMEBREW
+curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $ME_HOMEBREW
