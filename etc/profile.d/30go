@@ -5,8 +5,9 @@
 # =============================================================================
 
 ME_GO_VERSIONS=(1.12.1)
-export GOPATH=$ME_PLATFORM_TOOL_DIR/go
+export GOROOT=$ME_PLATFORM_TOOL_DIR/go
+export GOPATH=$ME_PLATFORM_TOOL_DIR/go-packages
 
-ME_PATH+=:$ME_PLATFORM_TOOL_DIR/go/bin
+ME_PATH+=:$GOPATH/bin:$GOROOT/bin
 
 # vim: ft=zsh
