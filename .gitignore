@@ -79,8 +79,10 @@
 
 # work
 /.pivotal
+
 # bash
 /.bash_history
+/.bash_local
 
 # vim
 *.swp
