@@ -4,6 +4,6 @@ to change user id:
 
 to change group id:
   * use Users and Groups in System Preferences to create a group
-  # dscl . -read /Users/Joe UniqueID
+  # dscl . -read /Users/ccheetham UniqueID
     UniqueID: 501
-  # dscl . -change /Users/Joe UniqueID 501 1234
+  # dscl . -change /Users/ccheetham UniqueID 501 2001
