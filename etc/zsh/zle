@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # ===========================================================================
 # Z-Shell Line Editor (ZLE) configuration
 # ---------------------------------------------------------------------------
@@ -21,3 +19,5 @@ bindkey "^[[B"   down-line-or-search   # down arrow searches down
 # ---------------------------------------------------------------------------
 
 WORDCHARS=${WORDCHARS//[\/-{}]}    # remove "/" so word kills stop at path sep
+
+# vim: ft=zsh
