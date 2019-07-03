@@ -84,8 +84,10 @@
 /.bash_history
 /.bash_local
 
-# vim
+# Vim
 *.swp
+/_vimrc
+/vimfiles
 
 # utils
 /.htoprc
