@@ -7,6 +7,8 @@ for usrdir in /usr /usr/local; do
         touch ~/.antigen/debug.log
       fi
       source $usrdir/share/$agdir/antigen.zsh
+      antigen use oh-my-zsh
+      antigen theme robbyrussell
       antigen bundle zsh-users/zsh-syntax-highlighting
       antigen apply
     fi
