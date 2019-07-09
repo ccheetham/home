@@ -21,36 +21,42 @@ install_version () {
   local major=$(echo $2 | cut -d: -f1)
   local version=$(echo $2 | cut -d: -f2)
   local build=$(echo $2 | cut -d: -f3)
-  msg "installing jdk $version"
   local platform=
   case $ME_PLATFORM in
     linux-x64)
       platform=linux
       ;;
+    osx-x64)
+      if [[ $major == 10 ]] || [[ $major == 9 ]]; then
+        msg "jdk $major not available for $ME_PLATFORM"
+        return
+      fi
+      platform=mac
+      ;;
     *)
       die "unsupported platform: $ME_PLATFORM"
       ;;
   esac
+  msg "installing jdk $version"
   local distfile=
   local disturl=
   case $major in
     12|11)
-      distfile=OpenJDK${major}U-jdk_x64_linux_openj9_$(echo $version | tr '+' '_')_openj9-${build}.tar.gz
+      distfile=OpenJDK${major}U-jdk_x64_${platform}_openj9_$(echo $version | tr '+' '_')_openj9-${build}.tar.gz
       disturl=https://github.com/AdoptOpenJDK/openjdk${major}-binaries/releases/download/jdk-${version}_openj9-${build}/${distfile}
       ;;
     10|9)
-      distfile=OpenJDK${major}-OPENJ9_x64_Linux_jdk-$(echo $version | tr '+' '.')_openj9-${build}.tar.gz
+      distfile=OpenJDK${major}-OPENJ9_x64_${platform}_jdk-$(echo $version | tr '+' '.')_openj9-${build}.tar.gz
       disturl=https://github.com/AdoptOpenJDK/openjdk${major}-openj9-releases/releases/download/jdk-${version}_openj9-${build}/${distfile}
       ;;
     8)
-      distfile=OpenJDK${major}U-jdk_x64_linux_openj9_$(echo $version | tr -d '-')_openj9-${build}.tar.gz
+      distfile=OpenJDK${major}U-jdk_x64_${platform}_openj9_$(echo $version | tr -d '-')_openj9-${build}.tar.gz
       disturl=https://github.com/AdoptOpenJDK/openjdk${major}-binaries/releases/download/jdk${version}_openj9-${build}/${distfile}
       ;;
     *)
       die "don't know how to refresh jdk ${major}"
       ;;
   esac
-  local
   msg "fetching $disturl"
   wget --continue -P $ME_DISTFILE_DIR $disturl
   msg "extracting $distfile"
@@ -62,6 +68,7 @@ install_version () {
   local jdk=jdk
   [[ $major != 8 ]] && jdk+='-'
   jdk+=${version}
+  [[ $ME_PLATFORM == osx-x64 ]] && jdk+='/Contents/Home'
   ln -s $jdk $link
 }
 
