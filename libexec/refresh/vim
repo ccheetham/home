@@ -1,9 +1,3 @@
 #!/usr/bin/env zsh
 
-# mkdir -p $ME/.vim/autoload
-# rm -f $ME/.vim/autoload/plug.vim
-# ln -s ../../var/repo/vim-plug/plug.vim $ME/.vim/autoload/plug.vim
-
 vim +PlugUpdate +qall
-
-# vim: ft=zsh

@@ -5,7 +5,9 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
-echo refreshing homebrew $ME_HOMEBREW
+set -e
+
+msg "refreshing homebrew $ME_HOMEBREW"
 
 [ -d $ME_HOMEBREW ] && die "homebrew directory already exists: $ME_HOMEBREW"
 

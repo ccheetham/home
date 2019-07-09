@@ -5,38 +5,37 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
+set -e
+
 main () {
-    hdr refreshing groovy
-    local destdir=$ME_TOOL_DIR/opt
-    for version in $ME_GROOVY_VERSIONS
-    do
-        install_version $destdir $version || exit
-    done
-    link_default $destdir $ME_GROOVY_VERSIONS[1] || exit
+  hdr refreshing groovy
+  local destdir=$ME_TOOL_DIR/opt
+  for version in $ME_GROOVY_VERSIONS; do
+    install_version $destdir $version || exit
+  done
+  link_default $destdir $ME_GROOVY_VERSIONS[1] || exit
 }
 
 install_version () {
-    local destdir=$1
-    local version=$2
-    local distfile=apache-groovy-binary-$version.zip
-    local disturl=https://dl.bintray.com/groovy/maven/$distfile
-    msg installing groovy $version
-    msg fetching $disturl
-    wget --continue -P $ME_DISTFILE_DIR $disturl || return
-    msg extracting $distfile
-    mkdir -p $destdir || return
-    rm -rf $destdir/groovy-$version
-    unzip -qo $ME_DISTFILE_DIR/$distfile -d $destdir || return
+  local destdir=$1
+  local version=$2
+  local distfile=apache-groovy-binary-$version.zip
+  local disturl=https://dl.bintray.com/groovy/maven/$distfile
+  msg installing groovy $version
+  msg fetching $disturl
+  wget --continue -P $ME_DISTFILE_DIR $disturl || return
+  msg extracting $distfile
+  mkdir -p $destdir || return
+  rm -rf $destdir/groovy-$version
+  unzip -qo $ME_DISTFILE_DIR/$distfile -d $destdir || return
 }
 
 link_default () {
-    local destdir=$1
-    local version=$2
-    msg linking default groovy to $version
-    rm -f $destdir/groovy || return
-    ln -s groovy-$version $destdir/groovy
+  local destdir=$1
+  local version=$2
+  msg linking default groovy to $version
+  rm -f $destdir/groovy || return
+  ln -s groovy-$version $destdir/groovy
 }
 
 main $@
-
-# vim: ft=zsh

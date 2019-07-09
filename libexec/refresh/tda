@@ -5,6 +5,8 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
+set -e
+
 version=$ME_TDA_VERSION
 disturl=https://github.com/irockel/tda/releases/download
 distfile=tda-bin-$version.zip
@@ -17,5 +19,3 @@ msg extracting $distfile
 rm -r $destdir || return
 mkdir -p $destdir || return
 unzip -qo $ME_DISTFILE_DIR/$distfile -d $destdir || return
-
-# vim: ft=zsh

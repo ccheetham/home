@@ -1,28 +1,31 @@
 #!/usr/bin/env zsh
 
-source $(dirname $0)/../sh_functions
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+set -e
 
 disturl=http://apache.mirrors.pair.com/tomcat
 versions=($ME_TOMCAT_VERSION_9 $ME_TOMCAT_VERSION_8 $ME_TOMCAT_VERSION_7)
-mkdir -p $ME_OPT_DIR || exit
+mkdir -p $ME_OPT_DIR
 for version in $versions ; do
-    echo refreshing tomcat version $version
-    dist=apache-tomcat-$version
-    distfile=$dist.tar.gz
-    echo ...fetching
-    wget --continue -P $ME_DISTFILE_DIR $disturl/tomcat-${version%%.*.*}/v${version}/bin/$distfile || exit
-    if [[ -d $ME_OPT_DIR/$dist ]] ; then
-        echo ...remove previous
-        rm -rf $ME_OPT_DIR/$dist
-    fi
-    echo ...extracting
-    gnutar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR || exit
-    echo ...linking
-    shortver=$(echo $version | awk -F. '{print $1$2}')
-    shortver=${shortver%%0}
-    link=$ME_OPT_DIR/apache-tomcat-$shortver
-    rm -f $link
-    ln -s $dist $link
+  msg "refreshing tomcat version $version"
+  dist=apache-tomcat-$version
+  distfile=$dist.tar.gz
+  msg "...fetching"
+  wget --continue -P $ME_DISTFILE_DIR $disturl/tomcat-${version%%.*.*}/v${version}/bin/$distfile
+  if [[ -d $ME_OPT_DIR/$dist ]] ; then
+    msg "...remove previous"
+    rm -rf $ME_OPT_DIR/$dist
+  fi
+  msg "...extracting"
+  gnutar xfz $ME_DISTFILE_DIR/$distfile -C $ME_OPT_DIR
+  msg "...linking"
+  shortver=$(echo $version | awk -F. '{print $1$2}')
+  shortver=${shortver%%0}
+  link=$ME_OPT_DIR/apache-tomcat-$shortver
+  rm -f $link
+  ln -s $dist $link
 done
-
-# vim: ft=zsh

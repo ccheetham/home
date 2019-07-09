@@ -5,11 +5,11 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
+set -e
+
 theme_url=https://raw.githubusercontent.com/mutantmonkey/dotfiles/master/task/zenburn-256.theme
 theme=$(basename $theme_url)
 
 msg fetching theme $theme
 rm -f $ME_DATA_DIR/task/theme.rc
 wget --continue -O $ME_DATA_DIR/task/theme.rc $theme_url
-
-# vim: ft=zsh

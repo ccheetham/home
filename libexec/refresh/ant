@@ -5,39 +5,38 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
+set -e
+
 main () {
-    hdr refreshing ant
-    local destdir=$ME_TOOL_DIR/opt
-    for version in $ME_ANT_VERSIONS
-    do
-        install_version $destdir $version || exit
-    done
-    link $destdir/apache-ant $ME_ANT_VERSIONS[1] || exit
+  hdr refreshing ant
+  local destdir=$ME_TOOL_DIR/opt
+  for version in $ME_ANT_VERSIONS; do
+    install_version $destdir $version || exit
+  done
+  link $destdir/apache-ant $ME_ANT_VERSIONS[1] || exit
 }
 
 install_version () {
-    local destdir=$1
-    local version=$2
-    local major=$(echo $version | cut -d. -f1)
-    local distfile=apache-ant-${version}-bin.tar.gz
-    local disturl=http://archive.apache.org/dist/ant/binaries/$distfile
-    msg installing ant $version
-    msg fetching $disturl
-    wget --continue -P $ME_DISTFILE_DIR $disturl || return
-    msg extracting $distfile
-    mkdir -p $destdir || return
-    rm -rf $destdir/apache-ant-$version
-    tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir || return
+  local destdir=$1
+  local version=$2
+  local major=$(echo $version | cut -d. -f1)
+  local distfile=apache-ant-${version}-bin.tar.gz
+  local disturl=http://archive.apache.org/dist/ant/binaries/$distfile
+  msg installing ant $version
+  msg fetching $disturl
+  wget --continue -P $ME_DISTFILE_DIR $disturl || return
+  msg extracting $distfile
+  mkdir -p $destdir || return
+  rm -rf $destdir/apache-ant-$version
+  tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir || return
 }
 
 link () {
-    local destdir=$1
-    local version=$2
-    msg linking default ant to $version
-    rm -f $destdir || return
-    ln -s apache-ant-$version $destdir
+  local destdir=$1
+  local version=$2
+  msg linking default ant to $version
+  rm -f $destdir || return
+  ln -s apache-ant-$version $destdir
 }
 
 main $@
-
-# vim: ft=zsh

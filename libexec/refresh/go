@@ -5,49 +5,48 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
+set -e
+
 main () {
-    hdr refreshing dotnet
-    for version in $ME_GO_VERSIONS
-    do
-        install_version $ME_PLATFORM_TOOL_DIR/go-$version $version
-    done
-    link $ME_PLATFORM_TOOL_DIR/go $ME_GO_VERSIONS[1]
+  hdr refreshing dotnet
+  for version in $ME_GO_VERSIONS; do
+    install_version $ME_PLATFORM_TOOL_DIR/go-$version $version
+  done
+  link $ME_PLATFORM_TOOL_DIR/go $ME_GO_VERSIONS[1]
 }
 
 install_version () {
-    local destdir=$1
-    local version=$2
-    msg installing dotnet $version
-    local platform=
-    case $ME_PLATFORM in
-        linux-x64)
-            platform=linux-amd64
-            ;;
-        osx-x64)
-            platform=darwin-amd64
-            ;;
-        *)
-            die "unsupported platform: $ME_PLATFORM"
-            ;;
-    esac
-    local distfile=go${version}.${platform}.tar.gz
-    local disturl=https://dl.google.com/go/${distfile}
-    msg fetching $disturl
-    wget --continue -P $ME_DISTFILE_DIR $disturl
-    msg extracting $distfile
-    rm -rf $destdir
-    mkdir -p $destdir
-    tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir --strip-components 1
+  local destdir=$1
+  local version=$2
+  msg installing dotnet $version
+  local platform=
+  case $ME_PLATFORM in
+    linux-x64)
+      platform=linux-amd64
+      ;;
+    osx-x64)
+      platform=darwin-amd64
+      ;;
+    *)
+      die "unsupported platform: $ME_PLATFORM"
+      ;;
+  esac
+  local distfile=go${version}.${platform}.tar.gz
+  local disturl=https://dl.google.com/go/${distfile}
+  msg fetching $disturl
+  wget --continue -P $ME_DISTFILE_DIR $disturl
+  msg extracting $distfile
+  rm -rf $destdir
+  mkdir -p $destdir
+  tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir --strip-components 1
 }
 
 link () {
-    local destdir=$1
-    local version=$2
-    msg linking default dotnet to $version
-    rm -f $destdir
-    ln -s go-$version $destdir
+  local destdir=$1
+  local version=$2
+  msg linking default dotnet to $version
+  rm -f $destdir
+  ln -s go-$version $destdir
 }
 
 main $@
-
-# vim: ft=zsh

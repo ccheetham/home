@@ -6,59 +6,58 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
+set -e
+
 gcloud_repo=https://dl.google.com/dl/cloudsdk/channels/rapid/downloads
 tmp_dir=${TMPDIR:-/tmp}
 
 install_version () {
-    local destdir=$1
-    local version=$2
-    msg installing gcloud $version
-    local platform=
-    case $ME_PLATFORM in
-        linux-x64)
-            platform=linux-x86_64
-            ;;
-        osx-x64)
-            platform=darwin-x86_64
-            ;;
-        *)
-            die "unsupported platform: $ME_PLATFORM"
-            ;;
-    esac
-    local dist=google-cloud-sdk-$version
-    local distfile=$dist-$platform.tar.gz
-    local disturl=$gcloud_repo/$distfile
-    msg fetching $disturl
-    wget --continue -O $ME_DISTFILE_DIR/$distfile $disturl
-    msg extracting $distfile
-    mkdir -p $destdir
-    local work_dir=$tmp_dir/refresh.$prog.$$
-    rm -rf $work_dir
-    mkdir - p $work_dir
-    tar xzf $ME_DISTFILE_DIR/$distfile -C $work_dir
-    rm -rf $destdir/google-cloud-sdk-$version
-    mv $work_dir/* $destdir/google-cloud-sdk-$version
-    rm -rf $work_dir
+  local destdir=$1
+  local version=$2
+  msg installing gcloud $version
+  local platform=
+  case $ME_PLATFORM in
+    linux-x64)
+      platform=linux-x86_64
+      ;;
+    osx-x64)
+      platform=darwin-x86_64
+      ;;
+    *)
+      die "unsupported platform: $ME_PLATFORM"
+      ;;
+  esac
+  local dist=google-cloud-sdk-$version
+  local distfile=$dist-$platform.tar.gz
+  local disturl=$gcloud_repo/$distfile
+  msg fetching $disturl
+  wget --continue -O $ME_DISTFILE_DIR/$distfile $disturl
+  msg extracting $distfile
+  mkdir -p $destdir
+  local work_dir=$tmp_dir/refresh.$prog.$$
+  rm -rf $work_dir
+  mkdir - p $work_dir
+  tar xzf $ME_DISTFILE_DIR/$distfile -C $work_dir
+  rm -rf $destdir/google-cloud-sdk-$version
+  mv $work_dir/* $destdir/google-cloud-sdk-$version
+  rm -rf $work_dir
 }
 
 link () {
-    local destdir=$1
-    local version=$2
-    msg linking default google-cloud-sdk to $version
-    rm -f $destdir
-    ln -s google-cloud-sdk-$version $destdir
+  local destdir=$1
+  local version=$2
+  msg linking default google-cloud-sdk to $version
+  rm -f $destdir
+  ln -s google-cloud-sdk-$version $destdir
 }
 
 main () {
-    hdr refreshing gcloud
-    local destdir=$(dirname $ME_GCLOUD_SDK_DIR)
-    for version in $ME_GCLOUD_SDK_VERSIONS
-    do
-        install_version $destdir $version
-    done
-    link $destdir/google-cloud-sdk ${ME_GCLOUD_SDK_VERSIONS[1]}
+  hdr refreshing gcloud
+  local destdir=$(dirname $ME_GCLOUD_SDK_DIR)
+  for version in $ME_GCLOUD_SDK_VERSIONS; do
+    install_version $destdir $version
+  done
+  link $destdir/google-cloud-sdk ${ME_GCLOUD_SDK_VERSIONS[1]}
 }
 
 main $@
-
-# vim: ft=zsh

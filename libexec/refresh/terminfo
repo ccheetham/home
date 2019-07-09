@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
-for tinfo in $ME_DATA_DIR/terminfo/*
-do
-    tic $tinfo
-done
+set -e
 
-# vim: ft=zsh
+for tinfo in $ME_DATA_DIR/terminfo/*; do
+  tic $tinfo
+done
