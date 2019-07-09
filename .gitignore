@@ -37,6 +37,7 @@
 
 # Zsh
 /.zcompdump
+/.antigen
 
 # OS X
 .CFUserTextEncoding
