@@ -1,0 +1,79 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+set -e
+
+main () {
+    hdr refreshing jdk
+    local destdir=$ME_PLATFORM_TOOL_DIR
+    for version in $ME_JAVA_SDK_VERSIONS
+    do
+        install_version $destdir $version
+    done
+    link $destdir/jdk $ME_JAVA_SDK_VERSIONS[1]
+}
+
+install_version () {
+    local destdir=$1
+    local major=$(echo $2 | cut -d: -f1)
+    local version=$(echo $2 | cut -d: -f2)
+    local build=$(echo $2 | cut -d: -f3)
+    msg "installing jdk $version"
+    local platform=
+    case $ME_PLATFORM in
+        linux-x64)
+            platform=linux
+            ;;
+        *)
+            die "unsupported platform: $ME_PLATFORM"
+            ;;
+    esac
+    local distfile=
+    local disturl=
+    case $major in
+        12|11)
+            distfile=OpenJDK${major}U-jdk_x64_linux_openj9_$(echo $version | tr '+' '_')_openj9-${build}.tar.gz
+            disturl=https://github.com/AdoptOpenJDK/openjdk${major}-binaries/releases/download/jdk-${version}_openj9-${build}/${distfile}
+            ;;
+        10|9)
+            distfile=OpenJDK${major}-OPENJ9_x64_Linux_jdk-$(echo $version | tr '+' '.')_openj9-${build}.tar.gz
+            disturl=https://github.com/AdoptOpenJDK/openjdk${major}-openj9-releases/releases/download/jdk-${version}_openj9-${build}/${distfile}
+            ;;
+        8)
+            distfile=OpenJDK${major}U-jdk_x64_linux_openj9_$(echo $version | tr -d '-')_openj9-${build}.tar.gz
+            disturl=https://github.com/AdoptOpenJDK/openjdk${major}-binaries/releases/download/jdk${version}_openj9-${build}/${distfile}
+            ;;
+        *)
+            die "don't know how to refresh jdk ${major}"
+            ;;
+    esac
+    local
+    msg "fetching $disturl"
+    wget --continue -P $ME_DISTFILE_DIR $disturl
+    msg "extracting $distfile"
+    mkdir -p $destdir
+    rm -rf $destdir/jdk$version
+    tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir
+    local link=${destdir}/jdk-${major}
+    rm -f $link
+    local jdk=jdk
+    [[ $major != 8 ]] && jdk+='-'
+    jdk+=${version}
+    ln -s $jdk $link
+}
+
+link () {
+    local link=$1
+    local major=$(echo $2 | cut -d: -f1)
+    msg "linking default jdk to $major"
+    rm -f $link
+    ln -s jdk-$major $link
+}
+
+main $@
+
+# vim: ft=zsh
