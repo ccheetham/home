@@ -1,88 +1,88 @@
-# =============================================================================
-# zsh prompt
-# =============================================================================
+# # =============================================================================
+# # zsh prompt
+# # =============================================================================
 
-# -----------------------------------------------------------------------------
-# NOTE:
-#     functions et al are visible in the global namespace
-#     prefix with "mep" to avoid potential collisions
-# -----------------------------------------------------------------------------
+# # -----------------------------------------------------------------------------
+# # NOTE:
+# #     functions et al are visible in the global namespace
+# #     prefix with "mep" to avoid potential collisions
+# # -----------------------------------------------------------------------------
 
-# -----------------------------------------------------------------------------
-# color and symbol conveniences
-# -----------------------------------------------------------------------------
+# # -----------------------------------------------------------------------------
+# # color and symbol conveniences
+# # -----------------------------------------------------------------------------
 
-typeset -A mep_color
-case $TERM in
-  screen*|tmux*|xterm*)
-    mep_color[prompt]='%F{75}'    # prompt: non-message artifacts
-    mep_color[info]='%F{138}'     # info: normal
-    mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
-    mep_color[err]='%F{red}'        # err: something really bad
-    mep_color[hl]='%F{cyan}'        # hl: highlight
-    ;;
-esac
+# typeset -A mep_color
+# case $TERM in
+#   screen*|tmux*|xterm*)
+#     mep_color[prompt]='%F{75}'    # prompt: non-message artifacts
+#     mep_color[info]='%F{138}'     # info: normal
+#     mep_color[warn]='%F{yellow}'    # warn: something bad, but not too much so
+#     mep_color[err]='%F{red}'        # err: something really bad
+#     mep_color[hl]='%F{cyan}'        # hl: highlight
+#     ;;
+# esac
 
-# -----------------------------------------------------------------------------
-# left prompt
-# -----------------------------------------------------------------------------
+# # -----------------------------------------------------------------------------
+# # left prompt
+# # -----------------------------------------------------------------------------
 
-function mep-path {
-  print "${mep_color[prompt]}%~%f"
-}
+# function mep-path {
+#   print "${mep_color[prompt]}%~%f"
+# }
 
-function mep-rc {
-  print "%(?,,${mep_color[warn]}[rc:%?]%f )"
-}
+# function mep-rc {
+#   print "%(?,,${mep_color[warn]}[rc:%?]%f )"
+# }
 
-function mep-jobs {
-  print "%(1j,${mep_color[info]}[j:%j]%f ,)"
-}
+# function mep-jobs {
+#   print "%(1j,${mep_color[info]}[j:%j]%f ,)"
+# }
 
-function mep-git {
-  local git_stat=$(git status 2> /dev/null | head -1)
-  local git_blurb=
-  case $git_stat in
-    "On branch"*)
-      git_blurb=$(echo $git_stat | cut -d' ' -f3)
-      ;;
-    "rebase in progress"*)
-      git_blurb="rebase"
-      ;;
-    *detached*)
-      tag=$(echo $git_stat | awk '{print $4}')
-      git_blurb="$tag/T"
-      ;;
-  esac
-  [[ -n $git_blurb ]] && print "${mep_color[info]}[g:${git_blurb}]%f "
-}
+# function mep-git {
+#   local git_stat=$(git status 2> /dev/null | head -1)
+#   local git_blurb=
+#   case $git_stat in
+#     "On branch"*)
+#       git_blurb=$(echo $git_stat | cut -d' ' -f3)
+#       ;;
+#     "rebase in progress"*)
+#       git_blurb="rebase"
+#       ;;
+#     *detached*)
+#       tag=$(echo $git_stat | awk '{print $4}')
+#       git_blurb="$tag/T"
+#       ;;
+#   esac
+#   [[ -n $git_blurb ]] && print "${mep_color[info]}[g:${git_blurb}]%f "
+# }
 
-function mep-venv {
-  [[ -n $VIRTUAL_ENV ]] && print "${mep_color[info]}[p:$(basename $VIRTUAL_ENV)]%f "
-}
+# function mep-venv {
+#   [[ -n $VIRTUAL_ENV ]] && print "${mep_color[info]}[p:$(basename $VIRTUAL_ENV)]%f "
+# }
 
-function mep-divider {
-  echo -en '\033[38;5;238m'
-  repeat $(tput cols) echo -n '.'
-  echo -en '\033[0m'
-  echo
-}
+# function mep-divider {
+#   echo -en '\033[38;5;238m'
+#   repeat $(tput cols) echo -n '.'
+#   echo -en '\033[0m'
+#   echo
+# }
 
-PROMPT='$(mep-divider)
-$(mep-git)$(mep-venv)$(mep-jobs)$(mep-rc)
-$(mep-path)
-%# '
+# PROMPT='$(mep-divider)
+# $(mep-git)$(mep-venv)$(mep-jobs)$(mep-rc)
+# $(mep-path)
+# %# '
 
-function preexec {
-  mep-divider
-}
+# function preexec {
+#   mep-divider
+# }
 
-# -----------------------------------------------------------------------------
-# terminal title
-# -----------------------------------------------------------------------------
+# # -----------------------------------------------------------------------------
+# # terminal title
+# # -----------------------------------------------------------------------------
 
-function precmd {
-  [[ $TERM == xterm* ]] && print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
-}
+# function precmd {
+#   [[ $TERM == xterm* ]] && print -Pn "\e]0;"${XTITLE:-%n@%m}"\a"
+# }
 
-# vim: ft=zsh
+# # vim: ft=zsh

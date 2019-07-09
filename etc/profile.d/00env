@@ -159,7 +159,7 @@ me() {
 
 reenv() {
     source ~/.zshenv
-    source ~/.zshrc
+    source ~/etc/profile
 }
 
 # vim: ft=zsh
