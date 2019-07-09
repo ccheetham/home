@@ -5,6 +5,8 @@ basedir=$(dirname $0)/../..
 source $basedir/etc/profile
 source $ME_LIBEXEC_DIR/sh_functions
 
+OPENJDK_REPO=https://github.com/adoptopenjdk
+
 set -e
 
 main () {
@@ -41,17 +43,17 @@ install_version () {
   local distfile=
   local disturl=
   case $major in
-    12|11)
-      distfile=OpenJDK${major}U-jdk_x64_${platform}_openj9_$(echo $version | tr '+' '_')_openj9-${build}.tar.gz
-      disturl=https://github.com/AdoptOpenJDK/openjdk${major}-binaries/releases/download/jdk-${version}_openj9-${build}/${distfile}
+    12|11|9)
+      distfile=openjdk${major}u-jdk_x64_${platform}_hotspot_$(echo $version | tr '+' '_').tar.gz
+      disturl=${OPENJDK_REPO}/openjdk${major}-binaries/releases/download/jdk-${version}/${distfile}
       ;;
-    10|9)
-      distfile=OpenJDK${major}-OPENJ9_x64_${platform}_jdk-$(echo $version | tr '+' '.')_openj9-${build}.tar.gz
-      disturl=https://github.com/AdoptOpenJDK/openjdk${major}-openj9-releases/releases/download/jdk-${version}_openj9-${build}/${distfile}
+    10)
+      distfile=openjdk${major}_x64_${platform}_jdk-${version}.tar.gz
+      disturl=${OPENJDK_REPO}/openjdk${major}-releases/releases/download/jdk-${version}/${distfile}
       ;;
     8)
-      distfile=OpenJDK${major}U-jdk_x64_${platform}_openj9_$(echo $version | tr -d '-')_openj9-${build}.tar.gz
-      disturl=https://github.com/AdoptOpenJDK/openjdk${major}-binaries/releases/download/jdk${version}_openj9-${build}/${distfile}
+      distfile=openjdk${major}u-jdk_x64_${platform}_hotspot_$(echo $version | tr -d '-').tar.gz
+      disturl=${OPENJDK_REPO}/openjdk${major}-binaries/releases/download/jdk${version}/${distfile}
       ;;
     *)
       die "don't know how to refresh jdk ${major}"
