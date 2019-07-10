@@ -5,7 +5,7 @@ autoload colors;            colors
 for z in $ME_ZSH_CONFIG_DIR/* ; do
     source $z
 done
-for usrdir in /usr /usr/local; do
+for usrdir in /usr/local /usr; do
   for agdir in antigen zsh-antigen; do
     if [ -f $usrdir/share/$agdir/antigen.zsh ]; then
       if [ ! -d ~/.antigen ]; then
@@ -17,6 +17,7 @@ for usrdir in /usr /usr/local; do
       antigen theme robbyrussell
       antigen bundle zsh-users/zsh-syntax-highlighting
       antigen apply
+      break 2
     fi
   done
 done
