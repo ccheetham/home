@@ -15,23 +15,14 @@ if [[ solaris == $ME_OS ]] ; then
     ME_MANPATH+=:/usr/gnu/share/man
 fi
 
-if [[ -d /etc/paths.d ]]
-then
-    for f in /etc/paths.d/*
-    do
-        ME_PATH+=:$(cat $f)
-    done
-fi
-
 ME_PATH+=:/usr/bin:/bin
 ME_PATH+=:/usr/sbin:/sbin
 ME_MANPATH+=:/usr/share/man
 
-PATH=$ME_PATH
-MANPATH=$ME_MANPATH
+source /etc/profile
 
-# following disabled because it messes up brew; left comnented for doc purposes
-#ve me
+PATH=$ME_PATH:$PATH
+MANPATH=$ME_MANPATH:$MANPATH
 
 rehash
 
