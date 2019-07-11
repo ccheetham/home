@@ -40,9 +40,13 @@
 /.antigen
 
 # OS X
+.fseventsd
 .CFUserTextEncoding
 .DS_Store
 .Trash
+.Trashes
+.Spotlight-*
+.VolumeIcon.icns
 
 # terminals
 /.terminfo
