@@ -37,7 +37,7 @@
 
 # Zsh
 /.zcompdump
-/.antigen
+/.zfunctions
 
 # OS X
 .fseventsd
