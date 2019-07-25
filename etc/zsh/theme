@@ -1,8 +1,9 @@
 # =============================================================================
-# zsh prompt
+# zsh theme
 # =============================================================================
 
 pure=$ME_REPO_DIR/pure
+zsh_syntax_highlighting=$ME_REPO_DIR/zsh-syntax-highlighting
 
 if [ -d $pure ]; then
   ln -sf $pure/pure.zsh $ME/.zfunctions/prompt_pure_setup
@@ -12,7 +13,14 @@ if [ -d $pure ]; then
   zstyle :prompt:pure:git:arrow color 215
   prompt pure
 else
-  echo "pure prompt not installed; run 'refresh repo'"
+  echo "$(basename $pure) not installed; run 'refresh repo'"
+fi
+
+# sysntax highlighting should be last sourced
+if [ -d $zsh_syntax_highlighting ]; then
+  source $zsh_syntax_highlighting/zsh-syntax-highlighting.zsh
+else
+  echo "$(basename $zsh_syntax_highlighting) not installed; run 'refresh repo'"
 fi
 
 # vim: ft=zsh
