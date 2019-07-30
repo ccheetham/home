@@ -7,6 +7,20 @@ TCS_QA=~/src/appsuite/tcs-tc-server-qa
 alias tcd='cd $TCS_QA'
 alias ftcs='fly --target tcs'
 
+ME_PATH+=:$TCS_QA/bin
+
+tcskill() {
+    pids=$(jps -l | grep org.apache.catalina.startup.Bootstrap | awk '{print $1}')
+    if [ -z "$pids" ]; then
+        echo "no running tcRuntime instances detected"
+        return
+    fi
+    for pid in $pids; do
+        echo killing $pid
+        kill $pid
+    done
+}
+
 tmtcs() {
     if ! tmux a -t tcsqa
     then
