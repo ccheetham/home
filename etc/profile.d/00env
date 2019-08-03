@@ -22,122 +22,122 @@ export ME_DISTRO_ARCH=unknown
 export ME_PLATFORM=unknown
 
 case $OSTYPE in
-    cygwin)
-        ME_OS=cygwin
-        ;;
-    darwin*)
-        ME_OS=osx
-        ;;
-    *bsd*)
-        ME_OS=bsd
-        ;;
-    linux*)
-        ME_OS=linux
-        ;;
-    solaris*)
-        ME_OS=solaris
-        ;;
+  cygwin)
+    ME_OS=cygwin
+    ;;
+  darwin*)
+    ME_OS=osx
+    ;;
+  *bsd*)
+    ME_OS=bsd
+    ;;
+  linux*)
+    ME_OS=linux
+    ;;
+  solaris*)
+    ME_OS=solaris
+    ;;
 esac
 
 case $ME_OS in
-    bsd)
-        if [[ -f /usr/local/bin/pc-updatemanager ]] ; then
-            ME_DISTRO_FLAVOR=trueos
-        else
-            ME_DISTRO_FLAVOR=freebsd
-        fi
-        ;;
-    linux)
-        if [ -f /etc/os-release ] ; then
-            . /etc/os-release
-            ME_DISTRO_FLAVOR=$ID
-            ME_DISTRO_VERSION=$VERSION_ID
-            for var in $(cut -d'=' -f1 /etc/os-release) ; do
-                unset $var
-            done
-        elif [ -f /etc/issue ] ; then
-            case $(cat /etc/issue) in
-                *CentOS*)
-                    ME_DISTRO_FLAVOR=centos
-                    ;;
-                *Debian*)
-                    ME_DISTRO_FLAVOR=debian
-                    ;;
-                *neon*)
-                    ME_DISTRO_FLAVOR=neon
-                    ;;
-                *Red\ Hat*)
-                    ME_DISTRO_FLAVOR=redhat
-                    ;;
-                *SUSE*)
-                    ME_DISTRO_FLAVOR=suse
-                    ;;
-                *Ubuntu*)
-                    ME_DISTRO_FLAVOR=ubuntu
-                    ;;
-            esac
-        fi
-        ;;
-    *)
-        ME_DISTRO_FLAVOR=$ME_OS
-        ;;
+  bsd)
+    if [[ -f /usr/local/bin/pc-updatemanager ]] ; then
+      ME_DISTRO_FLAVOR=trueos
+    else
+      ME_DISTRO_FLAVOR=freebsd
+    fi
+    ;;
+  linux)
+    if [ -f /etc/os-release ] ; then
+      . /etc/os-release
+      ME_DISTRO_FLAVOR=$ID
+      ME_DISTRO_VERSION=$VERSION_ID
+      for var in $(cut -d'=' -f1 /etc/os-release) ; do
+        unset $var
+      done
+    elif [ -f /etc/issue ] ; then
+      case $(cat /etc/issue) in
+        *CentOS*)
+          ME_DISTRO_FLAVOR=centos
+          ;;
+        *Debian*)
+          ME_DISTRO_FLAVOR=debian
+          ;;
+        *neon*)
+          ME_DISTRO_FLAVOR=neon
+          ;;
+        *Red\ Hat*)
+          ME_DISTRO_FLAVOR=redhat
+          ;;
+        *SUSE*)
+          ME_DISTRO_FLAVOR=suse
+          ;;
+        *Ubuntu*)
+          ME_DISTRO_FLAVOR=ubuntu
+          ;;
+      esac
+    fi
+    ;;
+  *)
+    ME_DISTRO_FLAVOR=$ME_OS
+    ;;
 esac
 
 case $ME_DISTRO_FLAVOR in
-    funtoo|gentoo)
-        ME_DISTRO_VERSION=0
-        ;;
+  funtoo|gentoo)
+    ME_DISTRO_VERSION=0
+    ;;
 esac
 
 if [[ $ME_DISTRO_VERSION == unknown ]] ; then
-    case $ME_OS in
-        bsd)
-            ME_DISTRO_VERSION=$(uname -r | cut -d'.' -f1)
-            ;;
-        linux)
-            case $ME_DISTRO_FLAVOR in
-                centos)
-                    ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
-                    ;;
-                debian)
-                    ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}')
-                    ;;
-                neon)
-                    ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
-                    ;;
-                redhat)
-                    ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $7}' | cut -d'.' -f1)
-                    ;;
-                ubuntu)
-                    ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $2}' | cut -d'.' -f1)
-                    ;;
-            esac
-            ;;
-        osx)
-            ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d. -f2)
-            ;;
-        solaris)
-            ME_DISTRO_VERSION=$(uname -r | cut -d. -f2)
-            ;;
-    esac
+  case $ME_OS in
+    bsd)
+      ME_DISTRO_VERSION=$(uname -r | cut -d'.' -f1)
+      ;;
+    linux)
+      case $ME_DISTRO_FLAVOR in
+        centos)
+          ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
+          ;;
+        debian)
+          ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}')
+          ;;
+        neon)
+          ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $3}' | cut -d'.' -f1)
+          ;;
+        redhat)
+          ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $7}' | cut -d'.' -f1)
+          ;;
+        ubuntu)
+          ME_DISTRO_VERSION=$(head -1 /etc/issue | awk '{print $2}' | cut -d'.' -f1)
+          ;;
+      esac
+      ;;
+    osx)
+      ME_DISTRO_VERSION=$(sw_vers -productVersion | cut -d. -f2)
+      ;;
+    solaris)
+      ME_DISTRO_VERSION=$(uname -r | cut -d. -f2)
+      ;;
+  esac
 fi
 
 case $(uname -m) in
-    i686)
-        ME_DISTRO_ARCH=x32
-        ;;
-    amd64 | x86_64)
-        ME_DISTRO_ARCH=x64
-        ;;
-    i86pc)
-        [[ $(isainfo -b) == 64 ]] && ME_DISTRO_ARCH=x64 || ME_DISTRO_ARCH=x32
-        ;;
-    ppc64)
-        ME_DISTRO_ARCH=p64
-        ;;
-    sun4v)
-        [[ $(isainfo -b) == 64 ]] && ME_DISTRO_ARCH=s64 || ME_DISTRO_ARCH=s32
-        ;;
+  i686)
+    ME_DISTRO_ARCH=x32
+    ;;
+  amd64 | x86_64)
+    ME_DISTRO_ARCH=x64
+    ;;
+  i86pc)
+    [[ $(isainfo -b) == 64 ]] && ME_DISTRO_ARCH=x64 || ME_DISTRO_ARCH=x32
+    ;;
+  ppc64)
+    ME_DISTRO_ARCH=p64
+    ;;
+  sun4v)
+    [[ $(isainfo -b) == 64 ]] && ME_DISTRO_ARCH=s64 || ME_DISTRO_ARCH=s32
+    ;;
 esac
 
 ME_DISTRO=$ME_DISTRO_FLAVOR-$ME_DISTRO_VERSION-$ME_DISTRO_ARCH
@@ -154,12 +154,12 @@ export ME_ZSH_CONFIG_DIR=$ME_CONFIG_DIR/zsh
 export ME_ZSH_CACHE_DIR=$ME_CACHE_DIR/zsh
 
 me() {
-    env | grep '^ME' | LC_ALL=C sort
+  env | grep '^ME' | LC_ALL=C sort
 }
 
 reenv() {
-    source ~/.zshenv
-    source ~/etc/profile
+  source ~/.zshenv
+  source ~/etc/profile
 }
 
 # vim: ft=zsh

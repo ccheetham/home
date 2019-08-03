@@ -2,7 +2,7 @@
 # Java
 # =============================================================================
 
-ME_JAVA_SDK_VERSIONS=(11:11.0.3+7:0.14.3 8:8u212-b04:0.14.2 12:12.0.1+12:0.14.1 10:10.0.2+13:0.9.0 9:9.0.4+11:0.9.0)
+ME_JAVA_SDK_VERSIONS=(8:8u212-b04:0.14.2 12:12.0.1+12:0.14.1 11:11.0.3+7:0.14.3 10:10.0.2+13:0.9.0 9:9.0.4+11:0.9.0)
 
 export JDK12_HOME=$ME_PLATFORM_TOOL_DIR/jdk-12
 export JDK11_HOME=$ME_PLATFORM_TOOL_DIR/jdk-11
@@ -12,6 +12,9 @@ export JDK8_HOME=$ME_PLATFORM_TOOL_DIR/jdk-8
 export JDK7_HOME=$ME_PLATFORM_TOOL_DIR/jdk-7
 export JDK6_HOME=$ME_PLATFORM_TOOL_DIR/jdk-6
 export JDK_HOME=$ME_PLATFORM_TOOL_DIR/jdk
+export ORACLE_JDK8_HOME=$ME_PLATFORM_TOOL_DIR/oraclejdk-8
+export ORACLE_JDK7_HOME=$ME_PLATFORM_TOOL_DIR/oraclejdk-7
+export ORACLE_JDK6_HOME=$ME_PLATFORM_TOOL_DIR/oraclejdk-6
 export JAVA_HOME=$JDK_HOME
 unset JRE_HOME
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
@@ -20,27 +23,27 @@ ME_PATH+=:$JAVA_HOME/bin
 ME_MANPATH+=:$JAVA_HOME/man
 
 jversions () {
-    local jname
-    local jinfo
-    local jhome
-    local jcmd
-    for jname in JDK12 JDK11 JDK10 JDK9 JDK8 JDK7 JDK6 JDK
-    do
-        eval jhome='$'$jname'_HOME'
-        if [ -n "$jhome" ]
-        then
-            jcmd=$jhome/bin/java
-            if [ -x $jcmd ]
-            then
-                jinfo=$($jhome/bin/java -version 2>&1 | head -1 | sed 's/[^"]*"\([^"]*\).*/\1/')
-            else
-                jinfo='<not installed>'
-            fi
-        else
-            jinfo='<not defined>'
-        fi
-        printf "%-10s %-20s %s\n" $jname $jinfo $jhome
-    done
+  local jname
+  local jinfo
+  local jhome
+  local jcmd
+  for jname in JDK12 JDK11 JDK10 JDK9 JDK8 JDK7 JDK6 JDK ORACLE_JDK8 ORACLE_JDK7 ORACLE_JDK6
+  do
+    eval jhome='$'$jname'_HOME'
+    if [ -n "$jhome" ]
+    then
+      jcmd=$jhome/bin/java
+      if [ -x $jcmd ]
+      then
+        jinfo=$($jhome/bin/java -version 2>&1 | head -1 | sed 's/[^"]*"\([^"]*\).*/\1/')
+      else
+        jinfo='<not installed>'
+      fi
+    else
+      jinfo='<not defined>'
+    fi
+    printf "%-10s %-20s %s\n" $jname $jinfo $jhome
+  done
 }
 
 # vim: ft=zsh

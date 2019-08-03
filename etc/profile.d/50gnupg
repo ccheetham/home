@@ -5,7 +5,7 @@
 # =============================================================================
 
 if which gpg2 > /dev/null 2>&1 ; then
-    alias gpg=gpg2
+  alias gpg=gpg2
 fi
 
 # vim: ft=zsh

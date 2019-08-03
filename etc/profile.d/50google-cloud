@@ -7,7 +7,7 @@ ME_GCLOUD_SDK_DIR=$ME_PLATFORM_TOOL_DIR/google-cloud-sdk
 
 ME_PATH+=:$ME_GCLOUD_SDK_DIR/bin
 if [ -f $ME_GCLOUD_SDK_DIR/completion.zsh.inc ]; then
-    . $ME_GCLOUD_SDK_DIR/completion.zsh.inc ]
+  . $ME_GCLOUD_SDK_DIR/completion.zsh.inc ]
 fi
 
 # vim: ft=zsh

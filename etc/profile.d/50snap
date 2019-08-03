@@ -2,9 +2,8 @@
 # snap
 # =============================================================================
 
-if test -d /snap
-then
-    ME_PATH+=:/snap/bin
+if test -d /snap; then
+  ME_PATH+=:/snap/bin
 fi
 
 # vim: ft=zsh

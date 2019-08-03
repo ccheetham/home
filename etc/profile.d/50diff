@@ -6,7 +6,7 @@
 # http://www.colordiff.org/
 # -----------------------------------------------------------------------------
 if which colordir > /dev/null 2>&1 ; then
-    alias diff='colordiff'
+  alias diff='colordiff'
 fi
 
 # vim: ft=zsh

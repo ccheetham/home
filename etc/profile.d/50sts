@@ -7,7 +7,7 @@
 ME_STS_VERSION=3.6.4.RELEASE
 
 if [[ $ME_OS == osx ]] ; then
-    alias sts='open /Applications/STS/sts-$ME_STS_VERSION/STS.app'
+  alias sts='open /Applications/STS/sts-$ME_STS_VERSION/STS.app'
 fi
 
 # vim: ft=zsh

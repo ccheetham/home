@@ -6,13 +6,13 @@ ME_PATH+=:/usr/local/bin:/usr/local/sbin
 ME_MANPATH+=:/usr/local/share/man
 
 if [[ solaris == $ME_OS ]] ; then
-    if [[ ! -d /opt/csw ]] ; then
-        echo OpenCSW not installed: pkgadd -d http://get.opencsw.org/now
-    fi
-    ME_PATH+=:/opt/csw/bin
-    ME_MANPATH+=:/opt/csw/share/man
-    ME_PATH+=:/usr/gnu/bin
-    ME_MANPATH+=:/usr/gnu/share/man
+  if [[ ! -d /opt/csw ]] ; then
+    echo OpenCSW not installed: pkgadd -d http://get.opencsw.org/now
+  fi
+  ME_PATH+=:/opt/csw/bin
+  ME_MANPATH+=:/opt/csw/share/man
+  ME_PATH+=:/usr/gnu/bin
+  ME_MANPATH+=:/usr/gnu/share/man
 fi
 
 ME_PATH+=:/usr/bin:/bin

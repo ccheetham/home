@@ -5,16 +5,16 @@
 # =============================================================================
 
 t() {
-    if [[ $# == 0 ]] ; then
-        clear
-        task
-    else
-        task $*
-    fi
+  if [[ $# == 0 ]] ; then
+    clear
+    task
+  else
+    task $*
+  fi
 }
 
 if [[ $ME_HOST == mini ]] ; then
-    export TASKDDATA=$ME_CACHE_DIR/taskd
+  export TASKDDATA=$ME_CACHE_DIR/taskd
 fi
 
 # vim: ft=zsh

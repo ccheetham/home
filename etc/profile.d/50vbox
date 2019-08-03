@@ -6,97 +6,97 @@ alias vbmanage='VBoxManage'
 alias vbheadless='VBoxHeadless'
 
 vbstatus() {
-    local vm=$1
-    local state=$(vbmanage showvminfo $vm 2> /dev/null | \
-        grep '^State:' | awk '{print $2}')
-    [[ -z $state ]] && state=unknown
-    [[ powered == $state ]] && state=stopped
-    echo $state
-}
+  local vm=$1
+  local state=$(vbmanage showvminfo $vm 2> /dev/null | \
+    grep '^State:' | awk '{print $2}')
+      [[ -z $state ]] && state=unknown
+      [[ powered == $state ]] && state=stopped
+      echo $state
+    }
 
-_error() {
+  _error() {
     echo "error: $*" >&2 && return 1
-}
+  }
 
 vbstart() {
-    local vm=$1
-    state=$(vbstatus $vm)
-    case $state in
-        stopped)
-            vbmanage startvm $vm --type headless
-            local rdp=$(vbmanage showvminfo $vm | \
-                sed -n 's/VRDE:.*Ports \([[:digit:]]*\).*/\1/p')
-            echo "rdp port $rdp"
-            ;;
-        *)
-            _error $vm $state
-            ;;
-    esac
-}
+  local vm=$1
+  state=$(vbstatus $vm)
+  case $state in
+    stopped)
+      vbmanage startvm $vm --type headless
+      local rdp=$(vbmanage showvminfo $vm | \
+        sed -n 's/VRDE:.*Ports \([[:digit:]]*\).*/\1/p')
+              echo "rdp port $rdp"
+              ;;
+            *)
+              _error $vm $state
+              ;;
+          esac
+        }
 
-vbstop() {
-    local vm=$1
-    state=$(vbstatus $vm)
-    case $state in
-        paused | running)
+      vbstop() {
+        local vm=$1
+        state=$(vbstatus $vm)
+        case $state in
+          paused | running)
             vbmanage controlvm $vm poweroff
             ;;
-        *)
+          *)
             _error $vm $state
             ;;
-    esac
-}
+        esac
+      }
 
-vbreset() {
+    vbreset() {
+      local vm=$1
+      state=$(vbstatus $vm)
+      case $state in
+        running)
+          vbmanage controlvm $vm reset
+          ;;
+        *)
+          _error $vm $state
+          ;;
+      esac
+    }
+
+  vbshutdown() {
     local vm=$1
     state=$(vbstatus $vm)
     case $state in
-        running)
-            vbmanage controlvm $vm reset
-            ;;
-        *)
-            _error $vm $state
-            ;;
+      running)
+        vbmanage controlvm $vm acpipowerbutton
+        ;;
+      *)
+        _error $vm $state
+        ;;
     esac
-}
-
-vbshutdown() {
-    local vm=$1
-    state=$(vbstatus $vm)
-    case $state in
-        running)
-            vbmanage controlvm $vm acpipowerbutton
-            ;;
-        *)
-            _error $vm $state
-            ;;
-    esac
-}
+  }
 
 vbpause() {
-    local vm=$1
-    state=$(vbstatus $vm)
-    case $state in
-        running)
-            vbmanage controlvm $vm pause
-            ;;
-        *)
-            _error $vm $state
-            ;;
-    esac
+  local vm=$1
+  state=$(vbstatus $vm)
+  case $state in
+    running)
+      vbmanage controlvm $vm pause
+      ;;
+    *)
+      _error $vm $state
+      ;;
+  esac
 }
 
 vbresume() {
-    local vm=$1
-    state=$(vbstatus $vm)
-    case $state in
-        paused)
-            vbmanage controlvm $vm resume
-            ;;
-        *)
-            _error $vm $state 
-            ;;
-    esac
+  local vm=$1
+  state=$(vbstatus $vm)
+  case $state in
+    paused)
+      vbmanage controlvm $vm resume
+      ;;
+    *)
+      _error $vm $state
+      ;;
+  esac
 }
 
 # vim: ft=zsh

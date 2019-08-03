@@ -3,19 +3,19 @@
 # =============================================================================
 
 instkey() {
-    if [[ $# != 1 ]] ; then
-        echo "Usage: $0 <host>"
-        return
-    fi
-    local user_host=$1
-    echo initializing remote keystore directory
-    ssh $user_host mkdir -p .ssh
-    echo copying public key
-    scp ~/.ssh/id_rsa.pub ${user_host}:tmpkey
-    echo installing public key
-    ssh $user_host cat tmpkey '>>' .ssh/authorized_keys
-    echo cleaning up
-    ssh $user_host rm tmpkey
+  if [[ $# != 1 ]] ; then
+    echo "Usage: $0 <host>"
+    return
+  fi
+  local user_host=$1
+  echo initializing remote keystore directory
+  ssh $user_host mkdir -p .ssh
+  echo copying public key
+  scp ~/.ssh/id_rsa.pub ${user_host}:tmpkey
+  echo installing public key
+  ssh $user_host cat tmpkey '>>' .ssh/authorized_keys
+  echo cleaning up
+  ssh $user_host rm tmpkey
 }
 
 # vim: ft=zsh

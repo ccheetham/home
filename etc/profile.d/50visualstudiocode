@@ -4,10 +4,8 @@
 # https://code.visualstudio.com/
 # =============================================================================
 
-if [[ $ME_OS == osx ]]
-then
-    alias code=/Applications/Visual\\\ Studio\\\ Code.app/Contents/Resources/app/bin/code
+if [[ $ME_OS == osx ]]; then
+  alias code=/Applications/Visual\\\ Studio\\\ Code.app/Contents/Resources/app/bin/code
 fi
-
 
 # vim: ft=zsh

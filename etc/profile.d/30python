@@ -17,32 +17,20 @@ alias py=py3
 alias ipy=ipy3
 
 pypath() {
-    if [[ $# == 0 ]] ; then
-        for p in $(echo $PYTHONPATH | tr ':' ' ') ; do
-            if [[ -d $p ]] ; then
-                print $p
-            else
-                print $fg[red]$p$reset_color
-            fi
-        done
-    else
-        for p in $* ; do
-            PYTHONPATH=$p:$PYTHONPATH
-        done
-        pypath
-    fi
+  if [[ $# == 0 ]] ; then
+    for p in $(echo $PYTHONPATH | tr ':' ' ') ; do
+      if [[ -d $p ]] ; then
+        print $p
+      else
+        print $fg[red]$p$reset_color
+      fi
+    done
+  else
+    for p in $* ; do
+      PYTHONPATH=$p:$PYTHONPATH
+    done
+    pypath
+  fi
 }
-#
-#ve() {
-#    if [[ $# != 1 ]] ; then
-#        echo "$0 <name>" >&2
-#        return 1
-#    fi
-#    activate=$(venvmgr -s $1) || return
-#    source $activate
-#}
-#alias vex=deactivate
-#
-#PATH=$ME/bin:$PATH ve default
 
 # vim: ft=zsh

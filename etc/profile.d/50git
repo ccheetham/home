@@ -14,23 +14,20 @@ alias gcrumbs='g commit -mbreadcrumbs'
 alias gvestige='g commit -m"remove vestige"'
 
 gitignore() {
-    local path=$1
-    if [[ -z $path ]]
-    then
-        echo "path not specified" >&2
-        return 1
-    fi
-    if [[ ! -d $path ]]
-    then
-        echo "path does not exist or is not a directory" >&2
-        return 1
-    fi
-    if [[ -e $path/.gitignore ]]
-    then
-        echo ".gitignore already exists" >&2
-        return 1
-    fi
-    echo '*' > $path/.gitignore
+  local path=$1
+  if [[ -z $path ]]; then
+    echo "path not specified" >&2
+    return 1
+  fi
+  if [[ ! -d $path ]]; then
+    echo "path does not exist or is not a directory" >&2
+    return 1
+  fi
+  if [[ -e $path/.gitignore ]]; then
+    echo ".gitignore already exists" >&2
+    return 1
+  fi
+  echo '*' > $path/.gitignore
 }
 
 # vim: ft=zsh

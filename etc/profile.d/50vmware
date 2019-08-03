@@ -3,81 +3,81 @@
 # =============================================================================
 
 if [[ $ME_OS == osx ]] ; then
-    ME_VMMGR=/Applications/VMware\ Fusion.app/Contents/Library/vmrun
-    ME_VMDIRS=(~/Documents/VMs ~/Documents/Virtual\ Machines)
+  ME_VMMGR=/Applications/VMware\ Fusion.app/Contents/Library/vmrun
+  ME_VMDIRS=(~/Documents/VMs ~/Documents/Virtual\ Machines)
 fi
 
 # -----------------------------------------------------------------------------
 # fvmx: find a vmx file based on vmname
 # -----------------------------------------------------------------------------
 fvmx() {
-    if [[ $# != 1 ]]; then
-        echo "$0 name"
-        return 1
-    fi
-    local name=$1
-    local vmx
-    set localtoptions nonomatch
-    for vmdir in $ME_VMDIRS ; do
-        [[ -d $vmdir ]] || vmdir=$vmdir.localized
-        [[ -d $vmdir ]] || continue
-        vmdir=$vmdir/$name
-        [[ -d $vmdir ]] || vmdir=$vmdir.vmwarevm
-        [[ -d $vmdir ]] && vmx=$(/bin/ls $vmdir/*.vmx)
-        if [[ -f $vmx ]]; then
-            print $vmx
-            return
-        fi
-    done
+  if [[ $# != 1 ]]; then
+    echo "$0 name"
     return 1
+  fi
+  local name=$1
+  local vmx
+  set localtoptions nonomatch
+  for vmdir in $ME_VMDIRS ; do
+    [[ -d $vmdir ]] || vmdir=$vmdir.localized
+    [[ -d $vmdir ]] || continue
+    vmdir=$vmdir/$name
+    [[ -d $vmdir ]] || vmdir=$vmdir.vmwarevm
+    [[ -d $vmdir ]] && vmx=$(/bin/ls $vmdir/*.vmx)
+    if [[ -f $vmx ]]; then
+      print $vmx
+      return
+    fi
+  done
+  return 1
 }
 
 vmstart() {
-    if [[ $# != 1 ]]; then
-        echo "$0 name"
-        return 1
-    fi
-    $ME_VMMGR -T ws start "$(fvmx $1)" nogui
+  if [[ $# != 1 ]]; then
+    echo "$0 name"
+    return 1
+  fi
+  $ME_VMMGR -T ws start "$(fvmx $1)" nogui
 }
 
 vmstop() {
-    if [ $# -lt 1 ]; then
-        echo "$0 name"
-        return 1
-    fi
-    $ME_VMMGR -T ws stop "$(fvmx $1)" $2
+  if [ $# -lt 1 ]; then
+    echo "$0 name"
+    return 1
+  fi
+  $ME_VMMGR -T ws stop "$(fvmx $1)" $2
 }
 
 vmreset() {
-    if [[ $# != 1 ]]; then
-        echo "$0 name"
-        return 1
-    fi
-    $ME_VMMGR -T ws reset "$(fvmx $1)"
+  if [[ $# != 1 ]]; then
+    echo "$0 name"
+    return 1
+  fi
+  $ME_VMMGR -T ws reset "$(fvmx $1)"
 }
 
 vmsuspend() {
-    if [[ $# != 1 ]]; then
-        echo "$0 name"
-        return 1
-    fi
-    $ME_VMMGR -T ws suspend "$(fvmx $1)"
+  if [[ $# != 1 ]]; then
+    echo "$0 name"
+    return 1
+  fi
+  $ME_VMMGR -T ws suspend "$(fvmx $1)"
 }
 
 vmpause() {
-    if [[ $# != 1 ]]; then
-        echo "$0 name"
-        return 1
-    fi
-    $ME_VMMGR -T ws pause "$(fvmx $1)"
+  if [[ $# != 1 ]]; then
+    echo "$0 name"
+    return 1
+  fi
+  $ME_VMMGR -T ws pause "$(fvmx $1)"
 }
 
 vmplay() {
-    if [[ $# != 1 ]]; then
-        echo "$0 name"
-        return 1
-    fi
-    $ME_VMMGR -T ws unpause "$(fvmx $1)"
+  if [[ $# != 1 ]]; then
+    echo "$0 name"
+    return 1
+  fi
+  $ME_VMMGR -T ws unpause "$(fvmx $1)"
 }
 
 # vim: ft=zsh

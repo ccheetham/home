@@ -10,79 +10,76 @@ alias ftcs='fly --target tcs'
 ME_PATH+=:$TCS_QA/bin
 
 tcskill() {
-    pids=$(jps -l | grep org.apache.catalina.startup.Bootstrap | awk '{print $1}')
-    if [ -z "$pids" ]; then
-        echo "no running tcRuntime instances detected"
-        return
-    fi
-    for pid in $pids; do
-        echo killing $pid
-        kill $pid
-    done
+  pids=$(jps -l | grep org.apache.catalina.startup.Bootstrap | awk '{print $1}')
+  if [ -z "$pids" ]; then
+    echo "no running tcRuntime instances detected"
+    return
+  fi
+  for pid in $pids; do
+    echo killing $pid
+    kill $pid
+  done
 }
 
 tmtcs() {
-    if ! tmux a -t tcsqa
-    then
-        tcd
-        tmux new -s tcsqa
-    fi
+  if ! tmux a -t tcsqa; then
+    tcd
+    tmux new -s tcsqa
+  fi
 }
 
 tcs() {
-    if [ -f $TCS_QA/target/distro/.path ]
-    then
-        local cmd=$TCS_QA/target/distro/$(cat $TCS_QA/target/distro/.path)/tcserver
-        _tcrun $cmd $*
-    else
-        echo tc Server QA target 4.x not installed >&2
-        return 1
-    fi
+  if [ -x $TCS_QA/target/distro/*/tcserver ]; then
+    cmd=$(/bin/ls $TCS_QA/target/distro/*/tcserver)
+    echo $(basename $cmd) $*
+    $cmd $*
+  else
+    echo tc Server QA target 4.x not installed >&2
+    return 1
+  fi
 }
 
 tci() {
-    _tc3xrun tcruntime-instance.sh $*
+  _tc3xrun tcruntime-instance.sh $*
 }
 
 tca() {
-    _tc3xrun tcruntime-admin.sh $*
+  _tc3xrun tcruntime-admin.sh $*
 }
 
 tcc() {
-    _tc3xrun tcruntime-ctl.sh $*
+  _tc3xrun tcruntime-ctl.sh $*
 }
 
 _tcrun() {
-    local cmd=$1
-    shift
-    if [[ $ME_OS == cygwin ]]
-    then
-        cmd+=.bat
-    fi
-    echo % $(basename $cmd) $*
-    $cmd $*
+  local cmd=$1
+  shift
+  if [[ $ME_OS == cygwin ]]; then
+    cmd+=.bat
+  fi
+  echo % $(basename $cmd) $*
+  $cmd $*
 }
 
 _tc3xrun() {
-    local cmd=$TCS_QA/target/distro/$1
-    shift
-    if [ -f $cmd ]
-    then
-        _tcrun $cmd $*
-    else
-        echo tc Server QA target 3.x not installed >&2
-        return 1
-    fi
+  local cmd=$TCS_QA/target/distro/$1
+  shift
+  if [ -f $cmd ]; then
+    _tcrun $cmd $*
+  else
+    echo tc Server QA target 3.x not installed >&2
+    return 1
+  fi
 }
 
 pdevjdk() {
-    if [[ -z $JDK6_HOME ]] ; then
-        echo JDK6_HOME not set >&2
-        return
-    fi
-    JAVA_HOME=$JDK6_HOME
-    PATH=$JAVA_HOME/bin:$PATH
-    path
+  if [[ -z $JDK6_HOME ]] ; then
+    echo JDK6_HOME not set >&2
+    return
+  fi
+  JAVA_HOME=$JDK6_HOME
+  PATH=$JAVA_HOME/bin:$PATH
+  path
 }
 
 # vim: ft=zsh

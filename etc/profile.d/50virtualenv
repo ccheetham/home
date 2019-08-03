@@ -8,12 +8,12 @@ export ME_VIRTUALENV_HOME=$ME_DISTRO_TOOL_DIR/lib/virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 ve() {
-    if [[ $# != 1 ]] ; then
-        echo "$0 <name>" >&2
-        return 1
-    fi
-    activate=$(venvmgr -s $1) || return
-    source $activate
+  if [[ $# != 1 ]] ; then
+    echo "$0 <name>" >&2
+    return 1
+  fi
+  activate=$(venvmgr -s $1) || return
+  source $activate
 }
 alias vex=deactivate
 

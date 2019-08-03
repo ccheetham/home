@@ -4,14 +4,23 @@
 # http://gradle.org/
 # =============================================================================
 
-ME_GRADLE_VERSIONS=(5.2.1 4.10.3)
+ME_GRADLE_VERSIONS=(5.5.1)
 GRADLE_HOME=$ME_TOOL_DIR/opt/gradle
-GRADLE_USER_HOME=$ME/.gradle/$ME_HOST
+GRADLE_USER_HOME=$ME/.gradle
 GRADLE_OPTS="-Dorg.gradle.console=rich"
 ME_PATH+=:$GRADLE_HOME/bin
 
 export GRADLE_HOME GRADLE_USER_HOME GRADLE_OPTS
 
 alias grr='gr --refresh-dependencies'
+
+gr() {
+  if [ ! -f ./gradlew ]; then
+    echo ./gradlew not found
+    return 1
+  fi
+  echo % ./gradlew $@
+  ./gradlew $@
+}
 
 # vim: ft=zsh

@@ -7,14 +7,13 @@
 alias br='brew'
 
 brsync() {
-    if [[ $ME_OS != osx ]]
-    then
-        echo "not on OS X" >&2
-        return 1
-    fi
-    br update
-    br upgrade
-    br cleanup
+  if [[ $ME_OS != osx ]]; then
+    echo "not on OS X" >&2
+    return 1
+  fi
+  br update
+  br upgrade
+  br cleanup
 }
 
 ME_HOMEBREW=$ME_PLATFORM_TOOL_DIR/homebrew.2
@@ -22,7 +21,7 @@ ME_PATH+=:$ME_PLATFORM_TOOL_DIR/homebrew/bin
 
 # TODO: this isn't brew specific
 if [[ $ME_OS == osx ]]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
+  fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
 # vim: ft=zsh

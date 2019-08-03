@@ -10,16 +10,16 @@ alias pp=popd
 unset ls_opts
 ls_cmd=ls
 case $ME_OS in
-    bsd | osx )
-        ls_opts=' -FGH'
-        ;;
-    *)
-        for opt in classify color group-directories-first ; do
-            if $ls_cmd --$opt > /dev/null 2>&1 ; then
-                ls_opts+=" --$opt"
-            fi
-        done
-        ;;
+  bsd | osx )
+    ls_opts=' -FGH'
+    ;;
+  *)
+    for opt in classify color group-directories-first ; do
+      if $ls_cmd --$opt > /dev/null 2>&1 ; then
+        ls_opts+=" --$opt"
+      fi
+    done
+    ;;
 esac
 alias ls="$ls_cmd$ls_opts"
 unset ls_cmd ls_opts
@@ -30,7 +30,7 @@ alias lF='ls *(.)'
 alias lD='ls -d *(/)'
 alias la='ls -A'
 if ls -@ > /dev/null 2>&1 ; then
-    alias l@='ll -@'
+  alias l@='ll -@'
 fi
 
 alias mkdir='mkdir -p'
@@ -40,6 +40,6 @@ alias cls='clear'
 unalias which > /dev/null 2<&1
 
 function topcommands() {
-    history 0 | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -10
-}
+  history 0 | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -10
+  }
 # vim: ft=zsh

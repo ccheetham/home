@@ -8,7 +8,7 @@
 export ME_XSESSION_LOG=$ME_LOG_DIR/xsession.$ME_HOST.log
 
 xtail() {
-    tail -f $ME_XSESSION_LOG
+  tail -f $ME_XSESSION_LOG
 }
 
 alias x='mkdir -p $(dirname $ME_XSESSION_LOG) && startx >! $ME_XSESSION_LOG' 2>&1

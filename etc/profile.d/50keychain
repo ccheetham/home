@@ -5,23 +5,23 @@
 # =============================================================================
 
 if checkexe keychain > /dev/null ; then
-    keychain --quiet
-    ME_KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
-    if [[ -f $ME_KEYCHAIN_ENV ]] ; then
-        source $ME_KEYCHAIN_ENV
-    else
-        echo $ME_KEYCHAIN_ENV not found >&2
-    fi
+  keychain --quiet
+  ME_KEYCHAIN_ENV=~/.keychain/$(uname -n)-sh
+  if [[ -f $ME_KEYCHAIN_ENV ]] ; then
+    source $ME_KEYCHAIN_ENV
+  else
+    echo $ME_KEYCHAIN_ENV not found >&2
+  fi
 fi
 
 keychain_init() {
-    local pri
-    local keychain_opts="--eval --agents ssh"
-    [[ $ME_OS == osx ]] && keychain_opts+=" --inherit any"
-    for pub in ~/.ssh/*.pub ; do
-        pri=$(basename $pub .pub)
-        eval keychain $keychain_opts $pri
-    done
+  local pri
+  local keychain_opts="--eval --agents ssh"
+  [[ $ME_OS == osx ]] && keychain_opts+=" --inherit any"
+  for pub in ~/.ssh/*.pub ; do
+    pri=$(basename $pub .pub)
+    eval keychain $keychain_opts $pri
+  done
 }
 
 # vim: ft=zsh
