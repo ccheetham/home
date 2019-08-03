@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
 HOME=$(cd $(dirname $0)/.. && pwd)
-SHELL=zsh
-cd $HOME
-exec zsh -l
+SHELL=$(which zsh)
+exec zsh --login
