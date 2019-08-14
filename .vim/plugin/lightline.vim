@@ -1,7 +1,7 @@
 let g:lightline = {
             \   'colorscheme': 'onehalfdark',
             \   'active': {
-            \     'left': [ ['mode', 'paste'], ['readonly', 'gitbranch', 'modified', 'fileinfo'] ],
+            \     'left': [ ['mode', 'paste'], ['readonly', 'gitbranch', 'modified', 'fileinfo', 'filename'] ],
             \     'right': [ ['lineinfo'], ['fileformat', 'filencoding', 'filetype'], ['linter_ok', 'linter_checking', 'linter_errors', 'linter_warnings'] ]
             \   },
             \   'inactive': {
