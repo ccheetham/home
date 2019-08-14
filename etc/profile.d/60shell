@@ -34,6 +34,15 @@ if ls -@ > /dev/null 2>&1 ; then
 fi
 
 alias mkdir='mkdir -p'
+alias md='mkdir'
+function rd() {
+  if [[ $1 == -f ]] || [[ $1 == --force ]]; then
+    shift
+    rm -rf $@
+  else
+    rmdir $@
+  fi
+}
 
 alias cls='clear'
 
@@ -41,5 +50,6 @@ unalias which > /dev/null 2<&1
 
 function topcommands() {
   history 0 | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -10
-  }
+}
+
 # vim: ft=zsh
