@@ -1,0 +1,11 @@
+# =============================================================================
+# Kubernetes
+# =============================================================================
+
+if command -v microk8s.kubectl >/dev/null; then
+  alias kubectl='microk8s.kubectl'
+fi
+
+alias k='kubectl'
+
+# vim: ft=zsh
