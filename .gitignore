@@ -181,6 +181,9 @@
 # VirtualBox
 /VirtualBox VMs
 
+# Snapcraft
+/snap/
+
 # CloudFoundry
 /.cf/
 /.pcfdev/
