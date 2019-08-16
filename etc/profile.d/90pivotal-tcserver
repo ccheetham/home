@@ -4,6 +4,15 @@
 
 TCS_QA=~/src/appsuite/tcs-tc-server-qa
 
+tcs_props=~/.pivotal/tcserver.properties
+if [ -f $tcs_props ]; then
+  repo_name=$(grep '^runtimeRepositoryName=' $tcs_props | cut -d= -f2)
+  [ -n "$repo_name" ] && export TCS_REPOSITORY_NAME=$repo_name
+  repo_username=$(grep '^runtimeRepositoryUsername=' $tcs_props | cut -d= -f2)
+  repo_password=$(grep '^runtimeRepositoryPassword=' $tcs_props | cut -d= -f2)
+  [ -n "$repo_username" ] && export TCS_REPOSITORY_CREDENTIALS="$repo_username:$repo_password"
+fi
+
 alias tcd='cd $TCS_QA'
 alias ftcs='fly --target tcs'
 
