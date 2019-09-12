@@ -1,5 +1,4 @@
-set relativenumber                      " relative line numbers ...
-set number                              " ... but show current line as absolute
+set number
 function! ToggleRelativeNumbers()
     set relativenumber!
     set number
