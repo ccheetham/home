@@ -9,6 +9,7 @@ export DOCKER_CONFIG=~/.docker/$ME_HOST
 
 alias d='docker'
 alias d\?='d help'
+alias dprune='d system prune -f'
 
 # -----------------------------------------------------------------------------
 # dman: convenience for 'man docker-CMD'
