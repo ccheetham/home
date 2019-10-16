@@ -10,13 +10,20 @@
 
 source $(dirname $0)/../etc/profile
 
-for term in xterm-256color-italic xterm-256color xterm-color xterm
-do
-    if infocmp $term > /dev/null 2>&1
-    then
-        TERM=$term
-        break
-    fi
+terms=(xterm-256color-italic xterm-256color xterm-color xterm)
+vi=vi
+
+for term in $terms; do
+  if infocmp $term > /dev/null 2>&1; then
+    TERM=$term
+    break
+  fi
 done
 
-exec vim $*
+if command -v nvim >/dev/null; then
+  vi=nvim
+elif command -v vim >/dev/null; then
+  vi=vim
+fi
+
+exec $vi $*
