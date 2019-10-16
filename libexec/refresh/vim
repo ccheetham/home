@@ -1,3 +1,10 @@
 #!/usr/bin/env zsh
 
-vim +PlugUpdate +qall
+nvim_share="$XDG_DATA_HOME"/nvim
+# mkdir -p "nvim_share"/site/autoload
+curl \
+  -fLo "$nvim_share"/site/autoload/plug.vim \
+  --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+command -v vim >/dev/null && vim +PlugUpdate +qall
+command -v nvim >/dev/null && nvim +PlugUpdate +qall
