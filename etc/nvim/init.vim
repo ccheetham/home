@@ -6,8 +6,8 @@ set nocompatible
 let mapleader=" "
 set shada=!,'10,/100,:100,<0,@1,f1,h,s1,%10
 if ! filereadable(stdpath('data') . '/site/autoload/plug.vim')
-    echo "vim-plug repo not found; try 'refresh vim'"
-    finish
+  echo "vim-plug repo not found; try 'refresh vim'"
+  finish
 endif
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
@@ -63,35 +63,35 @@ highlight Comment cterm=italic
 
 " lightline
 let g:lightline = {
-            \   'colorscheme': 'onehalfdark',
-            \   'active': {
-            \     'left': [ ['mode', 'paste'], ['readonly', 'gitbranch', 'modified', 'fileinfo', 'filename'] ],
-            \     'right': [ ['lineinfo'], ['fileformat', 'filencoding', 'filetype'], ['linter_ok', 'linter_checking', 'linter_errors', 'linter_warnings'] ]
-            \   },
-            \   'inactive': {
-            \     'left': [ [ 'pwd' ] ],
-            \     'right': [ [ 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
-            \   },
-            \   'component_expand': {
-            \     'buffers': 'lightline#bufferline#buffers',
-            \     'trailing': 'lightline#trailing_whitespace#component',
-            \     'linter_ok': 'lightline#ale#ok',
-            \     'linter_checking': 'lightline#ale#checking',
-            \     'linter_warnings': 'lightline#ale#warnings',
-            \     'linter_errors': 'lightline#ale#errors',
-            \   },
-            \   'component_function': {
-            \     'gitbranch': 'fugitive#head',
-            \     'pwd': 'LightlineWorkingDirectory',
-            \     'scrollbar': '_scrollbar'
-            \   },
-            \   'component_type': {
-            \     'linter_checking': 'left',
-            \     'linter_warnings': 'warning',
-            \     'linter_errors': 'error',
-            \     'linter_ok': 'left'
-            \   }
-            \ }
+      \   'colorscheme': 'onehalfdark',
+      \   'active': {
+      \     'left': [ ['mode', 'paste'], ['readonly', 'gitbranch', 'modified', 'fileinfo', 'filename'] ],
+      \     'right': [ ['lineinfo'], ['fileformat', 'filencoding', 'filetype'], ['linter_ok', 'linter_checking', 'linter_errors', 'linter_warnings'] ]
+      \   },
+      \   'inactive': {
+      \     'left': [ [ 'pwd' ] ],
+      \     'right': [ [ 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
+      \   },
+      \   'component_expand': {
+      \     'buffers': 'lightline#bufferline#buffers',
+      \     'trailing': 'lightline#trailing_whitespace#component',
+      \     'linter_ok': 'lightline#ale#ok',
+      \     'linter_checking': 'lightline#ale#checking',
+      \     'linter_warnings': 'lightline#ale#warnings',
+      \     'linter_errors': 'lightline#ale#errors',
+      \   },
+      \   'component_function': {
+      \     'gitbranch': 'fugitive#head',
+      \     'pwd': 'LightlineWorkingDirectory',
+      \     'scrollbar': '_scrollbar'
+      \   },
+      \   'component_type': {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left'
+      \   }
+      \ }
 set laststatus=2                        " always display status line
 set noshowmode                          " current mode displayed by lightline
 
@@ -119,12 +119,12 @@ set cursorline                          " highlight current line
 set cursorcolumn                        " highlight current column
 nnoremap <silent><leader>c :set cursorcolumn! <cr>
 if exists('+colorcolumn')               " indicates advised widths
-    let &colorcolumn="80,".join(range(120,999),",")
+  let &colorcolumn="80,".join(range(120,999),",")
 endif
 set number
 function! ToggleRelativeNumbers()
-    set relativenumber!
-    set number
+  set relativenumber!
+  set number
 endfunction
 autocmd InsertEnter * call ToggleRelativeNumbers()
 autocmd InsertLeave * call ToggleRelativeNumbers()
