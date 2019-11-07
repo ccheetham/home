@@ -28,6 +28,7 @@ Plug 'godlygeek/tabular'
 Plug 'luan/vim-concourse'
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
+Plug 'mrk21/yaml-vim'
 call plug#end()
 
 " use spacebar to trigger keymaps
