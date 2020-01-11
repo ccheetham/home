@@ -10,10 +10,11 @@ set -e
 main () {
   hdr refreshing dotnet-sdk
   local destdir=$ME_PLATFORM_TOOL_DIR
-  for version in $ME_DOTNET_SDK_VERSIONS; do
-    install_version $destdir $version
-  done
-  link $destdir/dotnet-sdk $ME_DOTNET_SDK_VERSIONS[1]
+  install_version $destdir $ME_DOTNET2_SDK_VERSION
+  link $destdir/dotnet2-sdk dotnet-sdk-$ME_DOTNET2_SDK_VERSION
+  install_version $destdir $ME_DOTNET3_SDK_VERSION
+  link $destdir/dotnet3-sdk dotnet-sdk-$ME_DOTNET3_SDK_VERSION
+  link $destdir/dotnet-sdk dotnet3-sdk
 }
 
 install_version () {
@@ -46,9 +47,9 @@ install_version () {
 link () {
   local destdir=$1
   local version=$2
-  msg linking default dotnet to $version
+  msg linking $destdir to $version
   rm -f $destdir
-  ln -s dotnet-sdk-$version $destdir
+  ln -s $version $destdir
 }
 
 main $@
