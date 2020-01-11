@@ -1,6 +1,3 @@
-include ~/share/task/theme.rc
-include ~/share/task/work.rc
-
 data.location=~/var/task
 
 calendar.holidays=sparse
