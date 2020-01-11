@@ -11,24 +11,29 @@ endif
 
 source $ME_REPO_DIR/vim-plug/plug.vim
 call plug#begin($XDG_CACHE_HOME.'/vim/plugins')
-Plug 'sheerun/vim-polyglot',
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'itchyny/lightline.vim'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'dense-analysis/ale'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'shougo/deoplete.nvim'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'roxma/nvim-yarp'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/bats.vim'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
-Plug 'luan/vim-concourse'
-Plug 'w0rp/ale'
-Plug 'maximbaz/lightline-ale'
+" Plug 'luan/vim-concourse'
+Plug 'sheerun/vim-polyglot',
 Plug 'mrk21/yaml-vim'
+Plug 'vim-scripts/bats.vim'
 call plug#end()
 
 " use spacebar to trigger keymaps
@@ -44,6 +49,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 highlight Comment cterm=italic
 highlight CursorLine cterm=underline
 highlight CursorLineNr cterm=underline
@@ -60,7 +66,7 @@ set listchars=tab:.\                    " ... as  .___
 set bs=2                                " backspace over everything
 set visualbell                          " quiet please
 set nowrap                              " don't wrap lines
-set foldmethod=manual                   " I control when to fold
+set foldmethod=marker                   " I control when to fold
 set wildmenu                            " enhanced completion
 map <c-d> dd
 noremap <cr> o<esc>
@@ -106,10 +112,11 @@ set numberwidth=3                       " line number gutter width
 nmap <silent><leader>n :set number!<cr>
 nmap <silent><leader>tg :GitGutterLineHighlightsToggle<cr>
 
-" NERDTree
+" NERDTree and Tagbar
 let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
 let NERDTreeBookmarksFile = $XDG_CACHE_HOME.'/vim/bookmarks'
 map <silent><leader><leader> :NERDTreeToggle<cr>
+map <silent><leader>t :TagbarToggle<cr>
 
 " rulers
 set ruler                               " cursor line/column number,
@@ -144,6 +151,12 @@ if executable('zsh')
   set shell=zsh
 endif
 
+" ALE linting
+let g:ale_open_list = 1
+
+" Enable autocomplete on startup
+let g:deoplete#enable_at_startup = 1
+
 " vim-commentary
 map // :Commentary<cr>j
 
@@ -153,7 +166,7 @@ nnoremap <silent><leader>gd :Gdiff<cr>
 nnoremap <silent><leader>gc :Gcommit<cr>
 nnoremap <silent><leader>gp :Gpush<cr>
 
-" prefer solver_searcher over grep
+" prefer silver_searcher over grep
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
@@ -163,35 +176,3 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 "  let g:ctrlp_extensions = ['line']
 endif
-
-" lightline
-let g:lightline = {
-      \   'colorscheme': 'onehalfdark',
-      \   'active': {
-      \     'left': [ ['mode', 'paste'], ['readonly', 'gitbranch', 'modified', 'fileinfo', 'filename'] ],
-      \     'right': [ ['lineinfo'], ['fileformat', 'filencoding', 'filetype'], ['linter_ok', 'linter_checking', 'linter_errors', 'linter_warnings'] ]
-      \   },
-      \   'inactive': {
-      \     'left': [ [ 'pwd' ] ],
-      \     'right': [ [ 'lineinfo' ], [ 'fileinfo' ], [ 'scrollbar' ] ],
-      \   },
-      \   'component_expand': {
-      \     'buffers': 'lightline#bufferline#buffers',
-      \     'trailing': 'lightline#trailing_whitespace#component',
-      \     'linter_ok': 'lightline#ale#ok',
-      \     'linter_checking': 'lightline#ale#checking',
-      \     'linter_warnings': 'lightline#ale#warnings',
-      \     'linter_errors': 'lightline#ale#errors',
-      \   },
-      \   'component_function': {
-      \     'gitbranch': 'fugitive#head',
-      \     'pwd': 'LightlineWorkingDirectory',
-      \     'scrollbar': '_scrollbar'
-      \   },
-      \   'component_type': {
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'left'
-      \   }
-      \ }
