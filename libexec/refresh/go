@@ -12,7 +12,7 @@ main () {
   for version in $ME_GO_VERSIONS; do
     install_version $ME_PLATFORM_TOOL_DIR/go-$version $version
   done
-  link $ME_PLATFORM_TOOL_DIR/go $ME_GO_VERSIONS[1]
+  link go-$ME_GO_VERSIONS[1] $ME_PLATFORM_TOOL_DIR/go
 }
 
 install_version () {
@@ -39,14 +39,6 @@ install_version () {
   rm -rf $destdir
   mkdir -p $destdir
   tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir --strip-components 1
-}
-
-link () {
-  local destdir=$1
-  local version=$2
-  msg linking default dotnet to $version
-  rm -f $destdir
-  ln -s go-$version $destdir
 }
 
 main $@

@@ -15,8 +15,8 @@ main () {
   install_version $destdir $ME_JDK8_VERSION
   install_version $destdir $ME_JDK11_VERSION
   install_version $destdir $ME_JDKLATEST_VERSION
-  link_jdk $destdir/jdk $ME_JDK11_VERSION
-  link_jdk $destdir/jdk-latest $ME_JDKLATEST_VERSION
+  link_jdk $ME_JDK11_VERSION "$destdir/jdk"
+  link_jdk $ME_JDKLATEST_VERSION "$destdir/jdk-latest"
 }
 
 install_version () {
@@ -30,10 +30,6 @@ install_version () {
       platform=linux
       ;;
     osx-x64)
-      # if [[ $major == 10 ]] || [[ $major == 9 ]]; then
-        # msg "jdk $major not available for $ME_PLATFORM"
-        # return
-      # fi
       platform=mac
       ;;
     *)
@@ -58,27 +54,24 @@ install_version () {
       ;;
   esac
   msg "fetching $disturl"
-  echo 'actual: '$disturl
   wget --continue -P $ME_DISTFILE_DIR $disturl
   msg "extracting $distfile"
   mkdir -p $destdir
   rm -rf $destdir/jdk$version
   tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir
-  local link=${destdir}/jdk-${major}
-  rm -f $link
-  local jdk=jdk
-  [[ $major != 8 ]] && jdk+='-'
-  jdk+=${version}
-  [[ $ME_PLATFORM == osx-x64 ]] && jdk+='/Contents/Home'
-  ln -s $jdk $link
+  # create convenience link
+  local tgt=${destdir}/jdk-${major}
+  local src=jdk
+  [[ $major != 8 ]] && src+='-'
+  src+=${version}
+  [[ $ME_PLATFORM == osx-x64 ]] && src+='/Contents/Home'
+  link "$src" "$tgt"
 }
 
 link_jdk () {
-  local link=$1
-  local major=jdk-$(echo $2 | cut -d: -f1)
-  msg "linking $link to $major"
-  rm -f $link
-  ln -s $major $link
+  local src=jdk-$(echo $1 | cut -d: -f1)
+  local tgt=$2
+  link "$src" "$tgt"
 }
 
 main $@

@@ -43,21 +43,13 @@ install_version () {
   rm -rf $work_dir
 }
 
-link () {
-  local destdir=$1
-  local version=$2
-  msg linking default google-cloud-sdk to $version
-  rm -f $destdir
-  ln -s google-cloud-sdk-$version $destdir
-}
-
 main () {
   hdr refreshing gcloud
   local destdir=$(dirname $ME_GCLOUD_SDK_DIR)
   for version in $ME_GCLOUD_SDK_VERSIONS; do
     install_version $destdir $version
   done
-  link $destdir/google-cloud-sdk ${ME_GCLOUD_SDK_VERSIONS[1]}
+  link google-cloud-sdk-${ME_GCLOUD_SDK_VERSIONS[1]} $destdir/google-cloud-sdk
 }
 
 main $@

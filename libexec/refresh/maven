@@ -13,7 +13,7 @@ main () {
   for version in $ME_MAVEN_VERSIONS; do
     install_version $destdir $version
   done
-  link_default $destdir $ME_MAVEN_VERSIONS[1]
+  link apache-maven-$ME_MAVEN_VERSIONS[1] $destdir/maven
 }
 
 install_version () {
@@ -29,14 +29,6 @@ install_version () {
   mkdir -p $destdir
   rm -rf $destdir/apache-maven-$version
   tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir
-}
-
-link_default () {
-  local destdir=$1
-  local version=$2
-  msg linking default maven to $version
-  rm -f $destdir/maven
-  ln -s apache-maven-$version $destdir/maven
 }
 
 main $@

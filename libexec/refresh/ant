@@ -11,9 +11,9 @@ main () {
   hdr refreshing ant
   local destdir=$ME_TOOL_DIR/opt
   for version in $ME_ANT_VERSIONS; do
-    install_version $destdir $version || exit
+    install_version $destdir $version
   done
-  link $destdir/apache-ant $ME_ANT_VERSIONS[1] || exit
+  link apache-ant-$ME_ANT_VERSIONS[1] $destdir/ant
 }
 
 install_version () {
@@ -29,14 +29,6 @@ install_version () {
   mkdir -p $destdir || return
   rm -rf $destdir/apache-ant-$version
   tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir || return
-}
-
-link () {
-  local destdir=$1
-  local version=$2
-  msg linking default ant to $version
-  rm -f $destdir || return
-  ln -s apache-ant-$version $destdir
 }
 
 main $@

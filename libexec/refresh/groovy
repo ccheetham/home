@@ -11,9 +11,9 @@ main () {
   hdr refreshing groovy
   local destdir=$ME_TOOL_DIR/opt
   for version in $ME_GROOVY_VERSIONS; do
-    install_version $destdir $version || exit
+    install_version $destdir $version
   done
-  link_default $destdir $ME_GROOVY_VERSIONS[1] || exit
+  link groovy-$ME_GROOVY_VERSIONS[1] $destdir/groovy
 }
 
 install_version () {
@@ -28,14 +28,6 @@ install_version () {
   mkdir -p $destdir || return
   rm -rf $destdir/groovy-$version
   unzip -qo $ME_DISTFILE_DIR/$distfile -d $destdir || return
-}
-
-link_default () {
-  local destdir=$1
-  local version=$2
-  msg linking default groovy to $version
-  rm -f $destdir/groovy || return
-  ln -s groovy-$version $destdir/groovy
 }
 
 main $@

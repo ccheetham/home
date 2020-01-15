@@ -13,7 +13,7 @@ main () {
   for version in $ME_GRADLE_VERSIONS; do
     install_version $destdir $version || exit
   done
-  link_default $destdir $ME_GRADLE_VERSIONS[1] || exit
+  link gradle-$ME_GRADLE_VERSIONS[1] $destdir/gradle
 }
 
 install_version () {
@@ -28,14 +28,6 @@ install_version () {
   mkdir -p $destdir || return
   rm -rf $destdir/gradle-$version
   unzip -qo $ME_DISTFILE_DIR/$distfile -d $destdir || return
-}
-
-link_default () {
-  local destdir=$1
-  local version=$2
-  msg linking default gradle to $version
-  rm -f $destdir/gradle || return
-  ln -s gradle-$version $destdir/gradle
 }
 
 main $@
