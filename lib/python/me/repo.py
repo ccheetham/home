@@ -3,7 +3,6 @@ import os
 import subprocess
 import sys
 
-
 class Repo(object):
 
     def __init__(self, url):
@@ -68,7 +67,7 @@ class GitClient(object):
 
 
 class Command(object):
-    
+
     def __init__(self, repodb):
         self.repodb = repodb
 
@@ -104,7 +103,7 @@ if __name__ == '__main__':
     parser.add_argument("command",
             choices=["info", "refresh", "status"])
     parser.add_argument("name",
-            help="name(s) of target repo (all repos if not specified)", 
+            help="name(s) of target repo (all repos if not specified)",
             nargs="*")
     args = parser.parse_args(sys.argv[1:])
     getattr(Command(RepoDB()), args.command)(args.name)
