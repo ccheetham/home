@@ -4,11 +4,6 @@
 # https://www.microsoft.com/net/
 # =============================================================================
 
-ME_DOTNET2_SDK_VERSION=2.1.607
-ME_DOTNET3_SDK_VERSION=3.1.100
-ME_MONO_VERSION=5.18.1
-export DOTNET_ROOT=$ME_PLATFORM_TOOL_DIR/dotnet-sdk
-
-ME_PATH+=:~/.dotnet/tools:$DOTNET_ROOT
+ME_PATH+=:$ME/.dotnet/tools
 
 # vim: ft=zsh
