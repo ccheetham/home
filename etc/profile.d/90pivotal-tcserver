@@ -15,6 +15,7 @@ fi
 
 alias tcd='cd $TCS_QA'
 alias ftcs='fly --target tcs'
+alias dtcs='d images gopivotal-tcs-docker-local.jfrog.io/tc-server-qa'
 
 ME_PATH+=:$TCS_QA/bin
 
@@ -40,7 +41,7 @@ tmtcs() {
 tcs() {
   if [ -x $TCS_QA/target/distro/*/tcserver ]; then
     cmd=$(/bin/ls $TCS_QA/target/distro/*/tcserver)
-    echo $(basename $cmd) $*
+    echo "% $(basename $cmd) $*"
     $cmd $*
   else
     echo tc Server QA target 4.x not installed >&2
