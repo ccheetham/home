@@ -234,3 +234,6 @@
 
 # tcServer
 /.tcruntime-admin.properties
+
+# VMware
+/.vmware
