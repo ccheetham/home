@@ -2,7 +2,7 @@
 # Google Cloud SDK
 # =============================================================================
 
-ME_GCLOUD_SDK_VERSIONS=(228.0.0)
+ME_GCLOUD_SDK_VERSIONS=(276.0.0)
 ME_GCLOUD_SDK_DIR=$ME_PLATFORM_TOOL_DIR/google-cloud-sdk
 
 ME_PATH+=:$ME_GCLOUD_SDK_DIR/bin
