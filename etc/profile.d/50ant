@@ -4,7 +4,7 @@
 
 ME_ANT_VERSIONS=(1.9.9 1.10.1 1.8.4)
 
-export ANT_HOME=$ME_TOOL_DIR/opt/apache-ant
+export ANT_HOME=$ME_TOOL_DIR/opt/ant
 
 ME_PATH+=:$ANT_HOME/bin
 
