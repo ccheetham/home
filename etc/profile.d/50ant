@@ -2,7 +2,7 @@
 # Apache Ant
 # =============================================================================
 
-ME_ANT_VERSIONS=(1.9.9 1.10.1 1.8.4)
+ME_ANT_VERSIONS=(1.10.7 1.9.14)
 
 export ANT_HOME=$ME_TOOL_DIR/opt/ant
 
