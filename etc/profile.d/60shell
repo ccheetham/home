@@ -48,6 +48,14 @@ alias cls='clear'
 
 unalias which > /dev/null 2<&1
 
+function scratch() {
+  local scratch_dir=$HOME/scratch
+  cd $TMPDIR
+  rm -rf $scratch_dir
+  mkdir -p $scratch_dir
+  cd $scratch_dir
+}
+
 function topcommands() {
   history 0 | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -10
 }
