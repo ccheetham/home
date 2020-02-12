@@ -1,3 +1,3 @@
 #!/usr/bin/env groovy
 
-System.properties.keys().sort().each { k -> println "$k=${System.properties[k]}" }
+System.properties.keySet().sort().each { k -> println "$k=${System.properties[k]}" }
