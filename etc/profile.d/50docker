@@ -13,14 +13,14 @@ alias dprune='d system prune -f'
 
 # -----------------------------------------------------------------------------
 # dman: convenience for 'man docker-CMD'
-  # -----------------------------------------------------------------------------
-  dman () {
-    if [[ $# != 1 ]] ; then
-      echo "specify one and only one docker command" >&2
-      return 1
-    fi
-    man docker-$1
-  }
+# -----------------------------------------------------------------------------
+dman () {
+  if [[ $# != 1 ]] ; then
+    echo "specify one and only one docker command" >&2
+    return 1
+  fi
+  man docker-$1
+}
 
 # -----------------------------------------------------------------------------
 # drun: run image interactively
