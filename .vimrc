@@ -30,7 +30,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
-" Plug 'luan/vim-concourse'
+Plug 'luan/vim-concourse'
 Plug 'sheerun/vim-polyglot',
 Plug 'mrk21/yaml-vim'
 Plug 'vim-scripts/bats.vim'
@@ -82,7 +82,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nmap <c-n> :cnext<cr>
-nmap <c-m> :cprev<cr>
+nmap <c-N> :cprev<cr>
 set mouse=a                             " enable mouse for a(ll) modes
 set ttymouse=xterm2                     " xterm-like mouse handling (enables mouse scroll)
 set scrolloff=4                         " minimal lines above/below cursor
