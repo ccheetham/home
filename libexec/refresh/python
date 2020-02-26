@@ -4,10 +4,10 @@ set -e
 
 source $ME_LIBEXEC_DIR/sh_functions
 
-if ! command -v virtualenv; then
+if ! command -v virtualenv >/dev/null; then
   die "virtualenv not found"
 fi
-if ! command -v python3; then
+if ! command -v python3 >/dev/null; then
   die "python3 not found"
 fi
 
