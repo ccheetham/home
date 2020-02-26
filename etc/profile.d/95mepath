@@ -19,7 +19,7 @@ ME_PATH+=:/usr/bin:/bin
 ME_PATH+=:/usr/sbin:/sbin
 ME_MANPATH+=:/usr/share/man
 
-source /etc/profile
+[ -d /etc/profile ] && source /etc/profile
 
 PATH=$ME_PATH:$PATH
 MANPATH=$ME_MANPATH:$MANPATH
