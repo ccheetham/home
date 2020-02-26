@@ -238,3 +238,6 @@
 
 # VMware
 /.vmware
+
+# DropBox
+/.dropbox
