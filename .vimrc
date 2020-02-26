@@ -30,7 +30,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
-Plug 'luan/vim-concourse'
 Plug 'sheerun/vim-polyglot',
 Plug 'mrk21/yaml-vim'
 Plug 'vim-scripts/bats.vim'
