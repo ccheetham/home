@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+set -e
+
+source $ME_LIBEXEC_DIR/sh_functions
+
+if ! command -v virtualenv; then
+  die "virtualenv not found"
+fi
+if ! command -v python3; then
+  die "python3 not found"
+fi
+
+rm -rf $ME_PYTHON
+virtualenv $ME_PYTHON --python=python3
+$ME_PYTHON/bin/pip install -r $ME_CONFIG_DIR/python/packages

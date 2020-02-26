@@ -4,9 +4,10 @@
 
 export PYTHONPATH=$ME_LIB_DIR/python
 export PYTHONSTARTUP=$ME_LIBEXEC_DIR/pythonstartup.py
-if [ -d $ME/.pyenv ]; then
-  ME_PATH+=:$ME/.pyenv/bin
-  PYTHONPATH+=:$(ls -d $ME/.pyenv/lib/python*/site-packages)
+export ME_PYTHON=$ME/.python/$ME_HOST
+if [ -d $ME_PYTHON ]; then
+  ME_PATH+=:$ME_PYTHON/bin
+  PYTHONPATH+=:$(ls -d $ME_PYTHON/lib/python*/site-packages)
 fi
 
 alias py3=python3
