@@ -2,12 +2,13 @@
 # zsh theme
 # =============================================================================
 
-pure=$ME_REPO_DIR/pure
+pure=~/var/repo/pure
 zsh_syntax_highlighting=$ME_REPO_DIR/zsh-syntax-highlighting
 
-if [ -d $pure ]; then
-  ln -sf $pure/pure.zsh $ME/.zfunctions/prompt_pure_setup
-  ln -sf $pure/async.zsh $ME/.zfunctions/async
+cd ~/.zfunctions >/dev/null
+if [ -d ../var/repo/pure ]; then
+  ln -sf ../var/repo/pure/pure.zsh prompt_pure_setup
+  ln -sf ../var/repo/pure/async.zsh async
   PURE_PROMPT_SYMBOL=%%
   zstyle :prompt:pure:prompt:success color 114
   zstyle :prompt:pure:git:arrow color 215
@@ -15,6 +16,7 @@ if [ -d $pure ]; then
 else
   echo "$(basename $pure) not installed; run 'refresh repo'"
 fi
+cd - >/dev/null
 
 # sysntax highlighting should be last sourced
 if [ -d $zsh_syntax_highlighting ]; then
