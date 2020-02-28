@@ -136,7 +136,7 @@
 # Subversion
 /.subversion
 
-# IntelliJ
+# JetBrains
 .Idea*
 
 # Visual Studio Code
@@ -176,6 +176,7 @@
 /.docker
 
 # JetBrains products
+/.GoLand*
 /.IntelliJ*
 /.PyCharm*
 /.Rider*
