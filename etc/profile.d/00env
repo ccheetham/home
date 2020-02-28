@@ -10,8 +10,8 @@ export ME_LIBEXEC_DIR=$ME/libexec
 export ME_DATA_DIR=$ME/share
 export ME_CACHE_DIR=$ME/var
 export ME_LOG_DIR=$ME_CACHE_DIR/log
-export ME_REPO_CFG=$ME_CONFIG_DIR/repo
-export ME_REPO_DIR=$ME_CACHE_DIR/repo
+export ME_REPO_CFG=$ME_CONFIG_DIR/repos
+export ME_REPO_DIR=$ME_CACHE_DIR/repos
 export ME_MAIL_DIR=$ME_CACHE_DIR/mail
 export ME_DISTFILE_DIR=$ME/thekeep
 
