@@ -1,0 +1,129 @@
+:toc:
+:toclevels: 3
+:toc-placement!:
+:toc-title!:
+:linkattrs:
+
+= Setting Up Windows Development Environment
+
+toc::[]
+
+== Windows Settings
+
+=== Developer Mode
+
+* Open Settings -> For Developers
+* select `Developer mode`
+
+=== Windows Subsystem for Linux
+
+* https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+=== Hyper-V
+
+* Windows Features -> Hyper-V
+
+== Tools
+
+=== Choco Packages
+
+* https://chocolatey.org/install[Install Chocolatey]
+
+.Administrative CMD Shell
+----
+C:\WINDOWS\system32> choco install -y cmder vim openssh python3 poshgit cloudfoundry-cli
+C:\WINDOWS\system32> cd \Python*
+C:\WINDOWS\system32> mklink python3.exe python.exe
+----
+
+=== Java
+
+* 8+: https://adoptopenjdk.net/
+* 6-7: http://www.oracle.com/technetwork/java/archive-139210.html
+
+=== DotNet
+
+* install DotNet SDKs
+  https://dotnet.microsoft.com/download/dotnet-core
+
+=== JetBrains IDEs
+
+* https://www.jetbrains.com/toolbox-app/[JetBrains Toolbox]
+
+== User Environment
+
+=== Remap Keys
+
+* https://github.com/randyrants/sharpkeys[SharpKeys]
+
+=== PowerShell
+
+----
+C:\Users\ccheetham> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+----
+
+=== Environment Variables
+
+----
+XDG_CACHE_HOME=%USERPROFILE%\var
+MY_REPO_DIR=%USERPROFILE%\var\repo
+----
+
+=== Home Layout
+
+.CMD Shell (in %USERPROFILE%)
+----
+C:\Users\ccheetham> git config --global core.autocrlf input
+C:\Users\ccheetham> git clone git@github.com:ccheetham/home
+C:\Users\ccheetham> xcopy /h /i /e /k home\.git .git
+C:\Users\ccheetham> rmdir /s /q home
+C:\Users\ccheetham> git checkout .
+----
+
+=== Programming Font
+
+* https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip[JetBrainsMode NF]
+
+=== Python
+
+----
+C:\Users\ccheetham> pip install -r etc\python\packages
+----
+
+=== Linux
+
+==== Install
+
+* Install Debian (or derivative) in WSL
+
+==== Configure
+
+.CMD Shell
+----
+C:\Users\ccheetham> debian
+
+### become root
+$ sudo su -
+
+### configure sudo
+# echo 'ccheetham ALL=(ALL:ALL) NOPASSWD:ALL' > /etc/sudoers.d/local
+
+### setup tools
+# apt install -y zsh git python3 vim-nox
+
+### reconfigure user
+# usermod -s /bin/zsh ccheetham
+# sed -i 's:/home/ccheetham:/mnt/c/Users/ccheetham:' /etc/passwd
+
+### exit root and user and reenter
+# exit
+$ exit
+C:\Users\ccheetham> debian
+
+# update repos and vim
+$ refresh repos
+$ refresh vim
+----
+
+
+
