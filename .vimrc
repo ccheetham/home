@@ -58,6 +58,7 @@ map <leader>q :quitall<cr>
 map <leader>bd :bp\|bd #<cr>
 
 " editing
+set encoding=utf-8
 set autoindent                          " put the cursor where it should be
 set tabstop=8                           " tab-formatted files expect this
 set list                                " show TABs ...
