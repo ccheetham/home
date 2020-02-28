@@ -31,7 +31,7 @@ toc::[]
 
 .Administrative CMD Shell
 ----
-C:\WINDOWS\system32> choco install -y cmder vim openssh python3 poshgit cloudfoundry-cli
+C:\WINDOWS\system32> choco install -y microsoft-windows-terminal vim python3 openssh
 C:\WINDOWS\system32> cd \Python*
 C:\WINDOWS\system32> mklink python3.exe python.exe
 ----
