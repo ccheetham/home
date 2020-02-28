@@ -2,19 +2,19 @@
 # zsh theme
 # =============================================================================
 
-pure=~/var/repo/pure
+pure=~/var/repos/pure
 zsh_syntax_highlighting=$ME_REPO_DIR/zsh-syntax-highlighting
 
 cd ~/.zfunctions >/dev/null
-if [ -d ../var/repo/pure ]; then
-  ln -sf ../var/repo/pure/pure.zsh prompt_pure_setup
-  ln -sf ../var/repo/pure/async.zsh async
+if [ -d ../var/repos/pure ]; then
+  ln -sf ../var/repos/pure/pure.zsh prompt_pure_setup
+  ln -sf ../var/repos/pure/async.zsh async
   PURE_PROMPT_SYMBOL=%%
   zstyle :prompt:pure:prompt:success color 114
   zstyle :prompt:pure:git:arrow color 215
   prompt pure
 else
-  echo "$(basename $pure) not installed; run 'refresh repo'"
+  echo "$(basename $pure) not installed; run 'refresh repos'"
 fi
 cd - >/dev/null
 
