@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-
-xterm -name task -e 'task list; $SHELL' &
