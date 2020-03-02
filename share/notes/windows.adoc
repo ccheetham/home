@@ -66,7 +66,7 @@ C:\Users\ccheetham> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Cur
 
 ----
 XDG_CACHE_HOME=%USERPROFILE%\var
-MY_REPO_DIR=%USERPROFILE%\var\repo
+ME_REPO_DIR=%USERPROFILE%\var\repo
 ----
 
 === Home Layout
@@ -84,9 +84,24 @@ C:\Users\ccheetham> git checkout .
 
 * https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip[JetBrainsMode NF]
 
+=== Windows Terminal
+
+In _Settings_, update "defaults" section of "profiles":
+
+----
+        "defaults":
+        {
+            // Put settings here that you want to apply to all profiles
+            "colorScheme" : "One Half Dark",
+            "fontFace" : "JetBrainsMono NF",
+            "fontSize" : 10
+        },
+----
+
 === Python
 
 ----
+C:\Users\ccheetham> python -m pip install --upgrade pip
 C:\Users\ccheetham> pip install -r etc\python\packages
 ----
 
