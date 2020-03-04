@@ -2,11 +2,11 @@
 # Pivotal Steeltoe
 # =============================================================================
 
-STEELTOE_REPOS=~/src/steeltoe
+STEELTOE_REPOS=~/src/SteeltoeOSS
 
-alias std='cd $STEELTOE_REPOS/dockerfiles'
+alias std='cd $STEELTOE_REPOS/Dockerfiles'
 alias sti='cd $STEELTOE_REPOS/initializr'
-alias sts='cd $STEELTOE_REPOS/samples'
-alias stt='cd $STEELTOE_REPOS/tooling'
+alias sts='cd $STEELTOE_REPOS/Samples'
+alias stt='cd $STEELTOE_REPOS/Tooling'
 
 # vim: ft=zsh
