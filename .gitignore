@@ -87,6 +87,7 @@
 
 # work
 /.pivotal
+/.tcserver
 
 # bash
 /.bash_history
