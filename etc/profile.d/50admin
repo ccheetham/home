@@ -95,42 +95,44 @@ plist() {
 # package management
 # -----------------------------------------------------------------------------
 
-case $ME_OS in
-  bsd)
-    alias pkg='sudo pkg'
-    alias pcup='sudo pc-updatemanager'
-    ;;
-  linux)
-    case $ME_DISTRO_FLAVOR in
-      centos | redhat)
-        alias yum='sudo yum'
-        alias systemctl='sudo systemctl'
-        ;;
-      debian | ubuntu | neon)
-        alias tude='sudo aptitude'
-        alias apt='sudo apt'
-        alias apt-get='sudo apt-get'
-        alias apt-key='sudo apt-key'
-        ;;
-      fedora)
-        alias dnf='sudo dnf'
-        ;;
-      gentoo)
-        alias e='sudo -E emerge --verbose'
-        alias eup='e -auDNv @world --with-bdeps=y'
-        alias eclean='e -a --depclean'
-        alias elog='sudo view /var/log/portage/elog/summary.log'
-        ;;
-      suse)
-        alias zyp='sudo zypper'
-        ;;
-    esac
-    ;;
-  solaris)
-    alias pkg='sudo pkg'
-    alias pkgutil='sudo /opt/csw/bin/pkgutil'
-    ;;
-esac
+if [[ $(id -u) != 0 ]]; then
+  case $ME_OS in
+    bsd)
+      alias pkg='sudo pkg'
+      alias pcup='sudo pc-updatemanager'
+      ;;
+    linux)
+      case $ME_DISTRO_FLAVOR in
+        centos | redhat)
+          alias yum='sudo yum'
+          alias systemctl='sudo systemctl'
+          ;;
+        debian | ubuntu | neon)
+          alias tude='sudo aptitude'
+          alias apt='sudo apt'
+          alias apt-get='sudo apt-get'
+          alias apt-key='sudo apt-key'
+          ;;
+        fedora)
+          alias dnf='sudo dnf'
+          ;;
+        gentoo)
+          alias e='sudo -E emerge --verbose'
+          alias eup='e -auDNv @world --with-bdeps=y'
+          alias eclean='e -a --depclean'
+          alias elog='sudo view /var/log/portage/elog/summary.log'
+          ;;
+        suse)
+          alias zyp='sudo zypper'
+          ;;
+      esac
+      ;;
+    solaris)
+      alias pkg='sudo pkg'
+      alias pkgutil='sudo /opt/csw/bin/pkgutil'
+      ;;
+  esac
+fi
 
 # -----------------------------------------------------------------------------
 # kernel management
