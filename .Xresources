@@ -9,7 +9,7 @@ Xft.lcdfilter: lcddefault
 
 ! -- basic xterm -------------------------------------------------------------
 
-xterm*faceName:             xft:DejaVu Sans Mono:pixelsize=12
+xterm*faceName:             xft:Monaco Nerd Font:pixelsize=12
 xterm*pointerMode:          1
 
 xterm*toolBar:              false
