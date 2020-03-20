@@ -153,6 +153,7 @@ endif
 
 " ALE linting
 let g:ale_open_list = 1
+nnoremap <silent><leader>tl :ALEToggle<cr>
 
 " Enable autocomplete on startup
 let g:deoplete#enable_at_startup = 1
