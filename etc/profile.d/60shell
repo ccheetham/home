@@ -50,10 +50,10 @@ unalias which > /dev/null 2<&1
 
 function scratch() {
   local scratch_dir=$HOME/scratch
-  cd $TMPDIR
-  rm -rf $scratch_dir
   mkdir -p $scratch_dir
   cd $scratch_dir
+  files=(*(N) .[A-z]*(N))
+  [ -n "$files" ] && rm -rf $files
 }
 
 function topcommands() {
