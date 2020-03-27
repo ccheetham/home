@@ -44,6 +44,7 @@ setopt noclobber                # > can't truncate, >> can't create
 setopt check_jobs               # status of bg/suspended jobs on exit
 setopt no_hup                   # don't sent HUP to running jobs on exit
 setopt notify                   # report jobs status imemediately
+setopt rm_star_silent           # don't query before executing ‘rm *’
 
 # ---------------------------------------------------------------------------
 # prompt
