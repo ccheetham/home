@@ -1,0 +1,81 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+set -e
+
+main () {
+  hdr refreshing jdk
+  local destdir=$ME_PLATFORM_TOOL_DIR
+  install_version $destdir $ME_JDK8_VERSION
+  install_version $destdir $ME_JDK11_VERSION
+  install_version $destdir $ME_JDK14_VERSION
+  link_jdk $ME_JDK11_VERSION "$destdir/jdk"
+}
+
+install_version () {
+  local destdir=$1
+  local major=$(echo $2 | cut -d: -f1)
+  local build_version=$(echo $2 | cut -d: -f2)
+  local version=$(echo $build_version| cut -d+ -f1)
+  local build=$(echo $build_version| cut -d+ -f2)
+  local platform=
+  local format=
+  local arch=amd64
+  case $ME_PLATFORM in
+    linux-x64)
+      platform=linux
+      format=tar.gz
+      ;;
+    osx-x64)
+      platform=macos
+      format=zip
+      ;;
+    *)
+      die "unsupported platform: $ME_PLATFORM"
+      ;;
+  esac
+  msg "installing jdk$version"
+  local distfile=bellsoft-jdk${build_version}-${platform}-${arch}.${format}
+  local disturl=http://download.bell-sw.com/java/${build_version}/${distfile}
+  msg "fetching $disturl"
+  wget --continue -P $ME_DISTFILE_DIR $disturl
+  msg "extracting $distfile"
+  mkdir -p $destdir
+  local jdk_dir=jdk
+  if [[ $version == 8* ]]; then
+    jdk_dir+=$version
+  else
+    jdk_dir+=-${version}
+    if [[ $ME_PLATFORM == osx-x64 ]]; then
+      jdk_dir+=.jdk
+    fi
+  fi
+  rm -rf $destdir/$jdk_dir
+  case $format in
+    tar.gz)
+      tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir
+      ;;
+    zip)
+      unzip $ME_DISTFILE_DIR/$distfile -d $destdir >/dev/null
+      ;;
+    *)
+      die "unsupported format: $format"
+      ;;
+  esac
+  # create convenience link
+  local tgt="${destdir}/liberica-jdk${major}"
+  link "$jdk_dir" "$tgt"
+  link "$(basename $tgt)" "${destdir}/jdk$major"
+}
+
+link_jdk () {
+  local src=jdk$(echo $1 | cut -d: -f1)
+  local tgt=$2
+  link "$src" "$tgt"
+}
+
+main $@

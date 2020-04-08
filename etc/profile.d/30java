@@ -2,19 +2,17 @@
 # Java
 # =============================================================================
 
-ME_JDK8_VERSION=8:8u242-b08
+ME_JDK8_VERSION=8:8u242+7
 ME_JDK11_VERSION=11:11.0.6+10
 ME_JDK14_VERSION=14:14+36
-ME_JDKLATEST_VERSION=$ME_JDK14_VERSION
 
 export JDK_HOME=$ME_PLATFORM_TOOL_DIR/jdk
 export JAVA_HOME=$JDK_HOME
-export JDK6_HOME=$ME_PLATFORM_TOOL_DIR/jdk-6
-export JDK7_HOME=$ME_PLATFORM_TOOL_DIR/jdk-7
-export JDK8_HOME=$ME_PLATFORM_TOOL_DIR/jdk-8
-export JDK11_HOME=$ME_PLATFORM_TOOL_DIR/jdk-11
-export JDK14_HOME=$ME_PLATFORM_TOOL_DIR/jdk-14
-export JDKLATEST_HOME=$ME_PLATFORM_TOOL_DIR/jdk-latest
+export JDK6_HOME=$ME_PLATFORM_TOOL_DIR/jdk6
+export JDK7_HOME=$ME_PLATFORM_TOOL_DIR/jdk7
+export JDK8_HOME=$ME_PLATFORM_TOOL_DIR/jdk8
+export JDK11_HOME=$ME_PLATFORM_TOOL_DIR/jdk11
+export JDK14_HOME=$ME_PLATFORM_TOOL_DIR/jdk14
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 unset JRE_HOME
 
@@ -26,7 +24,7 @@ jversions () {
   local jinfo
   local jhome
   local jcmd
-  for jname in JDK JDK6 JDK7 JDK8 JDK11 JDK14 JDKLATEST
+  for jname in JDK JDK6 JDK7 JDK8 JDK11 JDK14
   do
     eval jhome='$'$jname'_HOME'
     if [ -n "$jhome" ]
