@@ -22,7 +22,7 @@ cd - >/dev/null
 if [ -d $zsh_syntax_highlighting ]; then
   source $zsh_syntax_highlighting/zsh-syntax-highlighting.zsh
 else
-  echo "$(basename $zsh_syntax_highlighting) not installed; run 'refresh repo'"
+  echo "$(basename $zsh_syntax_highlighting) not installed; run 'refresh repos'"
 fi
 
 # vim: ft=zsh
