@@ -18,6 +18,7 @@ unset JRE_HOME
 
 ME_PATH+=:$JAVA_HOME/bin
 ME_MANPATH+=:$JAVA_HOME/man
+export ME_JAVALIB_DIR=$ME_LIB_DIR/java
 
 jversions () {
   local jname

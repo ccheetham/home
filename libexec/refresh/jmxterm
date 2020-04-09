@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+set -e
+
+main () {
+  hdr refreshing jmxterm
+  wget --continue -P $ME_DISTFILE_DIR $JMXTERM_JAR_URL
+  mkdir -p $(dirname $JMXTERM_JAR_PATH)
+  cp $ME_DISTFILE_DIR/$JMXTERM_JAR $JMXTERM_JAR_PATH
+}
+
+main $@

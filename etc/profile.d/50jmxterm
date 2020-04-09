@@ -1,0 +1,12 @@
+# =============================================================================
+# Jmxterm
+# -----------------------------------------------------------------------------
+# https://docs.cyclopsgroup.org/jmxterm
+# =============================================================================
+
+export JMXTERM_VERSION=1.0.1
+export JMXTERM_JAR=jmxterm-${JMXTERM_VERSION}-uber.jar
+export JMXTERM_JAR_PATH=$ME_JAVALIB_DIR/jmxterm/${JMXTERM_JAR}
+export JMXTERM_JAR_URL=https://github.com/jiaqi/jmxterm/releases/download/v${JMXTERM_VERSION}/${JMXTERM_JAR}
+
+# vim: ft=zsh

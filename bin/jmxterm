@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source $ME_LIBEXEC_DIR/sh_functions
+
+[ -n "$JMXTERM_JAR_PATH" ] || die "JMXTERM_JAR_PATH not defined"
+
+if [ ! -f "$JMXTERM_JAR_PATH" ]; then
+  die "jmxterm jar not found, run 'refresh jmxterm'"
+fi
+
+exec java -jar $JMXTERM_JAR_PATH $*
