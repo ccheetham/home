@@ -4,13 +4,9 @@ set -e
 
 source $ME_LIBEXEC_DIR/sh_functions
 
-if ! command -v virtualenv >/dev/null; then
-  die "virtualenv not found"
+if command_exists pip3; then
+  pip=pip3
+else
+  pip=pip
 fi
-if ! command -v python3 >/dev/null; then
-  die "python3 not found"
-fi
-
-rm -rf $ME_PYTHON
-virtualenv $ME_PYTHON --python=python3
-$ME_PYTHON/bin/pip install -r $ME_CONFIG_DIR/python/packages
+$pip install --user -r $ME_CONFIG_DIR/python/packages
