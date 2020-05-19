@@ -1,24 +1,33 @@
-# =============================================================================
-# PowerShell profile
-# =============================================================================
-
-# PowerShell settings
-if ([System.Environment]::OSVersion.Platform -Eq 'Unix') {
-    Set-PSReadLineOption -HistorySavePath $env:XDG_CACHE_HOME/powershell/History
-}
+# PowerShell
+Set-PSREadLineOption -HistorySavePath $env:XDG_CACHE_HOME/powershell/history
 
 # Vim
-
 if ([System.Environment]::OSVersion.Platform -Like 'Win*') {
-    set-alias vi gvim
+    Set-Alias vi gvim
+}
+else {
+    Set-Alias vi vim
 }
 
 # Git
-set-alias g  git
-function gg { g status $args }
+Set-Alias g git
+function gg {
+    g status $args
+}
+Import-Module $Env:ME_REPO_DIR'\posh-git\src\posh-git.psd1'
 
 # Docker
-set-alias d docker
-function drun { d run -it --rm $args }
+Set-Alias d docker
+function drun {
+    d run -it --rm $args
+}
 
-# vim: ft=ps1
+# Gradle
+function gr {
+    & .\gradlew.bat $Args
+}
+
+# tc Server
+function tcd {
+    cd $Env:USERPROFILE\src\appsuite\tcs-tc-server-qa
+}
