@@ -20,8 +20,17 @@ install_version () {
   local destdir=$1
   local version=$2
   msg installing dotnet $version
-  local platform="macos"
-  local download_page="https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-${version}-${platform}-x64-binaries"
+  local os=
+  local arch=x64
+  case $ME_OS in
+    linux)
+      os="linux" ;;
+    osx)
+      os="macos" ;;
+    *)
+      die "unsupported OS: $ME_OS" ;;
+  esac
+  local download_page="https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-${version}-${os}-${arch}-binaries"
   local disturl=$(curl -s $download_page | grep 'id="directLink"' | sed -n 's/.*href="\([^"]*\).*/\1/p')
   local distfile=$(basename $disturl)
   msg fetching $disturl
