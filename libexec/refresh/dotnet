@@ -1,0 +1,34 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+set -e
+
+main () {
+  hdr refreshing dotnet
+  local destdir=$ME_PLATFORM_TOOL_DIR/dotnet
+  rm -rf $destdir
+  for version in $ME_DOTNET_VERSIONS; do
+    install_version $destdir $version
+  done
+}
+
+install_version () {
+  local destdir=$1
+  local version=$2
+  msg installing dotnet $version
+  local platform="macos"
+  local download_page="https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-${version}-${platform}-x64-binaries"
+  local disturl=$(curl -s $download_page | grep 'id="directLink"' | sed -n 's/.*href="\([^"]*\).*/\1/p')
+  local distfile=$(basename $disturl)
+  msg fetching $disturl
+  wget --continue -P $ME_DISTFILE_DIR $disturl
+  msg extracting $distfile
+  mkdir -p $destdir
+  tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir
+}
+
+main $@
