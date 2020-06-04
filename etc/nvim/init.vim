@@ -3,6 +3,7 @@ if ! filereadable($ME_REPO_DIR.'/vim-plug/plug.vim')
   finish
 endif
 
+source $ME_REPO_DIR/vim-plug/plug.vim
 call plug#begin($XDG_CACHE_HOME.'/vim/plugins')
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
