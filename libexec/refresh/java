@@ -50,9 +50,9 @@ install_version () {
     jdk_dir+=$version
   else
     jdk_dir+=-${version}
-    if [[ $ME_PLATFORM == osx-x64 ]]; then
-      jdk_dir+=.jdk
-    fi
+  fi
+  if [[ $ME_PLATFORM == osx-x64 ]]; then
+    jdk_dir+=.jdk
   fi
   rm -rf $destdir/$jdk_dir
   case $format in
