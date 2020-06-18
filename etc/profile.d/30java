@@ -3,7 +3,7 @@
 # =============================================================================
 
 ME_JDK8_VERSION=8:8u252+9
-ME_JDK11_VERSION=11:11.0.6+10
+ME_JDK11_VERSION=11:11.0.7+10
 ME_JDK14_VERSION=14:14+36
 
 export JDK_HOME=$ME_PLATFORM_TOOL_DIR/jdk
