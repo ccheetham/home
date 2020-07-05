@@ -2,12 +2,7 @@
 Set-PSREadLineOption -HistorySavePath $env:XDG_CACHE_HOME/powershell/history
 
 # Vim
-if ([System.Environment]::OSVersion.Platform -Like 'Win*') {
-    Set-Alias vi gvim
-}
-else {
-    Set-Alias vi vim
-}
+Set-Alias vi nvim
 
 # Git
 Set-Alias g git
