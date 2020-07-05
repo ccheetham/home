@@ -31,26 +31,56 @@ toc::[]
 
 .Administrative CMD Shell
 ----
-C:\WINDOWS\system32> choco install -y microsoft-windows-terminal vim python3 openssh wget curl
-C:\WINDOWS\system32> cd \Python*
-C:\WINDOWS\system32> mklink python3.exe python.exe
+C:\WINDOWS\system32> choco install -y curl git microsoft-windows-terminal neovim openssh python3 wget
+----
+
+=== Environment Variables
+
+----
+XDG_CACHE_HOME  %USERPROFILE%\var
+ME_REPO_DIR     %USERPROFILE%\var\repos
+ME_REPO_CFG     %USERPROFILE%\etc\repos
+----
+
+
+=== Python
+
+.Environment Variables
+----
+PATH    (add)   %APPDATA%\Python\Python38\Scripts
+PYTHONPATH      %USERPROFILE%\lib\python
+----
+
+.Setup
+----
+# Admin
+PS C:\Users\ccheetham> cd \Python38
+PS C:\Python38> cmd /c mklink python3.exe python.exe
+PS C:\Python38> .\python -m pip install --upgrade pip
+
+# User
+PS C:\Users\ccheetham> pip install --user -r etc\python\packages
 ----
 
 === Java
 
-* 8+: https://adoptopenjdk.net/
-* 6-7: http://www.oracle.com/technetwork/java/archive-139210.html
+* Java JDKs: https://bell-sw.com/pages/downloads/
+
+.Environment Variables
+----
+JDK8_HOME       C:\Program Files\BellSoft\LibericaJDK-8
+JDK11_HOME      C:\Program Files\BellSoft\LibericaJDK-11
+JDK14_HOME      C:\Program Files\BellSoft\LibericaJDK-14
+JAVA_HOME	%JDK11_HOME%
+----
 
 === DotNet
 
-* install DotNet SDKs
-  https://dotnet.microsoft.com/download/dotnet-core
+* DotNet SDKs: https://dotnet.microsoft.com/download/dotnet-core
 
 === JetBrains IDEs
 
-* https://www.jetbrains.com/toolbox-app/[JetBrains Toolbox]
-
-== User Environment
+* JetBrains Toolbox]: https://www.jetbrains.com/toolbox-app/
 
 === Remap Keys
 
@@ -59,25 +89,9 @@ C:\WINDOWS\system32> mklink python3.exe python.exe
 === PowerShell
 
 ----
-C:\Users\ccheetham> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-----
-
-=== Environment Variables
-
-----
-XDG_CACHE_HOME=%USERPROFILE%\var
-ME_REPO_DIR=%USERPROFILE%\var\repo
-----
-
-=== Home Layout
-
-.CMD Shell (in %USERPROFILE%)
-----
-C:\Users\ccheetham> git config --global core.autocrlf input
-C:\Users\ccheetham> git clone git@github.com:ccheetham/home
-C:\Users\ccheetham> xcopy /h /i /e /k home\.git .git
-C:\Users\ccheetham> rmdir /s /q home
-C:\Users\ccheetham> git checkout .
+PS C:\Users\ccheetham> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+PS C:\Users\ccheetham> cd Documents\WindowsPowerShell
+PS C:\Users\ccheetham\Documents\WindowsPowerShell> cmd /c mklink Microsoft.PowerShell_profile.ps1 ..\..\etc\windows\Microsoft.PowerShell_profile.ps1`
 ----
 
 === Programming Font
@@ -93,16 +107,35 @@ In _Settings_, update "defaults" section of "profiles":
         {
             // Put settings here that you want to apply to all profiles
             "colorScheme" : "One Half Dark",
-            "fontFace" : "JetBrainsMono NF",
+            "fontFace" : "Monaco NF",
             "fontSize" : 10
         },
 ----
 
-=== Python
+=== Home Layout
 
+.Setup
 ----
-C:\Users\ccheetham> python -m pip install --upgrade pip
-C:\Users\ccheetham> pip install -r etc\python\packages
+PS C:\Users\ccheetham> git config --global core.autocrlf input
+PS C:\Users\ccheetham> git clone https://github.com/ccheetham/home
+PS C:\Users\ccheetham> cmd /c xcopy /h /i /e /k home\.git .git
+PS C:\Users\ccheetham> cmd /c rmdir /s /q home
+PS C:\Users\ccheetham> git checkout .
+PS C:\Users\ccheetham> python3 -m me.repo refresh
+----
+
+=== NeoVim
+
+.Setup
+----
+PS C:\Users\ccheetham> cd AppData/Local
+PS C:\Users\ccheetham\AppData\Local> mkdir nvim
+PS C:\Users\ccheetham\AppData\Local> cd nvim
+PS C:\Users\ccheetham\AppData\Local\nvim> cmd /c mklink init.vim ..\..\..\etc\nvim\init.vim
+PS C:\Users\ccheetham\AppData\Local\nvim> cd ..\..\..
+PS C:\Users\ccheetham> nvim +PlugUpdate +UpdateRemotePlugins +qall
+
+
 ----
 
 === Linux
