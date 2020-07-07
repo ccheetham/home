@@ -9,6 +9,9 @@ then
 fi
 
 for f in $profile_dir/[[:digit:]]* ; do
+    if [[ $f == *.ps1 ]]; then
+        continue
+    fi
     source $f
 done
 
