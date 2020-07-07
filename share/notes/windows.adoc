@@ -37,9 +37,11 @@ C:\WINDOWS\system32> choco install -y curl git microsoft-windows-terminal neovim
 === Environment Variables
 
 ----
-XDG_CACHE_HOME  %USERPROFILE%\var
-ME_REPO_DIR     %USERPROFILE%\var\repos
-ME_REPO_CFG     %USERPROFILE%\etc\repos
+XDG_CONFIG_HOME  %USERPROFILE%\etc
+XDG_DATA_HOME    %USERPROFILE%\share
+XDG_CACHE_HOME   %USERPROFILE%\var
+ME_REPO_DIR      %USERPROFILE%\var\repos
+ME_REPO_CFG      %USERPROFILE%\etc\repos
 ----
 
 
@@ -91,7 +93,7 @@ JAVA_HOME	%JDK11_HOME%
 ----
 PS C:\Users\ccheetham> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 PS C:\Users\ccheetham> cd Documents\WindowsPowerShell
-PS C:\Users\ccheetham\Documents\WindowsPowerShell> cmd /c mklink Microsoft.PowerShell_profile.ps1 ..\..\etc\windows\Microsoft.PowerShell_profile.ps1`
+PS C:\Users\ccheetham\Documents\WindowsPowerShell> cmd /c mklink Microsoft.PowerShell_profile.ps1  ..\..\etc\profile.ps1
 ----
 
 === Programming Font

@@ -22,7 +22,5 @@ function gr {
     & .\gradlew.bat $Args
 }
 
-# tc Server
-function tcd {
-    cd $Env:USERPROFILE\src\appsuite\tcs-tc-server-qa
-}
+. $Env:Xdg_Config_Home\profile.d\90steeltoe.ps1
+. $Env:Xdg_Config_Home\profile.d\90tcserver.ps1
