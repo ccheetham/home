@@ -4,7 +4,11 @@ set -e
 
 source $ME_LIBEXEC_DIR/sh_functions
 
-if command_exists pip3; then
+if command_exists pip3.8; then
+  pip=pip3.8
+elif command_exists pip3.7; then
+  pip=pip3.7
+elif command_exists pip3; then
   pip=pip3
 else
   pip=pip
