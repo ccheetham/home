@@ -62,7 +62,7 @@ highlight CursorLineNr cterm=underline
 set history=50
 
 " state between vim sessions
-set viminfo='10,\"100,:20,%,n$XDG_CACHE_HOME/vim/viminfo
+set viminfo='10,\"100,:20,%,n$XDG_CACHE_HOME/vim/nviminfo
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
