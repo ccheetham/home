@@ -20,6 +20,11 @@ ME_PATH+=:$JAVA_HOME/bin
 ME_MANPATH+=:$JAVA_HOME/man
 export ME_JAVALIB_DIR=$ME_LIB_DIR/java
 
+alias j='java'
+alias j8='$JDK8_HOME/bin/java'
+alias j11='$JDK11_HOME/bin/java'
+alias j14='$JDK14_HOME/bin/java'
+
 jversions () {
   local jname
   local jinfo
