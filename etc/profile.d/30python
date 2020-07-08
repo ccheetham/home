@@ -18,9 +18,6 @@ if [[ osx == $ME_OS ]]; then
     done
     ME_PATH+=$pypath
   fi
-  if [ -d /usr/local/Cellar/python@3.8 ]; then
-    ME_PATH+=:$(echo /usr/local/Cellar/python@3.8/*/bin)
-  fi
 fi
 
 alias py3=python3
