@@ -4,7 +4,7 @@
 
 if [[ $ME_OS == osx ]] ; then
   ME_VMMGR=/Applications/VMware\ Fusion.app/Contents/Library/vmrun
-  ME_VMDIRS=(~/var/Virtual\ Machines)
+  ME_VMDIRS=(~/var/Virtual\ Machines.localized)
 fi
 
 # -----------------------------------------------------------------------------
