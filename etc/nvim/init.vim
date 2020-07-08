@@ -4,7 +4,7 @@ if ! filereadable($ME_REPO_DIR.'/vim-plug/plug.vim')
 endif
 
 source $ME_REPO_DIR/vim-plug/plug.vim
-call plug#begin($XDG_CACHE_HOME.'/vim/plugins')
+call plug#begin($XDG_CACHE_HOME.'/nvim/plugins')
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -62,7 +62,7 @@ highlight CursorLineNr cterm=underline
 set history=50
 
 " state between vim sessions
-set viminfo='10,\"100,:20,%,n$XDG_CACHE_HOME/vim/nviminfo
+set viminfo='10,\"100,:20,%,n$XDG_CACHE_HOME/nvim/viminfo
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
@@ -92,6 +92,9 @@ set sidescrolloff=8                     " minimal columns left/right cursor
 set incsearch                           " highlight search matches
 nmap <silent><leader>h :set invhlsearch<cr>
 
+" netrw
+let g:netrw_home=$XDG_CACHE_HOME.'/nvim'
+
 " status line
 set laststatus=2                        " always display status line
 set noshowmode                          " current mode displayed by lightline
@@ -118,7 +121,7 @@ endif
 
 " NERDTree and Tagbar
 let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
-let NERDTreeBookmarksFile = $XDG_CACHE_HOME.'/vim/bookmarks'
+let NERDTreeBookmarksFile = $XDG_CACHE_HOME.'/nvim/bookmarks'
 map <silent><leader><leader> :NERDTreeToggle<cr>
 
 " diff
