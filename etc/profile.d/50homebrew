@@ -16,7 +16,7 @@ brsync() {
   br cleanup
 }
 
-ME_HOMEBREW=$ME_PLATFORM_TOOL_DIR/homebrew.2
+ME_HOMEBREW=$ME_PLATFORM_TOOL_DIR/homebrew
 ME_PATH+=:$ME_PLATFORM_TOOL_DIR/homebrew/bin
 
 # TODO: this isn't brew specific
