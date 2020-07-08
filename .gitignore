@@ -51,6 +51,9 @@
 .Spotlight-*
 .VolumeIcon.icns
 
+# fonts
+/.fonts
+
 # terminals
 /.terminfo
 
