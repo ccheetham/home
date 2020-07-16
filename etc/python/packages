@@ -27,7 +27,7 @@ pynvim==0.4.1
 six==1.14.0
 toml==0.10.1
 traitlets==4.3.3
-virtualenv==20.0.26
+virtualenv==20.0.27
 virtualenv-clone==0.5.4
 wcwidth==0.1.8
 wrapt==1.12.1
