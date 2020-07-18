@@ -12,7 +12,7 @@ import sys
 
 try:
     import readline, atexit
-    histdir = os.path.join(os.environ['ME_CACHE_DIR'], 'python')
+    histdir = os.path.join(os.environ['ME_CACHE_DIR'], 'python' + str(sys.version_info[0]))
     try:
         os.makedirs(histdir)
     except:
