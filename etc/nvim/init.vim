@@ -26,10 +26,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'OrangeT/vim-csharp'
 call plug#end()
-
-let g:python3_host_program = '/Users/ccheetham/local/osx-x64/homebrew/bin/python3'
 
 " use spacebar to trigger keymaps
 let mapleader=" "
