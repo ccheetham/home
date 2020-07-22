@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+prog=$(basename $0)
+base_dir=$(cd $(dirname $0)/.. && pwd)
+cfg_file="$base_dir/etc/cftail/cftail.conf"
+
+usage() {
+  echo "USAGE"
+  echo "     $prog [-h] [-c config] name"
+  echo
+  echo "WHERE"
+  echo "     name    Cloud Foundry application name"
+  echo
+  echo "OPTIONS"
+  echo "     -c      color config file; per colortail specification"
+  echo "     -h      print this message"
+  echo
+  echo "DESCRIPTION"
+  echo "     $prog is a Cloud Foundry-aware wrapper for colortail."
+  echo
+  echo "     The default color config file can be found at:"
+  echo "         $cfg_file"
+  echo
+  echo "     For details on colortail:"
+  echo "         https://github.com/joakim666/colortail"
+}
+
+die() {
+  echo $* >&2
+  exit 1
+}
+
+while getopts ":h" opt ; do
+  case $opt in
+    h)
+      usage
+      exit
+      ;;
+    \?)
+      echo "invalid option -$OPTARG" 2>&1
+      echo "run with -h for help" 2>&1
+      exit 1
+      ;;
+    :)
+      echo "option -$OPTARG requires an argument" 2>&1
+      echo "run with -h for help" 2>&1
+      exit 1
+      ;;
+  esac
+done
+shift $(($OPTIND - 1))
+
+[ $# -eq 0 ] && die "application name not specified; run with -h for help"
+app_name=$1
+shift
+
+[ $# -eq 0 ] || die "too many args; run with -h for help"
+
+
+command -v cf >/dev/null || die "cf not found"
+command -v colortail >/dev/null || die "colortail not found"
+[ -f "$cfg_file" ] || die "config file not found or is not a file: $cfg_file"
+
+tmp_file=${prog}.$$
+touch "$tmp_file"
+
+housekeeping() {
+  rm -f "$tmp_file"
+}
+
+trap housekeeping SIGINT
+colortail --config "$cfg_file" --quiet --follow "$tmp_file" &
+cf logs $app_name >> "$tmp_file"
