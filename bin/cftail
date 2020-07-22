@@ -61,8 +61,15 @@ command -v cf >/dev/null || die "cf not found"
 command -v colortail >/dev/null || die "colortail not found"
 [ -f "$cfg_file" ] || die "config file not found or is not a file: $cfg_file"
 
-tmp_file=${prog}.$$
-touch "$tmp_file"
+case $(uname) in
+  Darwin)
+    tmp_file=$(mktemp -t $prog)
+    ;;
+  *)
+    tmp_file=${prog}.$$
+    touch "$tmp_file"
+    ;;
+esac
 
 housekeeping() {
   rm -f "$tmp_file"
