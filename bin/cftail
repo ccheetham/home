@@ -65,6 +65,9 @@ case $(uname) in
   Darwin)
     tmp_file=$(mktemp -t $prog)
     ;;
+  Linux)
+    tmp_file=$(mktemp -t $prog.XXXXXXXX)
+    ;;
   *)
     tmp_file=${prog}.$$
     touch "$tmp_file"
@@ -72,6 +75,7 @@ case $(uname) in
 esac
 
 housekeeping() {
+  echo "removing $tmp_file"
   rm -f "$tmp_file"
 }
 
