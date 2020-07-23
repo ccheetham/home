@@ -8,6 +8,8 @@ alias std='cd $STEELTOE_REPOS/Dockerfiles'
 alias stil='cd $STEELTOE_REPOS/Initializr'
 alias stia='cd $STEELTOE_REPOS/InitializrApi'
 alias stiw='cd $STEELTOE_REPOS/InitializrWeb'
+alias stic='cd $STEELTOE_REPOS/Steeltoe.Initializr.ConfigServer'
+alias stiC='cd $STEELTOE_REPOS/Steeltoe.Initializr.Configuration'
 alias sts='cd $STEELTOE_REPOS/Samples'
 alias stt='cd $STEELTOE_REPOS/Tooling'
 
