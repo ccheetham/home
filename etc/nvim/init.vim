@@ -26,6 +26,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " use spacebar to trigger keymaps
@@ -127,6 +128,7 @@ endif
 let NERDTreeIgnore=['\.swp$', '\.pyc$', '__pycache__']
 let NERDTreeBookmarksFile = $XDG_CACHE_HOME.'/nvim/bookmarks'
 map <silent><leader><leader> :NERDTreeToggle<cr>
+map <silent><leader>tt :TagbarToggle<cr>
 
 " diff
 set diffopt+=vertical                   " say 'no' to horizontal diffs
