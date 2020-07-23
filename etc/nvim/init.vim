@@ -34,7 +34,8 @@ call plug#end()
 let mapleader=" "
 
 " quitting
-map <leader>q :quitall<cr>
+map <leader>q :quit<cr>
+map <leader>Q :quitall<cr>
 map <leader>bd :bp\|bd #<cr>
 
 " editing
