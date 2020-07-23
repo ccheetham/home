@@ -7,8 +7,8 @@
 #   refresh terminfo
 # =============================================================================
 
-
 source $(dirname $0)/../etc/profile
+source $(dirname $0)/../libexec/sh_functions
 
 for term in xterm-256color-italic xterm-256color xterm-color xterm; do
   if infocmp $term > /dev/null 2>&1; then
@@ -17,5 +17,13 @@ for term in xterm-256color-italic xterm-256color xterm-color xterm; do
   fi
 done
 
-command -v nvim >/dev/null && vi=nvim || vi=vim
-exec $vi $*
+unset vi
+vimexecs=(nvim vim vi)
+for viexec in $vimexecs; do
+  if command -v $viexec >/dev/null; then
+    vi=$viexec
+    break
+  fi
+done
+[ -z "$vi" ] && die "no vi executable found: ${vimexecs}"
+eval $vi $*
