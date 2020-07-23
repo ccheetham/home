@@ -13,7 +13,7 @@
 	ll = log --pretty=oneline
 	rollback = reset --soft @~1
 	unstage = reset HEAD --
-	mm = merge --no-ff
+	m = merge
 	mq = merge --squash
 [core]
 	pager = less -eFiJM~ -j3 --tabs=3
