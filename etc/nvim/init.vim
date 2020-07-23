@@ -27,6 +27,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'majutsushi/tagbar'
+Plug 'luan/vim-concourse'
 call plug#end()
 
 " use spacebar to trigger keymaps
