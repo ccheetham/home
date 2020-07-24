@@ -1,0 +1,9 @@
+* cd /usr/src/linux
+* cp ~ccheetham/share/notes/gentoo/kernel-vmware-guest.config .config
+* make modules_prepare
+* make modules_install
+* make install
+* emerge --ask @module-rebuild
+* grub-mkconfig -o /boot/grub/grub.cfg
+
+
