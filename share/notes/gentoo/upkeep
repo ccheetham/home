@@ -1,0 +1,4 @@
+emerge --ask --update --newuse --deep --with-bdeps=y @system
+emerge --ask --update --newuse --deep --with-bdeps=y @world
+emerge --depclean
+eclean distfiles
