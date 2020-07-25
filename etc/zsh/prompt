@@ -1,0 +1,109 @@
+# =============================================================================
+# shell prompt
+# =============================================================================
+
+typeset -A p_color
+case $TERM in
+  screen*|tmux*|xterm*)
+    p_color[none]='%f'
+    p_color[Green]='%F{002}'
+    p_color[Grey23]='%F{237}'
+    p_color[PaleTurquoise4]='%F{066}'
+    p_color[RosyBrown]='%F{138}'
+    p_color[Red]='%F{009}'
+    ;;
+esac
+
+function p_c_info() {
+  echo -n ${p_color[PaleTurquoise4]}
+}
+
+function p_c_ok() {
+  echo -n ${p_color[Green]}
+}
+
+function p_c_error() {
+  echo -n ${p_color[Red]}
+}
+
+function p_c_subtle() {
+  echo -n ${p_color[Grey23]}
+}
+
+function p_c_reset() {
+  echo -n ${p_color[none]}
+}
+
+function p_divider {
+  p_c_subtle
+  repeat $(tput cols) echo -n '.'
+  p_c_reset
+}
+
+function p_rc {
+  p_c_info
+  echo -n '%(?,,%B'$(p_c_error)'%?'$(p_c_info)'%b )'
+  p_c_reset
+}
+
+function p_path {
+  p_c_info
+  echo -n '%~'
+  p_c_reset
+}
+
+function p_jobs {
+  p_c_info
+  echo -n '%(1j, [%B%j%b],)'
+  p_c_reset
+}
+
+function p_vcs {
+  local git_stat=$(git status 2> /dev/null | head -2)
+  local git_blurb=
+  case $git_stat in
+    "On branch"*"unmerged"*)
+      git_blurb="(merge)"
+      ;;
+    "On branch"*)
+      git_blurb=$(echo $git_stat | head -1 | cut -d' ' -f3)
+      ;;
+    "rebase in progress"*)
+      git_blurb="(rebase)"
+      ;;
+    *detached*)
+      tag=$(echo $git_stat | awk '{print $4}')
+      git_blurb="$tag/T"
+      ;;
+  esac
+  [ -z "$git_blurb" ] && return
+  p_c_info
+  echo -n '  %B'${git_blurb}'%b'
+  p_c_reset
+}
+
+function p_env {
+  [ -z "$VIRTUAL_ENV" ] && return
+  p_c_info
+  echo -n '('$(basename "$VIRTUAL_ENV")') '
+  p_c_reset
+}
+
+PROMPT='$(p_rc)$(p_env)%# '
+
+RPROMPT='$(p_path)$(p_vcs)$(p_jobs)'
+
+# -----------------------------------------------------------------------------
+# windows title
+# -----------------------------------------------------------------------------
+
+ function precmd {
+   [[ $TERM == xterm* ]] || return
+   print -Pn '\e]0;'
+   if [ -n "$SSH_CLIENT" ]; then
+     print -Pn '[%m] '
+   fi
+   print -Pn '%~\a'
+}
+
+# vim: ft=zsh
