@@ -40,21 +40,20 @@ function p_divider {
   p_c_reset
 }
 
-function p_rc {
-  p_c_info
-  echo -n '%(?,,%B'$(p_c_error)'%?'$(p_c_info)'%b )'
-  p_c_reset
+function p_prompt {
+  # echo -n '%(?,'$(p_c_ok)'%? ▶'$(p_c_info),'$(p_c_error)'%? ▶'$(p_c_info))'
+  echo -n '%(?,'$(p_c_ok)','$(p_c_error)')▶ '$(p_c_reset)
 }
 
 function p_path {
   p_c_info
-  echo -n '%~'
+  echo -n '%B%~%b'
   p_c_reset
 }
 
 function p_jobs {
   p_c_info
-  echo -n '%(1j, [%B%j%b],)'
+  echo -n '%(1j, [%j],)'
   p_c_reset
 }
 
@@ -78,7 +77,7 @@ function p_vcs {
   esac
   [ -z "$git_blurb" ] && return
   p_c_info
-  echo -n '  %B'${git_blurb}'%b'
+  echo -n ' '${git_blurb}
   p_c_reset
 }
 
@@ -89,9 +88,9 @@ function p_env {
   p_c_reset
 }
 
-PROMPT='$(p_rc)$(p_env)%# '
+PROMPT='$(p_env)$(p_prompt)'
 
-RPROMPT='$(p_path)$(p_vcs)$(p_jobs)'
+RPROMPT='$(p_vcs)$(p_jobs)'
 
 # -----------------------------------------------------------------------------
 # windows title
