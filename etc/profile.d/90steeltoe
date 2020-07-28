@@ -2,12 +2,15 @@
 # Steeltoe
 # =============================================================================
 
-alias stil='Initializr'
-alias stia='InitializrApi'
-alias stiw='InitializrWeb'
-alias stic='Steeltoe.Initializr.ConfigServer'
-alias stiC='Steeltoe.Initializr.Configuration'
-alias sts='Samples'
-alias stt='Tooling'
+STEELTOE_REPOS=~/src/SteeltoeOSS
+
+alias sts='cd $STEELTOE_REPOS/Samples'
+alias std='cd $STEELTOE_REPOS/Dockerfiles'
+alias stt='cd $STEELTOE_REPOS/Tooling'
+alias stil='cd $STEELTOE_REPOS/Initializr'
+alias stia='cd $STEELTOE_REPOS/InitializrApi'
+alias stiw='cd $STEELTOE_REPOS/InitializrWeb'
+alias stic='cd $STEELTOE_REPOS/InitializrConfigServer'
+alias stik='cd $STEELTOE_REPOS/InitializrConfig'
 
 # vim: ft=zsh
