@@ -68,3 +68,6 @@ setopt share_history            # imports new cmds and append typed ones
 # ---------------------------------------------------------------------------
 
 skip_global_compinit=1          # defer compinit to me (debian derivatives)
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
