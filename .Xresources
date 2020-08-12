@@ -9,7 +9,7 @@ Xft.lcdfilter: lcddefault
 
 ! -- basic xterm -------------------------------------------------------------
 
-xterm*faceName:             xft:Monaco Nerd Font:pixelsize=12
+xterm*faceName:             xft:Cascadia Code PL:pixelsize=14
 xterm*pointerMode:          1
 
 xterm*toolBar:              false
@@ -27,10 +27,10 @@ xterm*altSendsEscape:       true
 
 ! -- logging terms -----------------------------------------------------------
 
-log*faceName:              xft:Courier New:pixelsize=8
+log*faceName:              xft:Courier New:pixelsize=14
 
 ! -- task warrior terms ------------------------------------------------------
 
 task*geometry:              80x80+0+0
-task*faceName:              xft:Courier New:italic:pixelsize=10
+task*faceName:              xft:Courier New:italic:pixelsize=14
 task*scrollBar:             false
