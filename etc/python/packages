@@ -32,6 +32,7 @@ pexpect==4.8.0
 pickleshare==0.7.5
 pipenv==2020.6.2
 prompt-toolkit==3.0.5
+psutil==5.7.2
 ptyprocess==0.6.0
 Pygments==2.6.1
 pylint==2.5.3
