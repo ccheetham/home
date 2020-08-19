@@ -10,8 +10,8 @@
 	cpick = cherry-pick
 	diffc = diff --cached
 	last = log -1 HEAD
-	l = log --pretty=oneline
-	ll = log
+	l = log --abbrev-commit --pretty=oneline
+	ll = log --abbrev-commit
 	rollback = reset --soft @~1
 	unstage = reset HEAD --
 	m = merge
