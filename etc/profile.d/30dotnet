@@ -5,7 +5,7 @@
 # =============================================================================
 
 export DOTNET_ROOT=$ME_PLATFORM_TOOL_DIR/dotnet
-ME_DOTNET_VERSIONS=(2.1.808 2.2.207 3.1.302)
+ME_DOTNET_VERSIONS=(2.1.808 2.2.207 3.1.401)
 ME_PATH+=:$ME/.dotnet/tools:$DOTNET_ROOT
 
 # vim: ft=zsh
