@@ -8,21 +8,21 @@ description() {
 }
 
 usage() {
-    echo "`b USAGE`"
-    echo "     `c $PROG $cmd` [-h] `u name`"
+    echo "`B USAGE`"
+    echo "     `C $PROG $cmd` [-h] `U name`"
     echo
-    echo "`b DESCRIPTION`"
+    echo "`B DESCRIPTION`"
     echo "     $(description)"
     echo
     echo "     By default, issues an ACPI shutdown message."
-    echo "     Run with `c-f` forcefully poweroff."
+    echo "     Run with `C -f` forcefully poweroff."
     echo
-    echo "`b WHERE`"
-    echo "     `c name`  virtual machine name"
+    echo "`B WHERE`"
+    echo "     `C name`  virtual machine name"
     echo
-    echo "`b OPTIONS`"
-    echo "     `c -f`      force stop by powering off virtual machine"
-    echo "     `c -h`      print this message"
+    echo "`B OPTIONS`"
+    echo "     `C -f`      force stop by powering off virtual machine"
+    echo "     `C -h`      print this message"
 }
 
 force=0

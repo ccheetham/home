@@ -8,26 +8,26 @@ source $basedir/etc/profile
 source $basedir/libexec/sh_functions
 
 usage () {
-    echo "`b USAGE`"
-    echo "     `c $prog` [-h] `u command...`"
+    echo "`B USAGE`"
+    echo "     `C $prog` [-h] `U command...`"
     echo
-    echo "`b DESCRIPTION`"
+    echo "`B DESCRIPTION`"
     echo "     Helper for VirtualBox vm management."
     echo
-    echo "`b WHERE`"
-    echo "     `c command`"
-    echo "             name of `c $prog` command"
+    echo "`B WHERE`"
+    echo "     `C command`"
+    echo "             name of `C $prog` command"
     echo
-    echo "`b OPTIONS`"
-    echo "     `c -h`      Print this message (run `c $TCS_PROG command -h` for specific help)."
+    echo "`B OPTIONS`"
+    echo "     `C -h`      Print this message (run `C $TCS_PROG command -h` for specific help)."
     echo
-    echo "`b COMMANDS`"
+    echo "`B COMMANDS`"
     for cmdpath in $execdir/*
     do
         if [[ -x $cmdpath ]]
         then
             cmd=$(basename $cmdpath)
-            printf "     `b %-8s`" "$cmd"
+            printf "     `B %-8s`" "$cmd"
             if [[ ${#cmd} -gt 6 ]]
             then
                 printf "\n             "

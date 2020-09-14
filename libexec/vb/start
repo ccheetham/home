@@ -8,18 +8,18 @@ description() {
 }
 
 usage() {
-    echo "`b USAGE`"
-    echo "     `c $PROG $cmd` [-h] `u name`"
+    echo "`B USAGE`"
+    echo "     `C $PROG $cmd` [-h] `U name`"
     echo
-    echo "`b DESCRIPTION`"
+    echo "`B DESCRIPTION`"
     echo "     $(description)"
     echo
-    echo "`b WHERE`"
-    echo "     `c name`  virtual machine name"
+    echo "`B WHERE`"
+    echo "     `C name`  virtual machine name"
     echo
-    echo "`b OPTIONS`"
-    echo "     `c -g`      start with GUI (default headless)"
-    echo "     `c -h`      print this message"
+    echo "`B OPTIONS`"
+    echo "     `C -g`      start with GUI (default headless)"
+    echo "     `C -h`      print this message"
 }
 
 headless=1

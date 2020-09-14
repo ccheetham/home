@@ -63,26 +63,26 @@ link () {
 # -----------------------------------------------------------------------------
 
 # bold
-b() {
+B() {
     tput bold
     printf "%s" "$*"
     tput sgr0
 }
 
 # underline
-u() {
+U() {
     tput smul
     printf "%s" "$*"
     tput rmul
 }
 
 # uppercase
-U() {
+UPPER() {
     echo "$*" | awk '{print toupper($0)}'
 }
 
 # code
-c() {
+C() {
     tput bold
     printf "%s" "$*"
     tput sgr0

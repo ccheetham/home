@@ -8,14 +8,14 @@ description() {
 }
 
 usage() {
-    echo "`b USAGE`"
-    echo "     `c $PROG $cmd` [-h]"
+    echo "`B USAGE`"
+    echo "     `C $PROG $cmd` [-h]"
     echo
-    echo "`b DESCRIPTION`"
+    echo "`B DESCRIPTION`"
     echo "     $(description)"
     echo
-    echo "`b OPTIONS`"
-    echo "     `c -h`      print this message"
+    echo "`B OPTIONS`"
+    echo "     `C -h`      print this message"
 }
 
 do_all=0
