@@ -47,7 +47,8 @@ set listchars=tab:.\                    " ... as  .___
 set bs=2                                " backspace over everything
 set visualbell                          " quiet please
 set nowrap                              " don't wrap lines
-set foldmethod=marker                   " I control when to fold
+set foldmethod=manual                   " I control when to fold
+set nofoldenable
 set wildmenu                            " enhanced completion
 map <c-d> dd
 noremap <cr> o<esc>
@@ -225,5 +226,5 @@ let g:OmniSharp_popup = 1
 
 " Git blamer
 let g:blamer_enabled = 1
-let g:blamer_delay = 2000
+let g:blamer_delay = 0750
 let g:blamer_date_format = '%m/%d/%y'
