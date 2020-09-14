@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+
+set -e
+
+prog_name=$(basename $0)
+system=false
+system_keychain_file=/Library/Keychains/System.keychain
+scratch_dir=
+
+usage() {
+  echo "USAGE"
+  echo "     $prog_name [-hS]"
+  echo
+  echo "OPTIONS"
+  echo "     -h      print this message"
+  echo "     -S      add certificate to admin (system) Trust Settings"
+  echo
+  echo "DESCRIPTION"
+  echo "     $prog_name creates a certificate for local development."
+  echo "     The certificate is added to the user's Trust Settings."
+  echo "     If -S is specified, the certificate is also added to the admin Trust Settings (using sudo)."
+}
+
+die() {
+  echo $* >&2
+  exit 1
+}
+
+while getopts ":hS" opt ; do
+  case $opt in
+    h)
+      usage
+      exit
+      ;;
+    S)
+      system=true
+      ;;
+    \?)
+      die "invalid option -$OPTARG; run with -h for help"
+      ;;
+    :)
+      die "option -$OPTARG requires an argument; run with -h for help"
+      ;;
+  esac
+done
+shift $(($OPTIND - 1))
+
+check_cmd() {
+  local cmd="$*"
+  command -v "$cmd" >/dev/null || die "command not found: $cmd"
+}
+
+scratch() {
+  echo "$scratch_dir/$*"
+}
+
+housekeeping() {
+  [ -z "$scratch_dir" ] && return
+  rm -rf "$scratch_dir"
+}
+
+trap housekeeping SIGINT
+
+os=$(uname)
+[ $os == Darwin ] || die "OS not supported: $os"
+
+check_cmd security
+check_cmd openssl
+
+keychain_file=$(eval echo $(security login-keychain))
+
+[ -n "$keychain_file" ] || die "login keychain not defined"
+[ -f "$keychain_file" ] || die "login keychain not found: $keychain_file"
+
+scratch_dir=$(mktemp -d -t "$prog_name")
+cd "$scratch_dir"
+
+echo "creating certificate configuration"
+cat >https.config <<EOF
+[ req ]
+default_bits       = 2048
+default_md         = sha256
+default_keyfile    = key.pem
+prompt             = no
+encrypt_key        = no
+
+distinguished_name = req_distinguished_name
+req_extensions     = v3_req
+x509_extensions    = v3_req
+
+[ req_distinguished_name ]
+commonName         = "localhost"
+
+[ v3_req ]
+subjectAltName     = DNS:localhost
+basicConstraints   = critical, CA:false
+keyUsage           = critical, digitalSignature, keyEncipherment
+extendedKeyUsage   = critical, serverAuth
+1.3.6.1.4.1.311.84.1.1 = ASN1:UTF8String:01
+EOF
+
+echo "creating certificate"
+openssl req -config https.config -new -out https.crt -x509 -days 365 >/dev/null
+
+echo "exporting to pfx"
+openssl pkcs12 -export -out https.pfx -inkey key.pem -in https.crt -password pass:password >/dev/null
+
+echo "getting certificate hash"
+cert_hash=$(openssl x509 -noout -fingerprint -sha256 -inform pem -in https.crt | cut -d= -f2 | tr -d ':')
+
+echo "creating certificate sentinel"
+echo true > ~/.dotnet/certificate.${cert_hash}.sentinel;
+
+echo "importing certificate: $keychain_file"
+security import https.pfx -k "$keychain_file" -t cert -f pkcs12 -P password -A
+
+if $system; then
+  echo "trusting certificate: $system_keychain_file"
+  sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain https.crt
+else
+  echo "skipping trust certification"
+fi
+
+housekeeping
