@@ -50,8 +50,12 @@ unalias which > /dev/null 2<&1
 
 function scratch() {
   local scratch_dir=$HOME/scratch
-  mkdir -p $scratch_dir
+  test -d $scratch dir || mkdir -p $scratch_dir || return
   cd $scratch_dir
+  # ensure cd worked
+  [[ $(pwd) != $scratch_dir ]] && return 1
+  # ensure dir writeable
+  touch .scratched || return
   files=(*(N) .[A-z]*(N))
   [ -n "$files" ] && rm -rf $files
 }
