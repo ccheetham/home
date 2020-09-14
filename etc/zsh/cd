@@ -1,4 +1,4 @@
 # guess cd dir using these roots
-cdpath=(~/src ~/src/appsuite ~/src/SteeltoeOSS)
+# cdpath=(~/src)
 
 # vim: ft=zsh
