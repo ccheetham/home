@@ -4,16 +4,16 @@
 # http://brew.sh/
 # =============================================================================
 
-alias br='brew'
+alias b='brew'
 
-brsync() {
+bsync() {
   if [[ $ME_OS != osx ]]; then
     echo "not on OS X" >&2
     return 1
   fi
-  br update
-  br upgrade
-  br cleanup
+  b update
+  b upgrade
+  b cleanup
 }
 
 ME_HOMEBREW=$ME_PLATFORM_TOOL_DIR/homebrew
