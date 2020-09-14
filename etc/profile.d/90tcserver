@@ -4,7 +4,7 @@
 
 TCS_QA=~/src/appsuite/tcs-tc-server-qa
 
-alias tcd='tcs-tc-server-qa'
+alias tcd=$TCS_QA
 alias ftcs='fly --target tcs'
 alias dtcs='d images gopivotal-tcs-docker-local.jfrog.io/tc-server-qa'
 
