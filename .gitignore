@@ -1,10 +1,6 @@
 /local
 /scratch
-/src
 /thekeep
-/tmp
-/var
-/xfr
 
 # desktop files
 /3D Objects
@@ -251,3 +247,6 @@
 
 # Intel
 /Intel
+
+# yarn package manager
+/.yarnrc
