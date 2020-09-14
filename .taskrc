@@ -2,6 +2,8 @@ data.location=~/var/task
 
 calendar.holidays=sparse
 
+include ~/local/osx-x64/homebrew/share/doc/task/rc/solarized-light-256.theme
+
 #taskd.certificate=~/etc/ssl/chris.cheetham.crt
 #taskd.key=~/etc/ssl/chris.cheetham.key
 #taskd.ca=~/etc/ssl/ca.cheetham.com.crt
