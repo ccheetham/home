@@ -5,6 +5,7 @@
 export ME=$(cd "$(dirname $0)/../.." && pwd)
 
 export ME_CONFIG_DIR=$ME/etc
+export ME_SRC_DIR=$ME/src
 export ME_LIB_DIR=$ME/lib
 export ME_LIBEXEC_DIR=$ME/libexec
 export ME_DATA_DIR=$ME/share
