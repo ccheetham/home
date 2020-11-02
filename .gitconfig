@@ -9,6 +9,7 @@
 	co = checkout
 	cpick = cherry-pick
 	diffc = diff --cached
+	ds = diff --compact-summary
 	last = log -1 HEAD
 	l = log --abbrev-commit --pretty=oneline
 	ll = log --abbrev-commit
