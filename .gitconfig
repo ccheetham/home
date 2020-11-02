@@ -16,6 +16,7 @@
 	unstage = reset HEAD --
 	m = merge
 	mq = merge --squash
+	sw = switch
 [core]
 	pager = less -eFiJM~ -j3 --tabs=3
 	autocrlf = input
