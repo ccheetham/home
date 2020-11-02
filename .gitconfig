@@ -21,3 +21,5 @@
 [core]
 	pager = less -eFiJM~ -j3 --tabs=3
 	autocrlf = input
+[pull]
+	rebase = true
