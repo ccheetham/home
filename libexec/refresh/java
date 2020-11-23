@@ -12,7 +12,7 @@ main () {
   local destdir=$ME_PLATFORM_TOOL_DIR
   install_version $destdir $ME_JDK8_VERSION
   install_version $destdir $ME_JDK11_VERSION
-  install_version $destdir $ME_JDK14_VERSION
+  install_version $destdir $ME_JDK15_VERSION
   link_jdk $ME_JDK11_VERSION "$destdir/jdk"
 }
 

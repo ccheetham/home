@@ -3,8 +3,8 @@
 # =============================================================================
 
 ME_JDK8_VERSION=8:8u275+1
-ME_JDK11_VERSION=11.0.9.1+1
-ME_JDK14_VERSION=14:14.0.2+13
+ME_JDK11_VERSION=11:11.0.9.1+1
+ME_JDK15_VERSION=15:15.0.1+9
 
 export JDK_HOME=$ME_PLATFORM_TOOL_DIR/jdk
 export JAVA_HOME=$JDK_HOME
@@ -12,7 +12,7 @@ export JDK6_HOME=$ME_PLATFORM_TOOL_DIR/jdk6
 export JDK7_HOME=$ME_PLATFORM_TOOL_DIR/jdk7
 export JDK8_HOME=$ME_PLATFORM_TOOL_DIR/jdk8
 export JDK11_HOME=$ME_PLATFORM_TOOL_DIR/jdk11
-export JDK14_HOME=$ME_PLATFORM_TOOL_DIR/jdk14
+export JDK15_HOME=$ME_PLATFORM_TOOL_DIR/jdk15
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 unset JRE_HOME
 
@@ -23,14 +23,14 @@ export ME_JAVALIB_DIR=$ME_LIB_DIR/java
 alias j='java'
 alias j8='$JDK8_HOME/bin/java'
 alias j11='$JDK11_HOME/bin/java'
-alias j14='$JDK14_HOME/bin/java'
+alias j15='$JDK15_HOME/bin/java'
 
 jversions () {
   local jname
   local jinfo
   local jhome
   local jcmd
-  for jname in JDK JDK6 JDK7 JDK8 JDK11 JDK14
+  for jname in JDK JDK6 JDK7 JDK8 JDK11 JDK15
   do
     eval jhome='$'$jname'_HOME'
     if [ -n "$jhome" ]
