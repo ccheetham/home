@@ -182,3 +182,4 @@ endif
 let g:blamer_enabled = 1
 let g:blamer_delay = 0750
 let g:blamer_date_format = '%m/%d/%y'
+let g:blamer_show_in_insert_modes = 0
