@@ -70,9 +70,9 @@ function p_vcs {
     "rebase in progress"*)
       git_blurb="(rebase)"
       ;;
-    *detached*)
-      tag=$(echo $git_stat | awk '{print $4}')
-      git_blurb="$tag/T"
+    *"detached"*)
+      tag=$(echo $git_stat | head -1 | awk '{print $4}')
+      git_blurb="$tag"
       ;;
   esac
   [ -z "$git_blurb" ] && return
