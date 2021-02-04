@@ -256,3 +256,6 @@
 
 # Jupyter notenook
 /.jupyter
+
+# K9S kubernetes CLI
+/.k9s
