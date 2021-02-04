@@ -2,7 +2,7 @@
 # Steeltoe
 # =============================================================================
 
-STEELTOE_REPOS=~/src/SteeltoeOSS
+STEELTOE_REPOS=~/src/github.com/SteeltoeOSS
 
 alias sts='cd $STEELTOE_REPOS/Samples'
 alias std='cd $STEELTOE_REPOS/Dockerfiles'
