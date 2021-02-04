@@ -250,3 +250,6 @@
 
 # yarn package manager
 /.yarnrc
+
+# Azure
+/.azure
