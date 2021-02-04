@@ -17,6 +17,7 @@ bsync() {
 }
 
 export HOMEBREW_HOME=$ME_PLATFORM_TOOL_DIR/homebrew
+export HOMEBREW_BUNDLE_FILE=$ME_CONFIG_DIR/homebrew/Brewfile
 ME_PATH+=:$HOMEBREW_HOME/bin
 
 # TODO: this isn't brew specific
