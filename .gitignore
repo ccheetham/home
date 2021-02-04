@@ -253,3 +253,6 @@
 
 # Azure
 /.azure
+
+# Jupyter notenook
+/.jupyter
