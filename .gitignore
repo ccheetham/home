@@ -259,3 +259,6 @@
 
 # K9S kubernetes CLI
 /.k9s
+
+# mystery files
+/.%*.png
