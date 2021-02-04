@@ -5,6 +5,6 @@ set guioptions-=r  " remove scroll bar
 if has('win32')
   set guifont=JetBrainsMono_NF:h10
 else
-  set guifont=Monaco\ Nerd\ Font:h12
+  set guifont=Cascadia\ Code\ PL:h14
 endif
 set lines=36 columns=150
