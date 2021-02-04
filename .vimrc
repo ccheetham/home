@@ -15,6 +15,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
+Plug 'APZelos/blamer.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
@@ -176,3 +177,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 "  let g:ctrlp_extensions = ['line']
 endif
+"
+" Git blamer
+let g:blamer_enabled = 1
+let g:blamer_delay = 0750
+let g:blamer_date_format = '%m/%d/%y'
