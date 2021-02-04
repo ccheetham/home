@@ -16,8 +16,8 @@ bsync() {
   b cleanup
 }
 
-ME_HOMEBREW=$ME_PLATFORM_TOOL_DIR/homebrew
-ME_PATH+=:$ME_PLATFORM_TOOL_DIR/homebrew/bin
+export HOMEBREW_HOME=$ME_PLATFORM_TOOL_DIR/homebrew
+ME_PATH+=:$HOMEBREW_HOME/bin
 
 # TODO: this isn't brew specific
 if [[ $ME_OS == osx ]]; then

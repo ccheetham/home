@@ -7,9 +7,9 @@ source $ME_LIBEXEC_DIR/sh_functions
 
 set -e
 
-msg "refreshing homebrew $ME_HOMEBREW"
+msg "refreshing homebrew $HOMEBREW_HOME"
 
-[ -d $ME_HOMEBREW ] && die "homebrew directory already exists: $ME_HOMEBREW"
+[ -d $HOMEBREW_HOME ] && die "homebrew directory already exists: $HOMEBREW_HOME"
 
-mkdir -p $ME_HOMEBREW
-curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $ME_HOMEBREW
+mkdir -p $HOMEBREW_HOME
+curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOMEBREW_HOME
