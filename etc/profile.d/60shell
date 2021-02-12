@@ -64,4 +64,7 @@ function topcommands() {
   history 0 | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -10
 }
 
+alias -g gh='~/src/github.com'
+alias -g gl='~/gitlab.eng.vmware.com'
+
 # vim: ft=zsh
