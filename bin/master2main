@@ -2,7 +2,11 @@
 
 set -e
 
-if ! git branch --list main >/dev/null; then
+if [ -z "$(git branch --list master)" ]; then
+  echo "no local master branch, nothing to do"
+  exit
+fi
+if [ -z "$(git branch --list main)" ]; then
   git branch -m master main
 fi
 git fetch origin
