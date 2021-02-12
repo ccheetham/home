@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+if ! git branch --list main >/dev/null; then
+  git branch -m master main
+fi
+git fetch origin
+git branch -u origin/main main
+echo "--- master2main complete"
+echo "--- to prune outdated branches, run: git fetch --prune"
