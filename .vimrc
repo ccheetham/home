@@ -48,10 +48,14 @@ if exists('+termguicolors')
   set termguicolors
 endif
 colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
 highlight Comment cterm=italic
 highlight CursorLine cterm=underline
 highlight CursorLineNr cterm=underline
+
+" airline
+let g:airline_theme='onehalfdark'
+let g:airline_powerline_fonts=1
+
 
 " quitting
 map <leader>q :quitall<cr>
