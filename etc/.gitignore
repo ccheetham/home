@@ -1,10 +1,13 @@
 .mono/
+autostart/
 chromium/
 configstore/
 gtk-2.0/
 NuGet/
+JetBrains/
 Slack/
 xfce4/
 wireshark/
 xbuild/
 helm/
+mimeapps.list
