@@ -103,6 +103,9 @@
 /.sudo_*
 /.wget-hsts
 
+# PAM
+/.pam_environment
+
 # OpenSSL
 /.rnd
 
