@@ -13,6 +13,14 @@ alias grefactor='g commit -mrefactor'
 alias gcrumbs='g commit -mbreadcrumbs'
 alias gvestige='g commit -m"remove vestige"'
 
+source $ME_LIBEXEC_DIR/sh_functions
+
+if [ -d $ME_REPO_DIR/git-subrepo ]; then
+  source $ME_REPO_DIR/git-subrepo/.rc
+else
+  err "git-subrepo not found in repos; run 'refresh repos'"
+fi
+
 gitignore() {
   local path=$1
   if [[ -z $path ]]; then
