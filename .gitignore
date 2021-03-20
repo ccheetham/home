@@ -190,6 +190,9 @@
 /.PyCharm*
 /.Rider*
 
+# Spring Tool Suite
+/.sts4/
+
 # VirtualBox
 /VirtualBox VMs
 
