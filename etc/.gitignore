@@ -3,6 +3,7 @@ autostart/
 chromium/
 configstore/
 gtk-2.0/
+jgit/
 NuGet/
 JetBrains/
 Slack/
