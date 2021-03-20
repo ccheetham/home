@@ -11,4 +11,9 @@ if echo "void f(int i) {i++;int j;}" | gcc -xc -c -o /dev/null -march=native - 2
   export CFLAGS CXXFLAGS
 fi
 
+if [ $ME_OS = osx ]; then
+  CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
+  export CPATH
+fi
+
 # vim: ft=zsh
