@@ -38,4 +38,9 @@ gitignore() {
   echo '*' > $path/.gitignore
 }
 
+ghc() {
+  local repo=$1
+  g clone git@github.com:$repo
+}
+
 # vim: ft=zsh
