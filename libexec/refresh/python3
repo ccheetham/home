@@ -2,6 +2,6 @@
 
 set -e
 
-source $ME_LIBEXEC_DIR/sh_functions
-
-python3 -m pip install --user -r $ME_CONFIG_DIR/python/packages
+cd $ME
+pipenv install
+pipenv clean

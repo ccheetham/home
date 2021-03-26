@@ -1,9 +1,0 @@
-grip
-httpie
-ipdb
-ipython
-pipenv
-psutil
-pylint
-pynvim
-virtualenv

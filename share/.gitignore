@@ -1,4 +1,5 @@
 desktop/
+virtualenv/
 heroku/
 lpass/
 powershell/

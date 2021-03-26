@@ -1,5 +1,0 @@
-= Bulk Package Upgrade
-
-----
-for pkg in $(cat packages.spec); do pip3 install --user --upgrade $pkg; done
-----
