@@ -4,4 +4,6 @@
 # http://httpie.io/
 # =============================================================================
 
-alias http='pipenv run http --follow'
+http() {
+  cd $ME && pipenv run http --follow $@
+}
