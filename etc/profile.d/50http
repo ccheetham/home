@@ -4,4 +4,4 @@
 # http://httpie.io/
 # =============================================================================
 
-alias http='http --follow'
+alias http='pipenv run http --follow'
