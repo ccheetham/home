@@ -10,16 +10,6 @@ if [ -d $ME_PYTHON ]; then
   PYTHONPATH+=:$(ls -d $ME_PYTHON/lib/python*/site-packages)
 fi
 
-if [[ osx == $ME_OS ]]; then
-  if [ -d $ME/Library/Python ]; then
-    pypath=
-    for version in $ME/Library/Python/*; do
-      pypath=":${version}/bin${pypath}"
-    done
-    ME_PATH+=$pypath
-  fi
-fi
-
 alias py3=python3
 alias ipy3=ipython3
 
