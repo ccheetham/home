@@ -5,10 +5,12 @@
 # =============================================================================
 
 # TODO: maybe move this out of zsh startup?
-if echo "void f(int i) {i++;int j;}" | gcc -xc -c -o /dev/null -march=native - 2> /dev/null; then
-  CFLAGS='-march=native'
-  CXXFLAGS=$CFLAGS
-  export CFLAGS CXXFLAGS
+if [ -n "$ME_USE_GCC" ]; then
+  if echo "void f(int i) {i++;int j;}" | gcc -xc -c -o /dev/null -march=native - 2> /dev/null; then
+    CFLAGS='-march=native'
+    CXXFLAGS=$CFLAGS
+    export CFLAGS CXXFLAGS
+  fi
 fi
 
 if [ $ME_OS = osx ]; then
