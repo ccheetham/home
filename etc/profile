@@ -12,7 +12,15 @@ for f in $profile_dir/[[:digit:]]* ; do
     if [[ $f == *.ps1 ]]; then
         continue
     fi
+    if [ -n "$ME_PROFILE_ENV_LOAD" ]; then
+        start=$(/Users/ccheetham/local/osx-x64/homebrew/bin/gdate +%s%3N)
+    fi
     source $f
+    if [ -n "$ME_PROFILE_ENV_LOAD" ]; then
+        stop=$(/Users/ccheetham/local/osx-x64/homebrew/bin/gdate +%s%3N)
+        printf "%0.3i %s\n" $(($stop - $start)) $(basename $f)
+        unset start stop
+    fi
 done
 
 if [[ -r $profile_dir/local.post ]]

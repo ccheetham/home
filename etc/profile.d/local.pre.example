@@ -4,7 +4,10 @@
 # this file loaded before all [00-99] files loaded
 # =============================================================================
 
+# uncomment to profile env load
+#ME_PROFILE_ENV_LOAD=1
+
 # uncomment to enable gcc settings
-# ME_USE_GCC=1
+#ME_USE_GCC=1
 
 # vim: ft=zsh
