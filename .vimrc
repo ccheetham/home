@@ -30,6 +30,7 @@ Plug 'godlygeek/tabular'
 Plug 'sheerun/vim-polyglot',
 Plug 'mrk21/yaml-vim'
 Plug 'vim-scripts/bats.vim'
+Plug 'martinda/Jenkinsfile-vim-syntax'
 call plug#end()
 
 " use spacebar to trigger keymaps
