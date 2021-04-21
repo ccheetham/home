@@ -18,7 +18,7 @@ for term in xterm-256color-italic xterm-256color xterm-color xterm; do
 done
 
 unset vi
-vimexecs=(nvim vim vi)
+vimexecs=(nvim gvim vim vi)
 for viexec in $vimexecs; do
   if command -v $viexec >/dev/null; then
     vi=$viexec
