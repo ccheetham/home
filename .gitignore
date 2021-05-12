@@ -257,6 +257,7 @@
 
 # Intel
 /Intel
+/IntelGraphicsProfiles
 
 # yarn package manager
 /.yarnrc
