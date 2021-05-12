@@ -270,5 +270,8 @@
 # K9S kubernetes CLI
 /.k9s
 
+# Steam
+/Games
+
 # mystery files
 /.%*.png
