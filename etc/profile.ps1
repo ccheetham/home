@@ -11,6 +11,9 @@ function gg {
 }
 Import-Module $Env:ME_REPO_DIR'\posh-git\src\posh-git.psd1'
 
+# DotNet
+Set-Alias dn dotnet
+
 # Docker
 Set-Alias d docker
 function drun {
