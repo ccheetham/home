@@ -10,8 +10,6 @@ function gg {
     g status $args
 }
 Import-Module $Env:ME_REPO_DIR'\posh-git\src\posh-git.psd1'
-Import-Module $Env:ME_REPO_DIR'\oh-my-posh\oh-my-posh.psd1'
-Set-Theme Avit
 
 # Docker
 Set-Alias d docker
