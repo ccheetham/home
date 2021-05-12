@@ -2,7 +2,7 @@
 Set-PSREadLineOption -HistorySavePath $env:XDG_CACHE_HOME/powershell/history
 
 # Vim
-Set-Alias vi nvim
+Set-Alias vi vim
 
 # Git
 Set-Alias g git
