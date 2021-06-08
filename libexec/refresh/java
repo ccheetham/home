@@ -24,6 +24,9 @@ install_version () {
   local platform=
   local format=
   local arch=amd64
+  if [[ $ME_PLATFORM == solaris-* ]] && [ $major -gt 11 ]; then
+    return
+  fi
   case $ME_PLATFORM in
     linux-x64)
       platform=linux
@@ -32,6 +35,11 @@ install_version () {
     osx-x64)
       platform=macos
       format=zip
+      ;;
+    solaris-s64)
+      platform=solaris
+      format=tar.gz
+      arch=sparcv9
       ;;
     *)
       die "unsupported platform: $ME_PLATFORM"
