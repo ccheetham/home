@@ -2,7 +2,7 @@
 # Pivotal HTTPD (Open Source builds of Apache httpd)
 # =============================================================================
 
-alias pws='cd ~/src/appsuite/web-server-qa'
+alias pws='cd ~/src/github.com/appsuite/web-server-qa'
 alias fhttpd='fly --target httpd'
 
 # vim: ft=zsh
