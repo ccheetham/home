@@ -13,5 +13,7 @@ alias stia='cd $STEELTOE_REPOS/InitializrApi'
 alias stiw='cd $STEELTOE_REPOS/InitializrWeb'
 alias stic='cd $STEELTOE_REPOS/InitializrConfigServer'
 alias stik='cd $STEELTOE_REPOS/InitializrConfig'
+alias ntt='cd $STEELTOE_REPOS/NetCoreToolTemplates'
+alias nts='cd $STEELTOE_REPOS/NetCoreToolService'
 
 # vim: ft=zsh
