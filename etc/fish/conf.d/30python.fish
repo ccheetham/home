@@ -1,0 +1,6 @@
+alias py='py3'
+alias ipy='ipy3'
+alias py3='python3'
+alias ipy3='ipython3'
+alias py2='python2'
+alias ipy2='ipython2'

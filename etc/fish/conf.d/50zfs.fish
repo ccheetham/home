@@ -1,0 +1,1 @@
+alias zfs='sudo zfs'

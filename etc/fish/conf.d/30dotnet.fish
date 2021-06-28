@@ -1,0 +1,1 @@
+alias dn='dotnet'
