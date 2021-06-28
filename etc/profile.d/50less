@@ -1,12 +1,9 @@
 # =============================================================================
-# desktop settings
+# less
 # -----------------------------------------------------------------------------
-# http://freedesktop.org/
-# http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+# http://www.greenwoodsoftware.com/less/
 # =============================================================================
 
-export XDG_CONFIG_HOME=$ME_CONFIG_DIR
-export XDG_DATA_HOME=$ME_DATA_DIR
-export XDG_CACHE_HOME=$ME_CACHE_DIR
+alias less="less -RSM~gIsw"
 
 # vim: ft=zsh
