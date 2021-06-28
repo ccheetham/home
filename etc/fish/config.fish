@@ -1,3 +1,5 @@
+set fish_greeting ""
+
 function fish_title
     if [ (count $argv) -gt 0 ]
         echo "... $argv"
