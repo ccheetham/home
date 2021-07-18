@@ -9,7 +9,11 @@ export DOCKER_CONFIG=~/.docker/$ME_HOST
 
 alias d='docker'
 alias d\?='d help'
-alias dc='d compose'
+if docker compose ls >/dev/null 2>&1; then
+  alias dc='d compose'
+else
+  alias dc='docker-compose'
+fi
 alias dprune='d system prune -f'
 
 # -----------------------------------------------------------------------------
