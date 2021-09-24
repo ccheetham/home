@@ -153,6 +153,7 @@ if executable('zsh')
 endif
 
 " ALE linting
+let g:ale_enabled = 0
 let g:ale_open_list = 1
 nnoremap <silent><leader>tl :ALEToggle<cr>
 
