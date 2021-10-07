@@ -2,21 +2,27 @@
 # msg: display message to stdout
 # -----------------------------------------------------------------------------
 function msg
+    set_color -r green
     echo "--- $argv"
+    set_color normal
 end
 
 # -----------------------------------------------------------------------------
 # hdr: display header message to stdout
 # -----------------------------------------------------------------------------
 function hdr
+    set_color -r green
     echo "=== $argv"
+    set_color normal
 end
 
 # -----------------------------------------------------------------------------
 # err: display message to stderr
 # -----------------------------------------------------------------------------
 function err
+    set_color -r red
     echo "!!! $argv" >&2
+    set_color normal
 end
 
 # -----------------------------------------------------------------------------
