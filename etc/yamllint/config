@@ -1,0 +1,12 @@
+---
+extends: default
+
+rules:
+  comments-indentation: disable
+  indentation:
+    spaces: 2
+    indent-sequences: false
+  line-length:
+    max: 120
+
+# vim: ft=yaml
