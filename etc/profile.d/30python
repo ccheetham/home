@@ -36,4 +36,9 @@ pypath() {
   fi
 }
 
+penv() {
+  cd
+  pipenv shell
+}
+
 # vim: ft=zsh
