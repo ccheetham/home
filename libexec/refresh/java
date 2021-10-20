@@ -11,7 +11,7 @@ main () {
   hdr refreshing jdk
   install_version $ME_JAVA_TOOL_DIR $ME_JDK8_VERSION
   install_version $ME_JAVA_TOOL_DIR $ME_JDK11_VERSION
-  install_version $ME_JAVA_TOOL_DIR $ME_JDK16_VERSION
+  install_version $ME_JAVA_TOOL_DIR $ME_JDK17_VERSION
   link_jdk $ME_DEFAULT_JDK "$JDK_HOME"
 }
 
