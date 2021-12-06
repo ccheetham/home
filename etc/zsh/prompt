@@ -73,7 +73,7 @@ function p_vcs {
       added=$(echo $porcelain | grep '^A\|^M' | wc -l | tr -d ' ')
       modified=$(echo $porcelain | grep '^.M' | wc -l | tr -d ' ')
       unknown=$(echo $porcelain | grep '^??' | wc -l | tr -d ' ')
-      git_blurb=${branch}':?'${unknown}'~'${modified}'+'${added}'⇡'${ahead}'⇣'${behind}
+      git_blurb=${branch}' ?'${unknown}' ~'${modified}' +'${added}' ⇡'${ahead}' ⇣'${behind}
       ;;
     "rebase in progress"*)
       git_blurb="(rebase)"
