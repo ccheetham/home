@@ -53,6 +53,9 @@
 # terminals
 /.terminfo
 
+# extfs
+lost+found/
+
 # NFS
 .nfs*
 
