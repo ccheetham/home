@@ -1,0 +1,313 @@
+# Enable messages about what your character hears
+OPTIONS=acoustics
+
+# Your starting alignment
+OPTIONS=align:random
+
+# Automatically describe the terrain under cursor when asked to get a location on the map
+OPTIONS=autodescribe
+
+# Automatically dig, if you're wielding a digging tool and moving into a place that can be dug
+OPTIONS=!autodig
+
+# Walking into a door attempts to open it
+OPTIONS=autoopen
+
+# Automatically pick up things onto which you move (see https://nethackwiki.com/wiki/Autopickup_exception)
+OPTIONS=autopickup
+
+# Automatically quiver some suitable weapon if your quiver empties when firing
+OPTIONS=autoquiver
+
+# Start the character permanently blind
+OPTIONS=!blind
+
+# Allow saving and loading bones files
+OPTIONS=!bones
+
+# Set the name of your starting cat
+OPTIONS=catname:Morris
+
+# Provides some additional command assistance when detecting anticipated mistakes
+OPTIONS=cmdassist
+
+# Enable color
+OPTIONS=color
+
+# Confirm attacks on peaceful creatures
+OPTIONS=confirm
+
+# Draw unseen (line-of-sight blocked) areas of lit rooms as if they were unlit
+OPTIONS=!dark_room
+
+# Controls the prompts at the end of the game
+OPTIONS=disclose:+i +a +v +g +c +o
+
+# Set the name of your starting dog
+OPTIONS=dogname:Poochy
+
+# An object's inventory letter sticks to it when it's dropped
+OPTIONS=fixinv
+
+# Commands asking for an inventory item will show a menu instead of a text query
+OPTIONS=force_invmenu
+
+# Set the name of the user-definable fruit
+OPTIONS=fruit:bananas
+
+# Sets the gender of your character
+OPTIONS=gender:male
+
+# whether to include gold in BUCX state
+OPTIONS=!goldX
+
+# Enable color for menu headers, window borders, message text, etc
+OPTIONS=guicolor
+
+# Ask if you want to see more information on an object
+OPTIONS=help
+
+# Visually distinguish pets from similar animals
+OPTIONS=hilite_pet
+
+# Visually distinguish piles of objects from individual objects
+OPTIONS=hilite_pile
+
+# Thresholds to change the color or appearance of fields in the status bar.
+OPTIONS=hilite_status:hitpoints/<=100%/green&normal
+OPTIONS=hilite_status:hitpoints/<=66%/yellow&normal
+OPTIONS=hilite_status:hitpoints/<=50%/orange&normal
+OPTIONS=hilite_status:hitpoints/<=33%/red&bold
+OPTIONS=hilite_status:hitpoints/<=15%/red&inverse
+OPTIONS=hilite_status:power/<=100%/green&normal
+OPTIONS=hilite_status:power/<=66%/yellow&normal
+OPTIONS=hilite_status:power/<=50%/orange&normal
+OPTIONS=hilite_status:power/<=33%/red&bold
+OPTIONS=hilite_status:hunger/satiated/yellow/hungry/orange/weak/red&bold/fainting/red&inverse/fainted/red&inverse&blink
+OPTIONS=hilite_status:condition/hallu/yellow
+OPTIONS=hilite_status:condition/conf/orange
+OPTIONS=hilite_status:condition/stun/red&bold
+OPTIONS=hilite_status:condition/termill/red&inverse
+OPTIONS=hilite_status:condition/foodpois/red&inverse
+OPTIONS=hilite_status:condition/slime/red&inverse
+OPTIONS=hilite_status:characteristics/up/green/down/red
+OPTIONS=hilite_status: gold/up/yellow/down/brown
+
+# Show a hit point bar graph behind your name and title
+OPTIONS=hitpointbar
+
+# Set the name of your starting horse
+OPTIONS=horsename:Diablo
+
+# Omit "uncursed" from inventory lists, if possible
+OPTIONS=!implicit_uncursed
+
+# Display an introductory message when starting the game
+OPTIONS=legacy
+
+# Distinguish visually between lit and unlit corridors
+OPTIONS=!lit_corridor
+
+# Give feedback when walking against a wall
+OPTIONS=mention_walls
+
+# Enable menu colors
+OPTIONS=menucolors
+
+# Controls the interface used when you need to choose various objects
+OPTIONS=menustyle:full
+
+# Menu character accelerator to deselect all items in a menu
+#OPTIONS=menu_deselect_all:
+
+# Menu character accelerator to deselect all items on this page of a menu
+#OPTIONS=menu_deselect_page:\
+
+# Menu character accelerator to jump to the first page of a menu
+#OPTIONS=menu_first_page:^
+
+# Controls how the headings in a menu are highlighted
+OPTIONS=menu_headings:underline
+
+# Menu character accelerator to toggle the selections in a menu
+#OPTIONS=menu_invert_all:@
+
+# Menu character accelerator to toggle the selection on this page of a menu
+#OPTIONS=menu_invert_page:~
+
+# Menu character accelerator to jump to the last page of a menu
+#OPTIONS=menu_last_page:|
+
+# Menu character accelerator to goto the next page of a menu
+#OPTIONS=menu_next_page:>
+
+# Show object symbols in menu headings in menus where the object symbols act as menu accelerators
+#OPTIONS=menu_objsyms
+
+# Menu character accelerator to goto the previous page of a menu
+#OPTIONS=menu_previous_page:<
+
+# Menu character accelerator to search for a menu item
+#OPTIONS=menu_search::
+
+# Menu character accelerator to select all items in a menu
+#OPTIONS=menu_select_all:.
+
+# Menu character accelerator to select all items on this page of a menu
+#OPTIONS=menu_select_page:,
+
+# Number of message-window messages to save
+#OPTIONS=msghistory:20
+
+# Newest message first
+OPTIONS=msg_window:reversed
+
+# The name of your character
+OPTIONS=name:ObiWanKenoob
+
+# Read the NetHack news file at start of game
+OPTIONS=news
+
+# Start the character with no armor
+OPTIONS=!nudist
+
+# Move by letters; 'yuhjklbn'
+OPTIONS=number_pad:0
+
+# Set the order of item classes shown in inventory
+#OPTIONS=packorder:")[%?+!=/(*`0_
+
+# Specific situations where alternate prompting is desired
+#OPTIONS=paranoid_confirmation:pray
+
+# Show a permanent inventory window as a sidebar
+OPTIONS=perm_invent
+
+# Set your preferred pet type
+# OPTIONS=pettype:...
+
+# Prompt for confirmation before picking up items that will push encumbrance past level
+OPTIONS=pickup_burden:unencumbered
+
+# Try to pick up things that you threw
+OPTIONS=pickup_thrown
+
+# Specify the object types to be picked up when autopickup is on
+OPTIONS=pickup_types:$?!/(
+
+# Threshold at which the message "there are few/several/many objects here" is given
+OPTIONS=pile_limit:5
+
+# Allow selection of explore or debug modes
+OPTIONS=playmode:normal
+
+# If you wield something, push the old weapon into the alternate weapon slot
+OPTIONS=pushweapon
+
+# Set your character's race
+OPTIONS=race:random
+
+# Space waits for a turn
+OPTIONS=!rest_on_space
+
+# Set your character's role
+OPTIONS=role:random
+
+# Prevent you from attacking your pet by moving into it
+OPTIONS=safe_pet
+
+# Turn on debugging output when in wizard mode
+OPTIONS=!sanity_check
+
+# Control what part of hiscore list to show at the end of game
+OPTIONS=scores:!t !a o
+
+# Displays the experience points needed for next level
+OPTIONS=showexp
+
+# Uses the symbol for your race instead of @
+OPTIONS=showrace
+
+# Display a fancy ascii-graphics splash screen on startup
+OPTIONS=splash_screen
+
+# Stops your terminal's bell sounding
+OPTIONS=silent
+
+# Controls the sorting behavior of the pickup lists
+OPTIONS=sortloot:loot
+
+# Groups similar kinds of objects in your inventory
+OPTIONS=sortpack
+
+# Display sparkly effect for resisted magical attacks
+OPTIONS=sparkle
+
+# Uses standout mode (reverse video) for displaying "--More--"
+OPTIONS=!standout
+
+# Allow updates to the status lines at the bottom of the screen
+OPTIONS=status_updates
+
+# Exable status colors
+OPTIONS=statushilites
+
+# Whether your status bar has 2 or 3 lines
+OPTIONS=statuslines:2
+
+# Display elapsed game time, in turns, on the status line
+OPTIONS=time
+
+# Prints an ASCII tombstone when you die
+OPTIONS=tombstone
+
+# Enables the travel command
+OPTIONS=travel
+
+# Whether to display certain non-essential messages
+OPTIONS=verbose
+
+# Display coordinates after "look" description
+OPTIONS=whatis_coord:none
+
+# filtering the possible targets
+OPTIONS=whatis_filter:none
+
+# uses a menu to pick a target
+OPTIONS=whatis_menu
+
+# move by skipping the same glyphs
+OPTIONS=!whatis_moveskip
+
+# Use curses interface
+OPTIONS=windowtype:curses
+
+# path to a text file that contains a list of item names
+#OPTIONS=wizkit:wizkit.txt
+
+# See https://nethackwiki.com/wiki/Autopickup_exception
+AUTOPICKUP_EXCEPTION="<^the "
+AUTOPICKUP_EXCEPTION=">:0)"
+AUTOPICKUP_EXCEPTION="> named empty"
+AUTOPICKUP_EXCEPTION="> nothing"
+
+# See https://nethackwiki.com/wiki/Binding_keys
+# BIND=...
+
+# See https://nethackwiki.com/wiki/Menucolors
+MENUCOLOR=".* uncursed .*"=green
+MENUCOLOR=".* uncursed .*(being worn).*"=green&underline
+MENUCOLOR=".* uncursed .*(weapon in hand).*"=green&underline
+MENUCOLOR=".* cursed .*"=red
+MENUCOLOR=".* cursed .*(being worn).*"=red&underline
+MENUCOLOR=".* cursed .*(weapon in hand).*"=red&underline
+MENUCOLOR=".* blessed .*"=cyan
+MENUCOLOR=".* blessed .*(being worn).*"=cyan&underline
+MENUCOLOR=".* blessed .*(weapon in hands).*"=cyan&underline
+MENUCOLOR=".* holy .*"=cyan
+MENUCOLOR=".* unholy .*"=red
+
+# See https://nethackwiki.com/wiki/Symset
+SYMBOLS=S_lava:~
+SYMBOLS=S_pool:~
+SYMBOLS=S_water:~
