@@ -1,0 +1,24 @@
+# =============================================================================
+# GitHub
+# =============================================================================
+
+alias hub='cd ~/src/github.com'
+GITHUB_TOKEN_DIR="$ME_CONFIG_DIR/github/tokens"
+
+github_token() {
+  if [ $# -eq 0 ]; then
+    err "token name not specified"
+    return 1
+  fi
+  if [ $# -gt 1 ]; then
+    err "specificy one and only one token name"
+    return 1
+  fi
+  local token_path="$GITHUB_TOKEN_DIR/$1"
+  if [ ! -f "$token_path" ]; then
+    return 1
+  fi
+  cat "$token_path"
+}
+
+# vim: ft=zsh
