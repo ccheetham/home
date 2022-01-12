@@ -6,8 +6,6 @@ name = "pypi"
 [packages]
 grip = "*"
 httpie = "*"
-ipdb = "*"
-ipython = "*"
 pexpect = "*"
 pylint = "*"
 
