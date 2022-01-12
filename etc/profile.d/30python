@@ -9,6 +9,7 @@ if [ -d $ME_PYTHON ]; then
   ME_PATH+=:$ME_PYTHON/bin
   PYTHONPATH+=:$(ls -d $ME_PYTHON/lib/python*/site-packages)
 fi
+export ME_PIPENV_PIPFILE=$ME/Pipfile
 
 alias py3=python3
 alias ipy3=ipython3
