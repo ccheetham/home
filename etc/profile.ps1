@@ -25,5 +25,9 @@ function gr {
     & .\gradlew.bat $Args
 }
 
+# use native exes
+rm alias:curl
+rm alias:wget
+
 . $Env:Xdg_Config_Home\profile.d\90steeltoe.ps1
 . $Env:Xdg_Config_Home\profile.d\90tcserver.ps1
