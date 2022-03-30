@@ -282,3 +282,7 @@ lost+found/
 
 # mystery files
 /.%*.png
+
+# CarbonBlack (Windows)
+/#*
+/$*
