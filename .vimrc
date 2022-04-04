@@ -152,6 +152,9 @@ if executable('zsh')
   set shell=zsh
 endif
 
+" execute current file
+nnoremap X :!%:p
+
 " ALE linting
 let g:ale_enabled = 0
 let g:ale_open_list = 1
