@@ -4,6 +4,6 @@
 # https://github.com/github-tools/github-release-notes
 # =============================================================================
 
-GREN_GITHUB_TOKEN=$(github_token gren)
+GREN_GITHUB_TOKEN=$(token github/gren)
 
 # vim: ft=zsh

@@ -4,8 +4,9 @@
 # https://github.com/joeyespo/grip
 # =============================================================================
 
-if [[ -n $GITHUB_TOKEN_GRIP ]]; then
-  alias grip="grip --user=ccheetham --pass=$GITHUB_TOKEN_GRIP"
+token=$(token github/grip)
+if [[ -n $token ]]; then
+  alias grip="grip --user=ccheetham --pass=$token"
 fi
 
 # vim: ft=zsh
