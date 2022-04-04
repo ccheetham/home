@@ -289,3 +289,6 @@ lost+found/
 
 # DECC - https://devhub.eng.vmware.com/decc/
 /.decc
+
+# NUKE build
+/.nuke
