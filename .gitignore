@@ -286,3 +286,6 @@ lost+found/
 # CarbonBlack (Windows)
 /#*
 /$*
+
+# DECC - https://devhub.eng.vmware.com/decc/
+/.decc
