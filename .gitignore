@@ -292,3 +292,6 @@ lost+found/
 
 # NUKE build
 /.nuke
+
+# Swift Package Manager
+/.swiftpm
