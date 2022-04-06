@@ -106,7 +106,7 @@ OPTIONS=!implicit_uncursed
 OPTIONS=legacy
 
 # Distinguish visually between lit and unlit corridors
-OPTIONS=!lit_corridor
+OPTIONS=lit_corridor
 
 # Give feedback when walking against a wall
 OPTIONS=mention_walls
