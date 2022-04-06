@@ -4,6 +4,6 @@
 # https://docs.pipenv.org/
 # =============================================================================
 
-export PIPENV_PIPFILE=$ME/Pipfile
+ME_PIPENV_PIPFILE=$ME/Pipfile
 
 # vim: ft=zsh
