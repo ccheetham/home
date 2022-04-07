@@ -29,25 +29,31 @@ alias j17='$JDK17_HOME/bin/java'
 
 jversions () {
   local jname
+  local jversion
   local jinfo
   local jhome
   local jcmd
+  local jvendor
   for jname in JDK JDK6 JDK7 JDK8 JDK11 JDK17
   do
+    jvendor=
     eval jhome='$'$jname'_HOME'
     if [ -n "$jhome" ]
     then
       jcmd=$jhome/bin/java
       if [ -x $jcmd ]
       then
-        jinfo=$($jhome/bin/java -version 2>&1 | head -1 | sed 's/[^"]*"\([^"]*\).*/\1/')
+        jversion=$($jhome/bin/java -version 2>&1 | head -1)
+        jinfo=$(echo $jversion | sed 's/[^"]*"\([^"]*\).*/\1/')
+        jvendor=$(echo $jversion | awk '{print $1}')
+        [[ $jvendor == java ]] && jvendor=oracle
       else
         jinfo='<not installed>'
       fi
     else
       jinfo='<not defined>'
     fi
-    printf "%-16s %-16s %s\n" "$jname" "$jinfo" "$jhome"
+    printf "%-16s %-16s %-10s %s\n" "$jname" "$jinfo" "$jvendor" "$jhome"
   done
 }
 
