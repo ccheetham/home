@@ -1,0 +1,28 @@
+# =============================================================================
+# tokens
+# =============================================================================
+
+token() {
+  local token_dir=$XDG_CONFIG_HOME/tokens
+
+  if [[ $# -eq 0 ]]; then
+    echo "token name not specified" >&2
+    exit 1
+  fi
+
+  local token_name=$1
+  shift
+
+  if [[ $# -gt 0 ]]; then
+    echo "specificy one and only one token name" >&2
+    exit 1
+  fi
+
+  local token_path="$token_dir/$token_name"
+
+  [[ ! -f "$token_path" ]] && return 1
+
+  cat "$token_path" | tr -d '\n'
+}
+
+# vim: ft=zsh
