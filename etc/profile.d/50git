@@ -13,6 +13,16 @@ alias grefactor='g commit -mrefactor'
 alias gcrumbs='g commit -mbreadcrumbs'
 alias gvestige='g commit -m"remove vestige"'
 
+g+() {
+  local args
+  if [[ $# -eq 0 ]]; then
+    args=.
+  else
+    args=$*
+  fi
+  g add $args
+}
+
 source $ME_LIBEXEC_DIR/sh_functions
 
 if [ -d $ME_REPO_DIR/git-subrepo ]; then
