@@ -295,3 +295,6 @@ lost+found/
 
 # Swift Package Manager
 /.swiftpm
+
+# CloudFlare CLI
+/.cloudflare
