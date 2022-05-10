@@ -2,8 +2,6 @@
 # tc Server
 # =============================================================================
 
-$TcsQa="$Env:UserProfile\src\github.com\appsuite\tcs-tc-server-qa"
+$Env:TCS_QA="$Env:ME_SRC_DIR\gitlab.eng.vmware.com\tc-server\tcs-tc-server-qa"
 
-function tcd {
-  cd "$TcsQa"
-}
+function tcd { cd "${Env:TCS_QA}" }

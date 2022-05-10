@@ -1,0 +1,3 @@
+$Env:DOTNET_ROOT="$Env:ME_PLATFORM_TOOL_DIR/dotnet"
+$Env:DOTNET_CLI_TELEMETRY_OPTOUT="1"
+Set-Alias dn dotnet
