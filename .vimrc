@@ -14,6 +14,7 @@ call plug#begin($XDG_CACHE_HOME.'/vim/plugins')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 Plug 'vim-airline/vim-airline'
@@ -159,6 +160,9 @@ nnoremap X :!%:p
 let g:ale_enabled = 0
 let g:ale_open_list = 1
 nnoremap <silent><leader>tl :ALEToggle<cr>
+
+" man pages
+nmap K :Man <c-r><c-w><cr>
 
 " Enable autocomplete on startup
 let g:deoplete#enable_at_startup = 1
