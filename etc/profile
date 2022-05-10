@@ -1,7 +1,12 @@
 #!/usr/bin/env zsh
 
+if [ -n "$ME_PROFILE_ENV_LOAD" ]; then
+    total_start=$(($(gdate +"%s%3N")))
+fi
+
 basedir=$(dirname $0)/..
 profile_dir=$(dirname $0)/profile.d
+
 
 if [[ -r $profile_dir/local.pre ]]
 then
@@ -13,11 +18,11 @@ for f in $profile_dir/[[:digit:]]* ; do
         continue
     fi
     if [ -n "$ME_PROFILE_ENV_LOAD" ]; then
-        start=$(/Users/ccheetham/local/osx-x64/homebrew/bin/gdate +%s%3N)
+        start=$(gdate +%s%3N)
     fi
     source $f
     if [ -n "$ME_PROFILE_ENV_LOAD" ]; then
-        stop=$(/Users/ccheetham/local/osx-x64/homebrew/bin/gdate +%s%3N)
+        stop=$(gdate +%s%3N)
         printf "%0.3i %s\n" $(($stop - $start)) $(basename $f)
         unset start stop
     fi
@@ -29,3 +34,9 @@ then
 fi
 
 unset _profile_dir
+
+if [ -n "$ME_PROFILE_ENV_LOAD" ]; then
+    total_stop=$(($(gdate +"%s%3N")))
+    printf "%0.3i %s\n" $(($total_stop - $total_start)) "total"
+    unset total_start total_stop
+fi
