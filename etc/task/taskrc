@@ -1,11 +1,14 @@
-data.location=~/var/task
+data.location=$XDG_CACHE_HOME/task/
 
 calendar.holidays=sparse
 
-include ~/local/osx-x64/homebrew/share/doc/task/rc/solarized-light-256.theme
+include $HOMEBREW_HOME/share/doc/task/rc/solarized-light-256.theme
 
 #taskd.certificate=~/etc/ssl/chris.cheetham.crt
 #taskd.key=~/etc/ssl/chris.cheetham.key
 #taskd.ca=~/etc/ssl/ca.cheetham.com.crt
 #taskd.server=task.cheetham.com:8275
 #taskd.credentials=cheetham/chris/82d693c6-1a64-4003-82c3-e3f5368cf070
+news.version=2.6.0
+context.website.read=project:website
+context.website.write=project:website
