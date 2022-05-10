@@ -7,10 +7,16 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 charset = utf-8
 
-[*.{sh,zsh*}]
+[*.sh]
 indent_size = 2
 
-[*.{yml,yaml}]
+[*.{json,yml,yaml}]
+indent_size = 2
+
+[*.xml]
+indent_size = 2
+
+[*.{csproj,fsproj}]
 indent_size = 2
 
 [*.go]
