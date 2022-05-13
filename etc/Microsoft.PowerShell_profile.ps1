@@ -17,7 +17,7 @@ foreach ($alias in "curl", "wget")
     }
 }
 
-foreach($file in Get-ChildItem "${Env:XDG_CONFIG_HOME}/powershell/profile.d/" -Filter *.ps1)
+foreach($file in Get-ChildItem "${Env:XDG_CONFIG_HOME}/profile.d/" -Filter *.ps1)
 {
     . $file.FullName
 }

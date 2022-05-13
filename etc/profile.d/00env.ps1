@@ -1,4 +1,4 @@
-$Env:ME=Resolve-Path "$PSScriptRoot/../../.."
+$Env:ME=Resolve-Path "$PSScriptRoot/../.."
 $Env:ME_CONFIG_DIR="$Env:ME/etc"
 $Env:ME_SRC_DIR="$Env:ME/src"
 $Env:ME_LIB_DIR="$Env:ME/lib"
