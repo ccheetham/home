@@ -1,0 +1,21 @@
+# =============================================================================
+# TanzuNet
+# -----------------------------------------------------------------------------
+# https://network.tanzu.vmware.com/
+# =============================================================================
+
+TANZU_API=https://network.tanzu.vmware.com/api/v2
+
+tanzunet_access_token() {
+  token tanzunet
+}
+
+tanzunet_api_token() {
+  local access_token=$(tanzunet_access_token)
+  curl -s -X POST $TANZU_API/authentication/access_tokens -d '{"refresh_token":"'$access_token'"}' \
+    | jq .access_token \
+    | tr -d '"' \
+    | tr -d '[[:space:]]'
+}
+
+# vim: ft=zsh
