@@ -2,6 +2,8 @@
 # VMware GitLab
 # =============================================================================
 
-alias lab='cd ~/src/gitlab.eng.vmware.com/'
+LAB_SOURCES=$ME_SRC_DIR/gitlab.eng.vmware.com
+
+alias lab='cd $LAB_SOURCES'
 
 # vim: ft=zsh
