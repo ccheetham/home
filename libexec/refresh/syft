@@ -1,0 +1,37 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+syft_repo=https://github.com/anchore/syft/releases/download
+
+hdr refreshing syft
+
+destdir=$ME_PLATFORM_TOOL_DIR/syft
+
+echo installing to $destdir
+
+syft_platform=
+case $ME_PLATFORM in
+  osx-x64)
+    syft_platform=darwin_amd64
+    ;;
+esac
+[[ -n $syft_platform ]] || die "don't know how to install syft on $ME_PLATFORM"
+
+distfile=syft_${ME_SYFT_VERSION}_${syft_platform}.tar.gz
+disturl=$syft_repo/v$ME_SYFT_VERSION/$distfile
+
+msg fetching $disturl
+wget --continue -P $ME_DISTFILE_DIR $disturl
+
+msg extracting $distfile
+rm -rf $destdir
+mkdir -p $destdir
+tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir
+link ../syft/syft $(dirname $destdir)/bin/syft
+
+
+#/v0.46.1/
