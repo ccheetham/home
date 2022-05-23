@@ -7,7 +7,7 @@ token() {
 
   if [[ $# -eq 0 ]]; then
     echo "token name not specified" >&2
-    exit 1
+    return 1
   fi
 
   local token_name=$1
@@ -15,12 +15,15 @@ token() {
 
   if [[ $# -gt 0 ]]; then
     echo "specificy one and only one token name" >&2
-    exit 1
+    return 1
   fi
 
   local token_path="$token_dir/$token_name"
 
-  [[ ! -f "$token_path" ]] && return 1
+  if [[ ! -f "$token_path" ]]; then
+    echo "token unknown: $token_name" >&2
+    return 1
+  fi
 
   cat "$token_path" | tr -d '\n'
 }
