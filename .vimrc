@@ -27,6 +27,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
 Plug 'sheerun/vim-polyglot',
 Plug 'mrk21/yaml-vim'
