@@ -298,3 +298,6 @@ lost+found/
 
 # CloudFlare CLI
 /.cloudflare
+
+# Buildpacks
+/.pack
