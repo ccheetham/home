@@ -73,7 +73,7 @@ function p_vcs {
       added=$(echo $porcelain | grep '^A\|^M' | wc -l | tr -d ' ')
       modified=$(echo $porcelain | grep '^.M' | wc -l | tr -d ' ')
       unknown=$(echo $porcelain | grep '^??' | wc -l | tr -d ' ')
-      git_blurb=${branch}' ?'${unknown}' ~'${modified}' +'${added}' ⇡'${ahead}' ⇣'${behind}
+      git_blurb=${branch}' ⇣'${behind}' ⇡'${ahead}' +'${added}' ~'${modified}' ?'${unknown}
       ;;
     "rebase in progress"*)
       git_blurb="(rebase)"
@@ -83,10 +83,13 @@ function p_vcs {
       git_blurb="$tag"
       ;;
   esac
-  [ -z "$git_blurb" ] && git_blurb='[na]'
   p_c_info
+  if [ -z "$git_blurb" ]; then
+    echo -n '%1d'
+  else
+    echo -n '%1d ['${git_blurb}']'
+  fi
   # echo -n ''${git_blurb}
-  echo -n '[g:'${git_blurb}']'
   p_c_reset
 }
 
