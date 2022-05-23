@@ -49,13 +49,44 @@ alias cls='clear'
 unalias which > /dev/null 2<&1
 
 function scratch() {
+  local do_init=false
+  while getopts ":hi" opt ; do
+    case $opt in
+      h)
+        cat <<EOF
+USAGE
+    scratch [-ih]
+WHERE
+    -h    print this message
+    -i    init a fresh scratch area
+EOF
+        return
+        ;;
+      i)
+        do_init=true
+        ;;
+      \?)
+        echo "invalid option -$OPTARG" 2>&1
+        echo "run with -h for help" 2>&1
+        return 1
+        ;;
+      :)
+        echo "option -$OPTARG requires an argument" 2>&1
+        echo "run with -h for help" 2>&1
+        return 1
+        ;;
+    esac
+  done
+  local args=*1
+
   local scratch_dir=$HOME/scratch
-  test -d $scratch dir || mkdir -p $scratch_dir || return
+  test -d $scratch dir || mkdir -p $scratch_dir || return 1
   cd $scratch_dir
   # ensure cd worked
-  [[ $(pwd) != $scratch_dir ]] && return 1
+  [[ $(pwd) == $scratch_dir ]] || return 1
   # ensure dir writeable
-  touch .scratched || return
+  touch .scratched || return 1
+  $do_init || return 0
   files=(*(N) .[A-z]*(N))
   [ -n "$files" ] && rm -rf $files
   git init
