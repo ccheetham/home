@@ -187,11 +187,12 @@ lost+found/
 # Docker
 /.docker
 
-# JetBrains products
-/.GoLand*
-/.IntelliJ*
-/.PyCharm*
-/.Rider*
+# JetBrains products (and related)
+/.GoLand*/
+/.IntelliJ*/
+/.PyCharm*/
+/.Rider*/
+/.AzureToolsForIntelliJ/
 
 # Spring Tool Suite
 /.sts4/
