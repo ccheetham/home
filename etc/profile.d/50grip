@@ -4,9 +4,12 @@
 # https://github.com/joeyespo/grip
 # =============================================================================
 
+grip_cmd="grip"
 token=$(token github/grip)
 if [[ -n $token ]]; then
-  alias grip="grip --user=ccheetham --pass=$token"
+  grip_cmd+=" --user=ccheetham --pass=$token"
 fi
+
+alias grip="PIPENV_PIPFILE=$ME_PIPENV_PIPFILE pipenv run $grip_cmd"
 
 # vim: ft=zsh
