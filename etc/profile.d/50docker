@@ -34,14 +34,25 @@ drun () {
     image=$1
     shift
   fi
-  docker run -it --rm $image $@
+  docker run -it --rm $image $*
+}
+
+# -----------------------------------------------------------------------------
+# dweb: run image with poer forward 8080->80
+# -----------------------------------------------------------------------------
+dweb () {
+  if [[ $# == 0 ]] ; then
+    echo "docker image not specified" >&2
+    return 1
+  fi
+  drun -p8080:80 $*
 }
 
 # -----------------------------------------------------------------------------
 # dbash: run image interactively via bash
 # -----------------------------------------------------------------------------
 dbash () {
-  if [[ $# != 1 ]] ; then
+  if [[ $# == 0 ]] ; then
     echo "specify one and only one docker image" >&2
     return 1
   fi
@@ -113,6 +124,53 @@ dbuild () {
   esac
   docker build -t $tag .
   echo "tagged as $tag"
+}
+
+# -----------------------------------------------------------------------------
+# dsh: run an image with a shell for the entrypoint
+# -----------------------------------------------------------------------------
+
+dsh () {
+  local shell=bash
+  while getopts ":s:h" opt ; do
+    case $opt in
+      h)
+        cat <<EOF
+USAGE
+    $0 [-h] [-s SHELL] IMAGE
+WHERE
+    -s    specify entrypoint shell (default: $shell)
+    -h    print this message
+EOF
+        return
+        ;;
+      s)
+        shell=$OPTARG
+        ;;
+      \?)
+        echo "invalid option -$OPTARG" 2>&1
+        echo "run with -h for help" 2>&1
+        return 1
+        ;;
+      :)
+        echo "option -$OPTARG requires an argument" 2>&1
+        echo "run with -h for help" 2>&1
+        return 1
+        ;;
+    esac
+  done
+  shift $(($OPTIND-1))
+  if [[ $# == 0 ]]; then
+    err "image not specified; run with -h for help"
+    return 1
+  fi
+  local image=$1
+  shift
+  if [[ $# > 0 ]]; then
+    err "too many args; run with -h for help"
+    return 1
+  fi
+  drun --entrypoint $shell $image
 }
 
 # vim: ft=zsh
