@@ -96,4 +96,16 @@ function topcommands() {
   history 0 | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -10
 }
 
+function liberate() {
+  if [[ $ME_OS != osx ]]; then
+    err "OS not supported: $ME_OS"
+    return 1
+  fi
+  if [[ $# -eq 0 ]]; then
+    err "files not specified"
+    return 1
+  fi
+  xattr -d com.apple.quarantine $@
+}
+
 # vim: ft=zsh
