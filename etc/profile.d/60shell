@@ -55,10 +55,10 @@ function scratch() {
       h)
         cat <<EOF
 USAGE
-    scratch [-ih]
+    $0 [-ih]
 WHERE
-    -h    print this message
     -i    init a fresh scratch area
+    -h    print this message
 EOF
         return
         ;;
@@ -79,7 +79,7 @@ EOF
   done
   local args=*1
 
-  local scratch_dir=$HOME/scratch
+  local scratch_dir=$HOME/src/scratch
   test -d $scratch dir || mkdir -p $scratch_dir || return 1
   cd $scratch_dir
   # ensure cd worked
