@@ -1,13 +1,6 @@
 # PowerShell
 Set-PSREadLineOption -HistorySavePath "${Env:XDG_CACHE_HOME}/powershell/history"
 
-# Docker
-Set-Alias d docker
-function drun { d run -it --rm $args }
-
-# Gradle
-function gr { & ./gradlew $Args }
-
 # use native exes
 foreach ($alias in "curl", "wget")
 {
