@@ -1,0 +1,17 @@
+# =============================================================================
+# JetBrains tools
+# =============================================================================
+
+case $ME_OS in
+  osx)
+    JETBRAINS_TOOL_HOME="$ME/Library/Application Support/JetBrains/Toolbox/scripts"
+    ;;
+  *)
+    unset JETBRAINS_TOOL_HOME
+esac
+
+if [[ -n "$JETBRAINS_TOOL_HOME" ]] && [[ -d "$JETBRAINS_TOOL_HOME" ]]; then
+  ME_PATH+=:"$JETBRAINS_TOOL_HOME"
+fi
+
+# vim: ft=zsh
