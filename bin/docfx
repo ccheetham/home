@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-mono $ME_PLATFORM_TOOL_DIR/libexec/docfx/docfx.exe $*
