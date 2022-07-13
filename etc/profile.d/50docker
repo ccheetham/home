@@ -34,7 +34,9 @@ drun () {
     image=$1
     shift
   fi
-  docker run -it --rm $image $*
+  cmd="docker run -it --rm $image $*"
+  echo "\$ "$cmd
+  eval $cmd
 }
 
 # -----------------------------------------------------------------------------
