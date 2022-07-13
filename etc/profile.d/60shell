@@ -90,6 +90,7 @@ EOF
   files=(*(N) .[A-z]*(N))
   [ -n "$files" ] && rm -rf $files
   git init
+  echo ".scratched" > .gitignore
 }
 
 function topcommands() {
