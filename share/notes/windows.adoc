@@ -38,18 +38,24 @@ toc::[]
 
 .Setup
 ----
-~:> $Env:SCOOP="${Env:USERPROFILE}\lib\windows-x64\scoop"
+~:> $Env:SCOOP="${Env:USERPROFILE}\local\windows-x64\scoop"
 ~:> $Env:SCOOP_CACHE="${Env:USERPROFILE}\var\scoop"
 ~:> irm get.scoop.sh | iex
+~:> scoop install git
 ~:> scoop bucket add extras
 ----
 
-.UNIX Packages
+.Python
 ----
-~:> scoop install curl git python vim wget
+~:> scoop install python
 ----
 
-.Windows Packages
+.UNIX Tools
+----
+~:> scoop install curl vim wget
+----
+
+.Windows Tools
 ----
 ~:> scoop install vscode windows-terminal
 ----
