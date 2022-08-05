@@ -17,163 +17,76 @@ toc::[]
 
 === Windows Subsystem for Linux
 
-* https://docs.microsoft.com/en-us/windows/wsl/install-win10
+* https://docs.microsoft.com/en-us/windows/wsl/install
 
 === Hyper-V
 
 * Windows Features -> Hyper-V
 
-== Tools
+== Base Tools
 
-=== Choco Packages
+=== Powershell
 
-* https://chocolatey.org/install[Install Chocolatey]
+* https://apps.microsoft.com/store/detail/powershell/9MZ1SNWT0N5D[Install Powershell 7.x]
 
-.Administrative CMD Shell
+.Script Permissions
 ----
-C:\WINDOWS\system32> choco install -y curl git microsoft-windows-terminal neovim openssh python3 wget
-----
-
-=== Environment Variables
-
-----
-XDG_CONFIG_HOME  %USERPROFILE%\etc
-XDG_DATA_HOME    %USERPROFILE%\share
-XDG_CACHE_HOME   %USERPROFILE%\var
-ME_REPO_DIR      %USERPROFILE%\var\repos
-ME_REPO_CFG      %USERPROFILE%\etc\repos
+~:> Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ----
 
-
-=== Python
-
-.Environment Variables
-----
-PATH    (add)   %APPDATA%\Python\Python38\Scripts
-PYTHONPATH      %USERPROFILE%\lib\python
-----
+=== Scoop
 
 .Setup
 ----
-# Admin
-PS C:\Users\ccheetham> cd \Python38
-PS C:\Python38> cmd /c mklink python3.exe python.exe
-PS C:\Python38> .\python -m pip install --upgrade pip
-
-# User
-PS C:\Users\ccheetham> pip install --user -r etc\python\packages
+~:> $Env:SCOOP="${Env:USERPROFILE}\lib\windows-x64\scoop"
+~:> $Env:SCOOP_CACHE="${Env:USERPROFILE}\var\scoop"
+~:> irm get.scoop.sh | iex
+~:> scoop bucket add extras
 ----
 
-=== Java
-
-* Java JDKs: https://bell-sw.com/pages/downloads/
-
-.Environment Variables
+.UNIX Packages
 ----
-JDK8_HOME       C:\Program Files\BellSoft\LibericaJDK-8
-JDK11_HOME      C:\Program Files\BellSoft\LibericaJDK-11
-JDK14_HOME      C:\Program Files\BellSoft\LibericaJDK-14
-JAVA_HOME	%JDK11_HOME%
+~:> scoop install curl git python vim wget
 ----
 
-=== DotNet
+.Windows Packages
+----
+~:> scoop install vscode windows-terminal
+----
 
-* DotNet SDKs: https://dotnet.microsoft.com/download/dotnet-core
+== Profile
 
-=== JetBrains IDEs
+.Install
+----
+~:> git clone git@github.com:ccheetham/home
+~:> Move-Item home\.git .git
+~:> Remove-Item home -Recurse
+~:> git checkout .
+~:> . .\etc\powershell\Microsoft.PowerShell_profile.ps1
+~:> python -m me.repo refresh
+~:> New-Item -ItemType SymbolicLink -Path .\Documents\Powershell -Target ..\etc\powershell
+~:> exit
+----
 
-* JetBrains Toolbox]: https://www.jetbrains.com/toolbox-app/
+== Tools
+
+=== Python
+
+.Install Python Packages
+----
+~:> pip install pipenv
+~:> pipenv install
+----
+
+== SDKs
+
+* https://bell-sw.com/pages/downloads/[Java JDKs]
+* https://dotnet.microsoft.com/download/dotnet-core[.NET DKSs]
+
+=== JetBrains
+
+* https://www.jetbrains.com/toolbox-app/[Toolbox]
 
 === Remap Keys
 
 * https://github.com/randyrants/sharpkeys[SharpKeys]
-
-=== PowerShell
-
-----
-PS C:\Users\ccheetham> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-PS C:\Users\ccheetham> cd Documents\WindowsPowerShell
-PS C:\Users\ccheetham\Documents\WindowsPowerShell> cmd /c mklink Microsoft.PowerShell_profile.ps1  ..\..\etc\profile.ps1
-----
-
-=== Programming Font
-
-* https://github.com/Karmenzind/monaco-nerd-fonts/tree/master/fonts[Monoca Nerd Font]
-
-=== Windows Terminal
-
-In _Settings_, update "defaults" section of "profiles":
-
-----
-        "defaults":
-        {
-            // Put settings here that you want to apply to all profiles
-            "colorScheme" : "One Half Dark",
-            "fontFace" : "Monaco NF",
-            "fontSize" : 10
-        },
-----
-
-=== Home Layout
-
-.Setup
-----
-PS C:\Users\ccheetham> git config --global core.autocrlf input
-PS C:\Users\ccheetham> git clone https://github.com/ccheetham/home
-PS C:\Users\ccheetham> cmd /c xcopy /h /i /e /k home\.git .git
-PS C:\Users\ccheetham> cmd /c rmdir /s /q home
-PS C:\Users\ccheetham> git checkout .
-PS C:\Users\ccheetham> python3 -m me.repo refresh
-----
-
-=== NeoVim
-
-.Setup
-----
-PS C:\Users\ccheetham> cd AppData/Local
-PS C:\Users\ccheetham\AppData\Local> mkdir nvim
-PS C:\Users\ccheetham\AppData\Local> cd nvim
-PS C:\Users\ccheetham\AppData\Local\nvim> cmd /c mklink init.vim ..\..\..\etc\nvim\init.vim
-PS C:\Users\ccheetham\AppData\Local\nvim> cd ..\..\..
-PS C:\Users\ccheetham> nvim +PlugUpdate +UpdateRemotePlugins +qall
-
-
-----
-
-=== Linux
-
-==== Install
-
-* Install Debian (or derivative) in WSL
-
-==== Configure
-
-.CMD Shell
-----
-C:\Users\ccheetham> debian
-
-### become root
-$ sudo su -
-
-### configure sudo
-# echo 'ccheetham ALL=(ALL:ALL) NOPASSWD:ALL' > /etc/sudoers.d/local
-
-### setup tools
-# apt install -y zsh git python3 vim-nox
-
-### reconfigure user
-# usermod -s /bin/zsh ccheetham
-# sed -i 's:/home/ccheetham:/mnt/c/Users/ccheetham:' /etc/passwd
-
-### exit root and user and reenter
-# exit
-$ exit
-C:\Users\ccheetham> debian
-
-# update repos and vim
-$ refresh repos
-$ refresh vim
-----
-
-
-
