@@ -12,7 +12,7 @@ $Env:ME_MAIL_DIR="$Env:ME_CACHE_DIR\mail"
 $Env:ME_DISTFILE_DIR="$Env:ME\xfr"
 
 # TODO: actually detect OS et al
-$Env:ME_OS="osx"
+$Env:ME_OS="windows"
 $Env:ME_DISTRO_FLAVOR="$Env:ME_OS"
 $Env:ME_DISTRO_VERSION="3"
 $Env:ME_PLATFORM="$Env:ME_OS-x64"
