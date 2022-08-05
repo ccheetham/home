@@ -9,6 +9,7 @@ httpie = "*"
 pexpect = "*"
 pylint = "*"
 cloudflare = "*"
+colorama = "*"
 
 [dev-packages]
 
