@@ -84,7 +84,7 @@ toc::[]
 ~:> pipenv install
 ----
 
-== SDKs
+=== SDKs
 
 * https://bell-sw.com/pages/downloads/[Java JDKs]
 * https://dotnet.microsoft.com/download/dotnet-core[.NET DKSs]
