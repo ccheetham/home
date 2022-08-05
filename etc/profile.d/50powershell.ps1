@@ -1,0 +1,1 @@
+Set-PSREadLineOption -HistorySavePath "${Env:XDG_CACHE_HOME}\powershell\history"

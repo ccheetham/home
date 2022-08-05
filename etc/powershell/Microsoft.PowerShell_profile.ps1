@@ -1,5 +1,4 @@
-# PowerShell
-Set-PSREadLineOption -HistorySavePath "${Env:XDG_CACHE_HOME}/powershell/history"
+$ProfileDir = "$PSScriptRoot\..\..\etc\profile.d"
 
 # use native exes
 foreach ($alias in "curl", "wget")
@@ -10,7 +9,9 @@ foreach ($alias in "curl", "wget")
     }
 }
 
-foreach($file in Get-ChildItem "${Env:XDG_CONFIG_HOME}/profile.d/" -Filter *.ps1)
+
+foreach($file in Get-ChildItem "$ProfileDir" -Filter *.ps1)
 {
-    . $file.FullName
+    "sourcing $($file.Name)"
+    . $file
 }
