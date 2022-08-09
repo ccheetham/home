@@ -96,3 +96,24 @@ toc::[]
 === Remap Keys
 
 * https://github.com/randyrants/sharpkeys[SharpKeys]
+
+== Appearance
+
+=== Visual Studio Code
+
+* File -> Preferences -> Settings
+* File -> Preferences -> Color Theme
+
+=== Windows Terminal
+
+----
+        "defaults":
+        {
+            "colorScheme": "One Half Dark",
+            "font":
+            {
+                "face": "Cascadia Code PL",
+                "size": 12
+            }
+        },
+----
