@@ -14,8 +14,8 @@
 	mq = merge --squash
 	sw = switch
 [core]
-	pager = less -eFiJM~ -j3 --tabs=3
 	autocrlf = input
+	pager = less -eFiJM~ -j3 --tabs=3
 [credential]
 	helper = manager-core
 [init]
@@ -27,5 +27,5 @@
 [rebase]
 	autoStash = true
 [user]
-	name = Chris Cheetham
 	email = chris@cheetham.com
+	name = Chris Cheetham
