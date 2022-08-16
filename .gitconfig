@@ -27,3 +27,5 @@
 	defaultBranch = main
 [credential]
 	helper = manager-core
+[rebase]
+	autoStash = true
