@@ -139,16 +139,19 @@ set diffopt+=vertical                   " say 'no' to horizontal diffs
 
 " state between vim sessions
 set viminfo='10,\"100,:20,%,n$XDG_CACHE_HOME/vim/viminfo
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
-augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
-augroup END
+
+if empty($VisualStudioVersion)
+  function! ResCur()
+    if line("'\"") <= line("$")
+      normal! g`"
+      return 1
+    endif
+  endfunction
+  augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
+  augroup END
+endif
 
 " use zsh if available
 if executable('zsh')
