@@ -13,5 +13,5 @@ foreach ($alias in "curl", "wget")
 foreach($file in Get-ChildItem "$ProfileDir" -Filter *.ps1)
 {
     "sourcing $($file.Name)"
-    . $file
+    . $file.FullName
 }
