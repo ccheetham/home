@@ -20,6 +20,8 @@
 	helper = manager-core
 [init]
 	defaultBranch = main
+[merge]
+	tool = vimdiff
 [pull]
 	rebase = true
 [push]
