@@ -5,7 +5,7 @@
 export STEELTOE_REPOS=~/src/github.com/SteeltoeOSS
 
 alias st='cd $STEELTOE_REPOS'
-alias stp='cd $STEELTOE_REPOS/Steeltoe'
+alias stf='cd $STEELTOE_REPOS/Steeltoe'
 alias sts='cd $STEELTOE_REPOS/Samples'
 alias std='cd $STEELTOE_REPOS/Dockerfiles'
 alias stt='cd $STEELTOE_REPOS/Tooling'

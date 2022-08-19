@@ -5,7 +5,7 @@
 $Steeltoe_Repos="$Env:ME_SRC_DIR/github.com/SteeltoeOSS"
 
 function st { cd "$Steeltoe_Repos" }
-function stp { cd "$Steeltoe_Repos/Steeltoe" }
+function stf { cd "$Steeltoe_Repos/Steeltoe" }
 function sts { cd "$Steeltoe_Repos/Samples" }
 function std { cd "$Steeltoe_Repos/Dockerfiles" }
 function stt { cd "$Steeltoe_Repos/Tooling" }
