@@ -4,13 +4,11 @@
 # http://brew.sh/
 # =============================================================================
 
+[[ $ME_OS == osx ]] || return
+
 alias b='brew'
 
 bsync() {
-  if [[ $ME_OS != osx ]]; then
-    echo "not on OS X" >&2
-    return 1
-  fi
   b update
   b upgrade
   b cleanup
@@ -18,11 +16,9 @@ bsync() {
 
 export HOMEBREW_HOME=$ME_PLATFORM_TOOL_DIR/homebrew
 export HOMEBREW_BUNDLE_FILE=$ME_CONFIG_DIR/homebrew/Brewfile
-ME_PATH+=:$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin
+PATH=$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH
 
 # TODO: this isn't brew specific
-if [[ $ME_OS == osx ]]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
-fi
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # vim: ft=zsh
