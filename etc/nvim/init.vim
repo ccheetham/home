@@ -151,10 +151,13 @@ nnoremap <silent><leader>tl :ALEToggle<cr>
 map // :Commentary<cr>j
 
 " vim-fugitive
-nnoremap <silent><leader>gg :Gstatus<cr>
+nnoremap <silent><leader>gg :Git<cr>
 nnoremap <silent><leader>gd :Gdiff<cr>
-nnoremap <silent><leader>gc :Gcommit<cr>
-nnoremap <silent><leader>gp :Gpush<cr>
+nnoremap <silent><leader>ga :Git add %<cr>
+nnoremap <silent><leader>gci :Git commit<cr>
+nnoremap <silent><leader>grb :Git rebase -i<cr>
+nnoremap <silent><leader>gp :Git pull<cr>
+nnoremap <silent><leader>gP :Git push<cr>
 
 " prefer silver_searcher over grep
 if executable('ag')
