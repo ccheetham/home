@@ -2,7 +2,7 @@
 # Tanzu
 # -----------------------------------------------------------------------------
 # Tanzu Application Platform
-# https://tanzu.vmware.com/developer/guides/tanzu-application-platform-local-devloper-install/
+# https://tanzu.vmware.com/developer/guides/tanzu-application-platform-local-developer-install/
 # =============================================================================
 
 TANZU_CLI_VERSION=${TANZU_CLI_VERSION:-v0.11.2}
