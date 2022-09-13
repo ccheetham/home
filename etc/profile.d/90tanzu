@@ -5,13 +5,12 @@
 # https://tanzu.vmware.com/developer/guides/tanzu-application-platform-local-developer-install/
 # =============================================================================
 
-TANZU_CLI_VERSION=${TANZU_CLI_VERSION:-v0.11.2}
 TANZU_REPOS=$ME_SRC_DIR/github.com/vmware-tanzu
 
 alias vt='cd $TANZU_REPOS'
-alias vtvs='cd $TANZU_REPOS/tanzu-developer-tools-for-visual-studio'
 alias vtc='cd $TANZU_REPOS/tanzu-developer-tools-for-vscode'
-alias vtij='cd $TANZU_REPOS/tanzu-developer-tools-for-intellij'
-alias vtls='cd $TANZU_REPOS/tanzu-developer-tools-language-server'
+alias vtj='cd $TANZU_REPOS/tanzu-developer-tools-for-intellij'
+alias vtl='cd $TANZU_REPOS/tanzu-developer-tools-language-server'
+alias vts='cd $TANZU_REPOS/tanzu-developer-tools-for-visual-studio'
 
 # vim: ft=zsh
