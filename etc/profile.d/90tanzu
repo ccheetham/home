@@ -13,4 +13,7 @@ alias vtj='cd $TANZU_REPOS/tanzu-developer-tools-for-intellij'
 alias vtl='cd $TANZU_REPOS/tanzu-developer-tools-language-server'
 alias vts='cd $TANZU_REPOS/tanzu-developer-tools-for-visual-studio'
 
+alias tt='cd $HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies'
+ME_PATH+=:$HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies/local/bin
+
 # vim: ft=zsh
