@@ -2,10 +2,12 @@
 # VMware Tanzu
 # =============================================================================
 
-$Tanzu_Repos="$Env:ME_SRC_DIR/github.com/vmware-tanzu"
+$Env:TANZU_REPOS = "$Env:HUB_SOURCES\vmware-tanzu"
 
-function vt { cd "$Tanzu_Repos" }
-function vtc { cd "$Tanzu_Repos/tanzu-toolkit-for-vscode" }
-function vtj { cd "$Tanzu_Repos/tanzu-toolkit-for-intellij" }
-function vtl { cd "$Tanzu_Repos/tanzu-toolkit-language-server" }
-function vts { cd "$Tanzu_Repos/tanzu-developer-tools-for-visual-studio" }
+function vt { cd "$Env:TANZU_REPOS" }
+function vtc { cd "$Env:TANZU_REPOS\tanzu-toolkit-for-vscode" }
+function vtj { cd "$Env:TANZU_REPOS\tanzu-toolkit-for-intellij" }
+function vtl { cd "$Env:TANZU_REPOS\tanzu-toolkit-language-server" }
+function vts { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-visual-studio" }
+
+function tt { cd "$Env:HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies" }
