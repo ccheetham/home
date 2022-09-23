@@ -3,7 +3,8 @@
 	ci = commit
 	co = checkout
 	cpick = cherry-pick
-	diffc = diff --cached
+	d = diff
+	dc = diff --cached
 	ds = diff --compact-summary
 	last = log -1 HEAD
 	l = log --pretty='%C(cyan)%<(10)%al%<(14)%C(magenta)%C(dim)%ar%Creset%C(yellow)%<(8)%h%Creset %s'
