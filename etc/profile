@@ -7,9 +7,7 @@ fi
 basedir=$(dirname $0)/..
 profile_dir=$(dirname $0)/profile.d
 
-
-if [[ -r $profile_dir/local.pre ]]
-then
+if [[ -r $profile_dir/local.pre ]]; then
     source $profile_dir/local.pre
 fi
 
@@ -28,8 +26,7 @@ for f in $profile_dir/[[:digit:]]* ; do
     fi
 done
 
-if [[ -r $profile_dir/local.post ]]
-then
+if [[ -r $profile_dir/local.post ]]; then
     source $profile_dir/local.post
 fi
 
