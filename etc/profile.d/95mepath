@@ -2,9 +2,6 @@
 # finalize path setups
 # =============================================================================
 
-ME_PATH+=:/usr/local/bin:/usr/local/sbin
-ME_MANPATH+=:/usr/local/share/man
-
 if [[ solaris == $ME_OS ]] ; then
   if [[ ! -d /opt/csw ]] ; then
     echo OpenCSW not installed: pkgadd -d http://get.opencsw.org/now
@@ -15,15 +12,9 @@ if [[ solaris == $ME_OS ]] ; then
   ME_MANPATH+=:/usr/gnu/share/man
 fi
 
-ME_PATH+=:/usr/bin:/bin
-ME_PATH+=:/usr/sbin:/sbin
-ME_MANPATH+=:/usr/share/man
-
 [ -d /etc/profile ] && source /etc/profile
 
 PATH=$ME_PATH:$PATH
 MANPATH=$ME_MANPATH:$MANPATH
-
-rehash
 
 # vim: ft=zsh
