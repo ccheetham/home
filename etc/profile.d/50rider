@@ -1,0 +1,40 @@
+# =============================================================================
+# Rider: .NET IDE from JetBrains
+# -----------------------------------------------------------------------------
+# https://www.jetbrains.com/rider/
+# =============================================================================
+
+r () {
+  local target
+  if [[ $# -gt 1 ]]; then
+    echo "too many args" >&2
+    return 1
+  fi
+  if [[ $# -eq 1 ]]; then
+    target=($1)
+  fi
+  if [[ -z $target ]]; then
+    target=(*.sln(N))
+  fi
+  if [[ ${#target[@]} -gt 1 ]]; then
+    echo "more than one solution found: $target" >&2
+    return 1
+  fi
+  if [[ ${#target[@]} -eq 0 ]]; then
+    target=(*.csproj)
+  fi
+  if [[ ${#target[@]} -gt 1 ]]; then
+    echo "more than one C# project found: $target" >&2
+    return 1
+  fi
+  if [[ ${#target[@]} -eq 0 ]]; then
+    target=(*.fsproj)
+  fi
+  if [[ ${#target[@]} -gt 1 ]]; then
+    echo "more than one F# project found: $target" >&2
+    return 1
+  fi
+  rider $target
+}
+
+# vim: ft=zsh
