@@ -6,7 +6,7 @@
 	diffc = diff --cached
 	ds = diff --compact-summary
 	last = log -1 HEAD
-	l = log --abbrev-commit --pretty=oneline
+	l = log --pretty='%C(cyan)%<(10)%al%<(14)%C(magenta)%C(dim)%ar%Creset%C(yellow)%<(8)%h%Creset %s'
 	ll = log --abbrev-commit
 	rollback = reset --soft @~1
 	unstage = reset HEAD --
