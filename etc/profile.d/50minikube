@@ -4,6 +4,34 @@
 # https://minikube.sigs.k8s.io/docs/start/
 # =============================================================================
 
-alias mk=minikube
+MINIKUBE_DRIVER=docker
+MINIKUBE_KUBERNETES_VERSION=1.22.8
+MINIKUBE_CPUS=8
+MINIKUBE_MEMORY=12g
+
+mk() {
+  cmd="minikube $*"
+  msg $cmd
+  eval $cmd
+}
+
+
+mkstart() {
+  if mk status > /dev/null; then
+    echo minikube cluster already started
+  else
+    mk start --driver=$MINIKUBE_DRIVER --kubernetes-version=$MINIKUBE_KUBERNETES_VERSION --cpus=$MINIKUBE_CPUS --memory=$MINIKUBE_MEMORY
+  fi
+}
+
+mkdelete() {
+  mk delete
+}
+
+mktunnelup() {
+  osascript -e "tell application \"iTerm\"
+    create window with profile \"Minikube Tunnel\"
+  end tell"
+}
 
 # vim: ft=zsh
