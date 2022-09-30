@@ -302,3 +302,6 @@ lost+found/
 
 # Buildpacks
 /.pack
+
+# PivNet
+/.pivnetrc
