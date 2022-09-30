@@ -4,6 +4,8 @@
 # http://www.gnutls.org/
 # =============================================================================
 
-type gnutls-certtool >/dev/null 2>&1 && alias certtool='gnutls-certtool'
+if command -v gnutls-certtool >/dev/null ; then
+  alias certtool='gnutls-certtool'
+fi
 
 # vim: ft=zsh

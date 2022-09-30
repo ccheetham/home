@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 # http://www.colordiff.org/
 # -----------------------------------------------------------------------------
-if which colordir > /dev/null 2>&1 ; then
+if command -v colordiff > /dev/null 2>&1 ; then
   alias diff='colordiff'
 fi
 
