@@ -308,3 +308,6 @@ lost+found/
 
 # Tilt
 /.tilt-dev/
+
+# RedHat
+/.redhat/
