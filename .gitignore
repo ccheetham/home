@@ -305,3 +305,6 @@ lost+found/
 
 # PivNet
 /.pivnetrc
+
+# Tilt
+/.tilt-dev/
