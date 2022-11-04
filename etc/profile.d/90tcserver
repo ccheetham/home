@@ -2,9 +2,9 @@
 # tc Server
 # =============================================================================
 
-export TCS_QA=~/src/gitlab.eng.vmware.com/vmware-tc-server/tcs-tc-server-qa
+export TCS_QA=$LAB_SOURCES/vmware-tc-server/tcs-tc-server-qa
 
-alias tcd=$TCS_QA
+alias -g tcd=$TCS_QA
 alias ftcs='fly --target tcs'
 alias dtcs='d images gopivotal-tcs-docker-local.jfrog.io/tc-server-qa'
 

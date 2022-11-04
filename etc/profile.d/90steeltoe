@@ -4,19 +4,19 @@
 
 export STEELTOE_REPOS=~/src/github.com/SteeltoeOSS
 
-alias st='cd $STEELTOE_REPOS'
-alias stl='cd $STEELTOE_REPOS/Steeltoe'
-alias sts='cd $STEELTOE_REPOS/Samples'
-alias std='cd $STEELTOE_REPOS/Dockerfiles'
-alias stt='cd $STEELTOE_REPOS/Tooling'
-alias stD='cd $STEELTOE_REPOS/Documentation'
-alias stMS='cd $STEELTOE_REPOS/MainSite'
-alias sti='cd $STEELTOE_REPOS/InitializrWorkspace'
-alias stiw='cd $STEELTOE_REPOS/InitializrWorkspace/InitializrWeb'
-alias stic='cd $STEELTOE_REPOS/InitializrWorkspace/InitializrConfig'
-alias stik='cd $STEELTOE_REPOS/InitializrWorkspace/InitializrConfigServer'
-alias stis='cd $STEELTOE_REPOS/InitializrWorkspace/InitializrService'
-alias ntt='cd $STEELTOE_REPOS/InitializrWorkspace/NetCoreToolTemplates'
-alias nts='cd $STEELTOE_REPOS/InitializrWorkspace/NetCoreToolService'
+alias -g st=$STEELTOE_REPOS
+alias -g stl=$STEELTOE_REPOS/Steeltoe
+alias -g sts=$STEELTOE_REPOS/Samples
+alias -g std=$STEELTOE_REPOS/Dockerfiles
+alias -g stt=$STEELTOE_REPOS/Tooling
+alias -g stD=$STEELTOE_REPOS/Documentation
+alias -g stMS=$STEELTOE_REPOS/MainSite
+alias -g sti=$STEELTOE_REPOS/InitializrWorkspace
+alias -g stiw=$STEELTOE_REPOS/InitializrWorkspace/InitializrWeb
+alias -g stic=$STEELTOE_REPOS/InitializrWorkspace/InitializrConfig
+alias -g stik=$STEELTOE_REPOS/InitializrWorkspace/InitializrConfigServer
+alias -g stis=$STEELTOE_REPOS/InitializrWorkspace/InitializrService
+alias -g ntt=$STEELTOE_REPOS/InitializrWorkspace/NetCoreToolTemplates
+alias -g nts=$STEELTOE_REPOS/InitializrWorkspace/NetCoreToolService
 
 # vim: ft=zsh

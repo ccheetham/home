@@ -4,6 +4,6 @@
 
 HUB_SOURCES=$ME_SRC_DIR/github.com
 
-alias hub='cd $HUB_SOURCES'
+alias -g hub=$HUB_SOURCES
 
 # vim: ft=zsh

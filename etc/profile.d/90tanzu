@@ -7,14 +7,14 @@
 
 TANZU_REPOS=$ME_SRC_DIR/github.com/vmware-tanzu
 
-alias vt='cd $TANZU_REPOS'
-alias dtc='cd $TANZU_REPOS/tanzu-developer-tools-for-vscode'
-alias dtj='cd $TANZU_REPOS/tanzu-developer-tools-for-intellij'
-alias dtl='cd $TANZU_REPOS/tanzu-developer-tools-language-server'
-alias dts='cd $TANZU_REPOS/tanzu-developer-tools-for-visual-studio'
-alias aas='cd $TANZU_REPOS/application-accelerator-samples'
+alias -g vt=$TANZU_REPOS
+alias -g dtc=$TANZU_REPOS/tanzu-developer-tools-for-vscode
+alias -g dtj=$TANZU_REPOS/tanzu-developer-tools-for-intellij
+alias -g dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
+alias -g dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
+alias -g aas=$TANZU_REPOS/application-accelerator-samples
+alias -g tt=$HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies
 
-alias tt='cd $HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies'
 ME_PATH+=:$HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies/local/bin
 
 # vim: ft=zsh
