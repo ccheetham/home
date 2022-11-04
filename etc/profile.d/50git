@@ -7,11 +7,13 @@
 alias g='git'
 alias g\?='g help'
 alias gg='g status'
-alias gtidy='g commit -mtidy'
-alias gtypo='g commit -mtypo'
-alias grefactor='g commit -mrefactor'
-alias gcrumbs='g commit -mbreadcrumbs'
-alias gvestige='g commit -m"remove vestige"'
+alias gd='g d'
+alias gtidy='g ci -mtidy'
+alias gtypo='g ci -mtypo'
+alias grefactor='g ci -mrefactor'
+alias gcrumbs='g ci -mbreadcrumbs'
+alias gvestige='g ci -m"remove vestige"'
+alias gwip='g ci -mwip'
 
 g+() {
   local args
