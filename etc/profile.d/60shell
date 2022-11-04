@@ -7,6 +7,8 @@ alias h='history -d'
 alias PP=pushd
 alias pp=popd
 
+alias -g pd=~/etc/profile.d
+
 unset ls_opts
 ls_cmd=ls
 case $ME_OS in
