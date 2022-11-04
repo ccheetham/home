@@ -37,4 +37,8 @@ r () {
   rider $target
 }
 
+for ext in csproj fsproj sln slnf; do
+  alias -s $ext=rider
+done
+
 # vim: ft=zsh
