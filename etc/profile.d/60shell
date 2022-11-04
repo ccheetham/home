@@ -81,7 +81,7 @@ EOF
   done
   local args=*1
 
-  local scratch_dir=$HOME/src/scratch
+  local scratch_dir=${SCRATCH:-$HOME/scratch}
   test -d $scratch dir || mkdir -p $scratch_dir || return 1
   cd $scratch_dir
   # ensure cd worked
