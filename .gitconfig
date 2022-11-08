@@ -10,7 +10,7 @@
 	l = log --pretty='%<(14)%C(magenta)%C(dim)%ar%Creset %C(cyan)%<(10)%al %C(yellow)%<(8)%h%Creset %s'
 	ll = log --abbrev-commit
 	orphan = switch --orphan
-	rollback = reset --soft @~1
+	rollback = ! git reset --soft @~1 && git unstage
 	unstage = reset HEAD --
 	m = merge
 	mq = merge --squash
