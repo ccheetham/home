@@ -6,6 +6,7 @@
 	d = diff
 	dc = diff --cached
 	ds = diff --compact-summary
+	fp = fetch --prune --verbose
 	last = log -1 HEAD
 	l = log --pretty='%<(14)%C(magenta)%C(dim)%ar%Creset %C(cyan)%<(10)%al %C(yellow)%<(8)%h%Creset %s'
 	ll = log --abbrev-commit
