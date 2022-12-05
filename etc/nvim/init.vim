@@ -45,6 +45,10 @@ map <leader>q :quit<cr>
 map <leader>Q :quitall<cr>
 map <leader>bd :bp\|bd #<cr>
 
+" configuration
+nmap <silent><leader>ec :edit $XDG_CONFIG_HOME/nvim/init.vim<cr>
+nmap <silent><leader>sc :source $XDG_CONFIG_HOME/nvim/init.vim<cr>
+
 " editing
 set encoding=utf-8
 set autoindent                          " put the cursor where it should be

@@ -40,8 +40,8 @@ call plug#end()
 let mapleader=" "
 
 " config management
-nmap <silent><leader>ev :edit $MYVIMRC<cr>
-nmap <silent><leader>sv :source $MYVIMRC<cr>
+nmap <silent><leader>ec :edit $MYVIMRC<cr>
+nmap <silent><leader>sc :source $MYVIMRC<cr>
 
 " colorscheme
 syntax on
