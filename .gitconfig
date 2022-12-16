@@ -12,6 +12,7 @@
 	ll = log --abbrev-commit
 	orphan = switch --orphan
 	rollback = ! git reset --soft @~1 && git unstage
+	un = unstage
 	unstage = reset HEAD --
 	m = merge
 	mq = merge --squash
