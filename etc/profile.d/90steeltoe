@@ -3,6 +3,7 @@
 # =============================================================================
 
 export STEELTOE_REPOS=~/src/github.com/SteeltoeOSS
+export STEELTOE_INCUBATOR_REPOS=~/src/github.com/steeltoeoss-incubator
 
 alias -g st=$STEELTOE_REPOS
 alias -g stl=$STEELTOE_REPOS/Steeltoe
@@ -18,5 +19,11 @@ alias -g stik=$STEELTOE_REPOS/InitializrWorkspace/InitializrConfigServer
 alias -g stis=$STEELTOE_REPOS/InitializrWorkspace/InitializrService
 alias -g ntt=$STEELTOE_REPOS/InitializrWorkspace/NetCoreToolTemplates
 alias -g nts=$STEELTOE_REPOS/InitializrWorkspace/NetCoreToolService
+
+alias -g stinc=$STEELTOE_INCUBATOR_REPOS
+alias -g tt=$STEELTOE_INCUBATOR_REPOS/tanzu-thingies
+alias -g dtg=$STEELTOE_INCUBATOR_REPOS/dotnet-tap-gitops
+
+ME_PATH+=:$STEELTOE_INCUBATOR_REPOS/tanzu-thingies/local/bin
 
 # vim: ft=zsh

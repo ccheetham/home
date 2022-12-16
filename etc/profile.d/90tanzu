@@ -13,8 +13,5 @@ alias -g dtj=$TANZU_REPOS/tanzu-developer-tools-for-intellij
 alias -g dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
 alias -g dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
 alias -g aas=$TANZU_REPOS/application-accelerator-samples
-alias -g tt=$HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies
-
-ME_PATH+=:$HUB_SOURCES/steeltoeoss-incubator/tanzu-thingies/local/bin
 
 # vim: ft=zsh
