@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+set -e
+
+prog=$(basename $0)
+basedir=$(cd $(dirname $0)/.. && pwd)
+source $basedir/libexec/dispatch_functions
+execdir=$basedir/libexec/$prog
+
+usage() {
+  cat << EOF
+USAGE
+$(help_indent)$prog [-h] <command> <args>
+WHERE
+EOF
+  help_indent
+  echo "command one of:"
+  for cmd in $execdir/* ; do
+    help_indent
+    help_indent
+    echo $(basename $cmd)
+  done
+  cat << EOF
+OPTIONS
+$(help_indent)-h              display this message
+NOTES
+$(help_indent)Run "$prog <command> -h" for command help.
+EOF
+}
+
+while getopts ":h" opt
+do
+  case $opt in
+    h)
+      usage
+      exit
+      ;;
+    :)
+      echo "-$OPTARG requires an argument" >&2
+      echo "run with -h for help" >&2
+      exit 1
+      ;;
+    \?)
+      echo "invalid option -$OPTARG" >&2
+      echo "run with -h for help" >&2
+      exit 1
+      ;;
+  esac
+done
+shift $(($OPTIND-1))
+
+if [[ $# -eq 0 ]] ; then
+  die "command not specified; run with -h for help"
+fi
+
+cmd=$execdir/$1
+shift
+
+if [[ ! -x $cmd ]] ; then
+  die "command not found: $(basename $cmd)"
+fi
+
+export DISPATCH_PROG=$prog
+export BASEDIR=$basedir
+exec $cmd $@

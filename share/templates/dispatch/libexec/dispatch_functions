@@ -1,0 +1,44 @@
+msg() {
+  echo "--- $1"
+}
+
+err() {
+  echo "!!! $1" >&2
+}
+
+die() {
+  if [[ $# -gt 0 ]]; then
+    err "$*"
+  fi
+  exit 1
+}
+
+help_indent() {
+  echo -n "      "
+}
+
+help_usage() {
+  echo -n ""
+}
+
+help_where() {
+  echo -n ""
+}
+
+help_section() {
+  local section=$1
+  local text=$2
+  if [[ -n "$text" ]] ; then
+    echo $section
+    for line in $text ; do
+      help_indent
+      echo $line
+    done
+  fi
+}
+
+help() {
+  help_section "USAGE" "$(help_usage)"
+  help_section "WHERE" "$(help_where)"
+}
+# vim: ft=bash

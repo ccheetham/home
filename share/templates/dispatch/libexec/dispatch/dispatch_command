@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+
+prog=$(basename $0)
+source $BASEDIR/libexec/dispatch_functions
+
+while getopts ":h" opt ; do
+  case $opt in
+    h)
+      help
+      exit
+      ;;
+    :)
+      echo "$OPTARG requires an argument" >&2
+      echo "run with -h for help" >&2
+      exit 1
+      ;;
+    \?)
+      echo "invalid option -$OPTARG" >&2
+      echo "run with -h for help" >&2
+      exit 1
+      ;;
+  esac
+done
+shift $(($OPTIND-1))
