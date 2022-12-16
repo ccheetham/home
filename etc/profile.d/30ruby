@@ -5,6 +5,10 @@
 export GEM_HOME=$ME_DISTRO_TOOL_DIR/lib/ruby/gems
 ME_PATH+=:$GEM_HOME/bin
 
+if [[ $ME_OS == osx ]] ; then
+  ME_PATH+=:$HOMEBREW_HOME/opt/ruby/bin
+fi
+
 alias rb='ruby'
 
 # vim: ft=zsh
