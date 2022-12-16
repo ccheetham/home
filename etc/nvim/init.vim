@@ -23,7 +23,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'godlygeek/tabular'
-Plug 'sheerun/vim-polyglot',
 Plug 'mrk21/yaml-vim'
 Plug 'vim-scripts/bats.vim'
 " Plug 'OmniSharp/omnisharp-vim'

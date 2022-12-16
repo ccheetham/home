@@ -30,7 +30,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
-Plug 'sheerun/vim-polyglot',
 Plug 'mrk21/yaml-vim'
 Plug 'vim-scripts/bats.vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
