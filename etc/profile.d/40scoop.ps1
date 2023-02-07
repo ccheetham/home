@@ -1,4 +1,4 @@
-$Env:SCOOP="$Env:ME_PLATFORM_TOOL_DIR\scoop"
+$Env:SCOOP="$Env:ME_TOOL_DIR\scoop"
 $Env:SCOOP_CACHE="$Env:XDG_CACHE_HOME\scoop"
 
 Set-Alias sc scoop
