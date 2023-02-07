@@ -1,4 +1,4 @@
-$ProfileDir = "$PSScriptRoot\..\..\etc\profile.d"
+$ProfileDir = "$env:USERPROFILE\etc\profile.d"
 
 # use native exes
 foreach ($alias in "curl", "wget")
@@ -10,7 +10,7 @@ foreach ($alias in "curl", "wget")
 }
 
 
-foreach($file in Get-ChildItem "$ProfileDir" -Filter *.ps1)
+foreach($file in Get-ChildItem "$ProfileDir" -Filter "*.ps1")
 {
     "sourcing $($file.Name)"
     . $file.FullName
