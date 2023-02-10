@@ -8,6 +8,6 @@ ME_GO_VERSIONS=(1.19)
 export GOROOT=$ME_PLATFORM_TOOL_DIR/go
 export GOPATH=$ME_PLATFORM_TOOL_DIR/golang
 
-ME_PATH+=:$GOROOT/bin
+ME_PATH=$GOROOT/bin:$ME_PATH
 
 # vim: ft=zsh
