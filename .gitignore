@@ -35,6 +35,9 @@
 /Templates
 /Videos
 
+# logs
+*.log
+
 # Zsh
 /.zcompdump
 /.zfunctions
