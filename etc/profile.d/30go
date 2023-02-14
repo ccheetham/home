@@ -4,7 +4,7 @@
 # https://golang.org/
 # =============================================================================
 
-ME_GO_VERSIONS=(1.19)
+ME_GO_VERSIONS=(1.19.5)
 export GOROOT=$ME_PLATFORM_TOOL_DIR/go
 export GOPATH=$ME_PLATFORM_TOOL_DIR/golang
 
