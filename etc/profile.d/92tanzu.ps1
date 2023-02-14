@@ -11,5 +11,6 @@ function dtl { cd "$Env:TANZU_REPOS\tanzu-developer-tools-language-server" }
 function dts { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-visual-studio" }
 function aas { cd "$Env:TANZU_REPOS\application-accelerator-samples" }
 
+function dtslog { tail 'C:\Users\ccheetham\AppData\Local\Microsoft\VisualStudio\17.0_84b9b701Exp\Extensions\VMware\Tanzu Developer Tools\0.0.0\language-server.log' }
 
 $ME_PATH = "$ME_PATH;$STEELTOE_INCUBATOR_REPOS\tanzu-thingies\local\bin"
