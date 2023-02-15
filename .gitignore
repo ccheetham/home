@@ -318,3 +318,6 @@ lost+found/
 
 # McAfee
 /mcafee dlp quarantined files/
+
+# Windows certs
+/.registry_trusted_root_certs_win
