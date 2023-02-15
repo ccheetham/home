@@ -2,6 +2,11 @@
 # JetBrains tools
 # =============================================================================
 
+alias jbg='goland'
+alias jbj='idea'
+alias jbp='pycharm'
+alias jbr='rider'
+
 case $ME_OS in
   osx)
     JETBRAINS_TOOL_HOME="$ME/Library/Application Support/JetBrains/Toolbox/scripts"
