@@ -26,3 +26,5 @@ $Env:ME_OPT_DIR="$Env:ME_TOOL_DIR\opt"
 $Env:XDG_CONFIG_HOME=$Env:ME_CONFIG_DIR
 $Env:XDG_DATA_HOME=$Env:ME_DATA_DIR
 $Env:XDG_CACHE_HOME=$Env:ME_CACHE_DIR
+
+function pd { Set-Location "$Env:ME_CONFIG_DIR\profile.d" }

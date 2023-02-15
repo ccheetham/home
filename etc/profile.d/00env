@@ -163,4 +163,6 @@ reenv() {
   source ~/etc/profile
 }
 
+alias -g pd=~/etc/profile.d
+
 # vim: ft=zsh
