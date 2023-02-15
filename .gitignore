@@ -315,3 +315,6 @@ lost+found/
 
 # RedHat
 /.redhat/
+
+# McAfee
+/mcafee dlp quarantined files/
