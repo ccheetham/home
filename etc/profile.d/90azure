@@ -1,0 +1,40 @@
+# =============================================================================
+# Azure
+# -----------------------------------------------------------------------------
+# https://portal.azure.com/#home
+# =============================================================================
+
+azstart () {
+  if [[ $# -eq 0 ]]; then
+    err "name not specified"
+    return 1
+  fi
+  if [[ $# -gt 1 ]]; then
+    err "too many args"
+    return 1
+  fi
+  local name=$1
+  az vm start \
+    --subscription $AZ_SUBSCRIPTION \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $name
+}
+
+azstop () {
+  if [[ $# -eq 0 ]]; then
+    err "name not specified"
+    return 1
+  fi
+  if [[ $# -gt 1 ]]; then
+    err "too many args"
+    return 1
+  fi
+  local name=$1
+  az vm stop \
+    --subscription $AZ_SUBSCRIPTION \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $name
+}
+
+
+# vim: ft=zsh
