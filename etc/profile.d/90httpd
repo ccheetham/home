@@ -2,7 +2,7 @@
 # HTTPD (Open Source builds of Apache httpd)
 # =============================================================================
 
-export HTTPD_QA_DIR=$ME_SRC_DIR/github.com/appsuite/web-server-qa
-alias pws='cd $HTTPD_QA_DIR'
+export HTTPD_QA_DIR=$ME_SRC_DIR/gitlab.eng.vmware.com/ccheetham/httpd-qa
+alias -g pws=$HTTPD_QA_DIR
 
 # vim: ft=zsh
