@@ -14,4 +14,6 @@ alias -g dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
 alias -g dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
 alias -g aas=$TANZU_REPOS/application-accelerator-samples
 
+alias taw='tanzu apps workload'
+
 # vim: ft=zsh
