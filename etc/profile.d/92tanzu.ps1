@@ -11,7 +11,8 @@ function dtl { cd "$Env:TANZU_REPOS\tanzu-developer-tools-language-server" }
 function dts { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-visual-studio" }
 function aas { cd "$Env:TANZU_REPOS\application-accelerator-samples" }
 
-function dtslog { tail "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_84b9b701Exp\Extensions\VMware\Tanzu Developer Tools\0.0.0\language-server.log" }
+function dtslog { tail "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_84b9b701Exp\Extensions\VMware\Tanzu Developer Tools\0.0.0\tanzu-dev-tools.log" }
+function dtslslog { tail "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_84b9b701Exp\Extensions\VMware\Tanzu Developer Tools\0.0.0\tanzu-language-server.log" }
 
 function taw { tanzu apps workload $args }
 
