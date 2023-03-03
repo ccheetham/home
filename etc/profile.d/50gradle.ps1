@@ -3,3 +3,4 @@ $Env:GRADLE_USER_HOME="$Env:ME\.gradle"
 $Env:GRADLE_OPTS="-Dorg.gradle.console=rich"
 
 Set-Alias gr .\gradlew.bat
+Function grr { gr --refresh-dependencies $Args }
