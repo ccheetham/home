@@ -12,6 +12,10 @@
 	ll = log --abbrev-commit
 	orphan = switch --orphan
 	rollback = ! git reset --soft @~1 && git unstage
+        p = pull
+        ppp = pull --force
+        P = push
+        PPP = push --force
 	show-files = show --pretty='' --name-status
 	un = unstage
 	unstage = reset HEAD --
