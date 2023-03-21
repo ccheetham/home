@@ -14,7 +14,6 @@ alias -g dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
 alias -g dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
 alias -g aas=$TANZU_REPOS/application-accelerator-samples
 
-alias t="tanzu"
 alias tme="tanzu --namespace ccheetham"
 alias twg="tanzu -n ccheetham apps workload get"
 alias twl="tanzu -n ccheetham apps workload list"
