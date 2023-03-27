@@ -15,7 +15,8 @@ function dtslog { tail "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_84b9b701Ex
 function dtslslog { tail "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_84b9b701Exp\Extensions\VMware\Tanzu Developer Tools\0.0.0\tanzu-language-server.log" }
 
 function tme { tanzu --namespace ccheetham $args }
-function twg { tanzu -n ccheetham apps workload get $args }
 function twl { tanzu -n ccheetham apps workload list $args }
+function twg { tanzu -n ccheetham apps workload get $args }
+function twd { tanzu -n ccheetham apps workload delete $args }
 
 $ME_PATH = "$ME_PATH;$STEELTOE_INCUBATOR_REPOS\tanzu-thingies\local\bin"

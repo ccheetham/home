@@ -15,7 +15,8 @@ alias -g dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
 alias -g aas=$TANZU_REPOS/application-accelerator-samples
 
 alias tme="tanzu --namespace ccheetham"
-alias twg="tanzu -n ccheetham apps workload get"
 alias twl="tanzu -n ccheetham apps workload list"
+alias twg="tanzu -n ccheetham apps workload get"
+alias twd="tanzu -n ccheetham apps workload delete"
 
 # vim: ft=zsh
