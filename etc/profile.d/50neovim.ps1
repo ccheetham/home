@@ -1,4 +1,5 @@
 if (Get-command "nvim" -ErrorAction SilentlyContinue)
 {
-  Set-Alias vi nvim
+  $Env:EDITOR = "nvim"
+  Set-Alias vi $Env:EDITOR
 }

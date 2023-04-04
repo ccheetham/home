@@ -2,6 +2,7 @@ if (!(Get-command "nvim" -ErrorAction SilentlyContinue))
 {
   if (Get-command "vim" -ErrorAction SilentlyContinue)
   {
-    Set-Alias vi vim
+    $Env:EDITOR = "vim"
+    Set-Alias vi $Env:EDITOR
   }
 }
