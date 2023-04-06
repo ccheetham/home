@@ -22,6 +22,7 @@
 	m = merge
 	mq = merge --squash
 	sw = switch
+	wip = ci -mwip
 [core]
 	autocrlf = input
 	pager = less -eFiJM~ -j3 --tabs=3
@@ -41,3 +42,5 @@
 [user]
 	email = chris@cheetham.com
 	name = Chris Cheetham
+[credential "helperselector"]
+	selected = manager
