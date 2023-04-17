@@ -1,6 +1,6 @@
 ME_REPOS=$ME_SRC_DIR/github.com/ccheetham
 
-alias -g med=$ME_REPOS
+alias -g meh=$ME_REPOS
 alias -g mes=$ME_REPOS/sandbox
 
 # vim: ft=zsh
