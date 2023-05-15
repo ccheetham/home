@@ -4,7 +4,7 @@
 
 $Env:TANZU_REPOS = "$Env:HUB_SOURCES\vmware-tanzu"
 
-function vt { cd "$Env:TANZU_REPOS" }
+function vtr { cd "$Env:TANZU_REPOS" }
 function dtc { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-vscode" }
 function dtj { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-intellij" }
 function dtl { cd "$Env:TANZU_REPOS\tanzu-developer-tools-language-server" }
@@ -18,5 +18,6 @@ function tme { tanzu --namespace ccheetham $args }
 function twl { tanzu -n ccheetham apps workload list $args }
 function twg { tanzu -n ccheetham apps workload get $args }
 function twd { tanzu -n ccheetham apps workload delete $args }
+function twt { tanzu -n ccheetham apps workload tail --timestamp $args }
 
 $ME_PATH = "$ME_PATH;$STEELTOE_INCUBATOR_REPOS\tanzu-thingies\local\bin"

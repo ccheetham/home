@@ -1,0 +1,10 @@
+# =============================================================================
+# Cloud Foundry
+# =============================================================================
+
+CF_REPOS=$ME_SRC_DIR/github.com/pivotal-cf
+
+alias -g cfr=$CF_REPOS
+alias -g kbp=$CF_REPOS/kerberos-buildpack
+
+# vim: ft=zsh

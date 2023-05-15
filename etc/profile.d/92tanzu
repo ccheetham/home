@@ -7,7 +7,7 @@
 
 TANZU_REPOS=$ME_SRC_DIR/github.com/vmware-tanzu
 
-alias -g vt=$TANZU_REPOS
+alias -g vtr=$TANZU_REPOS
 alias -g dtc=$TANZU_REPOS/tanzu-developer-tools-for-vscode
 alias -g dtj=$TANZU_REPOS/tanzu-developer-tools-for-intellij
 alias -g dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
@@ -15,8 +15,9 @@ alias -g dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
 alias -g aas=$TANZU_REPOS/application-accelerator-samples
 
 alias tme="tanzu --namespace ccheetham"
-alias twl="tanzu -n ccheetham apps workload list"
-alias twg="tanzu -n ccheetham apps workload get"
-alias twd="tanzu -n ccheetham apps workload delete"
+alias twl="tme apps workload list"
+alias twg="tme apps workload get"
+alias twd="tme apps workload delete"
+alias twt="tme apps workload tail --timestamp"
 
 # vim: ft=zsh
