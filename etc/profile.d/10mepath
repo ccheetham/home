@@ -3,7 +3,7 @@
 # =============================================================================
 
 ME_PATH=$ME/local/bin:$ME/bin
-ME_PATH+=:$ME_DISTRO_TOOL_DIR/bin:$ME_PLATFORM_TOOL_DIR/bin
+ME_PATH+=:$ME_DISTRO_TOOL_DIR/bin:$ME_PLATFORM_TOOL_DIR/bin:$ME_OPT_DIR/bin
 ME_PATH+=:$ME/.local/bin
 
 export ME_ZSH_FUNCTIONS=$ME_LIBEXEC_DIR/zsh/functions
