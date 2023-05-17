@@ -1,0 +1,11 @@
+
+# =============================================================================
+# OSSPI
+# -----------------------------------------------------------------------------
+# https://confluence.eng.vmware.com/display/OSSPI
+# =============================================================================
+
+export OSSPI_HOME=$ME_OPT_DIR
+OSSPI_INSTALL=https://build-artifactory.eng.vmware.com/osspicli-local/beta/osspicli/install.sh
+
+# vim: ft=zsh

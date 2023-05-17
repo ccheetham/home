@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)/../..
+
+source $basedir/etc/profile
+source $ME_LIBEXEC_DIR/sh_functions
+
+bash -c "$(curl -fsSL $OSSPI_INSTALL)"
+rm -rf /tmp/osspicli
