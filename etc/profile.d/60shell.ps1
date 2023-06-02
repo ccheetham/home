@@ -40,5 +40,5 @@ function which
         return
     }
 
-    (Get-Command $args[0])[0].Path
+    (Get-Command "$args[0])[0].Path" -ErrorAction SilentlyContinue)
 }
