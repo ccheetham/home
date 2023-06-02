@@ -1,9 +1,9 @@
 Function k
 {
-    & kubectl $Args
+    Invoke-Expression "kubectl $($Args -join " ")"
 }
 
 Function kk
 {
-    & k config $Args
+    k config "$Args"
 }
