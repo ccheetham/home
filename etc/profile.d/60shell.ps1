@@ -9,13 +9,22 @@ function tail
         "path not specified"
         return
     }
-    if ($args.Count -gt 1)
+    if ($args.Count -gt 2)
     {
         "too many args"
         return
     }
+    $path = $args[0]
+    if ($args.Count -gt 1)
+    {
+        $lines = $args[1]
+    }
+    else
+    {
+        $lines = "0"
+    }
 
-    Get-Content $args[0] -Tail 1 -Wait
+    Get-Content $path -Tail $lines -Wait
 }
 
 function which
