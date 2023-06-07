@@ -11,6 +11,10 @@
 	l = log --pretty='%<(14)%C(magenta)%C(dim)%ar%Creset %C(cyan)%<(10)%al %C(yellow)%<(8)%h%Creset %s'
 	ll = log --abbrev-commit
 	orphan = switch --orphan
+	rb = rebase
+	rba = rb --abort
+	rbc = rb --continue
+	rbi = rb --interactive
 	rollback = ! git reset --soft @~1 && git unstage
         p = pull
         pp = push
