@@ -16,8 +16,8 @@
 	rbc = rb --continue
 	rbi = rb --interactive
 	rollback = ! git reset --soft @~1 && git unstage
-        p = pull
-        pp = push
+	p = pull
+	pp = push
 	show-files = show --pretty='' --name-status
 	un = unstage
 	unstage = reset HEAD --
