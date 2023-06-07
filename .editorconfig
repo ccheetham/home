@@ -15,6 +15,9 @@ indent_size = 4
 [*.{json,yml,yaml}]
 indent_size = 2
 
+[*.gitconfig]
+indent_style = tab
+
 [*.toml]
 indent_size = 2
 
