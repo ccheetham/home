@@ -18,6 +18,7 @@
 	rollback = ! git reset --soft @~1 && git unstage
 	p = pull
 	pp = push
+	pristine = ! git unstage && git checkout . && git clean . -d --force
 	show-files = show --pretty='' --name-status
 	un = unstage
 	unstage = reset HEAD --
