@@ -44,5 +44,3 @@
 [user]
 	email = chris@cheetham.com
 	name = Chris Cheetham
-[credential "helperselector"]
-	selected = manager
