@@ -4,8 +4,8 @@
 # https://www.vim.org/
 # =============================================================================
 
-if ! command -v nvim > /dev/null ; then
-  if command -v vim > /dev/null ; then
+if ! hascmd nvim; then
+  if hascmd vim; then
     alias vi=vim
   fi
 fi

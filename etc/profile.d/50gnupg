@@ -4,7 +4,7 @@
 # https://www.gnupg.org/
 # =============================================================================
 
-if command -v gpg2 > /dev/null ; then
+if hascmd gpg2; then
   alias gpg=gpg2
 fi
 

@@ -2,9 +2,11 @@
 # Kubernetes
 # =============================================================================
 
-if command -v microk8s.kubectl >/dev/null; then
+if hascmd microk8s.kubectl >/dev/null; then
   alias kubectl='microk8s.kubectl'
 fi
+
+alias kk='k config'
 
 k() {
   local cmd="kubectl $*"
