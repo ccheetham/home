@@ -5,8 +5,7 @@
 # =============================================================================
 
 if hascmd bat; then
-  alias bat='bat --theme=OneHalfDark'
-  alias cat='bat'
+  alias pp='bat -P'
 fi
 
 # vim: ft=zsh
