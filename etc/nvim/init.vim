@@ -34,6 +34,8 @@ Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 " Plug 'luan/vim-concourse'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " use spacebar to trigger keymaps
@@ -241,3 +243,6 @@ set completeopt=longest,menuone,preview
 let g:blamer_enabled = 1
 let g:blamer_delay = 0750
 let g:blamer_date_format = '%m/%d/%y'
+
+" fzf
+nnoremap <leader>ff :Ag<cr>
