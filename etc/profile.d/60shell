@@ -4,9 +4,6 @@
 
 alias h='history -d'
 
-alias PP=pushd
-alias pp=popd
-
 unset ls_opts
 ls_cmd=ls
 case $ME_OS in
