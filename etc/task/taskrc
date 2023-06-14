@@ -12,3 +12,4 @@ include $HOMEBREW_HOME/share/doc/task/rc/solarized-light-256.theme
 news.version=2.6.0
 context.website.read=project:website
 context.website.write=project:website
+uda.priority.values=H,M,L
