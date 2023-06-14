@@ -8,12 +8,14 @@ source $ME_LIBEXEC_DIR/sh_functions
 set -e
 
 main () {
-  hdr refreshing dotnet
+  hdr refreshing .NET SDKs
   local destdir=$ME_PLATFORM_TOOL_DIR/dotnet
   rm -rf $destdir
   for version in $ME_DOTNET_VERSIONS; do
     install_version $destdir $version
   done
+  hdr .NET SDKs
+  dotnet --list-sdks
 }
 
 install_version () {
