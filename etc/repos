@@ -1,4 +1,5 @@
-https://github.com/junegunn/vim-plug.git
-https://github.com/dahlbyk/posh-git.git
-https://github.com/sonph/onehalf.git
-https://github.com/ingydotnet/git-subrepo.git
+git@github.com:junegunn/vim-plug.git
+git@github.com:dahlbyk/posh-git.git
+git@github.com:sonph/onehalf.git
+git@github.com:ingydotnet/git-subrepo.git
+git@github.com:dandavison/delta.git
