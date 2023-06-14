@@ -1,4 +1,8 @@
-$ProfileDir = "$env:USERPROFILE\etc\profile.d"
+if (Test-Path env:HOME) {
+    $ProfileDir = "$env:HOME\etc\profile.d"
+} else {
+    $ProfileDir = "$env:USERPROFILE\etc\profile.d"
+}
 
 # use native exes
 foreach ($alias in "curl", "wget")
