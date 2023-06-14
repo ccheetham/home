@@ -5,7 +5,7 @@
 ME_JDK8_VERSION=8:8u362+9
 ME_JDK11_VERSION=11:11.0.18+10
 ME_JDK17_VERSION=17:17.0.6+10
-ME_JDK18_VERSION=18:18.0.2+10
+ME_JDK20_VERSION=20:20.0.1+10
 ME_DEFAULT_JDK=17
 
 export ME_JAVA_TOOL_DIR=$ME_PLATFORM_TOOL_DIR/java
@@ -16,7 +16,7 @@ export JDK7_HOME=$ME_JAVA_TOOL_DIR/jdk-7
 export JDK8_HOME=$ME_JAVA_TOOL_DIR/jdk-8
 export JDK11_HOME=$ME_JAVA_TOOL_DIR/jdk-11
 export JDK17_HOME=$ME_JAVA_TOOL_DIR/jdk-17
-export JDK18_HOME=$ME_JAVA_TOOL_DIR/jdk-18
+export JDK20_HOME=$ME_JAVA_TOOL_DIR/jdk-20
 export ME_JAVA_CONFIG_DIR=$ME_CONFIG_DIR/java
 unset JRE_HOME
 
@@ -28,7 +28,7 @@ alias j='java'
 alias j8='$JDK8_HOME/bin/java'
 alias j11='$JDK11_HOME/bin/java'
 alias j17='$JDK17_HOME/bin/java'
-alias j18='$JDK18_HOME/bin/java'
+alias j20='$JDK20_HOME/bin/java'
 
 jversions () {
   local jname
@@ -37,7 +37,7 @@ jversions () {
   local jhome
   local jcmd
   local jvendor
-  for jname in JDK JDK6 JDK7 JDK8 JDK11 JDK17 JDK18
+  for jname in JDK JDK6 JDK7 JDK8 JDK11 JDK17 JDK20
   do
     jvendor=
     eval jhome='$'$jname'_HOME'

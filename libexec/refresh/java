@@ -12,7 +12,7 @@ main () {
   install_version $ME_JAVA_TOOL_DIR $ME_JDK8_VERSION
   install_version $ME_JAVA_TOOL_DIR $ME_JDK11_VERSION
   install_version $ME_JAVA_TOOL_DIR $ME_JDK17_VERSION
-  install_version $ME_JAVA_TOOL_DIR $ME_JDK18_VERSION
+  install_version $ME_JAVA_TOOL_DIR $ME_JDK20_VERSION
   link_jdk $ME_DEFAULT_JDK "$JDK_HOME"
 }
 
