@@ -96,8 +96,7 @@ function p_vcs {
 function p_env {
   [ -z "$VIRTUAL_ENV" ] && return
   p_c_info
-  echo -n '[p:'$(basename "$VIRTUAL_ENV")']'
-  # echo -n '[p]'
+  echo -n '[pve]'
   p_c_reset
 }
 
@@ -115,9 +114,16 @@ function precmd {
   [[ $TERM == xterm* ]] || return
   print -Pn '\e]0;'
   if [ -n "$SSH_CLIENT" ]; then
-    print -Pn '[%m] '
+    print -Pn '[ssh:%m] '
   fi
-  print -Pn '%~\a'
+  if [[ $(pwd) == $HOME ]]; then
+    print -Pn '~'
+  elif [[ $(pwd) == $HOME* ]]; then
+    print -Pn '%2d'
+  else
+    print -Pn '%d'
+  fi
+  print -Pn '\a'
 }
 
 # vim: ft=zsh
