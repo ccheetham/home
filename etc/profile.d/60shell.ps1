@@ -2,13 +2,6 @@
 # shell tooling
 # =============================================================================
 
-Set-PSReadLineOption -Colors @{
-    "Command" = "#5fafff"
-    "Error" = [ConsoleColor]::DarkRed
-    "Parameter" = "#835b83"
-    "String" = "#87d787"
-}
-
 function tail
 {
     if ($args.Count -eq 0)
