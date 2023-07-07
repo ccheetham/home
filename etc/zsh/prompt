@@ -114,7 +114,7 @@ function precmd {
   [[ $TERM == xterm* ]] || return
   print -Pn '\e]0;'
   if [ -n "$SSH_CLIENT" ]; then
-    print -Pn '[ssh:%m] '
+    print -Pn '[%m] '
   fi
   if [[ $(pwd) == $HOME ]]; then
     print -Pn '~'
