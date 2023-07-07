@@ -52,14 +52,14 @@ class GitClient(object):
 
     def refresh(self, repo):
         if os.path.exists(repo.path):
-            print("=== updating", repo.name)
+            print("=== updating", repo.name, repo.url)
             subprocess.Popen(["git", "pull"], cwd=repo.path).wait()
         else:
-            print("=== checking out", repo.name)
+            print("=== checking out", repo.name, repo.url)
             subprocess.Popen(["git", "clone", repo.url, repo.path]).wait()
 
     def status(self, repo):
-        print("=== status of", repo.name)
+        print("=== status of", repo.name, repo.url)
         if os.path.exists(repo.path):
             subprocess.Popen(["git", "status"], cwd=repo.path).wait()
         else:
