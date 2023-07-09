@@ -5,6 +5,6 @@ if ($Token) {
 }
 
 function Grip {
-    pipenv run $GripCmd
+    pipenv run $GripCmd $Args
 }
 
