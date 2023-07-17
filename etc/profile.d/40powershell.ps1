@@ -9,11 +9,11 @@ Set-PSReadLineOption -Colors @{
 
 # use native exes
 if (Get-Command "Remove-Alias" -ErrorAction SilentlyContinue) {
-  foreach ($alias in "curl", "wget") {
-    if (Test-Path Alias:$alias) {
-      Remove-Alias $alias
+ foreach ($alias in "curl", "wget") {
+        if (Test-Path Alias:$alias) {
+            Remove-Alias $alias
+        }
     }
-  }
 }
 
 function tail {
@@ -26,23 +26,25 @@ function tail {
         return
     }
     $path = $args[0]
-    if ($args.Count -gt 1) {
-        $lines = $args[1]
-    }
-    else {
-        $lines = "0"
-    }
+        if ($args.Count -gt 1) {
+            $lines = $args[1]
+        }
+        else {
+            $lines = "0"
+        }
     Get-Content $path -Tail $lines -Wait
 }
 
 function which {
-    if ($args.Count -eq 0) {
-        "path not specified"
-        return
+    foreach ($command in $args) {
+        $path = Get-Command $command -ErrorAction SilentlyContinue
+        if (!($path)) {
+            continue
+        }
+        switch ($path.CommandType) {
+            "Application" { $path.Source }
+            "Alias" { $path.DisplayName }
+            Default { "unknown type ($command): $($path.CommandType)" }
+        }
     }
-    if ($args.Count -gt 1) {
-        "too many args"
-        return
-    }
-    (Get-Command "$args[0])[0].Path" -ErrorAction SilentlyContinue)
 }
