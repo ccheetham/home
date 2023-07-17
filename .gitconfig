@@ -30,6 +30,7 @@
 [core]
 	autocrlf = input
 	pager = delta
+	fsmonitor = true
 [credential]
 	helper = manager-core
 [delta]
