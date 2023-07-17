@@ -1,21 +1,11 @@
 if (Test-Path env:HOME) {
-    $ProfileDir = "$env:HOME\etc\profile.d"
+    $profileDir = "$env:HOME\etc\profile.d"
 } else {
-    $ProfileDir = "$env:USERPROFILE\etc\profile.d"
-}
-
-# use native exes
-foreach ($alias in "curl", "wget")
-{
-    if (Test-Path alias:$alias)
-    {
-        Remove-Alias $alias
-    }
+    $profileDir = "$env:USERPROFILE\etc\profile.d"
 }
 
 
-foreach($file in Get-ChildItem "$ProfileDir" -Filter "*.ps1")
-{
+foreach($file in Get-ChildItem "$profileDir" -Filter "*.ps1") {
     "sourcing $($file.Name)"
     . $file.FullName
 }
