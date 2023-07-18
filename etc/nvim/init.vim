@@ -244,5 +244,9 @@ let g:blamer_enabled = 1
 let g:blamer_delay = 0750
 let g:blamer_date_format = '%m/%d/%y'
 
+
+" .NET
+autocmd BufRead,BufNewFile *.csproj,*.fsproj set filetype=xml
+
 " fzf
 nnoremap <leader>ff :Ag<cr>
