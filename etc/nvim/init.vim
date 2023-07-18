@@ -43,7 +43,7 @@ let mapleader=" "
 
 " quitting
 map <leader>q :quit<cr>
-map <leader>Q :quitall<cr>
+map <leader>QQ :quitall!<cr>
 map <leader>bd :bp\|bd #<cr>
 
 " configuration
