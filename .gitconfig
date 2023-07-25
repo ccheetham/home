@@ -12,7 +12,9 @@
 	ll = log --abbrev-commit
 	orphan = switch --orphan
 	p = pull
+	pf = pull --force
 	pp = push
+	ppf = push --force
 	pristine = ! git unstage && git checkout . && git clean -d --force
 	rb = rebase
 	rba = rb --abort
