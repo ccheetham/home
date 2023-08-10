@@ -18,7 +18,7 @@ function dtslslog { tail "$Env:TANZU_LS_LOG" 3 }
 
 $ME_PATH = "$ME_PATH;$STEELTOE_INCUBATOR_REPOS\tanzu-thingies\local\bin"
 
-function twl { tanzu apps workload list "$Args" }
-function twg { tanzu apps workload get "$Args" }
-function twd { tanzu apps workload delete "$Args" }
-function twt { tanzu apps workload tail --timestamp "$Args" }
+function twl { & tanzu apps workload list $Args }
+function twg { & tanzu apps workload get $Args }
+function twd { & tanzu apps workload delete $Args }
+function twt { & tanzu apps workload tail --timestamp $Args }
