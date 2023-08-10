@@ -9,3 +9,8 @@ function dprune
 {
     & d system prune -f
 }
+
+function dsh ($image, $shell="bash")
+{
+    & drun --entrypoint $shell $image
+}
