@@ -13,7 +13,6 @@ function Get-Token() {
     $TokenPath = "$TokenDir\$TokenName"
 
     if (!(Test-Path $TokenPath)) {
-      "token unknown: $TokenName"
       return
     }
 
