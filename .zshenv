@@ -16,3 +16,4 @@ fi
 export XDG_CONFIG_HOME=~/etc
 export XDG_DATA_HOME=~/share
 export XDG_CACHE_HOME=~/var
+export XDG_STATE_HOME=$XDG_CACHE_HOME/state
