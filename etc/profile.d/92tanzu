@@ -8,15 +8,17 @@
 TANZU_REPOS=$ME_SRC_DIR/github.com/vmware-tanzu
 ME_PATH+=:$STEELTOE_INCUBATOR_REPOS/tanzu-thingies/bin
 
-alias -g vtr=$TANZU_REPOS
-alias -g dtc=$TANZU_REPOS/tanzu-developer-tools-for-vscode
-alias -g dtj=$TANZU_REPOS/tanzu-developer-tools-for-intellij
-alias -g dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
-alias -g dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
-alias -g aas=$TANZU_REPOS/application-accelerator-samples
-
+alias vtr=$TANZU_REPOS
+alias dtc=$TANZU_REPOS/tanzu-developer-tools-for-vscode
+alias dtd=$TANZU_REPOS/tanzu-developer-tools-dev-conventions
+alias dtj=$TANZU_REPOS/tanzu-developer-tools-for-intellij
+alias dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
+alias dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio
+alias aas=$TANZU_REPOS/application-accelerator-samples
+alias dgo=$ME_REPOS/dotnet-dev-tap-gitops
 alias twl="tanzu apps workload list"
 alias twg="tanzu apps workload get"
+alias twa="tanzu apps workload apply"
 alias twd="tanzu apps workload delete"
 alias twt="tanzu apps workload tail --timestamp"
 
