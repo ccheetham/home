@@ -6,7 +6,7 @@
 
 ME_GRADLE_VERSIONS=(6.3)
 GRADLE_HOME=$ME_TOOL_DIR/opt/gradle
-GRADLE_USER_HOME=$ME/.gradle/$ME_HOST
+GRADLE_USER_HOME=$ME_CACHE_DIR/gradle
 GRADLE_OPTS="-Dorg.gradle.console=rich"
 ME_PATH+=:$GRADLE_HOME/bin
 

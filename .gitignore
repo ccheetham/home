@@ -144,9 +144,6 @@ lost+found/
 # Erlang
 /.erlang.cookie
 
-# Gradle
-/.gradle
-
 # Maven
 /.m2
 
