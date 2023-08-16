@@ -9,10 +9,12 @@ set -e
 
 main () {
   hdr refreshing dotnet
+	local destdir=$ME_PLATFORM_TOOL_DIR/go
   for version in $ME_GO_VERSIONS; do
-    install_version $ME_PLATFORM_TOOL_DIR/go-$version $version
+    install_version $destdir $version
   done
-  link go-$ME_GO_VERSIONS[1] $ME_PLATFORM_TOOL_DIR/go
+  link goroot-$ME_GO_VERSIONS[1] $destdir/goroot
+  link gopath-$ME_GO_VERSIONS[1] $destdir/gopath
 }
 
 install_version () {
@@ -36,9 +38,9 @@ install_version () {
   msg fetching $disturl
   wget --continue -P $ME_DISTFILE_DIR $disturl
   msg extracting $distfile
-  rm -rf $destdir
-  mkdir -p $destdir
-  tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir --strip-components 1
+  rm -rf $destdir/goroot-$version $destdir/gopath-$version
+  mkdir $destdir/goroot-$version $destdir/gopath-$version
+  tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir/goroot-$version --strip-components 1
 }
 
 main $@

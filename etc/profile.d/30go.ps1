@@ -4,4 +4,5 @@
 # https://golang.org/
 # =============================================================================
 
-$Env:GOPATH = "$Env:ME_PLATFORM_TOOL_DIR\golang"
+$Env:GOROOT = "$Env:ME_PLATFORM_TOOL_DIR\go\goroot"
+$Env:GOPATH = "$Env:ME_PLATFORM_TOOL_DIR\go\gopath"
