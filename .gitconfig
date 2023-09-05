@@ -13,6 +13,8 @@
 	orphan = switch --orphan
 	p = pull
 	pp = push
+	pt = pull --tags
+	ppt = push --tags
 	pristine = ! git unstage && git checkout . && git clean -d --force
 	rb = rebase
 	rba = rb --abort
