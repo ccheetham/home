@@ -3,6 +3,7 @@ $Env:JDK7_HOME="C:\Tools\Java\jdk-7"
 $Env:JDK8_HOME="C:\Tools\Java\jdk-8"
 $Env:JDK11_HOME="C:\Tools\Java\jdk-11"
 $Env:JDK17_HOME="C:\Tools\Java\jdk-17"
+$Env:JDK20_HOME="C:\Tools\Java\jdk-20"
 $Env:JDKLATEST_HOME="C:\Tools\Java\jdk-latest"
 
 $Env:JDK_HOME="$Env:JDK17_HOME"
