@@ -38,7 +38,7 @@ install_version () {
   msg fetching $disturl
   wget --continue -P $ME_DISTFILE_DIR $disturl
   msg extracting $distfile
-  rm -rf $destdir/goroot-$version $destdir/gopath-$version
+  sudo rm -rf $destdir/goroot-$version $destdir/gopath-$version
   mkdir $destdir/goroot-$version $destdir/gopath-$version
   tar xzf $ME_DISTFILE_DIR/$distfile -C $destdir/goroot-$version --strip-components 1
 }
