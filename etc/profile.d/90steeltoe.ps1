@@ -20,4 +20,4 @@ function nts { cd "$Steeltoe_Repos\InitializrWorkspace\NetCoreToolService" }
 
 function stinc { cd "$Steeltoe_Incubator_Repos" }
 function tt { cd "$Steeltoe_Incubator_Repos\tanzu-thingies" }
-function dtg { cd "$Steeltoe_Incubator_Repos\dotnet-tap-gitops" }
+function dtg { cd "$Env:ME_REPOS\dotnet-dev-tap-gitops" }

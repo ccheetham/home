@@ -22,7 +22,7 @@ alias -g nts=$STEELTOE_REPOS/InitializrWorkspace/NetCoreToolService
 
 alias -g stinc=$STEELTOE_INCUBATOR_REPOS
 alias -g tt=$STEELTOE_INCUBATOR_REPOS/tanzu-thingies
-alias -g dtg=$STEELTOE_INCUBATOR_REPOS/dotnet-tap-gitops
+alias -g dtg=$ME_REPOS/dotnet-dev-tap-gitops
 
 ME_PATH+=:$STEELTOE_INCUBATOR_REPOS/tanzu-thingies/local/bin
 

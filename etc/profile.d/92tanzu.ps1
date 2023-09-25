@@ -12,7 +12,7 @@ function dtd { cd "$Env:TANZU_REPOS\tanzu-developer-tools-dev-conventions" }
 function dtj { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-intellij" }
 function dtl { cd "$Env:TANZU_REPOS\tanzu-developer-tools-language-server" }
 function dts { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-visual-studio" }
-function aas { cd "$Env:TANZU_REPOS\application-accelerator-samples" }
+function aas { cd "$Env:ME_REPOS\application-accelerator-samples" }
 
 function dtslog { tail "$Env:TANZU_DT_LOG" 3 }
 function dtslslog { tail "$Env:TANZU_LS_LOG" 3 }
