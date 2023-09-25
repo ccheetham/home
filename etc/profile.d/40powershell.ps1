@@ -16,6 +16,10 @@ if (Get-Command "Remove-Alias" -ErrorAction SilentlyContinue) {
     }
 }
 
+function path {
+    $Env:PATH.Split(";")
+}
+
 function tail {
     if ($args.Count -eq 0) {
         "path not specified"
@@ -42,9 +46,8 @@ function which {
             continue
         }
         switch ($path.CommandType) {
-            "Application" { $path.Source }
             "Alias" { $path.DisplayName }
-            Default { "unknown type ($command): $($path.CommandType)" }
+            Default { $path.Source }
         }
     }
 }
