@@ -9,9 +9,10 @@ Set-PSReadLineOption -Colors @{
 
 # use native exes
 if (Get-Command "Remove-Alias" -ErrorAction SilentlyContinue) {
- foreach ($alias in "curl", "wget") {
+    $aliases = "curl", "diff", "wget"
+    foreach ($alias in $aliases) {
         if (Test-Path Alias:$alias) {
-            Remove-Alias $alias
+            Remove-Alias $alias -Force
         }
     }
 }
