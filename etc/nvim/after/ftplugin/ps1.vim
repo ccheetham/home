@@ -1,1 +1,1 @@
-setlocal shiftwidth=4 cinoptions+=+0
+setlocal expandtab shiftwidth=4 cinoptions+=+0
