@@ -5,7 +5,7 @@ if (Test-Path env:HOME) {
 }
 
 
-"sourcing $($profileDir)"
+"Sourcing $($profileDir)"
 foreach($file in Get-ChildItem "$profileDir" -Filter "*.ps1") {
     . $file.FullName
 }
