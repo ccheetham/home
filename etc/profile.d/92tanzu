@@ -11,6 +11,7 @@ ME_PATH+=:$STEELTOE_INCUBATOR_REPOS/tanzu-thingies/bin
 alias vtr=$TANZU_REPOS
 alias dtc=$TANZU_REPOS/tanzu-developer-tools-for-vscode
 alias dtd=$TANZU_REPOS/tanzu-developer-tools-dev-conventions
+alias dti=$TANZU_REPOS/desktop-integration
 alias dtj=$TANZU_REPOS/tanzu-developer-tools-for-intellij
 alias dtl=$TANZU_REPOS/tanzu-developer-tools-language-server
 alias dts=$TANZU_REPOS/tanzu-developer-tools-for-visual-studio

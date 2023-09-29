@@ -9,6 +9,7 @@ $Env:TANZU_LS_LOG = "$Env:ME_LOG_DIR\tanzu_ls.log"
 function vtr { cd "$Env:TANZU_REPOS" }
 function dtc { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-vscode" }
 function dtd { cd "$Env:TANZU_REPOS\tanzu-developer-tools-dev-conventions" }
+function dti { cd "$Env:TANZU_REPOS\desktop-integration" }
 function dtj { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-intellij" }
 function dtl { cd "$Env:TANZU_REPOS\tanzu-developer-tools-language-server" }
 function dts { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-visual-studio" }
