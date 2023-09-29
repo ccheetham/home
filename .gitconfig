@@ -7,12 +7,13 @@
 	dc = diff --cached
 	ds = diff --compact-summary
 	fp = fetch --prune --verbose
-	last = log -1 HEAD
 	l = log --pretty='%<(14)%C(magenta)%C(dim)%ar%Creset %C(cyan)%<(10)%al %C(yellow)%<(8)%h%Creset %s'
+	last = log -1 HEAD
 	ll = log --abbrev-commit
+	m = merge
+	mq = merge --squash
 	orphan = switch --orphan
 	p = pull
-	pp = push
 	pt = pull --tags
 	ppt = push --tags
 	pristine = ! git unstage && git checkout . && git clean -d --force
@@ -22,12 +23,9 @@
 	rbi = rb --interactive
 	rollback = ! git reset --soft @~1 && git unstage
 	show-files = show --pretty='' --name-status
-	tidy = ci -mtidy
-	un = unstage
-	unstage = reset HEAD --
-	m = merge
-	mq = merge --squash
 	sw = switch
+	tidy = ci -mtidy
+	unstage = reset HEAD --
 	wip = ci -mwip
 [core]
 	autocrlf = input
