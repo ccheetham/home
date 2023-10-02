@@ -37,7 +37,15 @@ function tail {
     else {
         $lines = "0"
     }
-    Get-Content $path -Tail $lines -Wait
+    while ($True) {
+        try {
+            Get-Content $path -Tail $lines -Wait -ErrorAction Stop
+        }
+        catch {
+            "$_"
+            Start-Sleep 1
+        }
+    }
 }
 
 function which {
