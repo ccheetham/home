@@ -31,12 +31,12 @@ function tail {
         return
     }
     $path = $args[0]
-        if ($args.Count -gt 1) {
-            $lines = $args[1]
-        }
-        else {
-            $lines = "0"
-        }
+    if ($args.Count -gt 1) {
+        $lines = $args[1]
+    }
+    else {
+        $lines = "0"
+    }
     Get-Content $path -Tail $lines -Wait
 }
 
