@@ -15,8 +15,9 @@
 	mq = merge --squash
 	orphan = switch --orphan
 	p = pull
+	pp = push
 	pt = pull --tags
-	ppt = push --tags
+	ppt = pp --tags
 	pristine = ! git unstage && git checkout . && git clean -d --force
 	rb = rebase
 	rba = rb --abort
