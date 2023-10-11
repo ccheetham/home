@@ -48,6 +48,10 @@ function tail {
     }
 }
 
+function touch($file) {
+    "" | Out-File -Path $file -Append -Encoding ASCII -NoNewline
+}
+
 function which {
     foreach ($command in $args) {
         $path = Get-Command $command -ErrorAction SilentlyContinue
