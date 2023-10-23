@@ -8,7 +8,6 @@ grip = "*"
 # httpie = "*"
 pexpect = "*"
 pylint = "*"
-colorama = "*"
 ipython = "*"
 
 [dev-packages]
