@@ -59,7 +59,8 @@ function which {
             continue
         }
         switch ($path.CommandType) {
-            "Alias" { $path.DisplayName }
+            "Alias" { "${command}: aliased to $($path.Definition)" }
+            "Function" { "${command} () {`n$($path.Definition)`n}" }
             Default { $path.Source }
         }
     }
