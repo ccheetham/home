@@ -4,6 +4,8 @@
 # https://github.com/sharkdp/bat
 # =============================================================================
 
+export BAT_THEME=OneHalfDark
+
 if hascmd bat; then
   alias cat='bat -P'
 fi
