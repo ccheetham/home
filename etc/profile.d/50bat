@@ -5,7 +5,7 @@
 # =============================================================================
 
 if hascmd bat; then
-  alias pp='bat -P'
+  alias cat='bat -P'
 fi
 
 # vim: ft=zsh
