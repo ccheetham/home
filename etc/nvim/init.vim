@@ -103,7 +103,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nmap <c-n> :cnext<cr>
 nmap <c-N> :cprev<cr>
-set mouse=a                             " enable mouse for a(ll) modes
+" set mouse=a                             " enable mouse for a(ll) modes
 set scrolloff=4                         " minimal lines above/below cursor
 set sidescroll=1                        " horizontal scroll column count
 set sidescrolloff=8                     " minimal columns left/right cursor
