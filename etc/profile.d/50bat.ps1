@@ -1,4 +1,6 @@
-if (Get-command "bat" -ErrorAction SilentlyContinue)
+if (Get-Command "bat" -ErrorAction SilentlyContinue)
 {
-  Set-Alias cat bat
+    Function cat($path) {
+        bat -P "$path"
+    }
 }
