@@ -3,8 +3,8 @@
 # =============================================================================
 
 $Env:TANZU_REPOS = "$Env:HUB_SOURCES\vmware-tanzu"
-$Env:TANZU_DT_LOG = "$Env:ME_LOG_DIR\tanzu_dt.log"
-$Env:TANZU_LS_LOG = "$Env:ME_LOG_DIR\tanzu_ls.log"
+$Env:_TANZU_DT_LOG = "$Env:ME_LOG_DIR\tanzu_dt.log"
+$Env:_TANZU_LS_LOG = "$Env:ME_LOG_DIR\tanzu_ls.log"
 
 function vtr { cd "$Env:TANZU_REPOS" }
 function dtc { cd "$Env:TANZU_REPOS\tanzu-developer-tools-for-vscode" }
