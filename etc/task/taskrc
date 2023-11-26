@@ -12,4 +12,7 @@ include $HOMEBREW_HOME/share/doc/task/rc/solarized-light-256.theme
 news.version=2.6.0
 context.website.read=project:website
 context.website.write=project:website
-uda.priority.values=H,M,L
+uda.priority.values=h,m,,l
+urgency.uda.priority.h.coefficient=6.0
+urgency.uda.priority.l.coefficient=1.8
+urgency.uda.priority.m.coefficient=3.9
