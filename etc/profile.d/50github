@@ -3,6 +3,7 @@
 # =============================================================================
 
 HUB_SOURCES=$ME_SRC_DIR/github.com
+export GH_TOKEN=$(token github/cli)
 
 alias -g hub=$HUB_SOURCES
 
