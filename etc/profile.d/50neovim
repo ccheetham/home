@@ -4,6 +4,8 @@
 # https://neovim.io/
 # =============================================================================
 
+export NVIM_APPNAME=kickstart-modular.nvim
+
 if hascmd nvim; then
   alias vi=nvim
 fi
