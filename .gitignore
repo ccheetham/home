@@ -40,7 +40,7 @@
 *.log
 
 # Zsh
-/.zcompdump
+/.zcompdump*
 /.zfunctions
 
 # OS X

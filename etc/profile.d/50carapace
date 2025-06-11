@@ -1,0 +1,11 @@
+# =============================================================================
+# carapace
+# -----------------------------------------------------------------------------
+# https://carapace-sh.github.io/
+# =============================================================================
+
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(/bin/carapace _carapace)
+
+# vim: ft=zsh
