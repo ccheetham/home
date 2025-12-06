@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export ME_XORG_LOG=$ME_XORG_LOG_DIR/xorg.$ME_HOST
+
+mkdir -p $(dirname $ME_XORG_LOG)
+startx > $ME_XORG_LOG 2>&1

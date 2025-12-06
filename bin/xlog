@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo $* >> $ME_XORG_SESSION_LOG
