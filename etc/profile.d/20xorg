@@ -7,4 +7,7 @@
 
 export ME_XORG_LOG_DIR=$ME_LOG_DIR/xorg
 
+export ME_XORG_RESOLUTION=1680x1050
+export ME_XORG_MICE='Logitech G203 LIGHTSYNC Gaming Mouse':282
+
 # vim: ft=zsh
