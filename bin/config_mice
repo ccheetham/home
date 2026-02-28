@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+for device_id in $(xinput list --id-only); do
+    prop=$(xinput list-props $device_id | grep "Natural Scrolling Enabled (")
+    [[ -z $prop ]] && continue
+    device=$(xinput list $device_id | head -1)
+    prop_id="${prop#*\(}"
+    prop_id="${prop_id%\)*}"
+    xinput set-prop $device_id $prop_id 1
+    echo "natural scrolling enabled ${device%\id*}"
+done
+
+# vim: ft=sh et sw=4 sts=4
