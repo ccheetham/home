@@ -13,7 +13,7 @@ main () {
   install_version $ME_JAVA_TOOL_DIR $ME_JDK11_VERSION
   install_version $ME_JAVA_TOOL_DIR $ME_JDK17_VERSION
   install_version $ME_JAVA_TOOL_DIR $ME_JDK21_VERSION
-  install_version $ME_JAVA_TOOL_DIR $ME_JDK24_VERSION
+  install_version $ME_JAVA_TOOL_DIR $ME_JDK25_VERSION
   link_jdk $ME_DEFAULT_JDK "$JDK_HOME"
   hdr JDKs
   jversions
@@ -36,9 +36,10 @@ install_version () {
       platform=linux
       format=tar.gz
       ;;
-    osx-x64)
+    osx-*)
       platform=macos
-      format=zip
+      format=tar.gz
+			[[ $ME_DISTRO_ARCH == a64 ]] && arch=aarch64
       ;;
     solaris-s64)
       platform=solaris
@@ -62,7 +63,7 @@ install_version () {
   else
     jdk_dir+=-${version}
   fi
-  if [[ $ME_PLATFORM == osx-x64 ]]; then
+  if [[ $ME_PLATFORM == osx-* ]]; then
     jdk_dir+=.jdk
   fi
   rm -rf $destdir/$jdk_dir
