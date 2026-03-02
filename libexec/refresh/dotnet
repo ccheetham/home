@@ -28,7 +28,9 @@ install_version () {
     linux)
       os="linux" ;;
     osx)
-      os="macos" ;;
+      os="macos"
+			[[ $ME_DISTRO_ARCH == a64 ]] && arch=arm64
+			;;
     *)
       die "unsupported OS: $ME_OS" ;;
   esac
