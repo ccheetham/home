@@ -6,7 +6,7 @@ autoload -U promptinit;     promptinit
 autoload -Uz compinit;      compinit -u -d ~/.zcompdump.$HOST
 autoload colors;            colors
 
-source ~/etc/profile
+source $ME_LOCAL_CONFIG_HOME/profile
 
 if [[ -n $ME_ZSH_CONFIG_DIR ]]; then
   for f in $ME_ZSH_CONFIG_DIR/* ; do
