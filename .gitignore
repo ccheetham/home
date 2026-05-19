@@ -70,9 +70,6 @@ lost+found/
 /.serverauth.*
 /.xsession*
 
-# freedesktop.org
-/.config
-
 # Gnome/GTK
 /.gnome
 /.gtk*
