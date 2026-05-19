@@ -3,7 +3,7 @@
 # ===========================================================================
 
 autoload -U promptinit;     promptinit
-autoload -Uz compinit;      compinit -u -d ~/.zcompdump.$HOST
+autoload -Uz compinit;      compinit -u -d $XDG_CACHE_HOME/zsh/zcompdump.$HOST
 autoload colors;            colors
 
 source $ME_LOCAL_CONFIG_HOME/profile
