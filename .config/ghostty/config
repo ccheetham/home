@@ -1,0 +1,5 @@
+font-family = "JetBrainsMonoNL Nerd Font Mono"
+font-size = 16
+# theme = catppuccin-frappe.conf
+window-width = 120
+window-height = 32
