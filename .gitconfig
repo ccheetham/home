@@ -32,8 +32,8 @@
 [core]
 	autocrlf = input
 	editor = nvim
-	pager = delta
 	fsmonitor = true
+	pager = delta
 [credential]
 	helper = manager
 [credential "helperselector"]
