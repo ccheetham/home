@@ -39,7 +39,7 @@
 [credential "helperselector"]
 	selected = manager
 [delta]
-	features = chameleon
+	features = catppuccin-frappe
 	navigate = true    # use n and N to move between diff sections
 	line-numbers = true
 	side-by-side = true
@@ -47,7 +47,7 @@
 [diff]
 	colorMoved = default
 [include]
-	path = ~/var/repos/delta/themes.gitconfig
+	path = Repos/catppuccin/delta/catppuccin.gitconfig
 [init]
 	defaultBranch = main
 [interactive]
