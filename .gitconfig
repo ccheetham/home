@@ -31,6 +31,7 @@
 	wip = ci -mwip
 [core]
 	autocrlf = input
+	editor = nvim
 	pager = delta
 	fsmonitor = true
 [credential]
