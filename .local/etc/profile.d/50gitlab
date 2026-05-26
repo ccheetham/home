@@ -2,7 +2,7 @@
 # VMware GitLab
 # =============================================================================
 
-LAB_SOURCES=$ME_SRC_DIR/gitlab.eng.vmware.com
+LAB_SOURCES=$ME_CODE_DIR/gitlab.eng.vmware.com
 
 alias -g lab=$LAB_SOURCES
 

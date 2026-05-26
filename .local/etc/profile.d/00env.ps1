@@ -1,15 +1,14 @@
 $Env:ME=Resolve-Path "$PSScriptRoot\..\.."
 $Env:ME_CONFIG_DIR="$Env:ME\etc"
-$Env:ME_SRC_DIR="$Env:ME\src"
 $Env:ME_LIB_DIR="$Env:ME\lib"
 $Env:ME_LIBEXEC_DIR="$Env:ME\libexec"
 $Env:ME_DATA_DIR="$Env:ME\share"
 $Env:ME_CACHE_DIR="$Env:ME\var"
 $Env:ME_LOG_DIR="$Env:ME_CACHE_DIR\log"
 $Env:ME_REPO_CFG="$Env:ME_CONFIG_DIR\repos"
-$Env:ME_REPO_DIR="$Env:ME_CACHE_DIR\repos"
 $Env:ME_MAIL_DIR="$Env:ME_CACHE_DIR\mail"
 $Env:ME_DISTFILE_DIR="$Env:ME\xfr"
+$Env:ME_CODE_DIR="$Env:USERPROFILE\code"
 
 # TODO: actually detect OS et al
 $Env:ME_OS="windows"

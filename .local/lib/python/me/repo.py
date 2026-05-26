@@ -8,7 +8,7 @@ class Repo(object):
     def __init__(self, url):
         self.url = url
         self.name = os.path.splitext(os.path.basename(self.url))[0]
-        self.path = os.path.join(os.environ['ME_REPO_DIR'], self.name)
+        self.path = os.path.join(os.environ['ME_CODE_DIR'], self.name)
 
     def refresh(self):
         GitClient().refresh(self)

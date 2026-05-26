@@ -2,7 +2,7 @@
 # terminal settings
 # =============================================================================
 
-export TERMINFO=~/.terminfo/$ME_HOST
+export TERMINFO=$XDG_DATA_HOME/terminfo
 mkdir -p $TERMINFO
 
 # vim: ft=zsh

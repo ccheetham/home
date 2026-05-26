@@ -21,7 +21,7 @@ token() {
   local token_path="$token_dir/$token_name"
 
   if [[ ! -f "$token_path" ]]; then
-    echo "token unknown: $token_name" >&2
+    #echo "token unknown: $token_name" >&2
     return 1
   fi
 

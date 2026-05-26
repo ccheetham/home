@@ -2,8 +2,8 @@
 # Steeltoe
 # =============================================================================
 
-$Steeltoe_Repos="$Env:ME_SRC_DIR\github.com\SteeltoeOSS"
-$Steeltoe_Incubator_Repos="$Env:ME_SRC_DIR\github.com\steeltoeoss-incubator"
+$Steeltoe_Repos="$Env:ME_CODE_DIR\github.com\SteeltoeOSS"
+$Steeltoe_Incubator_Repos="$Env:ME_CODE_DIR\github.com\steeltoeoss-incubator"
 
 function st { cd "$Steeltoe_Repos" }
 function stl { cd "$Steeltoe_Repos\Steeltoe" }

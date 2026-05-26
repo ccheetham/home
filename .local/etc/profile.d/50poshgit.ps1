@@ -1,1 +1,1 @@
-Import-Module "$env:ME_REPO_DIR\posh-git\src\posh-git.psd1"
+Import-Module "$env:ME_CODE_DIR\posh-git\src\posh-git.psd1"

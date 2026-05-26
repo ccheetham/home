@@ -5,7 +5,7 @@
 # https://tanzu.vmware.com/developer/guides/tanzu-application-platform-local-developer-install/
 # =============================================================================
 
-TANZU_REPOS=$ME_SRC_DIR/github.com/vmware-tanzu
+TANZU_REPOS=$ME_CODE_DIR/github.com/vmware-tanzu
 ME_PATH+=:$STEELTOE_INCUBATOR_REPOS/tanzu-thingies/bin
 
 alias vtr=$TANZU_REPOS

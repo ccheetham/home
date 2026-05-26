@@ -1,11 +1,11 @@
 # =============================================================================
-# carapace
+# Ghostty
 # -----------------------------------------------------------------------------
-# https://carapace-sh.github.io/
+# https://neovim.io/
 # =============================================================================
 
-#export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
-#zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-#source <(/bin/carapace _carapace)
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    export TERM=xterm-256color
+fi
 
 # vim: ft=zsh

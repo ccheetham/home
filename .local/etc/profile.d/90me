@@ -1,4 +1,4 @@
-ME_REPOS=$ME_SRC_DIR/github.com/ccheetham
+ME_REPOS=$ME_CODE_DIR/github.com/ccheetham
 
 alias -g meh=$ME_REPOS
 alias -g mes=$ME_REPOS/sandbox

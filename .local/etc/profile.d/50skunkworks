@@ -2,6 +2,6 @@
 # Skunk Works
 # =============================================================================
 
-alias skunk='cd $ME_SRC_DIR/skunkworks'
+alias skunk='cd $ME_CODE_DIR/skunkworks'
 
 # vim: ft=zsh
