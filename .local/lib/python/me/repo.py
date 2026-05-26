@@ -2,12 +2,18 @@ import json
 import os
 import subprocess
 import sys
+from urllib.parse import urlparse
+from pathlib import Path
 
 class Repo(object):
 
     def __init__(self, url):
         self.url = url
-        self.name = os.path.splitext(os.path.basename(self.url))[0]
+        if ":" in self.url and not self.url.startswith("http"):
+            self.name = self.url.split(":")[1]
+        else:
+            self.name = urlparse(self.url).path[1:]
+        self.user = self.name.split("/")[0]
         self.path = os.path.join(os.environ['ME_CODE_DIR'], self.name)
 
     def refresh(self):
@@ -17,10 +23,10 @@ class Repo(object):
         GitClient().status(self)
 
     def __str__(self):
-        return "%s: %s" % (self.name, self.url)
+        return "%s,%s" % (self.url, self.name)
 
     def __repr__(self):
-        return "Repo[%s]" % self.props
+        return "Repo[%s]" % self.url
 
 
 class RepoDB(object):
@@ -52,11 +58,13 @@ class GitClient(object):
 
     def refresh(self, repo):
         if os.path.exists(repo.path):
-            print("=== updating", repo.name, repo.url)
+            print("=== updating", repo.name)
             subprocess.Popen(["git", "pull"], cwd=repo.path).wait()
         else:
-            print("=== checking out", repo.name, repo.url)
-            subprocess.Popen(["git", "clone", repo.url, repo.path]).wait()
+            print("=== checking out", repo.name)
+            parent = Path(repo.path).parent
+            os.makedirs(parent, exist_ok=True)
+            subprocess.Popen(["git", "clone", repo.url], cwd=parent).wait()
 
     def status(self, repo):
         print("=== status of", repo.name, repo.url)
