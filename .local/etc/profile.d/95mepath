@@ -16,6 +16,9 @@ PATH=/bin:/usr/bin
 [ -f /etc/profile ] && source /etc/profile
 
 PATH=$ME_PATH:$PATH
+if [[ $ME_MANPATH == :* ]]; then
+  ME_MANPATH=${ME_MANPATH[2,-1]}
+fi
 MANPATH=$ME_MANPATH:$MANPATH
 
 # vim: ft=zsh
