@@ -6,6 +6,12 @@
 
 [[ $ME_OS == osx ]] || return
 
+export HOMEBREW_HOME=$(brew --prefix)
+ME_MANPATH+=:$HOMEBREW_HOME/man
+ME_PATH+=:$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin
+
+# export HOMEBREW_NO_ENV_HINTS=1
+
 alias b='brew'
 
 bsync() {
@@ -13,13 +19,6 @@ bsync() {
   b upgrade
   b cleanup
 }
-
-export HOMEBREW_HOME=$ME_PLATFORM_TOOL_DIR/homebrew
-export HOMEBREW_BUNDLE_FILE=$ME_CONFIG_DIR/homebrew/Brewfile
-export HOMEBREW_NO_ENV_HINTS=1
-PATH=$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH
-ME_PATH+=:$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin
-ME_MANPATH+=:$HOMEBREW_HOME/man
 
 # TODO: this isn't brew specific
 fpath=(/usr/local/share/zsh-completions $fpath)
