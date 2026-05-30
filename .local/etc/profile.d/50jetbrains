@@ -9,7 +9,7 @@ alias jbr='rider'
 
 case $ME_OS in
   osx)
-    JETBRAINS_TOOL_HOME="$ME/Library/Application Support/JetBrains/Toolbox/scripts"
+    JETBRAINS_TOOL_HOME="$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
     ;;
   *)
     unset JETBRAINS_TOOL_HOME
