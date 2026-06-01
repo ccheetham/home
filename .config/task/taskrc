@@ -2,17 +2,69 @@ data.location=$XDG_CACHE_HOME/task/
 
 calendar.holidays=sparse
 
-include $HOMEBREW_HOME/share/doc/task/rc/solarized-light-256.theme
-
 #taskd.certificate=~/etc/ssl/chris.cheetham.crt
 #taskd.key=~/etc/ssl/chris.cheetham.key
 #taskd.ca=~/etc/ssl/ca.cheetham.com.crt
 #taskd.server=task.cheetham.com:8275
 #taskd.credentials=cheetham/chris/82d693c6-1a64-4003-82c3-e3f5368cf070
-news.version=2.6.0
+
 context.website.read=project:website
 context.website.write=project:website
 uda.priority.values=h,m,,l
 urgency.uda.priority.h.coefficient=6.0
 urgency.uda.priority.l.coefficient=1.8
 urgency.uda.priority.m.coefficient=3.9
+news.version=3.4.2
+
+
+# Catppuccin-like Theme
+# https://github.com/davidbgonz/dotfiles/blob/main/home/taskwarrior/.task/themes/catppuccin.theme
+
+color.label=magenta
+color.label.sort=magenta
+color.alternate=
+color.header=cyan
+color.footnote=yellow
+color.warning=bold red
+color.error=white on red
+color.debug=blue
+color.completed=black
+color.deleted=red
+color.active=green
+color.recurring=blue
+color.scheduled=white on green
+color.until=yellow
+color.blocked=black on white
+color.blocking=black on bright white
+color.project.none=red
+color.uda.priority.H=bold white
+color.uda.priority.M=white
+color.uda.priority.L=
+color.tag.next=bold yellow
+color.tag.none=
+color.tagged=
+color.due=red
+color.due.today=red
+color.overdue=bold red
+#color.uda.X=
+color.burndown.done=on green
+color.burndown.pending=on magenta
+color.burndown.started=on blue
+color.history.add=black on blue
+color.history.delete=black on red
+color.history.done=black on green
+color.summary.background=
+color.summary.bar=black on green
+color.calendar.due=red
+color.calendar.due.today=underline bold red
+color.calendar.holiday=black on bright yellow
+color.calendar.overdue=bold white on bright red
+color.calendar.scheduled=green
+color.calendar.today=black on cyan
+color.calendar.weekend=black
+color.calendar.weeknumber=bold blue
+color.sync.added=green
+color.sync.changed=yellow
+color.sync.rejected=red
+color.undo.after=green
+color.undo.before=red
