@@ -7,7 +7,7 @@ $Env:ME_CACHE_DIR="$Env:ME\var"
 $Env:ME_LOG_DIR="$Env:ME_CACHE_DIR\log"
 $Env:ME_REPO_CFG="$Env:ME_CONFIG_DIR\repos"
 $Env:ME_MAIL_DIR="$Env:ME_CACHE_DIR\mail"
-$Env:ME_DISTFILE_DIR="$Env:ME\xfr"
+$Env:ME_DISTFILE_DIR="$Env:ME_CACHE_DIR\distfiles"
 $Env:ME_CODE_DIR="$Env:USERPROFILE\code"
 
 # TODO: actually detect OS et al
