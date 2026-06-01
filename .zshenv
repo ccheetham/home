@@ -4,12 +4,19 @@
 # vars available to all programs
 # =============================================================================
 
-export EDITOR="vi"
-export VISUAL="vi -f"
-if command -v less >/dev/null; then
-  export PAGER=less
+if [[ -f "/opt/homebrew/bin/nvim" ]]; then
+  export EDITOR="/opt/homebrew/bin/nvim"
+  export VISUAL="/opt/homebrew/bin/nvim -f"
+elif command -v vim > /dev/null; then
+  export EDITOR="nvim"
+  export VISUAL="nvim -f"
+else
+  export EDITOR="vi"
 fi
 
+if command -v less > /dev/null; then
+  export PAGER=less
+fi
 
 # -----------------------------------------------------------------------------
 # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
