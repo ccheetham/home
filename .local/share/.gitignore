@@ -1,16 +1,1 @@
-/JetBrains/
-/NuGet/
-/SymbolSourceSymbols/
-/applications/
-/delta/
-/desktop/
-/fish/
-/heroku/
-/kickstart-modular.nvim/
-/lesshst
-/lpass/
-/powershell/
-/virtualenv/
-/tanzu-cli/
-/x/
-/yarn/
+*
