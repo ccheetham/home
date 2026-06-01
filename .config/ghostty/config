@@ -3,3 +3,5 @@ font-size = 20
 theme = catppuccin-macchiato.conf
 window-width = 120
 window-height = 32
+working-directory = home
+window-inherit-working-directory = false
