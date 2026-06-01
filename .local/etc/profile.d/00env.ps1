@@ -27,11 +27,13 @@ $Env:XDG_DATA_HOME="$Env:ME_DATA_DIR"
 $Env:XDG_CACHE_HOME="$Env:ME_CACHE_DIR"
 $Env:XDG_STATE_HOME="$Env:XDG_CACHE_HOME\state"
 
-function reenv {
+function reenv
+{
     . "$PROFILE"
 }
 
-function pd {
+function pd
+{
     Set-Location "$Env:ME_CONFIG_DIR\profile.d"
 }
 

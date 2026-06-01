@@ -1,10 +1,12 @@
 $GripCmd = "grip"
 $Token = token "github/grip"
-if ($Token) {
+if ($Token)
+{
   $GripCmd += " --user=ccheetham --pass=$Token"
 }
 
-function Grip {
-    pipenv run $GripCmd $Args
+function Grip
+{
+  pipenv run $GripCmd $Args
 }
 

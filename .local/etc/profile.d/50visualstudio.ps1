@@ -2,9 +2,9 @@ function Open-In-Visual-Studio
 {
   [CmdletBinding()]
   param (
-      [Parameter()]
-      [string]
-      $Target
+    [Parameter()]
+    [string]
+    $Target
   )
 
   if (!($Target))
