@@ -1,0 +1,17 @@
+# =============================================================================
+# fzf
+# -----------------------------------------------------------------------------
+# https://github.com/junegunn/fzf
+# =============================================================================
+
+# see: https://github.com/jeffreytse/zsh-vi-mode#execute-extra-commands
+
+function fzf_keybindings() {
+  source <(fzf --zsh)
+}
+
+if hascmd fzf; then
+  zvm_after_init_commands+=(fzf_keybindings)
+fi
+
+# vim: ft=zsh
