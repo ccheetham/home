@@ -5,3 +5,14 @@ window-width = 100
 window-height = 24
 working-directory = home
 window-inherit-working-directory = false
+
+copy-on-select = clipboard
+right-click-action = paste
+
+keybind = alt+backslash=new_split:right
+keybind = alt+minus=new_split:down
+
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:down
+keybind = alt+k=goto_split:up
+keybind = alt+l=goto_split:right
