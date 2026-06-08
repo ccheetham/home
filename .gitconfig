@@ -49,7 +49,7 @@
 [include]
 	path = code/catppuccin/delta/catppuccin.gitconfig
 [init]
-	defaultBranch = main
+	defaultBranch = master
 [interactive]
 	diffFilter = delta --color-only
 [merge]
