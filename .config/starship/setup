@@ -1,0 +1,24 @@
+#/usr/bin/bash
+
+basedir=$(dirname $0)
+outfile=$basedir/starship.toml
+
+if [[ -f $outfile ]]; then
+  echo "file exists: $outfile" >&2
+  exit 1
+fi
+
+touch $outfile
+
+header() {
+  local filename=$1
+  echo '# ============================================================================='
+  echo '# '$filename
+  echo '# ============================================================================='
+  echo
+}
+
+for toml in $basedir/[0-9]*.toml; do
+  header $toml >> $outfile
+  cat $toml >> $outfile
+done

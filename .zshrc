@@ -77,3 +77,9 @@ skip_global_compinit=1          # defer compinit to me (debian derivatives)
 # ---------------------------------------------------------------------------
 
 source <(fzf --zsh)
+
+# ---------------------------------------------------------------------------
+# starship: cross-shell prompt, https://starship.rs/
+# ---------------------------------------------------------------------------
+
+eval "$(starship init zsh)"
