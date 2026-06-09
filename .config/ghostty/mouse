@@ -1,2 +1,3 @@
 copy-on-select = clipboard
 right-click-action = paste
+focus-follows-mouse = true
