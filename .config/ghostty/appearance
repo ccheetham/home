@@ -5,3 +5,5 @@ font-size = 20
 
 window-width = 100
 window-height = 24
+
+unfocused-split-opacity = 0.65
