@@ -1,0 +1,31 @@
+# Tokyo Night Taskwarrior Theme
+# Background & Text
+color.background=color0
+color.label=rgb230
+color.label.sort=rgb152
+color.alternate=color18
+
+# Priorities
+color.pri.H=bold rgb193
+color.pri.M=rgb180
+color.pri.L=rgb109
+color.pri.none=
+
+# Task States
+color.completed=rgb109
+color.deleted=rgb203
+color.active=bold rgb110 on rgb27
+color.blocked=rgb59
+color.blocking=bold rgb215
+
+# Specific Task Tags
+color.tag.next=bold rgb117
+color.tag.uda=rgb147
+
+# Calendar/Reports
+color.calendar.due=bold rgb193
+color.calendar.due.today=bold rgb230 on rgb27
+color.calendar.holiday=rgb215
+color.calendar.weekday=rgb147
+color.calendar.weekend=rgb59
+
