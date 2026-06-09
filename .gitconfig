@@ -46,6 +46,8 @@
 	true-color = always
 [diff]
 	colorMoved = default
+[feature]
+	manyFiles = true
 [include]
 	path = code/catppuccin/delta/catppuccin.gitconfig
 [init]
