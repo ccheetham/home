@@ -1,18 +1,4 @@
-font-family = "JetBrainsMonoNL Nerd Font Mono"
-font-size = 20
-theme = catppuccin-macchiato.conf
-window-width = 100
-window-height = 24
-working-directory = home
-window-inherit-working-directory = false
-
-copy-on-select = clipboard
-right-click-action = paste
-
-keybind = alt+backslash=new_split:right
-keybind = alt+minus=new_split:down
-
-keybind = alt+h=goto_split:left
-keybind = alt+j=goto_split:down
-keybind = alt+k=goto_split:up
-keybind = alt+l=goto_split:right
+config-file = path
+config-file = appearance
+config-file = keybinds
+config-file = mouse
