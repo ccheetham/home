@@ -1,10 +1,60 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 source $ME_LIBEXEC_DIR/sh_functions
-
 set -e
 
+BTOP_CONFIG_HOME=$XDG_CONFIG_HOME/btop
+BTOP_CONFIG=$BTOP_CONFIG_HOME/btop.conf
+BTOP_THEME_DIR=$BTOP_CONFIG_HOME/themes
+BTOP_COLORTHEME=catppuccin_macchiato
+CATPPUCCIN_THEME_REPO=catppuccin/btop
+CATPPUCCIN_THEME_REPO_DIR=$BTOP_CONFIG_HOME/catppuccin
+CATPPUCCIN_THEME_DIR=catppuccin/themes
+
+todo() {
+  echo "TODO: $*"
+}
+
+update_repo() {
+  if [[ -e $CATPPUCCIN_THEME_REPO_DIR ]]; then
+    if [[ ! -d $CATPPUCCIN_THEME_REPO_DIR ]]; then
+        die "theme repo path exists, but is not a directory: $CATPPUCCIN_THEME_REPO_DIR"
+    fi
+    if [[ ! -d $CATPPUCCIN_THEME_REPO_DIR/.git ]]; then
+        die "theme repo dir exists, but is not Git repo: $CATPPUCCIN_THEME_REPO_DIR"
+    fi
+    msg "updating theme repo"
+    (
+      cd $CATPPUCCIN_THEME_REPO_DIR
+      gh repo sync
+    )
+  else
+    msg "cloning theme repo"
+    gh repo clone $CATPPUCCIN_THEME_REPO $CATPPUCCIN_THEME_REPO_DIR
+  fi
+}
+
+link_themes() {
+  if [[ -e $BTOP_THEME_DIR ]]; then
+    if [[ ! -h $BTOP_THEME_DIR ]]; then
+      die "theme path exists, but is not a link: $BTOP_THEME_DIR"
+    fi
+    return
+  fi
+  msg "linking theme dir"
+  ln -s $CATPPUCCIN_THEME_DIR $BTOP_THEME_DIR
+}
+
+update_config() {
+  msg "updating config"
+  sed -I '.bak' 's/^color_theme.*/color_theme = "'$BTOP_COLORTHEME'"/g' $BTOP_CONFIG
+}
+
 main () {
+  hdr "refreshing btop"
+  update_repo
+  link_themes
+  update_config
 }
 
 main $@
