@@ -43,7 +43,7 @@ do
 done
 shift $(($OPTIND-1))
 
-cd $ME_TOOL_DIR/opt/tda-$ME_TDA_VERSION/bin
+cd $ME_OPT_DIR/tda-$ME_TDA_VERSION/bin
 sh ./tda.sh $@ &
 
 # vim: ft=sh et sw=4 sts=4

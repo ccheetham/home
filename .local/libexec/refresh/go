@@ -9,7 +9,7 @@ set -e
 
 main () {
   hdr refreshing dotnet
-	local destdir=$ME_PLATFORM_TOOL_DIR/go
+	local destdir=$ME_PLATFORM_DIR/go
   for version in $ME_GO_VERSIONS; do
     install_version $destdir $version
   done

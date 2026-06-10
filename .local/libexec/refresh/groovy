@@ -1,15 +1,15 @@
 #!/usr/bin/env zsh
 
 basedir=$(dirname $0)/../..
-
 source $basedir/etc/profile
-source $ME_LIBEXEC_DIR/sh_functions
 
 set -e
 
+source $ME_LIBEXEC_DIR/sh_functions
+
 main () {
   hdr refreshing groovy
-  local destdir=$ME_TOOL_DIR/opt
+  local destdir=$ME_OPT_DIR
   for version in $ME_GROOVY_VERSIONS; do
     install_version $destdir $version
   done
@@ -20,7 +20,7 @@ install_version () {
   local destdir=$1
   local version=$2
   local distfile=apache-groovy-binary-$version.zip
-  local disturl=https://dl.bintray.com/groovy/maven/$distfile
+  local disturl=https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/$distfile
   msg installing groovy $version
   msg fetching $disturl
   wget --continue -P $ME_DISTFILE_DIR $disturl || return

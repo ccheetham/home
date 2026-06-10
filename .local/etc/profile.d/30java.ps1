@@ -1,4 +1,4 @@
-$Env:JAVA_ROOT="$Env:ME_PLATFORM_TOOL_DIR\java"
+$Env:JAVA_ROOT="$Env:ME_PLATFORM_DIR\java"
 $Env:JDK8_HOME="$Env:JAVA_ROOT\jdk-8"
 $Env:JDK11_HOME="$Env:JAVA_ROOT\jdk-11"
 $Env:JDK17_HOME="$Env:JAVA_ROOT\jdk-17"

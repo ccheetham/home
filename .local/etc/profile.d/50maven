@@ -4,7 +4,7 @@
 
 ME_MAVEN_VERSIONS=(3.6.3)
 
-ME_PATH+=:$ME_TOOL_DIR/opt/maven/bin
+ME_PATH+=:$ME_OPT_DIR/maven/bin
 
 function m() {
   cmd="./mvnw $@"

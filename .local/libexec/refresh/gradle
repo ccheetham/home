@@ -1,15 +1,16 @@
 #!/usr/bin/env zsh
 
 basedir=$(dirname $0)/../..
-
 source $basedir/etc/profile
-source $ME_LIBEXEC_DIR/sh_functions
 
 set -e
 
+source $ME_LIBEXEC_DIR/sh_functions
+
+
 main () {
   hdr refreshing gradle
-  local destdir=$ME_TOOL_DIR/opt
+  local destdir=$ME_OPT_DIR
   for version in $ME_GRADLE_VERSIONS; do
     install_version $destdir $version || exit
   done

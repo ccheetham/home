@@ -9,7 +9,7 @@ if [ -d $ME_PYTHON ]; then
   ME_PATH+=:$ME_PYTHON/bin
   PYTHONPATH+=:$(ls -d $ME_PYTHON/lib/python*/site-packages)
 fi
-ME_PATH+=:$ME_PLATFORM_TOOL_DIR/python/bin
+ME_PATH+=:$ME_PLATFORM_DIR/python/bin
 
 alias py3=python3
 alias ipy3=ipython3

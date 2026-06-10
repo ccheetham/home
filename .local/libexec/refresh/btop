@@ -1,0 +1,10 @@
+#/usr/bin/env bash
+
+source $ME_LIBEXEC_DIR/sh_functions
+
+set -e
+
+main () {
+}
+
+main $@

@@ -7,9 +7,6 @@
 [[ $ME_OS == osx ]] || return
 
 export HOMEBREW_HOME=$(brew --prefix)
-ME_MANPATH+=:$HOMEBREW_HOME/man
-ME_PATH+=:$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin
-
 # export HOMEBREW_NO_ENV_HINTS=1
 
 alias b='brew'

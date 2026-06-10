@@ -9,7 +9,7 @@ syft_repo=https://github.com/anchore/syft/releases/download
 
 hdr refreshing syft
 
-destdir=$ME_PLATFORM_TOOL_DIR/syft
+destdir=$ME_PLATFORM_DIR/syft
 
 echo installing to $destdir
 
