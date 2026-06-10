@@ -7,4 +7,46 @@ export GH_TOKEN=$(token github/cli)
 
 alias -g hub=$HUB_SOURCES
 
+ghcode() {
+    while getopts "h" opt; do
+        case $opt in
+            h)
+                echo
+                echo "$0 [-h] owner/repo"
+                echo
+                echo "    -h               print this message"
+                echo
+                echo "    owner/repo       GitHub repo"
+                echo
+                ;;
+            \?)
+                return 1
+                ;;
+        esac
+    done
+   shift $((OPTIND-1))
+   if [[ $# < 1 ]]; then
+       echo "repo not specified" 2>&1
+       return 1
+   fi
+   if [[ $# > 1 ]]; then
+       echo "too many args" 2>&1
+       return 1
+   fi
+   local repo=$1
+   local owner=$(dirname $repo)
+   if [[ $owner == . ]] || [[  $owner == */* ]]; then
+       echo "invalid repo: $repo" 2>&1
+       return 1
+   fi
+   local repo_dir=$ME_CODE_DIR/$repo
+   if [ ! -e $repo_dir ]; then
+       mkdir -p $(dirname $repo_dir)
+       gh repo clone $repo $repo_dir
+       echo
+   fi
+   cd $repo_dir
+   echo ${(D)$(pwd)}
+}
+
 # vim: ft=zsh
