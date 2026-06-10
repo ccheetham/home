@@ -2,7 +2,7 @@ theme = catppuccin-macchiato.conf
 
 font-family = "IosevkaTerm Nerd Font"
 font-size = 18
-# supports 2 80col split terms side-by-each
+# supports 2 80col split panes side-by-each
 window-width = 161
 window-height = 36
 
