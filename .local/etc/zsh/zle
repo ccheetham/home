@@ -4,20 +4,6 @@
 # http://zsh.sourceforge.net/Guide/zshguide04.html
 # ===========================================================================
 
-# ---------------------------------------------------------------------------
-# key bindings
-# ---------------------------------------------------------------------------
-
-bindkey -e                           # set main keymap to emacs
-
-bindkey "^U"     backward-kill-line    # CTRL-U erases to beginning of line
-bindkey "^[[A"   up-line-or-search     # up arrow searches up
-bindkey "^[[B"   down-line-or-search   # down arrow searches down
-
-# ---------------------------------------------------------------------------
-# behavior
-# ---------------------------------------------------------------------------
-
-WORDCHARS=${WORDCHARS//[\/-{}]}    # remove "/" so word kills stop at path sep
+# functionally replaced by https://github.com/jeffreytse/zsh-vi-mode
 
 # vim: ft=zsh
