@@ -2,8 +2,8 @@ theme = catppuccin-macchiato.conf
 
 font-family = "IosevkaTerm Nerd Font"
 font-size = 18
-
-window-width = 100
-window-height = 24
+# supports 2 80col split terms side-by-each
+window-width = 161
+window-height = 36
 
 unfocused-split-opacity = 0.65
