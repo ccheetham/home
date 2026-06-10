@@ -1,0 +1,12 @@
+# =============================================================================
+# NetHack
+# -----------------------------------------------------------------------------
+# https://www.nethack.org/
+# =============================================================================
+
+NETHACK_CONFIG_HOME=$XDG_CONFIG_HOME/nethack
+NETHACK_CONFIG=$NETHACK_CONFIG_HOME/nethackrc
+
+alias nh='nethack --nethackrc:$NETHACK_CONFIG'
+
+# vim: ft=zsh
