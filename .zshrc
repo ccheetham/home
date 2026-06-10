@@ -73,6 +73,12 @@ setopt share_history            # imports new cmds and append typed ones
 skip_global_compinit=1          # defer compinit to me (debian derivatives)
 
 # ---------------------------------------------------------------------------
+# plugins
+# ---------------------------------------------------------------------------
+
+source $HOMEBREW_HOME/opt/antidote/share/antidote/antidote.zsh
+
+# ---------------------------------------------------------------------------
 # fzf: command-line fuzzy finder, https://github.com/junegunn/fzf
 # ---------------------------------------------------------------------------
 
