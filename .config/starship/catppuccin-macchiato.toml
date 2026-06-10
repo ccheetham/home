@@ -1,5 +1,3 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
 format = """
 [](red)\
 $os\
@@ -29,7 +27,7 @@ $cmd_duration\
 $line_break\
 $character"""
 
-palette = 'catppuccin_macchiato'
+palette = 'catppuccin_mocha'
 
 [os]
 disabled = false
