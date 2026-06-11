@@ -1,4 +1,19 @@
-myenv
-=====
+= dotfiles
 
-my shell environment
+A collection of application configurations for BSD/OSX/Solaris/Linux/Windows environments.
+
+[NOTE]
+NeoVim configuration moved into its own repository, https://github.com/ccheetham/nvim.
+
+[cols="1,1,5",frame="none"]
+|===
+|configuration | environment | description
+
+|link:.config/bat[]
+|link:.local/etc/profile.d/50bat[]
+|https://github.com/sharkdp/bat[bat], a ``cat`` clone with syntax highlighting
+
+|link:.config/btop[]
+|
+|https://github.com/aristocratos/btop[btop], a monitor of system resources
+|===
