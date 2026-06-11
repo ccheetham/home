@@ -8,6 +8,8 @@ A collection of application configurations for BSD/OSX/Solaris/Linux/Windows env
 
 NOTE: NeoVim configuration moved into its own repository: https://github.com/ccheetham/nvim
 
+== utilities
+
 [cols="1,2,9",frame="none"]
 |===
 |configuration | environment | description
@@ -20,3 +22,15 @@ NOTE: NeoVim configuration moved into its own repository: https://github.com/cch
 |
 |https://github.com/aristocratos/btop[btop], a monitor of system resources
 |===
+
+== desktops
+
+[cols="1,2,9",frame="none"]
+|===
+
+|configuration | environment | description
+|link:.fluxbox[]
+|link:.local/etc/profile.d/50fluxbox[]
+|https://fluxbox.org/[Fluxbox], a lightweight windowmanager for X.
+|===
+
