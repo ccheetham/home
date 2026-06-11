@@ -1,11 +1,14 @@
+ifdef::env-github[]
+:note-caption: :information_source:
+endif::[]
+
 = dotfiles
 
 A collection of application configurations for BSD/OSX/Solaris/Linux/Windows environments.
 
-[NOTE]
-NeoVim configuration moved into its own repository, https://github.com/ccheetham/nvim.
+NOTE: NeoVim configuration moved into its own repository: https://github.com/ccheetham/nvim
 
-[cols="1,1,5",frame="none"]
+[cols="1,2,9",frame="none"]
 |===
 |configuration | environment | description
 
