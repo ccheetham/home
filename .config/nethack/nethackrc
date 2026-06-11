@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Options: https://nethackwiki.com/wiki/Options
+# -----------------------------------------------------------------------------
+
 # Enable messages about what your character hears
 OPTIONS=acoustics
 
@@ -285,16 +289,25 @@ OPTIONS=windowtype:curses
 # path to a text file that contains a list of item names
 #OPTIONS=wizkit:wizkit.txt
 
-# See https://nethackwiki.com/wiki/Autopickup_exception
+# -----------------------------------------------------------------------------
+# Autopickup exception: https://nethackwiki.com/wiki/Autopickup_exception
+# -----------------------------------------------------------------------------
+
 AUTOPICKUP_EXCEPTION="<^the "
 AUTOPICKUP_EXCEPTION=">:0)"
 AUTOPICKUP_EXCEPTION="> named empty"
 AUTOPICKUP_EXCEPTION="> nothing"
 
-# See https://nethackwiki.com/wiki/Binding_keys
+# -----------------------------------------------------------------------------
+# Binding keys: https://nethackwiki.com/wiki/Binding_keys
+# -----------------------------------------------------------------------------
+
 # BIND=...
 
-# See https://nethackwiki.com/wiki/Menucolors
+# -----------------------------------------------------------------------------
+# Menucolors: https://nethackwiki.com/wiki/Menucolors
+# -----------------------------------------------------------------------------
+
 MENUCOLOR=".* uncursed .*"=green
 MENUCOLOR=".* uncursed .*(being worn).*"=green&underline
 MENUCOLOR=".* uncursed .*(weapon in hand).*"=green&underline
@@ -307,7 +320,12 @@ MENUCOLOR=".* blessed .*(weapon in hands).*"=cyan&underline
 MENUCOLOR=".* holy .*"=cyan
 MENUCOLOR=".* unholy .*"=red
 
-# See https://nethackwiki.com/wiki/Symset
-SYMBOLS=S_lava:~
-SYMBOLS=S_pool:~
-SYMBOLS=S_water:~
+# -----------------------------------------------------------------------------
+# Symset: https://nethackwiki.com/wiki/Symset
+# -----------------------------------------------------------------------------
+
+OPTIONS=symset:Enhanced2
+OPTIONS=glyph:S_hodoor:U+25C7    # ◇
+OPTIONS=glyph:S_hcdoor:U+25C8    # ◈
+OPTIONS=glyph:S_vodoor:U+25C7    # ◇
+OPTIONS=glyph:S_vcdoor:U+25C8    # ◈
