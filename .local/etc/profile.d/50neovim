@@ -11,4 +11,9 @@ if hascmd nvim; then
   alias view='nvim -R'
 fi
 
+vic() {
+  cd $XDG_CONFIG_HOME/$NVIM_APPNAME
+  echo ${(D)$(pwd)}
+}
+
 # vim: ft=zsh
