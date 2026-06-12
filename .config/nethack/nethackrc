@@ -320,7 +320,12 @@ MENUCOLOR=".* blessed .*(weapon in hands).*"=cyan&underline
 MENUCOLOR=".* holy .*"=cyan
 MENUCOLOR=".* unholy .*"=red
 
-# See https://nethackwiki.com/wiki/Symset
-SYMBOLS=S_lava:~
-SYMBOLS=S_pool:~
-SYMBOLS=S_water:~
+# -----------------------------------------------------------------------------
+# Symset: https://nethackwiki.com/wiki/Symset
+# -----------------------------------------------------------------------------
+
+OPTIONS=symset:Enhanced2
+OPTIONS=glyph:S_hodoor:U+25C7    # ◇
+OPTIONS=glyph:S_hcdoor:U+25C8    # ◈
+OPTIONS=glyph:S_vodoor:U+25C7    # ◇
+OPTIONS=glyph:S_vcdoor:U+25C8    # ◈

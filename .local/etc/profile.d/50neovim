@@ -8,6 +8,7 @@ export NVIM_APPNAME=nvim
 
 if hascmd nvim; then
   alias vi=nvim
+  alias view='nvim -R'
 fi
 
 # vim: ft=zsh
