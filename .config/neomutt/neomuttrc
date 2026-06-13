@@ -1,0 +1,27 @@
+# ============================================================================
+# mutt configuration
+# ============================================================================
+
+
+# general config
+source $NEOMUTT_CONFIG_HOME/cache.muttrc
+source $NEOMUTT_CONFIG_HOME/mail-in.muttrc
+source $NEOMUTT_CONFIG_HOME/mail-out.muttrc
+source $NEOMUTT_CONFIG_HOME/mail-ui.muttrc
+source $NEOMUTT_CONFIG_HOME/color.muttrc
+
+# external tool configs
+source $NEOMUTT_CONFIG_HOME/vim.muttrc
+source $NEOMUTT_CONFIG_HOME/msmtp.muttrc
+source $NEOMUTT_CONFIG_HOME/gnupg.muttrc
+source $NEOMUTT_CONFIG_HOME/gmail.muttrc
+source $NEOMUTT_CONFIG_HOME/goobook.muttrc
+source $NEOMUTT_CONFIG_HOME/offlineimap.muttrc
+source $NEOMUTT_CONFIG_HOME/notmuch.muttrc
+
+# account configs
+source $NEOMUTT_CONFIG_HOME/$MUTT_INSTANCE.muttrc
+
+macro index,pager . \
+    ":source $HOME/.mutt/muttrc<enter>" \
+    "reload mutt configuration"

@@ -8,6 +8,8 @@ set move = no
 # 'gt' go to sent (index,pager)
 # 'lt' tag message (copy to folder) (index,pager)
 # ----------------------------------------------------------------------------
+bind pager g noop
+bind pager t noop
 macro index,pager \# \
     "<save-message>=trash<enter><enter>" \
     "delete message (gmail)"

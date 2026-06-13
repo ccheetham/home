@@ -6,6 +6,7 @@ set query_command = "goobook query %s"
 # <tab> run goobook query on alias
 # 'ac' adds sender to contacts
 # ----------------------------------------------------------------------------
+bind pager a noop
 bind editor <tab> complete-query
 macro index,pager ac \
     "<pipe-message>goobook add<return>" \
