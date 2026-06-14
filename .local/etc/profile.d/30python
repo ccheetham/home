@@ -20,6 +20,8 @@ alias ipy2=ipython2
 alias py=py3
 alias ipy=ipy3
 
+alias python=py
+
 pypath() {
   if [[ $# == 0 ]] ; then
     for p in $(echo $PYTHONPATH | tr ':' ' ') ; do
