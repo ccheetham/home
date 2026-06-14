@@ -1,9 +1,0 @@
-#!/bin/bash
-
-config=~/.offlineimap-wrapper.rc
-
-if [[ -r $config ]] ; then
-    eval $(cat $config)
-fi
-
-/usr/local/bin/offlineimap $OFFLINE_IMAP_OPTS
