@@ -25,10 +25,7 @@ auth on
 from chris@cheetham.com
 user chris@cheetham.com
 passwordeval cat ~/.gmail-neomutt-password
-#tls on
-#tls_fingerprint D3:7C:82:FC:D0:5F:8F:D7:DA:A2:59:8C:42:D7:B2:9F:C1:9F:7E:60
+tls on
+tls_fingerprint 72:D3:46:FF:C2:EA:9D:CE:1E:1D:10:92:51:77:90:DC:97:01:60:91
 logfile ~/.local/var/log/msmtp/me.log
-
-# ---- misc ------------------------------------------------------------------
-
 account default: me

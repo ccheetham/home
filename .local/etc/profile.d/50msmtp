@@ -1,0 +1,41 @@
+# =============================================================================
+# mnsmtp: SMTP client
+# -----------------------------------------------------------------------------
+# https://marlam.de/msmtp/
+# =============================================================================
+
+fingerprint() {
+  while getopts "h" opt; do
+    case $opt in
+      h)
+        echo
+        echo "$0 [-h] domain:port"
+        echo
+        echo "    -h               print this message"
+        echo
+        echo "    domain:port,     e.g., smtp.gmail.com:587"
+        echo
+        ;;
+      \?)
+        return 1
+        ;;
+    esac
+  done
+  shift $((OPTIND-1))
+  if [[ $# < 1 ]]; then
+    echo "repo not specified" 2>&1
+    return 1
+  fi
+  if [[ $# > 1 ]]; then
+    echo "too many args" 2>&1
+    return 1
+  fi
+  local target=$1
+  msg "getting TYL fingerprint at $target"
+  openssl s_client -connect $target -starttls smtp \
+    < /dev/null 2> /dev/null \
+    | openssl x509 -fingerprint -noout \
+    | cut -d'=' -f2
+}
+
+# vim: ft=zsh
