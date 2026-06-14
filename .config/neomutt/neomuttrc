@@ -2,7 +2,6 @@
 # mutt configuration
 # ============================================================================
 
-
 # general config
 source $NEOMUTT_CONFIG_HOME/cache.muttrc
 source $NEOMUTT_CONFIG_HOME/mail-in.muttrc
@@ -20,8 +19,8 @@ source $NEOMUTT_CONFIG_HOME/offlineimap.muttrc
 source $NEOMUTT_CONFIG_HOME/notmuch.muttrc
 
 # account configs
-source $NEOMUTT_CONFIG_HOME/$MUTT_INSTANCE.muttrc
+source $NEOMUTT_CONFIG_HOME/$INSTANCE.muttrc
 
 macro index,pager . \
-    ":source $HOME/.mutt/muttrc<enter>" \
-    "reload mutt configuration"
+    ":source $NEOMUTT_CONFIG_HOME/neomuttrc<enter>" \
+    "reload configuration"

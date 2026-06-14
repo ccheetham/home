@@ -5,9 +5,8 @@
 # =============================================================================
 
 export NEOMUTT_CONFIG_HOME=$XDG_CONFIG_HOME/neomutt
+export NEOMUTT_CACHE_DIR=$XDG_CACHE_HOME/neomutt
 
-if hascmd neomutt; then
-  alias mutt=neomutt
-fi
+alias m='INSTANCE=me neomutt'
 
 # vim: ft=zsh

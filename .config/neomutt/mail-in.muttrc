@@ -1,8 +1,8 @@
-set folder      = $ME_MAIL_DIR/$MUTT_INSTANCE
+set folder      = $ME_MAIL_DIR/$INSTANCE
 set mbox_type   = Maildir
 set mbox        = "+received"
 set postponed   = "+drafts"
-set record      = "+sent"
+set record      = "+Sent"
 set spoolfile   = "+INBOX"
 
 # vim: filetype=muttrc
