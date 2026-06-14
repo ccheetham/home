@@ -1,4 +1,5 @@
 [alias]
+	a = add
 	br = branch
 	ci = commit
 	co = checkout
@@ -15,9 +16,9 @@
 	mq = merge --squash
 	orphan = switch --orphan
 	p = pull
-	pp = push
-	pt = pull --tags
-	ppt = pp --tags
+	P = push
+	pt = p --tags
+	Pt = P --tags
 	pristine = ! git unstage && git checkout . && git clean -d --force
 	rb = rebase
 	rba = rb --abort

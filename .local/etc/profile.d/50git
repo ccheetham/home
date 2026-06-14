@@ -5,25 +5,15 @@
 # =============================================================================
 
 alias g='git'
-alias g\?='g help'
-alias gg='g status'
-alias ga='g add'
-alias gd='g d'
-alias gtidy='g ci -mtidy'
-alias gtypo='g ci -mtypo'
-alias grefactor='g ci -mrefactor'
-alias gcrumbs='g ci -mbreadcrumbs'
-alias gvestige='g ci -m"remove vestige"'
-alias gwip='g ci -mwip'
 
-g+() {
-  local args
+gg() {
+  local paths
   if [[ $# -eq 0 ]]; then
-    args=.
+    paths=.
   else
-    args=$*
+    paths=$*
   fi
-  g add $args
+  g status $paths
 }
 
 source $ME_LIBEXEC_DIR/sh_functions
