@@ -1,6 +1,8 @@
 [general]
+
 accounts = me
 fsync = false
+metadata = $XDG_CACHE_HOME/offlineimap
 
 [Account me]
 localrepository = me-local
