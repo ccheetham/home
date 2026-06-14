@@ -24,3 +24,5 @@ source $NEOMUTT_CONFIG_HOME/$INSTANCE.muttrc
 macro index,pager . \
     ":source $NEOMUTT_CONFIG_HOME/neomuttrc<enter>" \
     "reload configuration"
+
+macro index,pager \cb "<pipe-message>urlscan<enter>" "scan urls"
