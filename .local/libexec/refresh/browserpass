@@ -1,0 +1,15 @@
+#/usr/bin/env zsh
+
+source $ME_LIBEXEC_DIR/sh_functions
+source $ME_CONFIG_DIR/profile.d/*browserpass
+
+main() {
+  hdr "refreshing browserpass"
+  browserpass_home=$(browserpass_home)
+  for browser in ${BROWSERS[@]}; do
+    msg $browser
+    PREFIX="$browserpass_home" make hosts-$browser-user -f "$browserpass_home/lib/browserpass/Makefile"
+  done
+}
+
+main $@

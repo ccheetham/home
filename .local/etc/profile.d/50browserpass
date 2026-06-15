@@ -1,0 +1,15 @@
+# =============================================================================
+# BrowserPass native: host application for browserpass browser extension
+# -----------------------------------------------------------------------------
+# https://github.com/browserpass/browserpass-native
+# https://github.com/browserpass/browserpass-extension
+# =============================================================================
+
+export BROWSERS=()
+BROWSERS+=(chrome)
+
+browserpass_home() {
+  echo $HOMEBREW_HOME/Cellar/browserpass/*
+}
+
+# vim: ft=zsh
