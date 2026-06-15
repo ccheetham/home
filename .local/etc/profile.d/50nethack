@@ -4,9 +4,28 @@
 # https://www.nethack.org/
 # =============================================================================
 
-NETHACK_CONFIG_HOME=$XDG_CONFIG_HOME/nethack
-NETHACK_CONFIG=$NETHACK_CONFIG_HOME/nethackrc
+export NETHACKRC=$XDG_CONFIG_HOME/nethack/nethackrc
+export NETHACK_HOST=nethack.alt.org
 
-alias nh='nethack --nethackrc:$NETHACK_CONFIG'
+alias nethack='$HOMEBREW_HOME/bin/nethack --nethackrc=$NETHACKRC'
 
-# vim: ft=zsh
+nh() {
+  osascript <<EOF
+tell application "iTerm"
+     activate
+     create window with profile "NetHack"
+end tell
+EOF
+}
+
+rnh() {
+  local nethack_host=${NETHACK_HOST}
+  local nethack_user=${NETHACK_USER:-$USER}
+  local nethack_pass
+  nethack_pass=$(pass games/nethack/$nethack_user@$nethack_host)
+  [[ $? -eq 0 ]] || return 2
+  echo "connecting to $nethack_host as $nethack_user ..."
+  ssh -o 'SetEnv=DGLAUTH='$nethack_user':'$nethack_pass'' nethack@$nethack_host
+}
+
+# vim: ft=zsh et tw=2 sw=2
