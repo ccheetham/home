@@ -3,6 +3,7 @@
 accounts = me
 fsync = false
 metadata = $XDG_CACHE_HOME/offlineimap
+pythonfile = $XDG_CONFIG_HOME/offlineimap/utils.py
 
 [Account me]
 localrepository = me-local
@@ -15,7 +16,7 @@ localfolders = $ME_MAIL_DIR/me
 [Repository me-remote]
 type = Gmail
 remoteuser = chris@cheetham.com
-remotepassfile = ~/.gmail-neomutt-password
+remotepasseval = utils.cat("$XDG_STATE_HOME/secrets/chris@cheetham.com")
 maxconnections = 3
 sslcacertfile = /etc/ssl/cert.pem
 folderfilter = lambda folder: folder in [
