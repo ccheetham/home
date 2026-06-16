@@ -1,3 +1,17 @@
+# =============================================================================
+# /Users/ccheetham/.config/starship/00base.toml
+# =============================================================================
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+command_timeout = 5000
+
+add_newline = true
+
+# =============================================================================
+# /Users/ccheetham/.config/starship/90colorscheme.toml
+# =============================================================================
+
 format = """
 [](red)\
 $os\
@@ -80,8 +94,10 @@ style = "bg:yellow"
 format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 
 [git_status]
+use_git_executable = true
+modified = "${count}"
 style = "bg:yellow"
-format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
+format = '[[$all_status$ahead_behind](fg:crust bg:yellow)]($style)'
 
 [nodejs]
 symbol = ""
