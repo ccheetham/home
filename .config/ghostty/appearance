@@ -1,7 +1,11 @@
 theme = catppuccin-macchiato.conf
 
 font-family = "IosevkaTerm Nerd Font"
-font-size = 20
+font-family-italic = "IosevkaTerm Nerd Font Italic"
+font-family-bold = "IosevkaTerm Nerd Font Bold"
+font-family-bold-italic = "IosevkaTerm Nerd Font Bold Italic"
+font-size = 18
+
 window-width = 86
 window-height = 32
 
