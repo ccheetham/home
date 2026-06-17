@@ -5,6 +5,7 @@
 # =============================================================================
 
 alias g='git'
+alias ggg='g status'
 
 gg() {
   local paths
@@ -15,6 +16,7 @@ gg() {
   fi
   g status $paths
 }
+
 
 source $ME_LIBEXEC_DIR/sh_functions
 
