@@ -6,4 +6,13 @@ function hascmd () {
   command -v $* > /dev/null 2>&1
 }
 
+cdp() {
+  cd $1
+  echo ${(D)$(pwd)}
+}
+
+dprof() {
+  cdp $ME_CONFIG_DIR/profile.d
+}
+
 # vim: ft=zsh
