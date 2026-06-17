@@ -13,6 +13,7 @@
 	last = log -1 HEAD
 	ll = log --abbrev-commit
 	m = merge
+	ma = merge --abort
 	mq = merge --squash
 	orphan = switch --orphan
 	p = pull
