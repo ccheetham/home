@@ -1,5 +1,4 @@
-
-$Env:ME_REPOS = "$Env:ME_CODE_DIR\github.com\ccheetham"
+$Env:ME_REPOS = "$Env:ME_REPO_DIR\github.com\ccheetham"
 
 function meh
 {

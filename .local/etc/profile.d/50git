@@ -20,8 +20,8 @@ gg() {
 
 source $ME_LIBEXEC_DIR/sh_functions
 
-if [ -d $ME_CODE_DIR/*/git-subrepo ]; then
-  source $ME_CODE_DIR/*/git-subrepo/.rc
+if [ -d $ME_REPO_DIR/*/git-subrepo ]; then
+  source $ME_REPO_DIR/*/git-subrepo/.rc
 else
   err "git-subrepo not found in repos; run 'refresh repos'"
 fi

@@ -5,4 +5,4 @@ function gg
     g status $args
 }
 
-Import-Module "${Env:ME_CODE_DIR}/posh-git/src/posh-git.psd1"
+Import-Module "${Env:ME_REPO_DIR}/posh-git/src/posh-git.psd1"

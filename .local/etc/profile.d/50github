@@ -2,12 +2,12 @@
 # GitHub
 # =============================================================================
 
-HUB_SOURCES=$ME_CODE_DIR/github.com
+HUB_SOURCES=$ME_REPO_DIR/github.com
 export GH_TOKEN=$(token github/cli)
 
 alias -g hub=$HUB_SOURCES
 
-ghcode() {
+ghrepo() {
     while getopts "h" opt; do
         case $opt in
             h)
@@ -39,7 +39,7 @@ ghcode() {
         echo "invalid repo: $repo" 2>&1
         return 1
     fi
-    local repo_dir=$ME_CODE_DIR/$repo
+    local repo_dir=$ME_REPO_DIR/$repo
     if [ ! -e $repo_dir ]; then
         mkdir -p $(dirname $repo_dir)
         gh repo clone $repo $repo_dir

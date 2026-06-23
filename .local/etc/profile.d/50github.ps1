@@ -1,4 +1,4 @@
-$Env:HUB_SOURCES = "$Env:ME_CODE_DIR\github.com"
+$Env:HUB_SOURCES = "$Env:ME_REPO_DIR\github.com"
 
 function hub
 {

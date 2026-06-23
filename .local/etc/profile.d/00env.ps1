@@ -8,7 +8,7 @@ $Env:ME_LOG_DIR="$Env:ME_CACHE_DIR\log"
 $Env:ME_REPO_CFG="$Env:ME_CONFIG_DIR\repos"
 $Env:ME_MAIL_DIR="$Env:ME_CACHE_DIR\mail"
 $Env:ME_DISTFILE_DIR="$Env:ME_CACHE_DIR\distfiles"
-$Env:ME_CODE_DIR="$Env:USERPROFILE\code"
+$Env:ME_REPO_DIR="$Env:USERPROFILE\repos
 
 # TODO: actually detect OS et al
 $Env:ME_OS="windows"
