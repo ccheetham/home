@@ -35,10 +35,11 @@ ghrepo() {
     fi
     local repo=$1
     local owner=$(dirname $repo)
-    if [[ $owner == . ]] || [[  $owner == */* ]]; then
+    if [[  $owner == */* ]]; then
         echo "invalid repo: $repo" 2>&1
         return 1
     fi
+    [[ $owner == . ]] && repo=ccheetham/$repo
     local repo_dir=$ME_REPO_DIR/$repo
     if [ ! -e $repo_dir ]; then
         mkdir -p $(dirname $repo_dir)
