@@ -25,6 +25,7 @@
 	rba = rb --abort
 	rbc = rb --continue
 	rbi = rb --interactive
+	rbn = "!f() { git rb --interactive HEAD~\"$1\"; }; f"
 	rollback = ! git reset --soft @~1 && git unstage
 	show-files = show --pretty='' --name-status
 	sw = switch
