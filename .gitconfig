@@ -32,6 +32,10 @@
 	tidy = ci -mtidy
 	unstage = reset HEAD --
 	wip = ci -mwip
+	wt = worktree
+	wta = wt add
+	wtl = wt list
+	wtr = wt remove
 [core]
 	autocrlf = input
 	editor = nvim
