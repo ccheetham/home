@@ -51,7 +51,7 @@
 [feature]
 	manyFiles = true
 [include]
-	path = code/catppuccin/delta/catppuccin.gitconfig
+	path = repos/catppuccin/delta/catppuccin.gitconfig
 [init]
 	defaultBranch = master
 [interactive]
