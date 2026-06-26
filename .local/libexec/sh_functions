@@ -2,55 +2,68 @@
 # sh_functions
 # =============================================================================
 
+info=$(tput setaf 2)
+warn=$(tput setaf 3)
+err=$(tput setaf 1)
+bold=$(tput bold)
+reset=$(tput sgr0)
+
 # -----------------------------------------------------------------------------
 # msg: display message to stdout
 # -----------------------------------------------------------------------------
 msg() {
-    echo "--- $*"
+  echo "${info}--- $*${reset}"
 }
 
 # -----------------------------------------------------------------------------
 # hdr: display header message to stdout
 # -----------------------------------------------------------------------------
 hdr() {
-    echo "=== $*"
+  echo "${bold}=== $*${reset}"
+}
+
+# -----------------------------------------------------------------------------
+# warn: display warning message to stdout
+# -----------------------------------------------------------------------------
+warn() {
+  echo -e "${warn}??? $*${reset}"
 }
 
 # -----------------------------------------------------------------------------
 # err: display message to stderr
 # -----------------------------------------------------------------------------
 err() {
-    echo "!!! $*" >&2
+  echo -e "${err}!!! $*${reset}" >&2
 }
 
 # -----------------------------------------------------------------------------
 # die: exit with non-zero after displaying error (if any)
 # -----------------------------------------------------------------------------
 die() {
-    [[ $# > 0 ]] && err $* >&2
-    exit 1
+  [[ $# > 0 ]] && err $* >&2
+  exit 1
 }
 
 # -----------------------------------------------------------------------------
 # command_exists: return true/false if command exists/doesn't exists
 # -----------------------------------------------------------------------------
 command_exists() {
-  command -v $1 >/dev/null
+  command -v $1 > /dev/null
 }
 
 # -----------------------------------------------------------------------------
 # gnutar: try to invoke GNU tar over system tar
 # -----------------------------------------------------------------------------
 gnutar() {
-    local tarcmd=tar
-    type gtar >/dev/null 2>&1 && tarcmd=gtar
-    $tarcmd $@
+  local tarcmd=tar
+  type gtar > /dev/null 2>&1 && tarcmd=gtar
+  $tarcmd $@
 }
 
 # -----------------------------------------------------------------------------
 # link: ln helper
 # -----------------------------------------------------------------------------
-link () {
+link() {
   local src=$1
   local tgt=$2
   msg "linking $tgt -> $src"
@@ -64,28 +77,28 @@ link () {
 
 # bold
 B() {
-    tput bold
-    printf "%s" "$*"
-    tput sgr0
+  tput bold
+  printf "%s" "$*"
+  tput sgr0
 }
 
 # underline
 U() {
-    tput smul
-    printf "%s" "$*"
-    tput rmul
+  tput smul
+  printf "%s" "$*"
+  tput rmul
 }
 
 # uppercase
 UPPER() {
-    echo "$*" | awk '{print toupper($0)}'
+  echo "$*" | awk '{print toupper($0)}'
 }
 
 # code
 C() {
-    tput bold
-    printf "%s" "$*"
-    tput sgr0
+  tput bold
+  printf "%s" "$*"
+  tput sgr0
 }
 
 # vim: ft=sh et sw=4 sts=4
