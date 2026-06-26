@@ -4,17 +4,20 @@
 # https://specifications.freedesktop.org/basedir/latest/
 # =============================================================================
 
-dxdg() {
-	cdp $XDG_CONFIG_HOME
+xdg() {
+  env | grep XDG
 }
 
-dxdgc () {
-	cdp $XDG_CACHE_HOME
+dxdg() {
+  cdp $XDG_CONFIG_HOME
+}
+
+dxdgc() {
+  cdp $XDG_CACHE_HOME
 }
 
 dxdgd() {
-	cdp $XDG_DATA_HOME
+  cdp $XDG_DATA_HOME
 }
-
 
 # vim: ft=zsh
