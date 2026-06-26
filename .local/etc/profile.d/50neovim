@@ -15,4 +15,28 @@ dvim() {
   cdp $XDG_CONFIG_HOME/$NVIM_APPNAME
 }
 
+nvim_pristine() {
+  local appname=$1
+  [[ -n $appname ]] || appname=$NVIM_APPNAME
+  if [[ -x $appname ]]; then
+    err 'appname not specified'
+    return 1
+  fi
+  echo
+  echo "Really remove nvim \"$appname\" state?"
+  echo
+  echo -n "[ctrl-c] to abort "
+  read
+  local xdgpath
+  local apppath
+  for xdgpath in $XDG_DATA_HOME $XDG_CACHE_HOME $XDG_STATE_HOME; do
+    apppath=$xdgpath/$appname
+    if [[ -d $apppath ]]; then
+      msg "removing $apppath"
+      rm -rf $apppath
+    fi
+  done
+  msg "nvim \"$appname\" pristine"
+}
+
 # vim: ft=zsh
