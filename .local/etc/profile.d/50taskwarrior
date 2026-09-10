@@ -7,13 +7,13 @@
 export TASK_CONFIG_HOME=$XDG_CONFIG_HOME/task
 export TASKRC=$TASK_CONFIG_HOME/taskrc
 
-t() {
-  if [[ $# == 0 ]]; then
-    clear
-    task
-  else
-    task $*
-  fi
-}
+# tw() {
+#   if [[ $# == 0 ]]; then
+#     clear
+#     task
+#   else
+#     task $*
+#   fi
+# }
 
 # vim: ft=zsh
