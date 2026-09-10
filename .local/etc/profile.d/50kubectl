@@ -1,17 +1,16 @@
 # =============================================================================
-# Kubernetes
+# kubectl
 # =============================================================================
 
-if hascmd microk8s.kubectl >/dev/null; then
+if hascmd microk8s.kubectl > /dev/null; then
   alias kubectl='microk8s.kubectl'
 fi
 
+alias k='kubectl'
 alias kk='k config'
 
-k() {
-  local cmd="kubectl $*"
-  echo "\$ "$cmd
-  eval $cmd
-}
+if hascmd kubectl; then
+  source <(kubectl completion zsh)
+fi
 
 # vim: ft=zsh
